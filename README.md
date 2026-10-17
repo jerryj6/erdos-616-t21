@@ -20,7 +20,7 @@ subhypergraph spanned by at most 3r − 3 vertices has τ ≤ 1. Erdős, Hajnal 
 
   ⌊3r/16 + 7/8⌋ ≤ t(r) ≤ ⌈r/5⌉,
 
-and their constructions determine t(r) for 3 ≤ r ≤ 20. At r = 21 the bounds give t(21) ∈ {4, 5}.
+and their construction H(r, 3t+1, 2t+1), counted exactly, determines t(r) = ⌈r/5⌉ for 3 ≤ r ≤ 20 (paper §1). At r = 21 the bounds give t(21) ∈ {4, 5}.
 
 ## Result
 
@@ -194,8 +194,10 @@ data/                (git-ignored) certificates, created by scripts/fetch_certs.
   (3/16 vs 1/5).
 * **Prior attempt.** An earlier AI-generated claim on #616 (January 2026) was retracted. This work is independent of
   it.
-* **Literature.** The published text of Erdős–Hajnal–Tuza (1991) was not available to us; its results are cited from
-  a transcription. Neither half of the proof uses any result from that paper.
+* **Literature.** Every statement attributed to Erdős–Hajnal–Tuza (1991) has been checked against the published text.
+  One note: their p. 84 display reads (3r−3, 1) ↛ ⌊3r/16 + 7/8⌋, but their construction (and their own p. 80 statement)
+  gives the lower bound t(r) ≥ ⌊3r/16 + 7/8⌋ used here; read literally, the display would contradict their Theorem 3 at
+  r = 20. Neither half of the proof uses any result from that paper.
 * **Paths.** The paper (§11, Table 4) and the internal reports in `docs/` use repository paths. Paths still starting with
   `work/` or `candidates/` in `docs/` name exploratory scripts and build directories that are not part of the proof and
   were not published; `docs/path-map.md` records the old-to-new correspondence for reading the raw logs.

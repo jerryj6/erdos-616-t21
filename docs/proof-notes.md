@@ -18,7 +18,8 @@ Setting: G is 21-uniform with property L = every subfamily of edges whose union 
 vertex, and τ(G) ≥ 5. We seek a contradiction. "Window" means 60 = 3r − 3.
 
 ## 0. Sources
-* EHT91 = Erdős–Hajnal–Tuza, JCTA 58 (1991) 78–84. The PDF is still not fetched (Elsevier). I used the faithful
+* EHT91 = Erdős–Hajnal–Tuza, JCTA 58 (1991) 78–84. [2026-10-17: the published PDF has since been read and the
+  transcribed statements below (Thm 3, Thm 6, p(r,t,m), the construction) match it; see paper §1.] At the time of writing the PDF was not fetched (Elsevier). I used the faithful
   transcription in the SciNet repo https://github.com/scinet-ai/math-number-theory, file
   erdos-616-landscape/proof_t8_t11.md §1 (commit 54b7272). It transcribes:
   - Thm 3: (3r−3,1) →_r ⌈r/5⌉.
