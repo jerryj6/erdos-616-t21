@@ -1,0 +1,57 @@
+== certificate
+K=142 (KB bound 142, sound=True) instances kept 659/659 vars=474206 clauses=2149092
+clause tags: {"AV": 88, "def": 2093067, "E21": 22, "A": 319, "L": 1164, "D1": 6073, "R1": 18, "R3": 209, "SA": 20425, "POOL": 3124, "SB": 24104, "W7": 253, "NK": 126, "N24": 100}
+solve UNSAT 28.4s
+c detected empty clause; start verification via backward checking
+s VERIFIED
+c verification time: 12.358 seconds
+drat-trim 13.4s
+== control drop=N24
+K=142 (KB bound 142, sound=True) instances kept 609/659 vars=474206 clauses=2148992
+clause tags: {"AV": 88, "def": 2093067, "E21": 22, "A": 319, "L": 1164, "D1": 6073, "R1": 18, "R3": 209, "SA": 20425, "POOL": 3124, "SB": 24104, "W7": 253, "NK": 126}
+solve SAT 46.4s
+== control drop=L
+K=142 (KB bound 142, sound=True) instances kept 639/659 vars=462281 clauses=2075621
+clause tags: {"AV": 88, "def": 2019616, "E21": 22, "A": 319, "L": 1144, "D1": 6073, "R1": 18, "R3": 209, "SA": 20425, "POOL": 3124, "SB": 24104, "W7": 253, "NK": 126, "N24": 100}
+== (resumed after sandbox restart)
+== control drop=L
+K=142 (KB bound 142, sound=True) instances kept 639/659 vars=462281 clauses=2075621
+clause tags: {"AV": 88, "def": 2019616, "E21": 22, "A": 319, "L": 1144, "D1": 6073, "R1": 18, "R3": 209, "SA": 20425, "POOL": 3124, "SB": 24104, "W7": 253, "NK": 126, "N24": 100}
+solve SAT 41.7s
+== control drop=D1
+K=142 (KB bound 142, sound=True) instances kept 530/659 vars=462025 clauses=2052495
+clause tags: {"AV": 88, "def": 2001993, "E21": 22, "A": 319, "L": 1164, "D1": 550, "R1": 18, "R3": 209, "SA": 20425, "POOL": 3124, "SB": 24104, "W7": 253, "NK": 126, "N24": 100}
+solve SAT 36.9s
+== control drop=SA
+K=142 (KB bound 142, sound=True) instances kept 426/659 vars=437469 clauses=1939664
+clause tags: {"AV": 88, "def": 1899250, "E21": 22, "A": 319, "L": 1164, "D1": 6073, "R1": 18, "R3": 209, "SA": 4814, "POOL": 3124, "SB": 24104, "W7": 253, "NK": 126, "N24": 100}
+solve SAT 33.2s
+== control drop=W7
+K=142 (KB bound 142, sound=True) instances kept 532/659 vars=470120 clauses=2126977
+clause tags: {"AV": 88, "def": 2071331, "E21": 22, "A": 319, "L": 1164, "D1": 6073, "R1": 18, "R3": 209, "SA": 20425, "POOL": 3124, "SB": 24104, "N24": 100}
+solve SAT 84.6s
+== control drop=R3
+K=142 (KB bound 142, sound=True) instances kept 559/659 vars=453978 clauses=1997493
+clause tags: {"AV": 88, "def": 1941641, "E21": 22, "A": 319, "L": 1164, "D1": 6073, "R1": 18, "R3": 36, "SA": 20425, "POOL": 3124, "SB": 24104, "W7": 253, "NK": 126, "N24": 100}
+solve SAT 38.3s
+== control drop=TT
+K=142 (KB bound 142, sound=True) instances kept 659/659 vars=474206 clauses=2149092
+clause tags: {"AV": 88, "def": 2093067, "E21": 22, "A": 319, "L": 1164, "D1": 6073, "R1": 18, "R3": 209, "SA": 20425, "POOL": 3124, "SB": 24104, "W7": 253, "NK": 126, "N24": 100}
+solve UNSAT 29.7s
+c detected empty clause; start verification via backward checking
+s VERIFIED
+c verification time: 12.744 seconds
+drat-trim 13.7s
+== control nonk
+K=142 (KB bound 142, sound=True) instances kept 659/659 vars=474206 clauses=2148966
+clause tags: {"AV": 88, "def": 2093067, "E21": 22, "A": 319, "L": 1164, "D1": 6073, "R1": 18, "R3": 209, "SA": 20425, "POOL": 3124, "SB": 24104, "W7": 253, "N24": 100}
+solve SAT 97.5s
+== no symmetry breaking
+K=142 (KB bound 142, sound=True) instances kept 659/659 vars=470158 clauses=2124988
+clause tags: {"AV": 88, "def": 2093067, "E21": 22, "A": 319, "L": 1164, "D1": 6073, "R1": 18, "R3": 209, "SA": 20425, "POOL": 3124, "W7": 253, "NK": 126, "N24": 100}
+solve UNSAT 57.4s
+c detected empty clause; start verification via backward checking
+s VERIFIED
+c verification time: 22.166 seconds
+drat-trim 22.3s
+DONE

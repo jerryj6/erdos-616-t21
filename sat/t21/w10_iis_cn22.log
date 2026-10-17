@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "work/e616/t21/w10_iis.py", line 85, in <module>
+    assert infeasible(E), 'full set feasible'
+           ^^^^^^^^^^^^^
+AssertionError: full set feasible

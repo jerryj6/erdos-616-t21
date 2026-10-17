@@ -1,0 +1,25 @@
+== control nonk
+K=154 (KB bound 154, sound=True) instances kept 380/380 vars=466709 clauses=1862769
+clause tags: {"AV": 96, "def": 1812500, "E21": 24, "A": 372, "L": 1350, "D1": 4821, "R1": 19, "R3": 198, "SA": 11640, "POOL": 3696, "SB": 27885, "W7": 168}
+solve SAT 66.1s
+== control drop=L
+K=154 (KB bound 154, sound=True) instances kept 374/380 vars=459721 clauses=1829544
+clause tags: {"AV": 96, "def": 1779197, "E21": 24, "A": 372, "L": 1344, "D1": 4821, "R1": 19, "R3": 198, "SA": 11640, "POOL": 3696, "SB": 27885, "W7": 168, "NK": 84}
+solve SAT 32.6s
+== control drop=D1
+K=154 (KB bound 154, sound=True) instances kept 285/380 vars=460300 clauses=1817265
+clause tags: {"AV": 96, "def": 1771133, "E21": 24, "A": 372, "L": 1350, "D1": 600, "R1": 19, "R3": 198, "SA": 11640, "POOL": 3696, "SB": 27885, "W7": 168, "NK": 84}
+solve SAT 88.2s
+== control drop=SA
+K=154 (KB bound 154, sound=True) instances kept 278/380 vars=453753 clauses=1797447
+clause tags: {"AV": 96, "def": 1753928, "E21": 24, "A": 372, "L": 1350, "D1": 4821, "R1": 19, "R3": 198, "SA": 4806, "POOL": 3696, "SB": 27885, "W7": 168, "NK": 84}
+solve SAT 32.5s
+== control drop=W7
+K=154 (KB bound 154, sound=True) instances kept 296/380 vars=461733 clauses=1836006
+clause tags: {"AV": 96, "def": 1785905, "E21": 24, "A": 372, "L": 1350, "D1": 4821, "R1": 19, "R3": 198, "SA": 11640, "POOL": 3696, "SB": 27885}
+solve SAT 79.6s
+== control drop=R3
+K=154 (KB bound 154, sound=True) instances kept 287/380 vars=460900 clauses=1819810
+clause tags: {"AV": 96, "def": 1769617, "E21": 24, "A": 372, "L": 1350, "D1": 4821, "R1": 19, "R3": 38, "SA": 11640, "POOL": 3696, "SB": 27885, "W7": 168, "NK": 84}
+solve SAT 36.1s
+DONE

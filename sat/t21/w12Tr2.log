@@ -1,0 +1,76 @@
+== chunk Fri Oct 16 06:11:03 UTC 2026
+[w11] branch k4:3211 edges 15 K=114 (KB bound 114; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JSA1a@T012_0+T013_0+T023_0+T023_1;JSA2a@T012_0+T013_0+p12_0+p13_0;JSA3a@T023_0+T023_1+p12_0+p13_0;JSB1a@T012_0+T013_0+T123_0+T123_1;JSB1b@T012_0+T013_0+T123_0+T123_2;JSB1c@T012_0+T013_0+T123_1+T123_2;JT1a@T012_0+T123_0+p01_0+p03_0;JT1b@T123_0+p01_0+p01_2+p03_0;JT1c@T123_0+T123_2+p01_0+p03_0;JT2a@T013_0+T123_1+T123_2+p02_0;JT2b@T023_0+T123_0+T123_2+p02_0;JT2c@T013_0+T123_0+T123_2+p02_0', 'warm': 'w10x_w12Tr1.json'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JSA1a', 'JSA2a', 'JSA3a', 'JSB1a', 'JSB1b', 'JSB1c', 'JT1a', 'JT1b', 'JT1c', 'JT2a', 'JT2b', 'JT2c']
+eager2 1824
+eager3 120
+f1all 455
+warm 1607
+built 12.1s vars=754275 clauses=4543586 inst=4006 tags={'AV': 60, 'def': 4418269, 'E21': 15, 'A': 165, 'L': 1509, 'D1': 24684, 'R1': 3, 'R3': 368, 'SA': 81094, 'POOL': 1710, 'SB': 13706, 'W7': 1938, 'TT': 65}
+it 0: SAT (589.6s) inst=4606 cl=5735277 viol=770 {'SA': 152, 'R3': 53, 'W7': 62, 'TT': 17, 'D1': 223, 'L': 263} added=600 esc=1 pool_used=36
+next solve would pass hard limit; checkpointed
+== exit 0 Fri Oct 16 06:21:10 UTC 2026
+== chunk Fri Oct 16 06:21:10 UTC 2026
+[w11] branch k4:3211 edges 15 K=114 (KB bound 114; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JSA1a@T012_0+T013_0+T023_0+T023_1;JSA2a@T012_0+T013_0+p12_0+p13_0;JSA3a@T023_0+T023_1+p12_0+p13_0;JSB1a@T012_0+T013_0+T123_0+T123_1;JSB1b@T012_0+T013_0+T123_0+T123_2;JSB1c@T012_0+T013_0+T123_1+T123_2;JT1a@T012_0+T123_0+p01_0+p03_0;JT1b@T123_0+p01_0+p01_2+p03_0;JT1c@T123_0+T123_2+p01_0+p03_0;JT2a@T013_0+T123_1+T123_2+p02_0;JT2b@T023_0+T123_0+T123_2+p02_0;JT2c@T013_0+T123_0+T123_2+p02_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JSA1a', 'JSA2a', 'JSA3a', 'JSB1a', 'JSB1b', 'JSB1c', 'JT1a', 'JT1b', 'JT1c', 'JT2a', 'JT2b', 'JT2c']
+restored 4606 instances
+built 15.1s vars=925316 clauses=5735277 inst=4606 tags={'AV': 60, 'def': 5592088, 'E21': 15, 'A': 165, 'L': 1667, 'D1': 32426, 'R1': 3, 'R3': 474, 'SA': 90819, 'POOL': 1710, 'SB': 13706, 'W7': 2062, 'TT': 82}
+phases set 754275
+== exit 124 Fri Oct 16 06:40:20 UTC 2026
+== chunk Fri Oct 16 06:40:20 UTC 2026
+[w11] branch k4:3211 edges 15 K=114 (KB bound 114; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JSA1a@T012_0+T013_0+T023_0+T023_1;JSA2a@T012_0+T013_0+p12_0+p13_0;JSA3a@T023_0+T023_1+p12_0+p13_0;JSB1a@T012_0+T013_0+T123_0+T123_1;JSB1b@T012_0+T013_0+T123_0+T123_2;JSB1c@T012_0+T013_0+T123_1+T123_2;JT1a@T012_0+T123_0+p01_0+p03_0;JT1b@T123_0+p01_0+p01_2+p03_0;JT1c@T123_0+T123_2+p01_0+p03_0;JT2a@T013_0+T123_1+T123_2+p02_0;JT2b@T023_0+T123_0+T123_2+p02_0;JT2c@T013_0+T123_0+T123_2+p02_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JSA1a', 'JSA2a', 'JSA3a', 'JSB1a', 'JSB1b', 'JSB1c', 'JT1a', 'JT1b', 'JT1c', 'JT2a', 'JT2b', 'JT2c']
+restored 4606 instances
+built 15.1s vars=925316 clauses=5735277 inst=4606 tags={'AV': 60, 'def': 5592088, 'E21': 15, 'A': 165, 'L': 1667, 'D1': 32426, 'R1': 3, 'R3': 474, 'SA': 90819, 'POOL': 1710, 'SB': 13706, 'W7': 2062, 'TT': 82}
+phases set 754275
+== chunk Fri Oct 16 08:14:12 UTC 2026
+== chunk Fri Oct 16 09:14:10 UTC 2026
+== chunk Fri Oct 16 10:14:08 UTC 2026
+== chunk Fri Oct 16 11:14:23 UTC 2026
+== chunk Fri Oct 16 12:14:08 UTC 2026
+== chunk Fri Oct 16 13:14:04 UTC 2026
+[w11] branch k4:3211 edges 15 K=114 (KB bound 114; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JSA1a@T012_0+T013_0+T023_0+T023_1;JSA2a@T012_0+T013_0+p12_0+p13_0;JSA3a@T023_0+T023_1+p12_0+p13_0;JSB1a@T012_0+T013_0+T123_0+T123_1;JSB1b@T012_0+T013_0+T123_0+T123_2;JSB1c@T012_0+T013_0+T123_1+T123_2;JT1a@T012_0+T123_0+p01_0+p03_0;JT1b@T123_0+p01_0+p01_2+p03_0;JT1c@T123_0+T123_2+p01_0+p03_0;JT2a@T013_0+T123_1+T123_2+p02_0;JT2b@T023_0+T123_0+T123_2+p02_0;JT2c@T013_0+T123_0+T123_2+p02_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JSA1a', 'JSA2a', 'JSA3a', 'JSB1a', 'JSB1b', 'JSB1c', 'JT1a', 'JT1b', 'JT1c', 'JT2a', 'JT2b', 'JT2c']
+restored 4606 instances
+built 22.1s vars=925316 clauses=5735277 inst=4606 tags={'AV': 60, 'def': 5592088, 'E21': 15, 'A': 165, 'L': 1667, 'D1': 32426, 'R1': 3, 'R3': 474, 'SA': 90819, 'POOL': 1710, 'SB': 13706, 'W7': 2062, 'TT': 82}
+phases set 754275
+== exit 124 Fri Oct 16 13:33:14 UTC 2026
+== chunk Fri Oct 16 13:33:15 UTC 2026
+[w11] branch k4:3211 edges 15 K=114 (KB bound 114; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JSA1a@T012_0+T013_0+T023_0+T023_1;JSA2a@T012_0+T013_0+p12_0+p13_0;JSA3a@T023_0+T023_1+p12_0+p13_0;JSB1a@T012_0+T013_0+T123_0+T123_1;JSB1b@T012_0+T013_0+T123_0+T123_2;JSB1c@T012_0+T013_0+T123_1+T123_2;JT1a@T012_0+T123_0+p01_0+p03_0;JT1b@T123_0+p01_0+p01_2+p03_0;JT1c@T123_0+T123_2+p01_0+p03_0;JT2a@T013_0+T123_1+T123_2+p02_0;JT2b@T023_0+T123_0+T123_2+p02_0;JT2c@T013_0+T123_0+T123_2+p02_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JSA1a', 'JSA2a', 'JSA3a', 'JSB1a', 'JSB1b', 'JSB1c', 'JT1a', 'JT1b', 'JT1c', 'JT2a', 'JT2b', 'JT2c']
+restored 4606 instances
+built 21.5s vars=925316 clauses=5735277 inst=4606 tags={'AV': 60, 'def': 5592088, 'E21': 15, 'A': 165, 'L': 1667, 'D1': 32426, 'R1': 3, 'R3': 474, 'SA': 90819, 'POOL': 1710, 'SB': 13706, 'W7': 2062, 'TT': 82}
+phases set 754275
+== exit 124 Fri Oct 16 13:52:25 UTC 2026
+== chunk Fri Oct 16 13:52:25 UTC 2026
+[w11] branch k4:3211 edges 15 K=114 (KB bound 114; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JSA1a@T012_0+T013_0+T023_0+T023_1;JSA2a@T012_0+T013_0+p12_0+p13_0;JSA3a@T023_0+T023_1+p12_0+p13_0;JSB1a@T012_0+T013_0+T123_0+T123_1;JSB1b@T012_0+T013_0+T123_0+T123_2;JSB1c@T012_0+T013_0+T123_1+T123_2;JT1a@T012_0+T123_0+p01_0+p03_0;JT1b@T123_0+p01_0+p01_2+p03_0;JT1c@T123_0+T123_2+p01_0+p03_0;JT2a@T013_0+T123_1+T123_2+p02_0;JT2b@T023_0+T123_0+T123_2+p02_0;JT2c@T013_0+T123_0+T123_2+p02_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JSA1a', 'JSA2a', 'JSA3a', 'JSB1a', 'JSB1b', 'JSB1c', 'JT1a', 'JT1b', 'JT1c', 'JT2a', 'JT2b', 'JT2c']
+restored 4606 instances
+built 17.7s vars=925316 clauses=5735277 inst=4606 tags={'AV': 60, 'def': 5592088, 'E21': 15, 'A': 165, 'L': 1667, 'D1': 32426, 'R1': 3, 'R3': 474, 'SA': 90819, 'POOL': 1710, 'SB': 13706, 'W7': 2062, 'TT': 82}
+phases set 754275
+== chunk Fri Oct 16 14:14:03 UTC 2026
+[w11] branch k4:3211 edges 15 K=114 (KB bound 114; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JSA1a@T012_0+T013_0+T023_0+T023_1;JSA2a@T012_0+T013_0+p12_0+p13_0;JSA3a@T023_0+T023_1+p12_0+p13_0;JSB1a@T012_0+T013_0+T123_0+T123_1;JSB1b@T012_0+T013_0+T123_0+T123_2;JSB1c@T012_0+T013_0+T123_1+T123_2;JT1a@T012_0+T123_0+p01_0+p03_0;JT1b@T123_0+p01_0+p01_2+p03_0;JT1c@T123_0+T123_2+p01_0+p03_0;JT2a@T013_0+T123_1+T123_2+p02_0;JT2b@T023_0+T123_0+T123_2+p02_0;JT2c@T013_0+T123_0+T123_2+p02_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JSA1a', 'JSA2a', 'JSA3a', 'JSB1a', 'JSB1b', 'JSB1c', 'JT1a', 'JT1b', 'JT1c', 'JT2a', 'JT2b', 'JT2c']
+restored 4606 instances
+built 31.9s vars=925316 clauses=5735277 inst=4606 tags={'AV': 60, 'def': 5592088, 'E21': 15, 'A': 165, 'L': 1667, 'D1': 32426, 'R1': 3, 'R3': 474, 'SA': 90819, 'POOL': 1710, 'SB': 13706, 'W7': 2062, 'TT': 82}
+phases set 754275
+== exit 124 Fri Oct 16 14:33:13 UTC 2026
+== chunk Fri Oct 16 14:33:14 UTC 2026
+[w11] branch k4:3211 edges 15 K=114 (KB bound 114; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JSA1a@T012_0+T013_0+T023_0+T023_1;JSA2a@T012_0+T013_0+p12_0+p13_0;JSA3a@T023_0+T023_1+p12_0+p13_0;JSB1a@T012_0+T013_0+T123_0+T123_1;JSB1b@T012_0+T013_0+T123_0+T123_2;JSB1c@T012_0+T013_0+T123_1+T123_2;JT1a@T012_0+T123_0+p01_0+p03_0;JT1b@T123_0+p01_0+p01_2+p03_0;JT1c@T123_0+T123_2+p01_0+p03_0;JT2a@T013_0+T123_1+T123_2+p02_0;JT2b@T023_0+T123_0+T123_2+p02_0;JT2c@T013_0+T123_0+T123_2+p02_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JSA1a', 'JSA2a', 'JSA3a', 'JSB1a', 'JSB1b', 'JSB1c', 'JT1a', 'JT1b', 'JT1c', 'JT2a', 'JT2b', 'JT2c']
+restored 4606 instances
+built 39.1s vars=925316 clauses=5735277 inst=4606 tags={'AV': 60, 'def': 5592088, 'E21': 15, 'A': 165, 'L': 1667, 'D1': 32426, 'R1': 3, 'R3': 474, 'SA': 90819, 'POOL': 1710, 'SB': 13706, 'W7': 2062, 'TT': 82}
+phases set 754275
+== chunk Fri Oct 16 15:14:02 UTC 2026
+[w11] branch k4:3211 edges 15 K=114 (KB bound 114; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JSA1a@T012_0+T013_0+T023_0+T023_1;JSA2a@T012_0+T013_0+p12_0+p13_0;JSA3a@T023_0+T023_1+p12_0+p13_0;JSB1a@T012_0+T013_0+T123_0+T123_1;JSB1b@T012_0+T013_0+T123_0+T123_2;JSB1c@T012_0+T013_0+T123_1+T123_2;JT1a@T012_0+T123_0+p01_0+p03_0;JT1b@T123_0+p01_0+p01_2+p03_0;JT1c@T123_0+T123_2+p01_0+p03_0;JT2a@T013_0+T123_1+T123_2+p02_0;JT2b@T023_0+T123_0+T123_2+p02_0;JT2c@T013_0+T123_0+T123_2+p02_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JSA1a', 'JSA2a', 'JSA3a', 'JSB1a', 'JSB1b', 'JSB1c', 'JT1a', 'JT1b', 'JT1c', 'JT2a', 'JT2b', 'JT2c']
+restored 4606 instances
+built 38.2s vars=925316 clauses=5735277 inst=4606 tags={'AV': 60, 'def': 5592088, 'E21': 15, 'A': 165, 'L': 1667, 'D1': 32426, 'R1': 3, 'R3': 474, 'SA': 90819, 'POOL': 1710, 'SB': 13706, 'W7': 2062, 'TT': 82}
+phases set 754275
+== exit 124 Fri Oct 16 15:33:13 UTC 2026
+== chunk Fri Oct 16 15:33:13 UTC 2026
+== chunk Fri Oct 16 16:13:58 UTC 2026
+[w11] branch k4:3211 edges 15 K=114 (KB bound 114; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JSA1a@T012_0+T013_0+T023_0+T023_1;JSA2a@T012_0+T013_0+p12_0+p13_0;JSA3a@T023_0+T023_1+p12_0+p13_0;JSB1a@T012_0+T013_0+T123_0+T123_1;JSB1b@T012_0+T013_0+T123_0+T123_2;JSB1c@T012_0+T013_0+T123_1+T123_2;JT1a@T012_0+T123_0+p01_0+p03_0;JT1b@T123_0+p01_0+p01_2+p03_0;JT1c@T123_0+T123_2+p01_0+p03_0;JT2a@T013_0+T123_1+T123_2+p02_0;JT2b@T023_0+T123_0+T123_2+p02_0;JT2c@T013_0+T123_0+T123_2+p02_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JSA1a', 'JSA2a', 'JSA3a', 'JSB1a', 'JSB1b', 'JSB1c', 'JT1a', 'JT1b', 'JT1c', 'JT2a', 'JT2b', 'JT2c']
+restored 4606 instances
+built 31.7s vars=925316 clauses=5735277 inst=4606 tags={'AV': 60, 'def': 5592088, 'E21': 15, 'A': 165, 'L': 1667, 'D1': 32426, 'R1': 3, 'R3': 474, 'SA': 90819, 'POOL': 1710, 'SB': 13706, 'W7': 2062, 'TT': 82}
+phases set 754275

@@ -1,0 +1,10 @@
+== chunk Fri Oct 16 04:38:56 UTC 2026
+[w11] branch k4:3211 edges 10 K=78 (KB bound 78; sound=True) opt={'gen1auto': '1', 'sel': 'none', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JM1@T012_0+T023_0+T023_1+p01_0;JN2@T012_0+T013_0+T123_0+T123_2;JN3@T012_0+T023_1+T123_0+p12_0;JN4@T012_0+T013_0+p01_0+p02_0;JP1a@T012_0+T123_0+T123_1+T123_2;JP1b@T023_0+T123_1+T123_2+p01_2;JP1c@T023_0+T123_1+T123_2+p01_1;JP2a@T013_0+T023_0+T023_1+p01_0;JP2b@T013_0+T023_0+T123_0+p01_2;JP2c@T023_1+T123_0+T123_1+p01_0', 'warm': 'w10x_w12Pr2.json'}
+  edges: ['JM1', 'JN2', 'JN3', 'JN4', 'JP1a', 'JP1b', 'JP1c', 'JP2a', 'JP2b', 'JP2c']
+eager2 828
+eager3 12
+f1all 120
+warm 1158
+built 9.8s vars=377981 clauses=2448013 inst=2118 tags={'AV': 40, 'def': 2378271, 'E21': 10, 'A': 85, 'L': 746, 'D1': 19697, 'R1': 1, 'R3': 194, 'POOL': 780, 'SB': 7021, 'W7': 865, 'SA': 40275, 'TT': 28}
+it 0: SAT (58.3s) inst=2163 cl=2519231 viol=45 {'R3': 4, 'SA': 3, 'D1': 22, 'L': 16} added=45 esc=2 pool_used=12
+== stopped Fri Oct 16 04:44:58 UTC 2026: Q r0 slots are a subset of P r2, which REALIZED, so Q r0 is realizable a fortiori (redundant)

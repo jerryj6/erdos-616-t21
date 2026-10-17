@@ -1,0 +1,24 @@
+== run start it=0 slots=13 applicable certs=456 clauses=2237017 load 3s
+it 0: master SAT (39.8s); 70 GENERIC cuts
+it 1: master SAT (46.5s); 51 GENERIC cuts
+it 2: master SAT (45.5s); 41 GENERIC cuts
+it 3: master SAT (10.8s); 5 GENERIC cuts
+it 4: master SAT (108.6s); 33 LP cuts (|E| 4..4) scan 3s
+it 5: master SAT (64.4s); 13 GENERIC cuts
+it 6: master SAT (273.7s); 36 GENERIC cuts
+it 7: master SAT (4.4s); 28 LP cuts (|E| 4..4) scan 1s
+it 8: master SAT (14.6s); 25 GENERIC cuts
+it 9: master SAT (294.6s); 11 GENERIC cuts
+it 10: master SAT (86.8s); 8 GENERIC cuts
+it 11: master SAT (23.4s); 7 GENERIC cuts
+it 12: master SAT (67.9s); 4 GENERIC cuts
+it 13: master SAT (18.3s); 12 GENERIC cuts
+== run start it=14 slots=13 applicable certs=800 clauses=3229514 load 4s
+it 14: master SAT (233.0s); 13 LP cuts (|E| 4..4) scan 1s
+it 15: master SAT (106.9s); 2 GENERIC cuts
+== sandbox restart (~20:14 UTC) killed chunk 2 after it 15; relaunching queue
+== run start it=16 slots=13 applicable certs=815 clauses=3239047 load 331s
+== run start it=16 slots=13 applicable certs=815 clauses=3239047 load 7s
+== run start it=16 slots=13 applicable certs=815 clauses=3239047 load 252s
+  phases set from last solution
+== sandbox restart ~21:03 UTC killed chunk 3 during the it-16 solve (no new iteration). Old-oracle queue NOT relaunched: superseded by w11e (extended oracle)

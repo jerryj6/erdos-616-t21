@@ -1,0 +1,4 @@
+branch k4:3211 edges 24 K=144 (KB bound 144; sound=True) opt={'eager2': '1', 'tlim': '1000', 'maxadd': '800'}
+eager2 instances 6384
+restored 7984 instances
+built 10.3s vars=1386096 clauses=7705847 tags={'AV': 96, 'def': 7443485, 'E21': 24, 'A': 372, 'L': 1610, 'D1': 68858, 'R1': 24, 'R3': 2936, 'SA': 154276, 'POOL': 3456, 'SB': 26312, 'W7': 4132, 'TT': 266}

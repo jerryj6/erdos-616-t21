@@ -1,17 +1,12 @@
 > **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
 
-> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
-> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
-> scripts, build directories or logs from the original working environment that are not part of the proof and were not
-> published; nothing the final theorem or the certificate checks depends on is among them.
-
 # Lean bridge for the N-K4 leaf (G14) of t(21) = 4 (Erdős #616)
 
 **STATUS (2026-10-16 ≈19:25 EDT): DONE.** `Erdos616R21.NK4_leaf_proved : NK4_leaf` (HandA's statement) compiles in
 lean/Erdos616/G14/Leaf.lean with 0 sorry and no hypotheses; axioms = standard three + native_decide aux axioms of the G14
 checkers and the LRAT checkers (see Milestone 7).
 
-Started 2026-10-16 ~17:10 EDT. Files: work/e616lean/g14/ (G14Check.lean = core-only checkers + glue; T.txt = var→trace table),
+Started 2026-10-16 ~17:10 EDT. Files: lean/Erdos616/G14/ (G14Check.lean = core-only checkers + glue; T.txt = var→trace table),
 lean/Erdos616/G14/Bridge.lean (Mathlib side, to come). Status lines are appended per milestone below.
 
 ## Design (milestone 0, 17:20 EDT)
@@ -34,7 +29,7 @@ Mathlib side:
    288-group by **relabelling the core** (c ∘ g is again a labelled base), so no invariance of any computed object is needed.
 
 ## Milestone 1 (≈17:55 EDT): checkers run natively on all certificate CNFs; glue + root split proved (0 sorry)
-**Computation (native, compiled with leanc; bench = work/e616lean/g14/Bench.lean, logs bench*.log there).**
+**Computation (native, compiled with leanc; bench = lean/dev/g14/Bench.lean, logs bench*.log there).**
 * `T.map states`: 18 217 traces, **49 967 states in total — exactly the authors' and the referee's count** (21 s native).
 * `univOK ()` = **true** (every 16-bit trace with an admissible state is in T; 50 s native).
 * `clauseOK` over every clause of: w14_cert2_15116 (668 659 cl., 4.4 s), w14_cert2_14968 (1 024 649 cl., 10.7 s),
@@ -60,7 +55,7 @@ Mathlib side:
 Left for the next milestones: native_decide theorems `univOK () = true`, `rootOK = true`, `checkCNF (parse cnfText_k) extra_k = true`
 (importing the LRAT cert modules) ⇒ the five case lemmas + dead lemma; then the Mathlib side (Model from Counter + labelled base).
 ### lean/Erdos616Checkers/G14Check.lean
-*[204-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*
+*[204-line listing omitted: the source is the file named in the heading.]*
 ### lean/Erdos616/G14/Glue.lean
 ```lean
 import G14Check
@@ -253,7 +248,7 @@ end G14
 
 ## Milestone 2 (≈18:10 EDT): native_decide checks pass in Lean; 4 of 6 certificate pieces linked to the model
 Run: `lean --load-dynlib=/tmp/g14/libG14.so` (libG14.so = compiled G14Check + LratCheck), LEAN_PATH = /tmp/g14 : copy of
-work/e616lrat (LratCheck.olean, certs/*.olean) : toolchain. Logs: work/e616lean/g14/logs/ (runcases.log, *.out).
+sat/lrat/ (LratCheck.olean, certs/*.olean) : toolchain. Logs: lean/dev/g14/logs/ (runcases.log, *.out).
 ```
 G14Univ exit 0 time 78s        -- theorem univ_ok : univOK () = true ; theorem root_ok : rootOK = true  (native_decide)
 G14Case15116 exit 0 time 29s   -- chk15116 : checkCNF (parseDimacs E616.w14_15116.cnfText) [(15116,true)] = true
@@ -279,7 +274,7 @@ intersections inside the core), `tr`, `testBit_tr`, `card_core` (|S ∩ core| = 
 core), `card_part` (|S| = |S∩core| + Σ_q |S∩O_q| + |S \ ⋃P|).
 
 ## Milestone 3 (≈18:45 EDT): all six certificate pieces are Lean theorems
-`runcases.log` (work/e616lean/g14/logs/): G14Univ 49s, G14Case15116 25s, G14Case17917 26s, G14CaseDead 26s, G14Case14968 30s,
+`runcases.log` (lean/dev/g14/logs/): G14Univ 49s, G14Case15116 25s, G14Case17917 26s, G14CaseDead 26s, G14Case14968 30s,
 G14Case16054 85s, G14Case15954 80s — **all exit 0**. Axioms:
 ```
 'G14.univ_ok' / 'G14.root_ok': [propext, Classical.choice, Quot.sound, <own native_decide aux>]
@@ -290,12 +285,12 @@ G14Case16054 85s, G14Case15954 80s — **all exit 0**. Axioms:
 `case15954_of`/`case16054_of` take `hns : ¬ ∃ a, (LratChunk.parseDimacsFast E616C.w14_*.cnfText).eval a = true` as a hypothesis —
 this is literally the statement of `E616C.w14_*.not_exists_sat` in the chunked `w14_*_Final` modules (≈1 GB of block oleans),
 which are not imported here for memory reasons. Discharging it = one `import w14_*_Final` + `exact E616C.w14_*.not_exists_sat`
-in a final assembly file (to be done when memory allows). Sources: G14Case15954.lean / G14Case16054.lean as in work/e616lean/g14/.
+in a final assembly file (to be done when memory allows). Sources: G14Case15954.lean / G14Case16054.lean as in lean/Erdos616/G14/.
 
 ## Milestone 4 (≈19:05 EDT): Mathlib side compiles — EdgeSound and PairSound proved, 0 sorry
-Build env (fresh sandbox): `bash work/e616lean/g14/setup_all.sh` (toolchain copy incl. .ir.sig + Lake, /tmp/E from E616lib.tar,
+Build env (fresh sandbox): `bash lean/dev/g14/setup_all.sh` (toolchain copy incl. .ir.sig + Lake, /tmp/E from E616lib.tar,
 core modules via build.sh, Mathlib-side dir /tmp/g14m with runm.sh). BridgeG14 now imports `E616Full` (same source as Full.lean).
-Compiled oleans saved to work/e616lean/g14/olean/.
+Compiled oleans saved to `olean/` (build output, not included).
 ```
 BridgeG14      exit 0 time 8s   (Parts A–E; L3_edge placeholder gone; fixes: `\\` precedence, Nat.pow_le_pow_right (n := 2),
                                  validPerm_spec, relabel_st, card_inter_UX, UX_O, card_O, card_filter_add_card_filter_not, …)
@@ -311,9 +306,9 @@ Lemma A trivial for zumin; F1 = inter3; SAME = S_a_O (F∩F' ⊆ P_i∪P_j ⇒ I
 A-part = pc(I∧P_i∧¬P_j) + z_i (partA, via card_inter_P on (F∩F')\\P_j); L on X∪{F,F'} via new L6 (propL) for all 11 X with
 region counting (card_inter_UX, outX_eq, osX_eq, 16-way case split on X's bits); D1 at derived 5-pairs both directions.
 ### lean/Erdos616/G14/BridgePair.lean
-*[460-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*
+*[460-line listing omitted: the source is the file named in the heading.]*
 ### lean/Erdos616/G14/Bridge.lean (Parts A–E, as compiled)
-*[1152-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*
+*[1152-line listing omitted: the source is the file named in the heading.]*
 
 ## Milestone 5 (≈19:15 EDT): BridgeG14Final.lean compiles — NK4_leaf (HandA's statement) from the certificate facts, 0 sorry
 Built in /tmp/g14m after HandA (HandA exit 0 39s). BridgeG14Final exit 0 time 7s.
@@ -338,7 +333,7 @@ Erdos616R21.NK4_leaf_of_certs : G14.univOK () = true →
   injectivity via the decided column lemma G14_col (decide +kernel) + within-region distinctness.
 * `NK4_leaf_of_certs (hu hr caseR caseDead) : NK4_leaf`.
 ### lean/Erdos616/G14/BridgeFinal.lean
-*[219-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*
+*[219-line listing omitted: the source is the file named in the heading.]*
 
 ## Milestone 6 (≈19:20 EDT): G14Assembly.lean — HandA's NK4_leaf modulo only the two chunked UNSAT statements
 Case modules re-run after the sandbox reset (runcases.log): Univ 49s, 15116 46s, 17917 25s, Dead 24s, 14968 32s, 16054 81s,
@@ -421,8 +416,8 @@ end Erdos616R21
 
 #print axioms Erdos616R21.NK4_leaf_proved
 ```
-Run (LEAN_PATH = /tmp/g14m : /tmp/g14 : /tmp/g14lrat : work/e616lrat/chunks/w14_15954 : …/w14_16054 : /tmp/E/lib : toolchain;
-script /tmp/g14m/fullrun.sh, measured with work/e616lean/g14/rss.py):
+Run (LEAN_PATH = /tmp/g14m : /tmp/g14 : /tmp/g14lrat : data/chunks/w14_15954 : …/w14_16054 : /tmp/E/lib : toolchain;
+script /tmp/g14m/fullrun.sh, measured with lean/dev/g14/rss.py):
 ```
 'Erdos616R21.NK4_leaf_proved' depends on axioms: [propext,
  Classical.choice,
@@ -465,7 +460,7 @@ script /tmp/g14m/fullrun.sh, measured with work/e616lean/g14/rss.py):
 exit 0 time 2s MAXRSS 1797 MB
 ```
 Core-only closing checks (one chunked case each): G14Close15954 exit 0, MAXRSS 626 MB; G14Close16054 exit 0, MAXRSS 625 MB
-(logs work/e616lean/g14/logs/G14Close*.out). The B-block oleans are read from the workspace and mapped lazily, so the full
+(logs lean/dev/g14/logs/G14Close*.out). The B-block oleans are read from the workspace and mapped lazily, so the full
 assembly fits (1.8 GB).
 
 **Trust base of NK4_leaf_proved:** Lean kernel + the three standard axioms + the `native_decide` aux axioms listed above, i.e.
@@ -474,6 +469,6 @@ checkers (LratCheck / LratChunk: certOk_eq for 14968, 15116, 17917, certdead; bl
 Everything else (encoding soundness: Model from Counter + LBase, EdgeSound, PairSound, relabelling/root split, K4 ⇒ LBase,
 W7I_prop ⇒ W7I) is kernel-checked Lean with axioms [propext, Classical.choice, Quot.sound].
 Sources: HandA.lean md5 4d9a8976cacf9d48262a09f91a6bd9c9, E616Full.lean md5 61699761fc9839d65c9dbd6cc8c5549e (both as of 23:07 UTC).
-Saved oleans: work/e616lean/g14/olean/ (G14*.olean, libG14.so, E616Full, HandA, BridgeG14{,Pair,Final}, G14Assembly, G14Full).
-Rebuild in a fresh sandbox: bash work/e616lean/g14/setup_all.sh; runcases.sh (7 modules, ~6 min); in /tmp/g14m compile
+Saved oleans: `olean/` (build output, not included) (G14*.olean, libG14.so, E616Full, HandA, BridgeG14{,Pair,Final}, G14Assembly, G14Full).
+Rebuild in a fresh sandbox: bash lean/dev/g14/setup_all.sh; runcases.sh (7 modules, ~6 min); in /tmp/g14m compile
 HandA, BridgeG14, BridgeG14Pair, BridgeG14Final, G14Assembly (runm.sh) and G14Full (fullrun.sh).

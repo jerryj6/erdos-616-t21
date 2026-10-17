@@ -170,9 +170,10 @@ lean/                Lake project
   test/Neg.lean              negative control (= 5, must fail)
   VERIFICATION.md            axiom log and verification record
   DATA.sha256                hashes of the data/ layout consumed by the build
+  dev/                       build scripts and logs from the development runs (not needed to rebuild)
 sat/                 generators, checkers, independent re-encodings, summary logs, SHA256SUMS (see sat/README.md)
 scripts/             fetch_certs.sh, build_direct.py, check_drat.sh
-docs/                proof-notes.md, referee/, lean-reports/ (internal working notes), path-map.md
+docs/                proof-notes.md, loop-notes.md, referee/, lean-reports/ (internal working notes)
 data/                (git-ignored) certificates, created by scripts/fetch_certs.sh
 ```
 
@@ -198,9 +199,6 @@ data/                (git-ignored) certificates, created by scripts/fetch_certs.
   One note: their p. 84 display reads (3r−3, 1) ↛ ⌊3r/16 + 7/8⌋, but their construction (and their own p. 80 statement)
   gives the lower bound t(r) ≥ ⌊3r/16 + 7/8⌋ used here; read literally, the display would contradict their Theorem 3 at
   r = 20. Neither half of the proof uses any result from that paper.
-* **Paths.** The paper (§11, Table 4) and the internal reports in `docs/` use repository paths. Paths still starting with
-  `work/` or `candidates/` in `docs/` name exploratory scripts and build directories that are not part of the proof and
-  were not published; `docs/path-map.md` records the old-to-new correspondence for reading the raw logs.
 
 ## Citation
 

@@ -1,0 +1,12 @@
+r21_K5_n14_c4-5: pool 3003, base clauses 232232 (L1 126126, L2 105105)
+it 1: |F|=1001 new 5000 total 237232 t=0.1
+it 11: |F|=715 new 5000 total 287232 t=0.4
+it 21: |F|=736 new 5000 total 337232 t=0.7
+it 31: |F|=715 new 5000 total 387232 t=1.1
+it 41: |F|=717 new 5000 total 437232 t=1.5
+it 51: |F|=923 new 5000 total 487232 t=2.2
+it 61: |F|=753 new 5000 total 537232 t=2.9
+it 71: |F|=954 new 5000 total 587232 t=3.6
+it 81: |F|=944 new 5000 total 637232 t=3.8
+it 91: |F|=934 new 5000 total 687232 t=4.1
+UNSAT after 94 iterations, 697232 clauses, 27.0s

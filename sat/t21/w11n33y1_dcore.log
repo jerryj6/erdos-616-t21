@@ -1,0 +1,16 @@
+== build Thu Oct 15 21:07:15 UTC 2026
+build K=118 (KB 118) inst=18445 vars=1505778 clauses=9180069 non-def owned=537805 17s
+== solve Thu Oct 15 21:07:32 UTC 2026
+loaded 13s
+solve UNSAT 857s
+proof bytes 693491726
+== trim Thu Oct 15 21:22:07 UTC 2026
+
+drat-trim 162s
+== map Thu Oct 15 21:24:49 UTC 2026
+Traceback (most recent call last):
+  File "work/e616/t21/w11n_dratcore.py", line 72, in <module>
+    with open(core) as f:
+         ^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'work/e616/t21/w11dc_tmp/w11dc_w11n33y1.core'
+== stopped manually 21:28Z: drat-trim killed for memory (RSS 1.76 GB and growing; box at ~5.7 GB); chain then deleted the proof; map killed

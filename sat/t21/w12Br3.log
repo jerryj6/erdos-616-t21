@@ -1,0 +1,22 @@
+== chunk Thu Oct 15 23:40:48 UTC 2026
+[w11] branch k4:3211 edges 11 K=74 (KB bound 74; sound=True) opt={'gen1auto': '1', 'sel': '11,12,15,16,21,22,23', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1000', 'maxadd': '600', 'extra': 'J1@T012_0+T013_0+T023_0+T023_1;JB1@T013_0+T023_0+p01_0+p01_2;JB2@T012_0+T023_0+T023_1+T123_1;JB3@T013_0+T123_0+T123_1+p01_0', 'warm': 'w10x_w12Br2.json'}
+  edges: ['g1:(B2,B1):T123_0', 'g1:(B2,B1):T123_1', 'g1:(B3,B1):T123_0', 'g1:(B3,B1):T123_1', 'g1:(B3,B2):T123_0', 'g1:(B3,B2):T123_1', 'g1:(B3,B2):T123_2', 'J1', 'JB1', 'JB2', 'JB3']
+eager2 1288
+eager3 1008
+f1all 165
+warm 900
+built 6.9s vars=387945 clauses=2521448 inst=3361 tags={'AV': 44, 'def': 2417732, 'E21': 11, 'A': 99, 'L': 825, 'D1': 15569, 'R1': 7, 'R3': 438, 'SA': 76362, 'POOL': 814, 'SB': 7540, 'W7': 1978, 'TT': 29}
+it 0: SAT (122.5s) inst=3406 cl=2653455 viol=45 {'R3': 2, 'SA': 1, 'D1': 26, 'L': 16} added=45 esc=2 pool_used=14
+it 1: SAT (328.6s) inst=3449 cl=2781452 viol=43 {'R3': 2, 'SA': 12, 'D1': 5, 'L': 24} added=43 esc=1 pool_used=9
+it 2: SAT (13.3s) inst=3461 cl=2816929 viol=12 {'SA': 3, 'D1': 3, 'L': 6} added=12 esc=0 pool_used=5
+it 3: SAT (138.8s) inst=3477 cl=2856738 viol=16 {'SA': 5, 'D1': 4, 'L': 7} added=16 esc=1 pool_used=15
+it 4: SAT (96.5s) inst=3518 cl=2946734 viol=41 {'SA': 13, 'R3': 2, 'W7': 3, 'TT': 1, 'D1': 3, 'L': 19} added=41 esc=0 pool_used=13
+it 5: SAT (151.5s) inst=3554 cl=3026511 viol=36 {'SA': 16, 'W7': 3, 'TT': 1, 'L': 16} added=36 esc=4 pool_used=8
+it 6: SAT (33.9s) inst=3575 cl=3086513 viol=21 {'SA': 6, 'D1': 3, 'L': 12} added=21 esc=2 pool_used=12
+== exit 124 Thu Oct 15 23:59:58 UTC 2026
+== chunk Thu Oct 15 23:59:58 UTC 2026
+[w11] branch k4:3211 edges 11 K=74 (KB bound 74; sound=True) opt={'gen1auto': '1', 'sel': '11,12,15,16,21,22,23', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1000', 'maxadd': '600', 'extra': 'J1@T012_0+T013_0+T023_0+T023_1;JB1@T013_0+T023_0+p01_0+p01_2;JB2@T012_0+T023_0+T023_1+T123_1;JB3@T013_0+T123_0+T123_1+p01_0'}
+  edges: ['g1:(B2,B1):T123_0', 'g1:(B2,B1):T123_1', 'g1:(B3,B1):T123_0', 'g1:(B3,B1):T123_1', 'g1:(B3,B2):T123_0', 'g1:(B3,B2):T123_1', 'g1:(B3,B2):T123_2', 'J1', 'JB1', 'JB2', 'JB3']
+restored 3575 instances
+built 12.5s vars=466057 clauses=3086513 inst=3575 tags={'AV': 44, 'def': 2977018, 'E21': 11, 'A': 99, 'L': 925, 'D1': 17725, 'R1': 7, 'R3': 450, 'SA': 79859, 'POOL': 814, 'SB': 7540, 'W7': 1990, 'TT': 31}
+it 0: SAT (408.4s) inst=3580 cl=3099258 viol=5 {'SA': 2, 'L': 3} added=5 esc=0 pool_used=5

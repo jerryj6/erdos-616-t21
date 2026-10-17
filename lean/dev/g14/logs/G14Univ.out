@@ -1,0 +1,2 @@
+'G14.univ_ok' depends on axioms: [propext, Classical.choice, Quot.sound, G14.univ_ok._native.native_decide.ax_1_1]
+'G14.root_ok' depends on axioms: [propext, Classical.choice, Quot.sound, G14.root_ok._native.native_decide.ax_1_1]

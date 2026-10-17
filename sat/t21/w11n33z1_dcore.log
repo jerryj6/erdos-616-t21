@@ -1,0 +1,17 @@
+== build Thu Oct 15 21:29:28 UTC 2026
+build K=104 (KB 104) inst=15626 vars=1105528 clauses=6878256 non-def owned=459959 24s
+== solve Thu Oct 15 21:29:53 UTC 2026
+loaded 16s
+solve UNSAT 896s
+proof bytes 538795755
+== trim Thu Oct 15 21:45:05 UTC 2026
+c detected empty clause; start verification via backward checking
+c 405437 of 6878256 clauses in core                            
+c 401390 of 9757083 lemmas in core using 15770508 resolution steps
+c 0 RAT lemmas in core; 88143 redundant literals in core lemmas
+s VERIFIED
+c verification time: 715.158 seconds
+drat-trim 715s
+== map Thu Oct 15 21:57:01 UTC 2026
+core clauses 405437, owned hits 5577, instances 2394 {'W7': 285, 'SA': 511, 'D1': 786, 'L': 398, 'N24': 95, 'R3': 319} 7s
+DONE Thu Oct 15 21:57:08 UTC 2026

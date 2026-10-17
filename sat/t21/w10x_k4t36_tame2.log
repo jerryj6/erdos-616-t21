@@ -1,0 +1,4 @@
+branch k4:3211 edges 24 K=36 (KB bound 144; sound=False) opt={'K': '36', 'eager2': '1', 'tame': '2', 'tlim': '1000', 'maxadd': '800'}
+eager2 instances 6384
+built 2.9s vars=388898 clauses=2124740 tags={'AV': 96, 'def': 1916676, 'E21': 24, 'A': 372, 'L': 1344, 'D1': 55824, 'R1': 24, 'R3': 2400, 'SA': 132324, 'POOL': 864, 'SB': 10868, 'W7': 3600, 'TAME': 324}
+it 0: UNSAT (0.3s) inst=6384 vars=388898 clauses=2124740 sound=False

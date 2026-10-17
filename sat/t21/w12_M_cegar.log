@@ -1,0 +1,6 @@
+00:03:04 run w12m1 
+  ext scan 2s nonext=True
+  realized; 1012 named transversal 4-sets; add JM1@T012_0+T023_0+T023_1+p01_0
+00:07:58 run w12Mr1 JM1@T012_0+T023_0+T023_1+p01_0
+chunk ended undecided; continuing
+00:24:59 run w12Mr1 JM1@T012_0+T023_0+T023_1+p01_0

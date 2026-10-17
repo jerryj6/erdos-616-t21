@@ -1,0 +1,4 @@
+r=15 k=4 n=10 csizes 3..3 vars=120
+P1 clauses 120 pair clauses 0
+it 1: |F|=120 violations 129150 added 129150 t=0.5
+UNSAT after 2 iterations, 0.5s, total clauses 129270

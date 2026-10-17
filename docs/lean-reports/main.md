@@ -1,10 +1,5 @@
 > **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
 
-> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
-> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
-> scripts, build directories or logs from the original working environment that are not part of the proof and were not
-> published; nothing the final theorem or the certificate checks depends on is among them.
-
 # Lean formalization: Erdős #616 at r = 21 — statement, reduction, §1 lemmas, lower bound
 
 Plan / dependency DAG / estimate: docs/lean-reports/plan.md.
@@ -89,20 +84,20 @@ negative control (milestone 1; Full.lean + `example : (1:ℕ) = 2 := rfl`): exit
 
 ## Environment
 Lean 4.35.0 (/tmp/lean-tc), Mathlib rev 56a00585 oleans copied from lean/erdos/.lake (targeted closure of the imports below,
-1633 modules incl. `.ir.sig`; ImportGraph copied whole). Rebuild: `work/e616lean/setup.sh` (fast path: tarball
-work/e616lean/E616lib.tar; module list work/e616lean/mods.txt). Compile in /tmp/w with `bg.sh FILE` (background; `FILE.done`).
-Note: the old work/leanre/setup.sh omits `.ir.sig` files, which Lean 4.35 needs (error "unknown declaration ...initFn").
+1633 modules incl. `.ir.sig`; ImportGraph copied whole). Rebuild: `lean/dev/setup.sh` (fast path: tarball
+E616lib.tar (Mathlib closure archive, not included); module list lean/dev/mods.txt). Compile in /tmp/w with `bg.sh FILE` (background; `FILE.done`).
+Note: the old lean/dev/leanre/setup.sh omits `.ir.sig` files, which Lean 4.35 needs (error "unknown declaration ...initFn").
 
 ```bash
 #!/bin/bash
 # Rebuild /tmp/E (Mathlib closure for Erdos616.lean) from workspace oleans; fast path = tarball.
 exec >>/tmp/e616setup.log 2>&1
-W=/workspace/projects/ca240fa4-1a94-4a1e-9ee4-131487283720
-TAR=$W/work/e616lean/E616lib.tar
-[ -x /tmp/lean-tc/bin/lean ] || bash $W/work/leanre/setup.sh   # toolchain part (also builds a closure; fine)
+W=.   # repository root
+TAR=E616lib.tar
+[ -x /tmp/lean-tc/bin/lean ] || bash $W/lean/dev/leanre/setup.sh   # toolchain part (also builds a closure; fine)
 if [ -f $TAR ] && [ ! -f /tmp/E/ok ]; then mkdir -p /tmp/E && tar xf $TAR -C /tmp/E && touch /tmp/E/ok && echo FROMTAR && exit 0; fi
 PK=$W/lean/erdos/.lake/packages
-if [ -f $W/work/e616lean/mods.txt ]; then cp $W/work/e616lean/mods.txt /tmp/E616mods.txt; else python3 $W/work/leanre/closure.py Mathlib.Data.ENat.Lattice Mathlib.Algebra.BigOperators.Group.Finset.Basic Mathlib.Data.Fintype.Powerset Mathlib.Data.Finset.Prod Mathlib.Data.Fintype.EquivFin Mathlib.Data.Fintype.Card Mathlib.Data.Finset.Powerset > /tmp/E616mods.txt; fi
+if [ -f $W/lean/dev/mods.txt ]; then cp $W/lean/dev/mods.txt /tmp/E616mods.txt; else python3 $W/lean/dev/leanre/closure.py Mathlib.Data.ENat.Lattice Mathlib.Algebra.BigOperators.Group.Finset.Basic Mathlib.Data.Fintype.Powerset Mathlib.Data.Finset.Prod Mathlib.Data.Fintype.EquivFin Mathlib.Data.Fintype.Card Mathlib.Data.Finset.Powerset > /tmp/E616mods.txt; fi
 mkdir -p /tmp/E/lib
 while read p m; do
   rel=$(echo $m | tr . /); d=$PK/$p/.lake/build/lib/lean
@@ -123,4 +118,4 @@ export LEAN_PATH=/tmp/E/lib:/tmp/lean-tc/lib/lean
 ```
 
 ## Full source: lean/Erdos616/Basic.lean (1202 lines)
-*[1202-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*
+*[1202-line listing omitted: the source is the file named in the heading.]*

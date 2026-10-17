@@ -1,0 +1,32 @@
+== run start it=0 cuts=0 clauses=3384368 load 6s
+it 0: master SAT (254.7s); 110 cuts (|E| 2..2) scan 0s; total cuts 110, aux top 481407
+it 1: master SAT (118.0s); 107 cuts (|E| 2..2) scan 0s; total cuts 217, aux top 575688
+it 2: master SAT (116.2s); 125 cuts (|E| 2..2) scan 0s; total cuts 342, aux top 686194
+it 3: master SAT (71.2s); 109 cuts (|E| 2..2) scan 0s; total cuts 451, aux top 781011
+it 4: master SAT (37.2s); 104 cuts (|E| 2..2) scan 0s; total cuts 555, aux top 871529
+it 5: master SAT (16.2s); 99 cuts (|E| 2..2) scan 0s; total cuts 654, aux top 959052
+rebuilt 654 cuts: 705704 clauses
+== run start it=6 cuts=654 clauses=4090072 load 10s
+it 6: master SAT (238.5s); 74 cuts (|E| 2..2) scan 0s; total cuts 728, aux top 507791
+it 7: master SAT (41.9s); 73 cuts (|E| 2..2) scan 0s; total cuts 801, aux top 512017
+it 8: master SAT (158.6s); 84 cuts (|E| 2..2) scan 0s; total cuts 885, aux top 517489
+it 9: master SAT (17.5s); 94 cuts (|E| 2..2) scan 0s; total cuts 979, aux top 521709
+it 10: master SAT (10.3s); 87 cuts (|E| 2..2) scan 0s; total cuts 1066, aux top 524715
+it 11: master SAT (48.1s); 85 cuts (|E| 2..2) scan 0s; total cuts 1151, aux top 528104
+it 12: master SAT (54.3s); 87 cuts (|E| 2..2) scan 0s; total cuts 1238, aux top 530578
+it 13: master SAT (71.0s); 81 cuts (|E| 2..2) scan 0s; total cuts 1319, aux top 532717
+it 14: master SAT (14.1s); 79 cuts (|E| 2..2) scan 0s; total cuts 1398, aux top 534434
+it 15: master SAT (12.2s); 73 cuts (|E| 2..2) scan 0s; total cuts 1471, aux top 535143
+it 16: master SAT (18.3s); 64 cuts (|E| 2..2) scan 0s; total cuts 1535, aux top 538228
+== switching to master W11BASE=2 (eager L4A)
+rebuilt 1535 cuts: 924683 clauses
+== run start it=17 cuts=1535 clauses=6953683 load 10s
+it 17: master SAT (295.6s); 132 cuts (|E| 3..3) scan 1s; total cuts 1667, aux top 901772
+it 18: master SAT (380.7s); 178 cuts (|E| 3..3) scan 1s; total cuts 1845, aux top 949474
+== switching to code with GENERIC cuts (GEN2/GEN3) checked before the LP scan
+rebuilt 1845 cuts: 1120649 clauses
+== run start it=19 cuts=1845 clauses=7149649 load 11s
+== sandbox restart killed the chunk during it 19 (no cuts lost: certs are per-iteration); relaunch
+rebuilt 1845 cuts: 1120649 clauses
+== run start it=19 cuts=1845 clauses=7149649 load 277s
+== full-24 chunk killed during the cold solve of it 19 (>10 CPU-min); switching to sub-instances (w11_sub.py, logs w11s_TAG.log)

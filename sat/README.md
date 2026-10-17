@@ -9,8 +9,7 @@ the independent referee re-implementations, and small summary logs. The certific
 its own checker and every certificate with Lean core's verified LRAT checker. These scripts are how the CNFs were
 produced, and the referee scripts are the pre-Lean independent cross-checks.
 
-The directory layout mirrors the original working tree (`sat/` = `work/e616/`), so the relative paths inside the
-scripts (`../../pylib`, `../../tools/drat-trim`, `../w14/...`) still resolve. To run them, create
+The relative paths inside the scripts (`../../pylib`, `../../tools/drat-trim`, `../w14/...`) still resolve. To run them, create
 
 * `sat/tools/drat-trim` — from <https://github.com/marijnheule/drat-trim> (any recent version);
 * `sat/tools/kissat` — Kissat 4.0.4 (<https://github.com/arminbiere/kissat>), used only for some cross-checks;

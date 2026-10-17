@@ -1,0 +1,26 @@
+== chunk Thu Oct 15 21:09:13 UTC 2026
+[w11] branch nok4:3,3 edges 17 K=104 (KB bound 104; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2,3,4,5,6,10,11,12,13,14,15,16,17,18', 'extra': 'J31@al0+al1+al2+cl0', 'eager2': '1', 'eager3': 'g1', 'n24g2': '0', 'f1all': '1', 'no24': '1', 'tlim': '1000', 'maxadd': '600'}
+  edges: ['g1:(B1,B0):m0', 'g1:(B1,B0):m1', 'g1:(B1,B0):m2', 'g1:(B2,B0):al0', 'g1:(B2,B0):al1', 'g1:(B2,B0):al2', 'g1:(B2,B0):ag0', 'g1:(B3,B0):ah0', 'g1:(B2,B1):cl0', 'g1:(B2,B1):cl1', 'g1:(B2,B1):cl2', 'g1:(B2,B1):cg0', 'g1:(B3,B1):cl0', 'g1:(B3,B1):cl1', 'g1:(B3,B1):cl2', 'g1:(B3,B1):ch0', 'J31']
+eager2 2916
+eager3 9792
+no24 base-pair instances 850
+f1all 680
+built 6.1s vars=745079 clauses=4196973 inst=14238 tags={'AV': 68, 'def': 3751620, 'E21': 17, 'A': 204, 'L': 1394, 'D1': 26276, 'R1': 16, 'R3': 1165, 'SA': 381266, 'POOL': 1768, 'SB': 14645, 'W7': 11311, 'NK': 5659, 'N24': 1564}
+it 0: SAT (100.2s) inst=14838 cl=5166811 viol=939 {'R3': 91, 'SA': 99, 'W7': 75, 'N24': 16, 'TT': 6, 'D1': 234, 'L': 418} added=600 esc=0 pool_used=50
+it 1: SAT (19.1s) inst=15031 cl=5557762 viol=193 {'R3': 13, 'SA': 15, 'D1': 91, 'L': 74} added=193 esc=0 pool_used=21
+it 2: SAT (73.6s) inst=15044 cl=5558399 viol=13 {'D1': 13} added=13 esc=0 pool_used=22
+it 3: SAT (15.7s) inst=15192 cl=5903147 viol=148 {'SA': 10, 'R3': 8, 'W7': 1, 'N24': 3, 'D1': 58, 'L': 68} added=148 esc=0 pool_used=42
+it 4: SAT (25.5s) inst=15265 cl=6075973 viol=73 {'R3': 8, 'SA': 3, 'N24': 5, 'D1': 23, 'L': 34} added=73 esc=0 pool_used=35
+it 5: SAT (16.3s) inst=15328 cl=6191055 viol=63 {'SA': 5, 'R3': 2, 'N24': 3, 'W7': 4, 'D1': 33, 'L': 16} added=63 esc=0 pool_used=18
+it 6: SAT (17.0s) inst=15371 cl=6297254 viol=43 {'SA': 8, 'N24': 1, 'W7': 1, 'D1': 12, 'L': 21} added=43 esc=0 pool_used=16
+it 7: SAT (25.8s) inst=15429 cl=6459453 viol=58 {'R3': 2, 'SA': 6, 'W7': 5, 'N24': 1, 'D1': 12, 'L': 32} added=58 esc=0 pool_used=29
+it 8: SAT (72.3s) inst=15439 cl=6471428 viol=10 {'SA': 1, 'D1': 8, 'L': 1} added=10 esc=0 pool_used=14
+it 9: SAT (77.3s) inst=15456 cl=6490429 viol=17 {'SA': 1, 'W7': 1, 'D1': 11, 'L': 4} added=17 esc=0 pool_used=23
+it 10: SAT (19.0s) inst=15466 cl=6517141 viol=10 {'SA': 1, 'D1': 4, 'L': 5} added=10 esc=0 pool_used=7
+it 11: SAT (9.7s) inst=15488 cl=6566014 viol=22 {'R3': 2, 'SA': 1, 'N24': 2, 'D1': 7, 'L': 10} added=22 esc=0 pool_used=11
+it 12: SAT (57.1s) inst=15519 cl=6601456 viol=31 {'R3': 2, 'SA': 1, 'N24': 2, 'W7': 5, 'D1': 13, 'L': 8} added=31 esc=0 pool_used=23
+it 13: SAT (17.0s) inst=15537 cl=6617459 viol=18 {'SA': 2, 'N24': 1, 'D1': 12, 'L': 3} added=18 esc=0 pool_used=24
+it 14: SAT (62.9s) inst=15572 cl=6751929 viol=35 {'SA': 5, 'N24': 1, 'D1': 12, 'L': 17} added=35 esc=0 pool_used=26
+it 15: SAT (20.8s) inst=15592 cl=6804611 viol=20 {'SA': 1, 'R3': 2, 'N24': 3, 'D1': 4, 'L': 10} added=20 esc=0 pool_used=20
+it 16: SAT (11.9s) inst=15626 cl=6878256 viol=34 {'SA': 6, 'W7': 5, 'N24': 2, 'D1': 6, 'L': 15} added=34 esc=0 pool_used=24
+it 17: UNSAT (0.3s) inst=15626 vars=1105528 clauses=6878256 sound=True

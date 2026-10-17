@@ -1,0 +1,2 @@
+r=21 k=5 n=14 csizes 4..5 vars=3003
+P1 clauses 1001 pair clauses 126126

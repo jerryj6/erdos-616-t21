@@ -1,0 +1,16 @@
+branch k4:3211 edges 24 K=144 (KB bound 144; sound=True)
+built 1.3s vars=329942 clauses=986120 tags={'AV': 96, 'def': 947508, 'E21': 24, 'A': 372, 'L': 1344, 'D1': 720, 'R1': 24, 'R3': 48, 'SA': 6216, 'POOL': 3456, 'SB': 26312}
+it 0: SAT (40.2s) inst=300 cl=1159126 viol=6030 {'SA': 1812, 'R3': 512, 'W7': 1024, 'TT': 206, 'D1': 1875, 'L': 601} added=300 pool_used=49
+it 1: SAT (8.7s) inst=600 cl=1291071 viol=7642 {'SA': 2435, 'R3': 561, 'W7': 1573, 'TT': 313, 'D1': 2159, 'L': 601} added=300 pool_used=60
+it 2: SAT (10.5s) inst=900 cl=1421435 viol=6763 {'SA': 2340, 'R3': 434, 'W7': 1402, 'TT': 325, 'D1': 1661, 'L': 601} added=300 pool_used=68
+it 3: SAT (9.2s) inst=1200 cl=1551301 viol=6970 {'R3': 467, 'SA': 2361, 'W7': 1487, 'TT': 341, 'D1': 1713, 'L': 601} added=300 pool_used=60
+it 4: SAT (3.9s) inst=1500 cl=1642815 viol=4202 {'SA': 1120, 'R3': 294, 'W7': 485, 'TT': 137, 'D1': 1565, 'L': 601} added=300 pool_used=65
+it 5: SAT (2.0s) inst=1800 cl=2028217 viol=3938 {'R3': 330, 'SA': 877, 'W7': 387, 'TT': 75, 'D1': 1668, 'L': 601} added=300 pool_used=73
+it 6: SAT (14.5s) inst=2100 cl=2443150 viol=3869 {'SA': 940, 'R3': 328, 'W7': 464, 'TT': 91, 'D1': 1445, 'L': 601} added=300 pool_used=67
+it 7: SAT (2.8s) inst=2400 cl=2649236 viol=3827 {'SA': 867, 'R3': 319, 'W7': 352, 'TT': 59, 'D1': 1629, 'L': 601} added=300 pool_used=73
+it 8: SAT (19.4s) inst=2700 cl=2963160 viol=4677 {'SA': 1234, 'R3': 364, 'W7': 672, 'TT': 143, 'D1': 1663, 'L': 601} added=300 pool_used=71
+it 9: SAT (66.8s) inst=3000 cl=3504003 viol=3136 {'R3': 248, 'SA': 433, 'W7': 106, 'TT': 21, 'D1': 1727, 'L': 601} added=300 pool_used=66
+it 10: SAT (8.1s) inst=3300 cl=4077783 viol=3540 {'R3': 262, 'SA': 766, 'W7': 358, 'TT': 72, 'D1': 1481, 'L': 601} added=300 pool_used=76
+it 11: SAT (35.3s) inst=3600 cl=4599080 viol=2503 {'SA': 292, 'R3': 166, 'W7': 77, 'TT': 13, 'D1': 1354, 'L': 601} added=300 pool_used=44
+it 12: SAT (43.4s) inst=3900 cl=5140290 viol=2529 {'SA': 367, 'R3': 168, 'W7': 85, 'TT': 18, 'D1': 1290, 'L': 601} added=300 pool_used=53
+it 13: SAT (9.0s) inst=4200 cl=5340891 viol=2921 {'R3': 187, 'SA': 506, 'W7': 198, 'TT': 37, 'D1': 1392, 'L': 601} added=300 pool_used=63

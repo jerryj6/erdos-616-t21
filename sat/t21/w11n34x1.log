@@ -1,0 +1,9 @@
+[w11] branch nok4:3,4 edges 22 K=142 (KB bound 142; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2,3,4,5,6,10,11,12,13,14,15,16,17,18', 'extra': 'J04@cl0+cl1+cl2+cl3;J13@al0+cl0+cl1+cl2;J22@al0+al1+cl0+cl1;J31@al0+al1+al2+cl0;g2[B0|(B1,B0).m0].ag0@m0+al0+al1+al2;g2[B0|(B1,B0).m1].ag0@m1+al0+al1+al2', 'eager2': '1', 'eager3': 'g1', 'n24g2': '0', 'f1all': '1', 'no24': '1', 'tlim': '1000', 'maxadd': '600'}
+  edges: ['g1:(B1,B0):m0', 'g1:(B1,B0):m1', 'g1:(B1,B0):m2', 'g1:(B2,B0):al0', 'g1:(B2,B0):al1', 'g1:(B2,B0):al2', 'g1:(B2,B0):ag0', 'g1:(B3,B0):ah0', 'g1:(B2,B1):cl0', 'g1:(B2,B1):cl1', 'g1:(B2,B1):cl2', 'g1:(B2,B1):cl3', 'g1:(B3,B1):cl0', 'g1:(B3,B1):cl1', 'g1:(B3,B1):cl2', 'g1:(B3,B1):cl3', 'J04', 'J13', 'J22', 'J31', 'g2[B0|(B1,B0).m0].ag0', 'g2[B0|(B1,B0).m1].ag0']
+eager2 4430
+eager3 11970
+no24 base-pair instances 1375
+f1all 1540
+built 11.7s vars=1374638 clauses=7273221 inst=19315 tags={'AV': 88, 'def': 6688490, 'E21': 22, 'A': 319, 'L': 2684, 'D1': 37510, 'R1': 18, 'R3': 1626, 'SA': 490916, 'POOL': 3124, 'SB': 24104, 'W7': 14494, 'NK': 7252, 'N24': 2574}
+it 0: SAT (446.9s) inst=19915 cl=8705488 viol=2109 {'SA': 423, 'R3': 105, 'W7': 362, 'N24': 13, 'TT': 60, 'D1': 545, 'L': 601} added=600 esc=0 pool_used=77
+it 1: UNSAT (9.2s) inst=19915 vars=1601353 clauses=8705488 sound=True

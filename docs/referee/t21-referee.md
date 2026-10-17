@@ -1,14 +1,9 @@
 > **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
 
-> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
-> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
-> scripts, build directories or logs from the original working environment that are not part of the proof and were not
-> published; nothing the final theorem or the certificate checks depends on is among them.
-
 # Referee report: Erdős #616, r = 21 (docs/proof-notes.md §1, §6.0, §6.3, §7)
 Referee run 2026-10-15 (~09:15–09:45 EDT). Hostile, line-by-line reading. Scope: §1 (F1, F2, Lemma A, R, Cor R1, S, K, T),
 §6.0 D1, §6.2 case split, §6.3 Theorem W6-U, §7.1–7.4 Theorem W7-I (Tri-0, Tri-1, Tri-2, W7-2, W7-5/CP', Steps 0–4),
-plus the core reformulation and L1 in candidates/erdos-616-loop.md §3. Case N (§6.5, N.*) and L2 / n=14 are **not** refereed here.
+plus the core reformulation and L1 in docs/loop-notes.md §3. Case N (§6.5, N.*) and L2 / n=14 are **not** refereed here.
 
 ## Verdict summary
 | Item | Verdict | Note |
@@ -160,12 +155,12 @@ General-r form: the cap is r − 3K + 3, which gives 7 at r=16 and 10 at r=22. I
 | drat-trim on t21/w7_core_A_c3.cnf + .drat | **s VERIFIED** (5559-clause core, 0.9 s) |
 | CNF provenance | regenerating with `W7FLAGS=A,c3 W7CNF=… python3 w7_trace3.py` gives a byte-identical file (md5 9af7e297…) and UNSAT |
 | CNF semantics (read w7_trace3.py) | Active constraints are W-facts incl. S(b), Y-facts (Tri-2), (O), CP' for (P_i,W^i_q) and (P_a,P_b) applied to the Y's, and (A) for complementary-index W only. All are proved facts, so the CNF is a sound relaxation and its UNSAT implies W7-I. |
-| **Independent referee encoding** work/e616/referee/ref_w7_min.py (own pure-clause encoding, no CardEnc, **only** the facts the hand proof claims: no S(b), no (O), no CP' for (P_a,P_b)) | **UNSAT**; DRAT (ref_w7_min.cnf/.drat) **s VERIFIED** by drat-trim |
+| **Independent referee encoding** sat/referee/ref_w7_min.py (own pure-clause encoding, no CardEnc, **only** the facts the hand proof claims: no S(b), no (O), no CP' for (P_a,P_b)) | **UNSAT**; DRAT (ref_w7_min.cnf/.drat) **s VERIFIED** by drat-trim |
 | Controls on the referee encoding | without (A): SAT; with only 3 values of c: SAT. Confirms §7.4's claim that (A) and all four C0 points are needed and S(b)/(O) are not. |
 | Kneser K(9,4) connectivity | 126/126 (author script + independent BFS) |
 | 715-subset closure | 715/715 (author script + independent K(13,4) BFS); final family ∩ = ∅, ∪ = 12, span 60 |
 | Step 4 | 8000 cases, 0 satisfying (★) (author script + independent re-implementation) |
-| Literal checks on H(16,10,7) and H(22,13,9), work/e616/referee/ref_examples.py, 60 min-pairs each | min pair = 4 / 5; R.1, R.2, R.3-analogue, S(a), S(b), uniformity, D1 cap (7 / 10) and Lemma K line 1 all hold; no S(c) instance arises (both uniform) |
+| Literal checks on H(16,10,7) and H(22,13,9), sat/referee/ref_examples.py, 60 min-pairs each | min pair = 4 / 5; R.1, R.2, R.3-analogue, S(a), S(b), uniformity, D1 cap (7 / 10) and Lemma K line 1 all hold; no S(c) instance arises (both uniform) |
 | PG(2,4) skeleton (§7.2) literal | L holds (0 violations among Q + 3/4 lines); CP': 10080 checks, 0 violations. It is tight (bound attained) at the non-concurrent line triples, so CP' cannot be sharpened in general. |
 
 ## 8. Attempts at counterexamples (none found)
@@ -191,4 +186,4 @@ Lemma A, R, S, K, T, D1, Theorem W6-U (uniform case impossible) and Theorem W7-I
 smaller referee encoding that uses only the ingredients of the hand proof. This review does not cover Case N, so t(21) ∈ {4,5}
 remains open: t(21) = 4 ⟺ Case N (§6.6 classes (2,3),(3,2),(2,4),(4,2),(3,3),(3,4),(4,3), no triangle) is impossible.
 
-Referee files: work/e616/referee/ref_w7_min.py (+ .cnf, .drat), ref_examples.py, ref_numeric.py.
+Referee files: sat/referee/ref_w7_min.py (+ .cnf, .drat), ref_examples.py, ref_numeric.py.

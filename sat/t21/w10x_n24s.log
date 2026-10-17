@@ -1,0 +1,7 @@
+branch nok4:2,4 edges 24 K=154 (KB bound 154; sound=True) opt={'eager2': '1', 'tlim': '1000', 'maxadd': '800'}
+eager2 instances 5216
+built 5.0s vars=687706 clauses=3667692 tags={'AV': 96, 'def': 3470182, 'E21': 24, 'A': 372, 'L': 1344, 'D1': 44336, 'R1': 19, 'R3': 1916, 'SA': 113250, 'POOL': 3696, 'SB': 27885, 'W7': 3048, 'NK': 1524}
+it 0: SAT (190.5s) inst=6016 cl=5898551 viol=6230 {'SA': 2231, 'R3': 304, 'W7': 1859, 'TT': 394, 'D1': 841, 'L': 601} added=800 esc=0 pool_used=90
+it 1: SAT (20.3s) inst=6816 cl=7780096 viol=3243 {'SA': 974, 'R3': 163, 'W7': 697, 'TT': 140, 'D1': 668, 'L': 601} added=800 esc=23 pool_used=92
+it 2: SAT (86.6s) inst=7616 cl=10037280 viol=2037 {'SA': 538, 'R3': 92, 'W7': 248, 'TT': 36, 'D1': 522, 'L': 601} added=800 esc=15 pool_used=73
+it 3: UNSAT (22.6s) inst=7616 vars=1796541 clauses=10037280 sound=True

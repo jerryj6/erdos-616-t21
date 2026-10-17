@@ -1,10 +1,5 @@
 > **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
 
-> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
-> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
-> scripts, build directories or logs from the original working environment that are not part of the proof and were not
-> published; nothing the final theorem or the certificate checks depends on is among them.
-
 # Referee report: Wave 10 exact-outside, N-noK4 class (2,4) closure (Erdős #616, r = 21)
 Referee run 2026-10-15, ~14:40–14:55 EDT. This was a hostile reading.
 - **Scope:** in docs/proof-notes.md, "Wave 10 exact-outside" (X.1–X.9, including X.2 Lemma KB), "Wave 8 N-noK4" N8.0, and N.4,
@@ -85,7 +80,7 @@ private point. It is still UNSAT. The authors' C3 run (no SB) shows the same.
 
 **Result.** ref_n19.cnf (617244 vars, 2334395 clauses). The solver was **Glucose 4 (pysat)**, not CaDiCaL: **UNSAT in 19.6 s**.
 - DRAT: ref_n19.cnf.glucose4.drat, 11.8 MB.
-- work/e616/tools/drat-trim: **`s VERIFIED`**. The core has 43534 clauses and 9622 lemmas; 0 RAT lemmas; verification took 5.1 s.
+- drat-trim: **`s VERIFIED`**. The core has 43534 clauses and 9622 lemmas; 0 RAT lemmas; verification took 5.1 s.
 - Log: solve_n19_glucose4.log. SHA-256 values are in ref_n19.sha256 (cnf 50b210a5…, drat 5e502025…, encoder 16df6f86…).
 - The CNF regenerates byte-identically.
 

@@ -1,0 +1,27 @@
+== chunk Fri Oct 16 04:25:23 UTC 2026
+[w11] branch k4:3211 edges 13 K=96 (KB bound 96; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JM1@T012_0+T023_0+T023_1+p01_0;JN2@T012_0+T013_0+T123_0+T123_2;JN3@T012_0+T023_1+T123_0+p12_0;JN4@T012_0+T013_0+p01_0+p02_0;JP1a@T012_0+T123_0+T123_1+T123_2;JP1b@T023_0+T123_1+T123_2+p01_2;JP1c@T023_0+T123_1+T123_2+p01_1;JP2a@T013_0+T023_0+T023_1+p01_0;JP2b@T013_0+T023_0+T123_0+p01_2;JP2c@T023_1+T123_0+T123_1+p01_0', 'warm': 'w10x_w12Pr1.json'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JM1', 'JN2', 'JN3', 'JN4', 'JP1a', 'JP1b', 'JP1c', 'JP2a', 'JP2b', 'JP2c']
+eager2 1488
+eager3 240
+f1all 286
+warm 1375
+built 4.5s vars=545046 clauses=3373828 inst=3389 tags={'AV': 52, 'def': 3268441, 'E21': 13, 'A': 130, 'L': 1145, 'D1': 22314, 'R1': 4, 'R3': 414, 'SA': 67834, 'POOL': 1248, 'SB': 10549, 'W7': 1641, 'TT': 43}
+it 0: SAT (149.9s) inst=3823 cl=4147026 viol=434 {'SA': 103, 'R3': 21, 'W7': 47, 'TT': 15, 'D1': 140, 'L': 108} added=434 esc=0 pool_used=34
+it 1: SAT (148.4s) inst=3965 cl=4464605 viol=142 {'SA': 38, 'R3': 8, 'W7': 12, 'TT': 2, 'D1': 34, 'L': 48} added=142 esc=0 pool_used=26
+it 2: SAT (61.8s) inst=4266 cl=4997901 viol=301 {'SA': 41, 'R3': 30, 'W7': 22, 'TT': 6, 'D1': 101, 'L': 101} added=301 esc=7 pool_used=39
+it 3: SAT (171.5s) inst=4293 cl=5058000 viol=27 {'R3': 4, 'D1': 12, 'L': 11} added=27 esc=5 pool_used=22
+it 4: SAT (57.6s) inst=4365 cl=5186691 viol=72 {'R3': 4, 'SA': 18, 'W7': 6, 'TT': 2, 'D1': 17, 'L': 25} added=72 esc=2 pool_used=9
+it 5: SAT (52.3s) inst=4389 cl=5254468 viol=24 {'SA': 4, 'D1': 7, 'L': 13} added=24 esc=2 pool_used=22
+it 6: SAT (229.5s) inst=4397 cl=5282012 viol=8 {'SA': 1, 'D1': 2, 'L': 5} added=8 esc=1 pool_used=23
+next solve would pass hard limit; checkpointed
+== exit 0 Fri Oct 16 04:40:03 UTC 2026
+== chunk Fri Oct 16 04:40:03 UTC 2026
+[w11] branch k4:3211 edges 13 K=96 (KB bound 96; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JM1@T012_0+T023_0+T023_1+p01_0;JN2@T012_0+T013_0+T123_0+T123_2;JN3@T012_0+T023_1+T123_0+p12_0;JN4@T012_0+T013_0+p01_0+p02_0;JP1a@T012_0+T123_0+T123_1+T123_2;JP1b@T023_0+T123_1+T123_2+p01_2;JP1c@T023_0+T123_1+T123_2+p01_1;JP2a@T013_0+T023_0+T023_1+p01_0;JP2b@T013_0+T023_0+T123_0+p01_2;JP2c@T023_1+T123_0+T123_1+p01_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JM1', 'JN2', 'JN3', 'JN4', 'JP1a', 'JP1b', 'JP1c', 'JP2a', 'JP2b', 'JP2c']
+restored 4397 instances
+built 6.7s vars=809281 clauses=5282012 inst=4397 tags={'AV': 52, 'def': 5147827, 'E21': 13, 'A': 130, 'L': 1456, 'D1': 37651, 'R1': 4, 'R3': 548, 'SA': 80651, 'POOL': 1248, 'SB': 10549, 'W7': 1815, 'TT': 68}
+phases set 805148
+it 0: SAT (5.1s) inst=4407 cl=5305301 viol=10 {'SA': 3, 'D1': 2, 'L': 5} added=10 esc=0 pool_used=23
+it 1: SAT (202.6s) inst=4407 cl=5305301 viol=0 {} added=0 esc=0 pool_used=23
+VIOLATION-FREE: literal configuration written
+== exit 0 Fri Oct 16 04:43:40 UTC 2026

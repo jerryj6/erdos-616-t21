@@ -1,0 +1,2 @@
+n=18 r=21 K=5 S in [9,14] group=semiw:6 |G|=18 orbits=8608 selfok=3240 (1.1s)
+  it=20 chosen=19 sets=342 kind=dfs new=172 total=2450 pairs=31143 expanded=112 (3.7s)

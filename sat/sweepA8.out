@@ -1,0 +1,2 @@
+n=19 r=21 K=5 S in [9,13] group=cycmult:3 |G|=342 orbits=1028 selfok=244 (1.0s)
+  it=20 chosen=2 sets=684 kind=dfs new=2 total=35 pairs=51 expanded=21 (11.3s)

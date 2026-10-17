@@ -1,0 +1,13 @@
+== edge-drop control J04
+K=136 (KB bound 136, sound=True) instances kept 637/637 vars=435308 clauses=1991491
+clause tags: {"AV": 84, "def": 1939719, "E21": 21, "A": 294, "L": 1070, "D1": 5950, "R1": 16, "R3": 187, "SA": 18569, "POOL": 2856, "SB": 22250, "W7": 250, "NK": 125, "N24": 100}
+solve UNSAT 55.0s
+c detected empty clause; start verification via backward checking
+s VERIFIED
+c verification time: 22.855 seconds
+drat-trim 22.9s
+== edge-drop control J31
+K=134 (KB bound 134, sound=True) instances kept 567/567 vars=406399 clauses=1805434
+clause tags: {"AV": 84, "def": 1754322, "E21": 21, "A": 294, "L": 1057, "D1": 4781, "R1": 18, "R3": 179, "SA": 19456, "POOL": 2814, "SB": 22000, "W7": 215, "NK": 107, "N24": 86}
+solve SAT 5.7s
+DONE

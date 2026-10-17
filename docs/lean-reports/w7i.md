@@ -1,10 +1,5 @@
 > **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
 
-> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
-> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
-> scripts, build directories or logs from the original working environment that are not part of the proof and were not
-> published; nothing the final theorem or the certificate checks depends on is among them.
-
 # Lean formalization, part W7-I: Theorem W7-I (triangle case impossible), Erdős #616, r = 21
 
 Status (milestone 1 at 17:58 EDT; logs re-run after a sandbox reset, 18:25 EDT = 22:25 UTC): **DONE. lean/Erdos616/W7I.lean checks: 0 errors, 0 sorry.**
@@ -42,13 +37,13 @@ Design choice (a simplification, faithful to the proof): `U H Q A B K` is the un
 competing single Y' of type m is produced by R.2 inside the proof. So there are no choice functions, and the referee's
 remark "the Y's are a fixed choice" is not needed.
 
-## Build (reproducible; each run ≤ 10 s, max RSS of lean ≈ 1.9 GB, mostly mmapped oleans; script work/e616lean/w7i_build/run.sh)
+## Build (reproducible; each run ≤ 10 s, max RSS of lean ≈ 1.9 GB, mostly mmapped oleans; script lean/dev/w7i_build/run.sh)
 ```
-# env: /tmp/E (Mathlib closure from work/e616lean/E616lib.tar) + /tmp/lean-tc (toolchain copy), via work/e616lean/setup.sh.
-# NOTE: in a fresh sandbox, work/leanre/setup.sh does not copy the core *.ir.sig files or lib/lean/Lake. Without them
+# env: /tmp/E (Mathlib closure from E616lib.tar (Mathlib closure archive, not included)) + /tmp/lean-tc (toolchain copy), via lean/dev/setup.sh.
+# NOTE: in a fresh sandbox, lean/dev/leanre/setup.sh does not copy the core *.ir.sig files or lib/lean/Lake. Without them
 # /tmp/lean-tc fails with "(interpreter) unknown declaration ...spec_0" / "unknown module prefix 'Lake'". Fix used here:
 #   cd $TC/lib/lean && find . -name '*.ir.sig' -print0 | xargs -0 cp -n --parents -t /tmp/lean-tc/lib/lean/
-#   cp -rn $TC/lib/lean/Lake* /tmp/lean-tc/lib/lean/        (TC=/workspace/.elan/toolchains/leanprover--lean4---v4.35.0)
+#   cp -rn $TC/lib/lean/Lake* /tmp/lean-tc/lib/lean/        (TC=~/.elan/toolchains/leanprover--lean4---v4.35.0)
 mkdir -p /tmp/w7 && cd /tmp/w7
 cp lean/Erdos616/Basic.lean E616Full.lean; cp lean/Erdos616/W7I.lean .
 export LEAN_PATH=/tmp/E/lib:/tmp/lean-tc/lib/lean:/tmp/w7
@@ -57,7 +52,7 @@ nice /tmp/lean-tc/bin/lean -o W7I.olean W7I.lean               # exit 0, 5-6 s
 ```
 For integration: W7I.lean starts with `import E616Full` (an unchanged copy of Full.lean, md5 61699761…); the body is a
 self-contained `namespace Erdos616R21` block with no name clashes against Full.lean or HandA.lean (checked by the glue file).
-## Logs (rerun by work/e616lean/w7i_build/run.sh; raw files in that directory)
+## Logs (rerun by lean/dev/w7i_build/run.sh; raw files in that directory)
 ### summary.txt (exit code, wall time, max RSS of the lean child)
 ```
 E616Full: exit 0 time 5s maxRSS_kB 1942548
@@ -127,4 +122,4 @@ HandA errors: 0
 ```
 
 ## Full source: lean/Erdos616/W7I.lean (944 lines, md5 ae6006677a52acee141869e292f272e4)
-*[944-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*
+*[944-line listing omitted: the source is the file named in the heading.]*

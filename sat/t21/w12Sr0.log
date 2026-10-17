@@ -1,0 +1,25 @@
+== chunk Fri Oct 16 04:48:21 UTC 2026
+[w11] branch k4:3211 edges 17 K=130 (KB bound 130; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JSA1a@T012_0+T013_0+T023_0+T023_1;JSA2a@T012_0+T013_0+p12_0+p13_0;JSA3a@T023_0+T023_1+p12_0+p13_0;JSB1a@T012_0+T013_0+T123_0+T123_1;JSB1b@T012_0+T013_0+T123_0+T123_2;JSB1c@T012_0+T013_0+T123_1+T123_2;JSB2a@T012_0+T013_0+T023_0+T123_0;JSB2b@T012_0+T013_0+T023_1+T123_0;JSB2c@T012_0+T013_0+T023_0+T123_1;JSB2d@T012_0+T013_0+T023_1+T123_1;JSB2e@T012_0+T013_0+T023_0+T123_2;JSB2f@T012_0+T013_0+T023_1+T123_2;JSB4a@T012_0+T023_0+T023_1+p12_0;JSB4b@T013_0+T023_0+T023_1+p13_0', 'warm': 'w10x_w12Pr3.json'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JSA1a', 'JSA2a', 'JSA3a', 'JSB1a', 'JSB1b', 'JSB1c', 'JSB2a', 'JSB2b', 'JSB2c', 'JSB2d', 'JSB2e', 'JSB2f', 'JSB4a', 'JSB4b']
+eager2 2268
+eager3 120
+f1all 680
+warm 0
+built 2.9s vars=462335 clauses=2153193 inst=3068 tags={'AV': 68, 'def': 2052887, 'E21': 17, 'A': 204, 'L': 1394, 'D1': 5340, 'R1': 3, 'R3': 216, 'SA': 71532, 'POOL': 2210, 'SB': 17372, 'W7': 1950}
+it 0: SAT (38.3s) inst=3668 cl=4207273 viol=737 {'SA': 71, 'R3': 30, 'W7': 7, 'TT': 1, 'D1': 404, 'L': 224} added=600 esc=0 pool_used=63
+it 1: SAT (144.3s) inst=4268 cl=5246294 viol=1194 {'SA': 294, 'R3': 57, 'W7': 186, 'TT': 61, 'D1': 300, 'L': 296} added=600 esc=5 pool_used=45
+it 2: SAT (276.2s) inst=4868 cl=6499609 viol=779 {'SA': 161, 'R3': 49, 'W7': 56, 'TT': 17, 'D1': 181, 'L': 315} added=600 esc=7 pool_used=51
+== chunk Fri Oct 16 04:59:29 UTC 2026
+[w11] branch k4:3211 edges 17 K=130 (KB bound 130; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JSA1a@T012_0+T013_0+T023_0+T023_1;JSA2a@T012_0+T013_0+p12_0+p13_0;JSA3a@T023_0+T023_1+p12_0+p13_0;JSB1a@T012_0+T013_0+T123_0+T123_1;JSB1b@T012_0+T013_0+T123_0+T123_2;JSB1c@T012_0+T013_0+T123_1+T123_2;JSB2a@T012_0+T013_0+T023_0+T123_0;JSB2b@T012_0+T013_0+T023_1+T123_0;JSB2c@T012_0+T013_0+T023_0+T123_1;JSB2d@T012_0+T013_0+T023_1+T123_1;JSB2e@T012_0+T013_0+T023_0+T123_2;JSB2f@T012_0+T013_0+T023_1+T123_2;JSB4a@T012_0+T023_0+T023_1+p12_0;JSB4b@T013_0+T023_0+T023_1+p13_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JSA1a', 'JSA2a', 'JSA3a', 'JSB1a', 'JSB1b', 'JSB1c', 'JSB2a', 'JSB2b', 'JSB2c', 'JSB2d', 'JSB2e', 'JSB2f', 'JSB4a', 'JSB4b']
+restored 4868 instances
+built 9.7s vars=1100531 clauses=6499609 inst=4868 tags={'AV': 68, 'def': 6347896, 'E21': 17, 'A': 204, 'L': 1897, 'D1': 32094, 'R1': 3, 'R3': 488, 'SA': 94963, 'POOL': 2210, 'SB': 17372, 'W7': 2318, 'TT': 79}
+phases set 914283
+== relaunch Fri Oct 16 05:13:51 UTC 2026 (sandbox restart)
+== chunk Fri Oct 16 05:13:52 UTC 2026
+[w11] branch k4:3211 edges 17 K=130 (KB bound 130; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JSA1a@T012_0+T013_0+T023_0+T023_1;JSA2a@T012_0+T013_0+p12_0+p13_0;JSA3a@T023_0+T023_1+p12_0+p13_0;JSB1a@T012_0+T013_0+T123_0+T123_1;JSB1b@T012_0+T013_0+T123_0+T123_2;JSB1c@T012_0+T013_0+T123_1+T123_2;JSB2a@T012_0+T013_0+T023_0+T123_0;JSB2b@T012_0+T013_0+T023_1+T123_0;JSB2c@T012_0+T013_0+T023_0+T123_1;JSB2d@T012_0+T013_0+T023_1+T123_1;JSB2e@T012_0+T013_0+T023_0+T123_2;JSB2f@T012_0+T013_0+T023_1+T123_2;JSB4a@T012_0+T023_0+T023_1+p12_0;JSB4b@T013_0+T023_0+T023_1+p13_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JSA1a', 'JSA2a', 'JSA3a', 'JSB1a', 'JSB1b', 'JSB1c', 'JSB2a', 'JSB2b', 'JSB2c', 'JSB2d', 'JSB2e', 'JSB2f', 'JSB4a', 'JSB4b']
+restored 4868 instances
+built 25.9s vars=1100531 clauses=6499609 inst=4868 tags={'AV': 68, 'def': 6347896, 'E21': 17, 'A': 204, 'L': 1897, 'D1': 32094, 'R1': 3, 'R3': 488, 'SA': 94963, 'POOL': 2210, 'SB': 17372, 'W7': 2318, 'TT': 79}
+phases set 914283
+== paused Fri Oct 16 05:31:32 UTC 2026: chunk 3 (05:13-05:31) completed no solve (CPU 1 ~25 % under external load); replaced by sub-chain U

@@ -1,21 +1,16 @@
 > **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
 
-> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
-> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
-> scripts, build directories or logs from the original working environment that are not part of the proof and were not
-> published; nothing the final theorem or the certificate checks depends on is among them.
-
 # Lean formalization, part HAND-A: W6-U, the Case-N split, Lemma KB, and assembly of t(21) = 4 from leaf Props
 
 Written 2026-10-16 (~17:45 EDT). Source: `lean/Erdos616/HandA.lean` (892 lines; it imports `E616Full`, which is an
 unchanged copy of `lean/Erdos616/Basic.lean` compiled as a module). **0 sorry.** Axioms: `propext`, `Classical.choice`,
 `Quot.sound` only. Check time 24 s (Lean 4.35.0, Mathlib 56a00585, targeted imports). Build artefacts are in
-`work/e616lean/handA_build/`: `HandA.olean`, logs, a `#print axioms` check copy, and `run.sh`.
+`lean/dev/handA_build/`: `HandA.olean`, logs, a `#print axioms` check copy, and `run.sh`.
 
 ## Milestone log
 - 17:10 EDT: read the plan, Full.lean, upper.md §1/§6.3/N.4/N8.0/X.2, and the n4-referee. Designed the proof.
 - 17:25 EDT: drafted HandA.lean. Env: /tmp/lean-tc lacked `Lake` and the `.ir.sig` files for Init/Std/Lean, so I copied
-  them from /workspace/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean. Full.lean then compiles as module
+  them from ~/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean. Full.lean then compiles as module
   `E616Full` in 7 s (to /tmp/handA/E616Full.olean).
 - 17:40 EDT: **all of HandA compiles, 0 sorry** (four fix rounds). Axioms checked. `HandA.olean` is importable (`import HandA`
   works with LEAN_PATH=/tmp/E/lib:/tmp/lean-tc/lib/lean:/tmp/handA).
@@ -107,4 +102,4 @@ Erdos616R21.erdos_616_r21_of_leaves : Erdos616R21.W7I_leaf →
 ```
 
 ## Full source: lean/Erdos616/HandA.lean
-*[892-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*
+*[892-line listing omitted: the source is the file named in the heading.]*

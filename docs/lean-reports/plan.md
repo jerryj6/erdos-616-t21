@@ -1,14 +1,9 @@
 > **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
 
-> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
-> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
-> scripts, build directories or logs from the original working environment that are not part of the proof and were not
-> published; nothing the final theorem or the certificate checks depends on is among them.
-
 # Lean formalization plan: t(21) = 4 (Erdős #616, r = 21)
 
 Written 2026-10-16 (~15:45 EDT). Companion file with Lean sources and check logs: docs/lean-reports/main.md.
-Hand proofs: docs/proof-notes.md ("upper.md"), candidates/erdos-616-loop.md §3 ("loop.md").
+Hand proofs: docs/proof-notes.md ("upper.md"), docs/loop-notes.md §3 ("loop.md").
 Referee files: erdos-616-t21-referee.md, -n4-referee.md, -w10-referee.md, -w11-referee.md, -w14-referee.md.
 
 ## 0. Target statement (matches formal-conjectures)
@@ -123,7 +118,7 @@ For each certificate CNF φ, one needs a Lean theorem: *Counter H (+ case hypoth
   definitions are satisfiable by the intended values (standard, but needs a verified totalizer encoding). Again the clean route
   is a verified Lean encoder that regenerates the CNF, rather than reasoning about the Python output.
 * **Leaf CNF UNSAT [C].** DRAT → LRAT (drat-trim -L) → `Std.Tactic.BVDecide.LRAT` checker. A parallel agent is already doing
-  this in work/e616lrat/ (I did not touch it). That gives "this DIMACS file is UNSAT" but **not** the bridge.
+  this in sat/lrat/ (I did not touch it). That gives "this DIMACS file is UNSAT" but **not** the bridge.
 
 ## 2. What is formalized in this session (details, sources and logs in docs/lean-reports/main.md)
 Lean file lean/Erdos616/Basic.lean (~1 100 lines), 0 sorry, axioms = propext / Classical.choice / Quot.sound only:
@@ -136,7 +131,7 @@ Lean file lean/Erdos616/Basic.lean (~1 100 lines), 0 sorry, axioms = propext / C
 Not formalized: everything below the "rigid base" node (W6-U, Tri-*, W7-2, W7-I Steps 0–4, N.4/N8.0 split, KB, the per-edge
 and pairwise rule lists of S13.1/G14, and all three encoding bridges).
 
-Parallel work (not mine; docs/lean-reports/lrat.md, work/e616lrat/): all 34 load-bearing leaf CNFs (W7-I cross-check,
+Parallel work (not mine; docs/lean-reports/lrat.md, sat/lrat/): all 34 load-bearing leaf CNFs (W7-I cross-check,
 w10x (2,4), w11 (3,4)/(3,3), the six G14 N-K4 CNFs) are UNSAT-checked in Lean via `Std.Tactic.BVDecide.LRAT.check_sound` +
 `native_decide`. That closes the [C] boxes of the DAG; the [B] bridges (CNF ⇐ lemmas) remain the critical path. A bridge's
 target type is now fixed: it must produce, from `Counter H` (+ case hypotheses), an assignment `a` with
@@ -152,7 +147,7 @@ target type is now fixed: it must produce, from `Counter H` (+ case hypotheses),
 | N-split (N.0, N8.0, NK dichotomy, class enumeration) | 400–800 | 2–4 days |
 | G14 bridge: verified trace/state enumerator + compat_sound + in-Lean CNF + LRAT + symmetry | 3 000–6 000 | 3–6 weeks; compiled evaluation of ~37 M pairs is the risk |
 | w10x/w11 bridges: verified exact-pool encoder (KB injection, totalizers, 12 tag families) + LRAT | 4 000–8 000 | 4–8 weeks |
-| LRAT checks of the leaf CNFs (parallel effort, work/e616lrat/) | – | days, mostly CPU/memory |
+| LRAT checks of the leaf CNFs (parallel effort, sat/lrat/) | – | days, mostly CPU/memory |
 Total: roughly 2–4 months of focused work, dominated by the two bridge families. The single biggest de-risking step would be
 to replace the w10x/w11 pool encodings by a G14-style trace relaxation if one is UNSAT for N-noK4 (one bridge design instead of two),
 and to shrink G14's CONF set to its UNSAT cores (~2 M clauses total across the 6 CNFs) before bridging, since only the

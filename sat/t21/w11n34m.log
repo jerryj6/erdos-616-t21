@@ -1,0 +1,16 @@
+[w11] branch nok4:3,4 edges 16 K=96 (KB bound 96; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2,3,4,5,6,10,11,12,13,14,15,16,17,18', 'eager2': '1', 'eager3': '1', 'f1all': '1', 'tlim': '1000', 'maxadd': '400'}
+  edges: ['g1:(B1,B0):m0', 'g1:(B1,B0):m1', 'g1:(B1,B0):m2', 'g1:(B2,B0):al0', 'g1:(B2,B0):al1', 'g1:(B2,B0):al2', 'g1:(B2,B0):ag0', 'g1:(B3,B0):ah0', 'g1:(B2,B1):cl0', 'g1:(B2,B1):cl1', 'g1:(B2,B1):cl2', 'g1:(B2,B1):cl3', 'g1:(B3,B1):cl0', 'g1:(B3,B1):cl1', 'g1:(B3,B1):cl2', 'g1:(B3,B1):cl3']
+eager2 2672
+eager3 9792
+f1all 560
+built 11.7s vars=661466 clauses=3792913 inst=13024 tags={'AV': 64, 'def': 3359128, 'E21': 16, 'A': 184, 'L': 1200, 'D1': 24774, 'R1': 16, 'R3': 1101, 'SA': 375072, 'POOL': 1536, 'SB': 13110, 'W7': 11139, 'NK': 5573}
+it 0: SAT (229.1s) inst=13126 cl=3970170 viol=102 {'R3': 6, 'D1': 59, 'L': 37} added=102 esc=0 pool_used=50
+it 1: SAT (26.5s) inst=13244 cl=4272426 viol=118 {'R3': 16, 'D1': 38, 'L': 64} added=118 esc=0 pool_used=42
+it 2: SAT (36.0s) inst=13310 cl=4407127 viol=66 {'SA': 6, 'D1': 32, 'L': 28} added=66 esc=0 pool_used=71
+it 3: SAT (43.4s) inst=13357 cl=4574826 viol=47 {'SA': 2, 'R3': 2, 'D1': 6, 'L': 37} added=47 esc=0 pool_used=36
+it 4: SAT (15.9s) inst=13403 cl=4671278 viol=46 {'SA': 11, 'R3': 2, 'D1': 12, 'L': 21} added=46 esc=0 pool_used=40
+it 5: SAT (20.8s) inst=13488 cl=4956609 viol=85 {'SA': 4, 'R3': 4, 'D1': 15, 'L': 62} added=85 esc=0 pool_used=53
+it 6: SAT (22.1s) inst=13502 cl=4976433 viol=14 {'D1': 10, 'L': 4} added=14 esc=0 pool_used=24
+it 7: SAT (14.4s) inst=13504 cl=4976531 viol=2 {'D1': 2} added=2 esc=0 pool_used=15
+it 8: SAT (0.3s) inst=13504 cl=4976531 viol=0 {} added=0 esc=0 pool_used=15
+VIOLATION-FREE: literal configuration written

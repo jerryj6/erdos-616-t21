@@ -1,0 +1,9 @@
+== chunk Fri Oct 16 04:44:59 UTC 2026
+[w11] branch k4:3211 edges 11 K=74 (KB bound 74; sound=True) opt={'gen1auto': '1', 'sel': '11,12,15,16,21,22,23', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JM1@T012_0+T023_0+T023_1+p01_0;JN2@T012_0+T013_0+T123_0+T123_2;JN3@T012_0+T023_1+T123_0+p12_0;JN4@T012_0+T013_0+p01_0+p02_0', 'warm': 'w10x_w12Nr0.json'}
+  edges: ['g1:(B2,B1):T123_0', 'g1:(B2,B1):T123_1', 'g1:(B3,B1):T123_0', 'g1:(B3,B1):T123_1', 'g1:(B3,B2):T123_0', 'g1:(B3,B2):T123_1', 'g1:(B3,B2):T123_2', 'JM1', 'JN2', 'JN3', 'JN4']
+eager2 1288
+eager3 1008
+f1all 165
+warm 872
+built 10.4s vars=389063 clauses=2538945 inst=3333 tags={'AV': 44, 'def': 2434232, 'E21': 11, 'A': 99, 'L': 802, 'D1': 16794, 'R1': 7, 'R3': 438, 'SA': 76199, 'POOL': 814, 'SB': 7540, 'W7': 1940, 'TT': 25}
+== stopped Fri Oct 16 04:48:21 UTC 2026: CPU 0 reassigned (structural candidates take priority); R checkpoint kept

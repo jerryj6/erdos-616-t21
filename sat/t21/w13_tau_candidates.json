@@ -1,0 +1,379 @@
+{
+ "created": "2026-10-16 Wave 13 N-K4 structure (hand/structural agent)",
+ "names": "w8/w10x point names; v=T012_0 w=T013_0 alpha=T023_* gamma=T123_* m3=p01_* a3=p02_* a4=p03_* c3=p12_0 c4=p13_0",
+ "soundness": "Every entry is a slot \"an edge avoiding this 4-set of named points\": exists in every counterexample by tau>=5, so adding any of them is sound regardless of this ranking. The ranking is heuristic.",
+ "ranking_metric": "rigidity_nsig = number of region signatures (counts per region v,w,alpha,gamma,m3,a3,a4,c3,c4 + o-vector) of avoider states feasible against the base under all one-new-edge lemmas (w13_enum.check; o_i<=L_i+2). Lower = more forced. Computed over all 145 symmetry orbits of base-transversal core 4-sets (group order 576), w13_rigid.json.",
+ "caveat": "No 4-set is provably forced-hit by the first-generation singles at the one- or two-edge level (S13.3); the list is principled by symmetry + local rigidity, not by a joint proof.",
+ "candidates": [
+  {
+   "tier": "A1 (G-invariant; most rigid of all 145 base-transversal orbits)",
+   "rep": "{v,w,al0,al1}",
+   "orbit_size": 1,
+   "rigidity_nsig": 15,
+   "avoider_states": 109,
+   "avoider_never_firstgen_states": 3,
+   "why": "B = T012∪T013∪T023 = every point of P0 lying in a triple intersection. Lemma JA (S13.4): the avoider J has |J∩γ|≥2+o0+o1, a3,a4,m3 each hit, and Σ|J∩P_i|∈{20,21}: J meets ≥3 base edges in exactly 5 (all four in 72/109 local states), i.e. J is a FIFTH vertex of a clique of 5-pairs and spawns new K4s {P0,P1,P2,J} (triples 1,m',a3',g'+c3'), {P0,P1,P3,J}, {P0,P2,P3,J}. In 106/109 local states J is itself a first-gen single of (0,1)/(0,2)/(0,3) in a RARE shape (e.g. a (0,1)-single with A-part a3∪a4: one region signature), so it forces a single type into an extreme state. In the 10-single realization M10 (and w12m1) EVERY edge contains {v,w} or α (min transversals {v|w}×{al0|al1}); J_A is exactly the edge that breaks this. Tried ONLY in chain B (7 γ-singles, no m3-singles), where it was REALIZED (w10x_w12b1/Br1/Br2_real.json contain J1) — so it is not a killer by itself; never tried together with the m3-singles (chains M/N/P).",
+   "images": [
+    {
+     "avoid": [
+      "T012_0",
+      "T013_0",
+      "T023_0",
+      "T023_1"
+     ],
+     "short": "{v,w,al0,al1}",
+     "tried_as": "J1"
+    }
+   ]
+  },
+  {
+   "tier": "A2 (G-invariant)",
+   "rep": "{v,w,c3,c4}",
+   "orbit_size": 1,
+   "rigidity_nsig": 95,
+   "avoider_states": 877,
+   "avoider_never_firstgen_states": 564,
+   "why": "Avoids both 1-point triples (all six apex inequalities S13.2 + two L3) and c3,c4 so J∩N12 = J∩N13 = J∩γ: J is a (1,2)- and (1,3)-single of the SAME γ-type, or a multi with |J∩γ|≥2. Covers the realized min transversals {w,c3},{v,c4} of M10. Untried.",
+   "images": [
+    {
+     "avoid": [
+      "T012_0",
+      "T013_0",
+      "p12_0",
+      "p13_0"
+     ],
+     "short": "{v,w,c3,c4}",
+     "tried_as": null
+    }
+   ]
+  },
+  {
+   "tier": "A3 (G-invariant; weakest of the three)",
+   "rep": "{al0,al1,c3,c4}",
+   "orbit_size": 1,
+   "rigidity_nsig": 261,
+   "avoider_states": 2238,
+   "avoider_never_firstgen_states": 1711,
+   "why": "Avoids T023 (L3: |J∩(P0∪P2∪P3)|≤10) and c3,c4; J∩N23 ⊆ γ. Untried.",
+   "images": [
+    {
+     "avoid": [
+      "T023_0",
+      "T023_1",
+      "p12_0",
+      "p13_0"
+     ],
+     "short": "{al0,al1,c3,c4}",
+     "tried_as": null
+    }
+   ]
+  },
+  {
+   "tier": "B1 (orbit 3; 2nd most rigid, nsig 21)",
+   "rep": "{v,w,g0,g1}",
+   "orbit_size": 3,
+   "rigidity_nsig": 21,
+   "avoider_states": 106,
+   "avoider_never_firstgen_states": 64,
+   "why": "Non-single avoiders (64/106 local states) contain c3,c4 and the third γ point; otherwise J is a (1,2)/(1,3)-single of type g2 or a (0,1)-single. JN2={v,w,g0,g2} is one image; add the other two images for the symmetric closure.",
+   "images": [
+    {
+     "avoid": [
+      "T012_0",
+      "T013_0",
+      "T123_0",
+      "T123_1"
+     ],
+     "short": "{v,w,g0,g1}",
+     "tried_as": null
+    },
+    {
+     "avoid": [
+      "T012_0",
+      "T013_0",
+      "T123_0",
+      "T123_2"
+     ],
+     "short": "{v,w,g0,g2}",
+     "tried_as": "JN2"
+    },
+    {
+     "avoid": [
+      "T012_0",
+      "T013_0",
+      "T123_1",
+      "T123_2"
+     ],
+     "short": "{v,w,g1,g2}",
+     "tried_as": null
+    }
+   ]
+  },
+  {
+   "tier": "B2 (orbit 6, nsig 33)",
+   "rep": "{v,w,al0,g0}",
+   "orbit_size": 6,
+   "rigidity_nsig": 33,
+   "avoider_states": 208,
+   "avoider_never_firstgen_states": 112,
+   "why": "Two 1-point triples avoided + one point of each of α, γ. Untried.",
+   "images": [
+    {
+     "avoid": [
+      "T012_0",
+      "T013_0",
+      "T023_0",
+      "T123_0"
+     ],
+     "short": "{v,w,al0,g0}",
+     "tried_as": null
+    },
+    {
+     "avoid": [
+      "T012_0",
+      "T013_0",
+      "T023_1",
+      "T123_0"
+     ],
+     "short": "{v,w,al1,g0}",
+     "tried_as": null
+    },
+    {
+     "avoid": [
+      "T012_0",
+      "T013_0",
+      "T023_0",
+      "T123_1"
+     ],
+     "short": "{v,w,al0,g1}",
+     "tried_as": null
+    },
+    {
+     "avoid": [
+      "T012_0",
+      "T013_0",
+      "T023_1",
+      "T123_1"
+     ],
+     "short": "{v,w,al1,g1}",
+     "tried_as": null
+    },
+    {
+     "avoid": [
+      "T012_0",
+      "T013_0",
+      "T023_0",
+      "T123_2"
+     ],
+     "short": "{v,w,al0,g2}",
+     "tried_as": null
+    },
+    {
+     "avoid": [
+      "T012_0",
+      "T013_0",
+      "T023_1",
+      "T123_2"
+     ],
+     "short": "{v,w,al1,g2}",
+     "tried_as": null
+    }
+   ]
+  },
+  {
+   "tier": "B3 (orbit 6, nsig 46)",
+   "rep": "{v,al0,al1,g0}",
+   "orbit_size": 6,
+   "rigidity_nsig": 46,
+   "avoider_states": 223,
+   "avoider_never_firstgen_states": 136,
+   "why": "T012∪T023 avoided (two L3, three apex inequalities) + one γ point; JB2={v,al0,al1,g1} is an image (chain B only). Untried with m3-singles.",
+   "images": [
+    {
+     "avoid": [
+      "T012_0",
+      "T023_0",
+      "T023_1",
+      "T123_0"
+     ],
+     "short": "{v,al0,al1,g0}",
+     "tried_as": null
+    },
+    {
+     "avoid": [
+      "T013_0",
+      "T023_0",
+      "T023_1",
+      "T123_0"
+     ],
+     "short": "{w,al0,al1,g0}",
+     "tried_as": null
+    },
+    {
+     "avoid": [
+      "T012_0",
+      "T023_0",
+      "T023_1",
+      "T123_1"
+     ],
+     "short": "{v,al0,al1,g1}",
+     "tried_as": "JB2"
+    },
+    {
+     "avoid": [
+      "T013_0",
+      "T023_0",
+      "T023_1",
+      "T123_1"
+     ],
+     "short": "{w,al0,al1,g1}",
+     "tried_as": null
+    },
+    {
+     "avoid": [
+      "T012_0",
+      "T023_0",
+      "T023_1",
+      "T123_2"
+     ],
+     "short": "{v,al0,al1,g2}",
+     "tried_as": null
+    },
+    {
+     "avoid": [
+      "T013_0",
+      "T023_0",
+      "T023_1",
+      "T123_2"
+     ],
+     "short": "{w,al0,al1,g2}",
+     "tried_as": null
+    }
+   ]
+  },
+  {
+   "tier": "B4 (orbit 2, nsig 57)",
+   "rep": "{v,al0,al1,c3}",
+   "orbit_size": 2,
+   "rigidity_nsig": 57,
+   "avoider_states": 410,
+   "avoider_never_firstgen_states": 230,
+   "why": "T012∪T023 + c3: J∩N12 ⊆ γ, J∩N02 ⊆ a3. Untried.",
+   "images": [
+    {
+     "avoid": [
+      "T012_0",
+      "T023_0",
+      "T023_1",
+      "p12_0"
+     ],
+     "short": "{v,al0,al1,c3}",
+     "tried_as": null
+    },
+    {
+     "avoid": [
+      "T013_0",
+      "T023_0",
+      "T023_1",
+      "p13_0"
+     ],
+     "short": "{w,al0,al1,c4}",
+     "tried_as": null
+    }
+   ]
+  },
+  {
+   "tier": "B5 (orbit 6, nsig 58)",
+   "rep": "{v,w,g0,c3}",
+   "orbit_size": 6,
+   "rigidity_nsig": 58,
+   "avoider_states": 349,
+   "avoider_never_firstgen_states": 222,
+   "why": "Both 1-point triples + g0 + c3: J∩N12 ⊆ {g1,g2}. Untried.",
+   "images": [
+    {
+     "avoid": [
+      "T012_0",
+      "T013_0",
+      "T123_0",
+      "p12_0"
+     ],
+     "short": "{v,w,g0,c3}",
+     "tried_as": null
+    },
+    {
+     "avoid": [
+      "T012_0",
+      "T013_0",
+      "T123_1",
+      "p12_0"
+     ],
+     "short": "{v,w,g1,c3}",
+     "tried_as": null
+    },
+    {
+     "avoid": [
+      "T012_0",
+      "T013_0",
+      "T123_2",
+      "p12_0"
+     ],
+     "short": "{v,w,g2,c3}",
+     "tried_as": null
+    },
+    {
+     "avoid": [
+      "T012_0",
+      "T013_0",
+      "T123_0",
+      "p13_0"
+     ],
+     "short": "{v,w,g0,c4}",
+     "tried_as": null
+    },
+    {
+     "avoid": [
+      "T012_0",
+      "T013_0",
+      "T123_1",
+      "p13_0"
+     ],
+     "short": "{v,w,g1,c4}",
+     "tried_as": null
+    },
+    {
+     "avoid": [
+      "T012_0",
+      "T013_0",
+      "T123_2",
+      "p13_0"
+     ],
+     "short": "{v,w,g2,c4}",
+     "tried_as": null
+    }
+   ]
+  }
+ ],
+ "redundant_as_tau_edges": [
+  {
+   "set": "{v,g0,g1,g2}",
+   "note": "avoider is ALWAYS a first-generation single (w13_rigid: always_firstgen) — equivalent to adding that gen-1 single slot"
+  },
+  {
+   "set": "{w,g0,g1,g2}",
+   "note": "avoider is ALWAYS a first-generation single (w13_rigid: always_firstgen) — equivalent to adding that gen-1 single slot"
+  },
+  {
+   "set": "{v,w,m0,m1}",
+   "note": "avoider is ALWAYS a first-generation single (w13_rigid: always_firstgen) — equivalent to adding that gen-1 single slot"
+  },
+  {
+   "set": "{al0,al1,g0,g1}",
+   "note": "avoider is ALWAYS a first-generation single (w13_rigid: always_firstgen) — equivalent to adding that gen-1 single slot"
+  },
+  {
+   "set": "{al0,g0,g1,g2}",
+   "note": "avoider is ALWAYS a first-generation single (w13_rigid: always_firstgen) — equivalent to adding that gen-1 single slot"
+  }
+ ]
+}

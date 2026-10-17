@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "work/e616/eager2.py", line 138, in <module>
+    T, fam = build(n, r, cmin, cmax)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "work/e616/eager2.py", line 116, in build
+    assert cnt >= 0, 'cap exceeded'
+           ^^^^^^^^
+AssertionError: cap exceeded

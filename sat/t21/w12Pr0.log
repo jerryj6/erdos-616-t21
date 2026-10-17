@@ -1,0 +1,22 @@
+== chunk Fri Oct 16 04:19:22 UTC 2026
+[w11] branch k4:3211 edges 7 K=50 (KB bound 50; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JM1@T012_0+T023_0+T023_1+p01_0;JN2@T012_0+T013_0+T123_0+T123_2;JN3@T012_0+T023_1+T123_0+p12_0;JN4@T012_0+T013_0+p01_0+p02_0', 'warm': 'w10x_w12Nr0.json'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JM1', 'JN2', 'JN3', 'JN4']
+eager2 528
+eager3 120
+f1all 35
+warm 177
+built 1.0s vars=82024 clauses=478375 inst=860 tags={'AV': 28, 'def': 448552, 'E21': 7, 'A': 49, 'L': 225, 'D1': 6461, 'R1': 3, 'R3': 130, 'SA': 18368, 'POOL': 350, 'SB': 3731, 'W7': 468, 'TT': 3}
+it 0: SAT (3.9s) inst=970 cl=657473 viol=110 {'SA': 27, 'R3': 12, 'W7': 13, 'TT': 3, 'D1': 19, 'L': 36} added=110 esc=5 pool_used=15
+it 1: SAT (0.5s) inst=980 cl=670241 viol=10 {'SA': 3, 'W7': 3, 'TT': 1, 'L': 3} added=10 esc=0 pool_used=7
+it 2: SAT (1.1s) inst=987 cl=684048 viol=7 {'D1': 3, 'L': 4} added=7 esc=0 pool_used=11
+it 3: SAT (1.1s) inst=989 cl=686443 viol=2 {'D1': 2} added=2 esc=0 pool_used=9
+it 4: SAT (1.4s) inst=1002 cl=706115 viol=13 {'SA': 2, 'W7': 3, 'TT': 1, 'D1': 3, 'L': 4} added=13 esc=1 pool_used=9
+it 5: SAT (0.5s) inst=1011 cl=715605 viol=9 {'R3': 3, 'D1': 4, 'L': 2} added=9 esc=1 pool_used=10
+it 6: SAT (2.0s) inst=1030 cl=735731 viol=19 {'SA': 6, 'W7': 3, 'TT': 1, 'D1': 5, 'L': 4} added=19 esc=3 pool_used=11
+it 7: SAT (4.7s) inst=1050 cl=744305 viol=20 {'SA': 6, 'W7': 6, 'TT': 2, 'D1': 4, 'L': 2} added=20 esc=0 pool_used=18
+it 8: SAT (1.2s) inst=1062 cl=772022 viol=12 {'SA': 1, 'D1': 4, 'L': 7} added=12 esc=0 pool_used=18
+it 9: SAT (2.6s) inst=1079 cl=788954 viol=17 {'SA': 5, 'R3': 1, 'W7': 3, 'TT': 1, 'D1': 3, 'L': 4} added=17 esc=2 pool_used=16
+it 10: SAT (0.3s) inst=1100 cl=830401 viol=21 {'SA': 6, 'W7': 3, 'TT': 1, 'D1': 2, 'L': 9} added=21 esc=3 pool_used=13
+it 11: SAT (0.2s) inst=1100 cl=830401 viol=0 {} added=0 esc=0 pool_used=9
+VIOLATION-FREE: literal configuration written
+== exit 0 Fri Oct 16 04:21:16 UTC 2026

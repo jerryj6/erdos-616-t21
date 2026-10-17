@@ -1,0 +1,2069 @@
+[
+{
+"B": "{v,w,al0,al1}",
+"orbit": 1,
+"nsig": 15,
+"states": 109,
+"nonfirstgen": 3,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"3": 37,
+"4": 72
+}
+},
+{
+"B": "{v,w,g0,g1}",
+"orbit": 3,
+"nsig": 21,
+"states": 106,
+"nonfirstgen": 64,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"3": 31,
+"4": 75
+}
+},
+{
+"B": "{v,w,al0,g0}",
+"orbit": 6,
+"nsig": 33,
+"states": 208,
+"nonfirstgen": 112,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"3": 78,
+"4": 130
+}
+},
+{
+"B": "{v,al0,al1,g0}",
+"orbit": 6,
+"nsig": 46,
+"states": 223,
+"nonfirstgen": 136,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"2": 21,
+"3": 96,
+"4": 106
+}
+},
+{
+"B": "{v,al0,al1,c3}",
+"orbit": 2,
+"nsig": 57,
+"states": 410,
+"nonfirstgen": 230,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"2": 42,
+"3": 193,
+"4": 175
+}
+},
+{
+"B": "{v,w,g0,c3}",
+"orbit": 6,
+"nsig": 58,
+"states": 349,
+"nonfirstgen": 222,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"2": 29,
+"3": 159,
+"4": 161
+}
+},
+{
+"B": "{v,w,al0,c3}",
+"orbit": 4,
+"nsig": 60,
+"states": 511,
+"nonfirstgen": 241,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"2": 53,
+"3": 236,
+"4": 222
+}
+},
+{
+"B": "{v,w,al0,a3_0}",
+"orbit": 8,
+"nsig": 64,
+"states": 416,
+"nonfirstgen": 194,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"2": 32,
+"3": 186,
+"4": 198
+}
+},
+{
+"B": "{v,w,al0,m0}",
+"orbit": 6,
+"nsig": 66,
+"states": 336,
+"nonfirstgen": 133,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"2": 26,
+"3": 151,
+"4": 159
+}
+},
+{
+"B": "{v,al0,g0,g1}",
+"orbit": 12,
+"nsig": 70,
+"states": 330,
+"nonfirstgen": 239,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"2": 44,
+"3": 168,
+"4": 118
+}
+},
+{
+"B": "{v,w,g0,m0}",
+"orbit": 9,
+"nsig": 78,
+"states": 314,
+"nonfirstgen": 162,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"2": 26,
+"3": 135,
+"4": 153
+}
+},
+{
+"B": "{v,al0,al1,a4_0}",
+"orbit": 4,
+"nsig": 85,
+"states": 488,
+"nonfirstgen": 314,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 3,
+"2": 70,
+"3": 247,
+"4": 168
+}
+},
+{
+"B": "{v,al0,al1,c4}",
+"orbit": 2,
+"nsig": 87,
+"states": 765,
+"nonfirstgen": 385,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 6,
+"2": 132,
+"3": 369,
+"4": 258
+}
+},
+{
+"B": "{v,w,c3,c4}",
+"orbit": 1,
+"nsig": 95,
+"states": 877,
+"nonfirstgen": 564,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 17,
+"2": 151,
+"3": 409,
+"4": 300
+}
+},
+{
+"B": "{v,al0,g0,c3}",
+"orbit": 12,
+"nsig": 98,
+"states": 512,
+"nonfirstgen": 347,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"2": 66,
+"3": 274,
+"4": 172
+}
+},
+{
+"B": "{v,w,m0,c3}",
+"orbit": 6,
+"nsig": 103,
+"states": 582,
+"nonfirstgen": 298,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 6,
+"2": 99,
+"3": 268,
+"4": 209
+}
+},
+{
+"B": "{v,w,a3_0,a3_1}",
+"orbit": 2,
+"nsig": 103,
+"states": 784,
+"nonfirstgen": 445,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 9,
+"2": 132,
+"3": 387,
+"4": 256
+}
+},
+{
+"B": "{v,w,g0,a3_0}",
+"orbit": 12,
+"nsig": 105,
+"states": 509,
+"nonfirstgen": 322,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"2": 48,
+"3": 229,
+"4": 232
+}
+},
+{
+"B": "{v,g0,g1,c4}",
+"orbit": 6,
+"nsig": 105,
+"states": 655,
+"nonfirstgen": 483,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 9,
+"2": 138,
+"3": 352,
+"4": 156
+}
+},
+{
+"B": "{v,al0,al1,m0}",
+"orbit": 6,
+"nsig": 107,
+"states": 544,
+"nonfirstgen": 332,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 4,
+"2": 87,
+"3": 253,
+"4": 200
+}
+},
+{
+"B": "{v,w,a3_0,c3}",
+"orbit": 4,
+"nsig": 124,
+"states": 881,
+"nonfirstgen": 575,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 13,
+"2": 155,
+"3": 431,
+"4": 282
+}
+},
+{
+"B": "{v,w,a3_0,c4}",
+"orbit": 4,
+"nsig": 133,
+"states": 1087,
+"nonfirstgen": 641,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 16,
+"2": 191,
+"3": 502,
+"4": 378
+}
+},
+{
+"B": "{v,al0,a3_0,c3}",
+"orbit": 8,
+"nsig": 134,
+"states": 793,
+"nonfirstgen": 471,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 9,
+"2": 157,
+"3": 410,
+"4": 217
+}
+},
+{
+"B": "{v,w,m0,a3_0}",
+"orbit": 12,
+"nsig": 138,
+"states": 637,
+"nonfirstgen": 324,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 5,
+"2": 104,
+"3": 295,
+"4": 233
+}
+},
+{
+"B": "{v,g0,g1,a3_0}",
+"orbit": 12,
+"nsig": 139,
+"states": 555,
+"nonfirstgen": 381,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 6,
+"2": 98,
+"3": 275,
+"4": 176
+}
+},
+{
+"B": "{v,g0,c3,c4}",
+"orbit": 6,
+"nsig": 142,
+"states": 965,
+"nonfirstgen": 691,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 16,
+"2": 228,
+"3": 487,
+"4": 234
+}
+},
+{
+"B": "{v,al0,g0,a3_0}",
+"orbit": 24,
+"nsig": 145,
+"states": 640,
+"nonfirstgen": 428,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 9,
+"2": 110,
+"3": 321,
+"4": 200
+}
+},
+{
+"B": "{v,g0,a3_0,c3}",
+"orbit": 12,
+"nsig": 166,
+"states": 747,
+"nonfirstgen": 492,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 10,
+"2": 155,
+"3": 390,
+"4": 192
+}
+},
+{
+"B": "{v,w,a3_0,a4_0}",
+"orbit": 4,
+"nsig": 171,
+"states": 1009,
+"nonfirstgen": 657,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 12,
+"2": 167,
+"3": 469,
+"4": 361
+}
+},
+{
+"B": "{v,g0,g1,m0}",
+"orbit": 18,
+"nsig": 176,
+"states": 621,
+"nonfirstgen": 471,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 8,
+"2": 118,
+"3": 315,
+"4": 180
+}
+},
+{
+"B": "{v,al0,c3,c4}",
+"orbit": 4,
+"nsig": 178,
+"states": 1495,
+"nonfirstgen": 1052,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 30,
+"2": 340,
+"3": 751,
+"4": 374
+}
+},
+{
+"B": "{v,g0,a3_0,a3_1}",
+"orbit": 6,
+"nsig": 180,
+"states": 880,
+"nonfirstgen": 516,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 13,
+"2": 177,
+"3": 460,
+"4": 230
+}
+},
+{
+"B": "{v,al0,g0,c4}",
+"orbit": 12,
+"nsig": 184,
+"states": 1133,
+"nonfirstgen": 875,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 30,
+"2": 231,
+"3": 583,
+"4": 289
+}
+},
+{
+"B": "{v,g0,g1,a4_0}",
+"orbit": 12,
+"nsig": 197,
+"states": 992,
+"nonfirstgen": 664,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 18,
+"2": 196,
+"3": 511,
+"4": 267
+}
+},
+{
+"B": "{v,g0,m0,c3}",
+"orbit": 18,
+"nsig": 199,
+"states": 787,
+"nonfirstgen": 565,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 10,
+"2": 168,
+"3": 417,
+"4": 192
+}
+},
+{
+"B": "{v,al0,m0,c3}",
+"orbit": 12,
+"nsig": 216,
+"states": 1055,
+"nonfirstgen": 809,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 15,
+"2": 220,
+"3": 550,
+"4": 270
+}
+},
+{
+"B": "{v,al0,a4_0,c3}",
+"orbit": 8,
+"nsig": 218,
+"states": 1485,
+"nonfirstgen": 1053,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 24,
+"2": 322,
+"3": 741,
+"4": 398
+}
+},
+{
+"B": "{al0,al1,g0,c3}",
+"orbit": 6,
+"nsig": 218,
+"states": 1139,
+"nonfirstgen": 709,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 24,
+"2": 273,
+"3": 569,
+"4": 273
+}
+},
+{
+"B": "{v,al0,a3_0,c4}",
+"orbit": 8,
+"nsig": 223,
+"states": 1621,
+"nonfirstgen": 927,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 54,
+"2": 385,
+"3": 791,
+"4": 391
+}
+},
+{
+"B": "{v,a3_0,a3_1,c4}",
+"orbit": 2,
+"nsig": 231,
+"states": 2127,
+"nonfirstgen": 1095,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 79,
+"2": 587,
+"3": 1008,
+"4": 453
+}
+},
+{
+"B": "{v,al0,a3_0,a4_0}",
+"orbit": 16,
+"nsig": 232,
+"states": 1258,
+"nonfirstgen": 834,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 36,
+"2": 299,
+"3": 613,
+"4": 310
+}
+},
+{
+"B": "{v,al0,a4_0,a4_1}",
+"orbit": 4,
+"nsig": 232,
+"states": 1885,
+"nonfirstgen": 1502,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 75,
+"2": 475,
+"3": 944,
+"4": 391
+}
+},
+{
+"B": "{al0,al1,g0,a3_0}",
+"orbit": 12,
+"nsig": 234,
+"states": 835,
+"nonfirstgen": 520,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 9,
+"2": 188,
+"3": 448,
+"4": 190
+}
+},
+{
+"B": "{v,g0,a4_0,c3}",
+"orbit": 12,
+"nsig": 235,
+"states": 1354,
+"nonfirstgen": 854,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 25,
+"2": 301,
+"3": 690,
+"4": 338
+}
+},
+{
+"B": "{v,al0,m0,a3_0}",
+"orbit": 24,
+"nsig": 236,
+"states": 993,
+"nonfirstgen": 668,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 23,
+"2": 229,
+"3": 497,
+"4": 244
+}
+},
+{
+"B": "{v,al0,g0,a4_0}",
+"orbit": 24,
+"nsig": 254,
+"states": 1162,
+"nonfirstgen": 915,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 24,
+"2": 232,
+"3": 593,
+"4": 313
+}
+},
+{
+"B": "{v,a3_0,c3,c4}",
+"orbit": 4,
+"nsig": 256,
+"states": 2037,
+"nonfirstgen": 1449,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 3,
+"1": 80,
+"2": 593,
+"3": 945,
+"4": 416
+}
+},
+{
+"B": "{v,al0,g0,m0}",
+"orbit": 36,
+"nsig": 257,
+"states": 905,
+"nonfirstgen": 740,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 15,
+"2": 172,
+"3": 459,
+"4": 259
+}
+},
+{
+"B": "{al0,al1,c3,c4}",
+"orbit": 1,
+"nsig": 261,
+"states": 2238,
+"nonfirstgen": 1711,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 81,
+"2": 612,
+"3": 1089,
+"4": 456
+}
+},
+{
+"B": "{v,a3_0,a3_1,a4_0}",
+"orbit": 4,
+"nsig": 265,
+"states": 1719,
+"nonfirstgen": 1061,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 60,
+"2": 472,
+"3": 826,
+"4": 361
+}
+},
+{
+"B": "{al0,al1,a3_0,c3}",
+"orbit": 4,
+"nsig": 268,
+"states": 1691,
+"nonfirstgen": 1285,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 47,
+"2": 470,
+"3": 848,
+"4": 326
+}
+},
+{
+"B": "{al0,al1,a3_0,c4}",
+"orbit": 4,
+"nsig": 271,
+"states": 1679,
+"nonfirstgen": 1253,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 45,
+"2": 451,
+"3": 847,
+"4": 336
+}
+},
+{
+"B": "{g0,g1,g2,a3_0}",
+"orbit": 4,
+"nsig": 275,
+"states": 1115,
+"nonfirstgen": 444,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"2": 255,
+"3": 651,
+"4": 209
+}
+},
+{
+"B": "{v,al0,m0,m1}",
+"orbit": 12,
+"nsig": 284,
+"states": 1205,
+"nonfirstgen": 1017,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 29,
+"2": 273,
+"3": 615,
+"4": 288
+}
+},
+{
+"B": "{v,m0,c3,c4}",
+"orbit": 6,
+"nsig": 290,
+"states": 1926,
+"nonfirstgen": 1555,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 2,
+"1": 75,
+"2": 562,
+"3": 909,
+"4": 378
+}
+},
+{
+"B": "{v,g0,a3_0,c4}",
+"orbit": 12,
+"nsig": 297,
+"states": 1674,
+"nonfirstgen": 1241,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 3,
+"1": 64,
+"2": 419,
+"3": 808,
+"4": 380
+}
+},
+{
+"B": "{v,a4_0,a4_1,c3}",
+"orbit": 2,
+"nsig": 302,
+"states": 3186,
+"nonfirstgen": 2275,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 6,
+"1": 151,
+"2": 921,
+"3": 1463,
+"4": 645
+}
+},
+{
+"B": "{g0,g1,g2,m0}",
+"orbit": 3,
+"nsig": 302,
+"states": 1081,
+"nonfirstgen": 413,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"2": 230,
+"3": 657,
+"4": 194
+}
+},
+{
+"B": "{v,al0,a4_0,c4}",
+"orbit": 8,
+"nsig": 309,
+"states": 2357,
+"nonfirstgen": 1821,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 114,
+"2": 596,
+"3": 1160,
+"4": 487
+}
+},
+{
+"B": "{al0,g0,g1,c3}",
+"orbit": 12,
+"nsig": 309,
+"states": 1253,
+"nonfirstgen": 855,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 27,
+"2": 359,
+"3": 654,
+"4": 213
+}
+},
+{
+"B": "{v,a4_0,c3,c4}",
+"orbit": 4,
+"nsig": 316,
+"states": 2952,
+"nonfirstgen": 2291,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 6,
+"1": 140,
+"2": 878,
+"3": 1361,
+"4": 567
+}
+},
+{
+"B": "{v,al0,m0,c4}",
+"orbit": 12,
+"nsig": 323,
+"states": 1956,
+"nonfirstgen": 1513,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 80,
+"2": 486,
+"3": 956,
+"4": 434
+}
+},
+{
+"B": "{v,a3_0,a4_0,c3}",
+"orbit": 8,
+"nsig": 324,
+"states": 2111,
+"nonfirstgen": 1520,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 3,
+"1": 79,
+"2": 596,
+"3": 996,
+"4": 437
+}
+},
+{
+"B": "{v,g0,m0,c4}",
+"orbit": 18,
+"nsig": 346,
+"states": 1664,
+"nonfirstgen": 1412,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 2,
+"1": 72,
+"2": 422,
+"3": 814,
+"4": 354
+}
+},
+{
+"B": "{v,g0,m0,m1}",
+"orbit": 18,
+"nsig": 347,
+"states": 1169,
+"nonfirstgen": 1016,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 31,
+"2": 273,
+"3": 598,
+"4": 267
+}
+},
+{
+"B": "{v,m0,m1,c4}",
+"orbit": 6,
+"nsig": 366,
+"states": 2142,
+"nonfirstgen": 1860,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 112,
+"2": 629,
+"3": 1007,
+"4": 394
+}
+},
+{
+"B": "{v,g0,a4_0,c4}",
+"orbit": 12,
+"nsig": 370,
+"states": 2357,
+"nonfirstgen": 1934,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 6,
+"1": 118,
+"2": 623,
+"3": 1158,
+"4": 452
+}
+},
+{
+"B": "{al0,al1,g0,m0}",
+"orbit": 9,
+"nsig": 378,
+"states": 1397,
+"nonfirstgen": 795,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 24,
+"2": 332,
+"3": 711,
+"4": 330
+}
+},
+{
+"B": "{v,al0,m0,a4_0}",
+"orbit": 24,
+"nsig": 383,
+"states": 1740,
+"nonfirstgen": 1439,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 62,
+"2": 415,
+"3": 854,
+"4": 409
+}
+},
+{
+"B": "{v,g0,m0,a3_0}",
+"orbit": 36,
+"nsig": 386,
+"states": 1218,
+"nonfirstgen": 971,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 1,
+"1": 34,
+"2": 293,
+"3": 607,
+"4": 283
+}
+},
+{
+"B": "{v,a4_0,a4_1,c4}",
+"orbit": 2,
+"nsig": 386,
+"states": 4243,
+"nonfirstgen": 3587,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 24,
+"1": 337,
+"2": 1311,
+"3": 1942,
+"4": 629
+}
+},
+{
+"B": "{v,m0,a4_0,c3}",
+"orbit": 12,
+"nsig": 389,
+"states": 2205,
+"nonfirstgen": 1722,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 2,
+"1": 82,
+"2": 627,
+"3": 1053,
+"4": 441
+}
+},
+{
+"B": "{al0,al1,m0,a3_0}",
+"orbit": 12,
+"nsig": 394,
+"states": 1747,
+"nonfirstgen": 1299,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 46,
+"2": 487,
+"3": 881,
+"4": 333
+}
+},
+{
+"B": "{v,g0,a4_0,a4_1}",
+"orbit": 6,
+"nsig": 399,
+"states": 2641,
+"nonfirstgen": 2032,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 6,
+"1": 130,
+"2": 686,
+"3": 1293,
+"4": 526
+}
+},
+{
+"B": "{al0,al1,m0,c3}",
+"orbit": 6,
+"nsig": 405,
+"states": 2517,
+"nonfirstgen": 1881,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 99,
+"2": 716,
+"3": 1205,
+"4": 497
+}
+},
+{
+"B": "{v,a3_0,a4_0,a4_1}",
+"orbit": 4,
+"nsig": 407,
+"states": 3024,
+"nonfirstgen": 2387,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 12,
+"1": 189,
+"2": 896,
+"3": 1378,
+"4": 549
+}
+},
+{
+"B": "{v,g0,a3_0,a4_0}",
+"orbit": 24,
+"nsig": 421,
+"states": 1797,
+"nonfirstgen": 1369,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 3,
+"1": 64,
+"2": 444,
+"3": 869,
+"4": 417
+}
+},
+{
+"B": "{v,m0,a3_0,c4}",
+"orbit": 12,
+"nsig": 438,
+"states": 2496,
+"nonfirstgen": 1894,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 4,
+"1": 138,
+"2": 741,
+"3": 1148,
+"4": 465
+}
+},
+{
+"B": "{al0,g0,c3,c4}",
+"orbit": 6,
+"nsig": 443,
+"states": 2391,
+"nonfirstgen": 2038,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 12,
+"1": 115,
+"2": 762,
+"3": 1141,
+"4": 361
+}
+},
+{
+"B": "{v,a3_0,a4_0,c4}",
+"orbit": 8,
+"nsig": 464,
+"states": 3453,
+"nonfirstgen": 2632,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 12,
+"1": 226,
+"2": 1022,
+"3": 1567,
+"4": 626
+}
+},
+{
+"B": "{v,m0,m1,a4_0}",
+"orbit": 12,
+"nsig": 488,
+"states": 2221,
+"nonfirstgen": 1954,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 108,
+"2": 637,
+"3": 1056,
+"4": 420
+}
+},
+{
+"B": "{v,m0,a4_0,a4_1}",
+"orbit": 6,
+"nsig": 497,
+"states": 3293,
+"nonfirstgen": 2805,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 8,
+"1": 228,
+"2": 965,
+"3": 1513,
+"4": 579
+}
+},
+{
+"B": "{al0,a3_0,a3_1,c3}",
+"orbit": 4,
+"nsig": 508,
+"states": 3668,
+"nonfirstgen": 3208,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 342,
+"2": 1175,
+"3": 1669,
+"4": 482
+}
+},
+{
+"B": "{al0,a3_0,a3_1,c4}",
+"orbit": 4,
+"nsig": 513,
+"states": 3614,
+"nonfirstgen": 2881,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 237,
+"2": 1129,
+"3": 1702,
+"4": 546
+}
+},
+{
+"B": "{v,g0,m0,a4_0}",
+"orbit": 36,
+"nsig": 526,
+"states": 1981,
+"nonfirstgen": 1639,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 2,
+"1": 79,
+"2": 497,
+"3": 970,
+"4": 433
+}
+},
+{
+"B": "{al0,al1,m0,m1}",
+"orbit": 3,
+"nsig": 528,
+"states": 2484,
+"nonfirstgen": 1813,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 81,
+"2": 698,
+"3": 1198,
+"4": 507
+}
+},
+{
+"B": "{g0,g1,a3_0,c4}",
+"orbit": 12,
+"nsig": 528,
+"states": 2216,
+"nonfirstgen": 1716,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 98,
+"2": 687,
+"3": 1108,
+"4": 323
+}
+},
+{
+"B": "{al0,g0,g1,a3_0}",
+"orbit": 24,
+"nsig": 532,
+"states": 1600,
+"nonfirstgen": 1084,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 57,
+"2": 447,
+"3": 798,
+"4": 298
+}
+},
+{
+"B": "{g0,g1,a3_0,c3}",
+"orbit": 12,
+"nsig": 535,
+"states": 2298,
+"nonfirstgen": 1854,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 124,
+"2": 716,
+"3": 1135,
+"4": 323
+}
+},
+{
+"B": "{v,m0,a4_0,c4}",
+"orbit": 12,
+"nsig": 542,
+"states": 3431,
+"nonfirstgen": 2945,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 8,
+"1": 245,
+"2": 1022,
+"3": 1567,
+"4": 589
+}
+},
+{
+"B": "{v,m0,a3_0,a4_0}",
+"orbit": 24,
+"nsig": 548,
+"states": 2348,
+"nonfirstgen": 1898,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 4,
+"1": 121,
+"2": 684,
+"3": 1093,
+"4": 446
+}
+},
+{
+"B": "{g0,g1,m0,c3}",
+"orbit": 18,
+"nsig": 592,
+"states": 2211,
+"nonfirstgen": 1765,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 107,
+"2": 701,
+"3": 1094,
+"4": 309
+}
+},
+{
+"B": "{al0,g0,a3_0,a3_1}",
+"orbit": 12,
+"nsig": 602,
+"states": 2563,
+"nonfirstgen": 2080,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 155,
+"2": 774,
+"3": 1231,
+"4": 403
+}
+},
+{
+"B": "{a3_0,a3_1,c3,c4}",
+"orbit": 2,
+"nsig": 636,
+"states": 6126,
+"nonfirstgen": 5380,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 54,
+"1": 635,
+"2": 2155,
+"3": 2576,
+"4": 706
+}
+},
+{
+"B": "{al0,a3_0,c3,c4}",
+"orbit": 8,
+"nsig": 641,
+"states": 4235,
+"nonfirstgen": 3658,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 24,
+"1": 323,
+"2": 1379,
+"3": 1909,
+"4": 600
+}
+},
+{
+"B": "{al0,g0,g1,m0}",
+"orbit": 18,
+"nsig": 661,
+"states": 1801,
+"nonfirstgen": 1174,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 60,
+"2": 489,
+"3": 918,
+"4": 334
+}
+},
+{
+"B": "{al0,g0,a3_0,c3}",
+"orbit": 24,
+"nsig": 677,
+"states": 2802,
+"nonfirstgen": 2380,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 12,
+"1": 177,
+"2": 860,
+"3": 1324,
+"4": 429
+}
+},
+{
+"B": "{g0,a3_0,c3,c4}",
+"orbit": 12,
+"nsig": 679,
+"states": 3774,
+"nonfirstgen": 3340,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 27,
+"1": 288,
+"2": 1299,
+"3": 1696,
+"4": 464
+}
+},
+{
+"B": "{al0,g0,a3_0,c4}",
+"orbit": 24,
+"nsig": 688,
+"states": 2764,
+"nonfirstgen": 2261,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 12,
+"1": 146,
+"2": 844,
+"3": 1317,
+"4": 445
+}
+},
+{
+"B": "{g0,g1,a3_0,a3_1}",
+"orbit": 6,
+"nsig": 689,
+"states": 2934,
+"nonfirstgen": 2243,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 9,
+"1": 158,
+"2": 890,
+"3": 1404,
+"4": 473
+}
+},
+{
+"B": "{g0,a3_0,a3_1,c3}",
+"orbit": 6,
+"nsig": 743,
+"states": 4439,
+"nonfirstgen": 3951,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 27,
+"1": 430,
+"2": 1467,
+"3": 1965,
+"4": 550
+}
+},
+{
+"B": "{g0,m0,c3,c4}",
+"orbit": 9,
+"nsig": 744,
+"states": 3630,
+"nonfirstgen": 3300,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 27,
+"1": 294,
+"2": 1254,
+"3": 1626,
+"4": 429
+}
+},
+{
+"B": "{g0,a3_0,a3_1,c4}",
+"orbit": 6,
+"nsig": 754,
+"states": 4351,
+"nonfirstgen": 3540,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 21,
+"1": 301,
+"2": 1428,
+"3": 1975,
+"4": 626
+}
+},
+{
+"B": "{al0,m0,c3,c4}",
+"orbit": 6,
+"nsig": 774,
+"states": 4577,
+"nonfirstgen": 4087,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 32,
+"1": 369,
+"2": 1504,
+"3": 2052,
+"4": 620
+}
+},
+{
+"B": "{al0,m0,a3_0,a3_1}",
+"orbit": 12,
+"nsig": 784,
+"states": 3649,
+"nonfirstgen": 3186,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 313,
+"2": 1179,
+"3": 1658,
+"4": 499
+}
+},
+{
+"B": "{al0,a3_0,a4_0,c3}",
+"orbit": 16,
+"nsig": 800,
+"states": 4038,
+"nonfirstgen": 3427,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 21,
+"1": 334,
+"2": 1324,
+"3": 1814,
+"4": 545
+}
+},
+{
+"B": "{al0,m0,m1,m2}",
+"orbit": 2,
+"nsig": 833,
+"states": 3991,
+"nonfirstgen": 3602,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 256,
+"2": 1264,
+"3": 1873,
+"4": 598
+}
+},
+{
+"B": "{al0,g0,m0,c3}",
+"orbit": 36,
+"nsig": 841,
+"states": 3106,
+"nonfirstgen": 2600,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 16,
+"1": 179,
+"2": 958,
+"3": 1474,
+"4": 479
+}
+},
+{
+"B": "{a3_0,a3_1,a4_0,c3}",
+"orbit": 4,
+"nsig": 867,
+"states": 6294,
+"nonfirstgen": 5624,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 66,
+"1": 743,
+"2": 2205,
+"3": 2597,
+"4": 683
+}
+},
+{
+"B": "{a3_0,a3_1,a4_0,c4}",
+"orbit": 4,
+"nsig": 868,
+"states": 6277,
+"nonfirstgen": 5337,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 57,
+"1": 633,
+"2": 2211,
+"3": 2618,
+"4": 758
+}
+},
+{
+"B": "{al0,g0,a3_0,a4_0}",
+"orbit": 24,
+"nsig": 924,
+"states": 2773,
+"nonfirstgen": 2305,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 9,
+"1": 175,
+"2": 878,
+"3": 1290,
+"4": 421
+}
+},
+{
+"B": "{a3_0,a4_0,c3,c4}",
+"orbit": 4,
+"nsig": 940,
+"states": 6566,
+"nonfirstgen": 5864,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 78,
+"1": 705,
+"2": 2317,
+"3": 2715,
+"4": 751
+}
+},
+{
+"B": "{m0,m1,c3,c4}",
+"orbit": 3,
+"nsig": 949,
+"states": 5653,
+"nonfirstgen": 5355,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 52,
+"1": 659,
+"2": 1980,
+"3": 2363,
+"4": 599
+}
+},
+{
+"B": "{m0,a3_0,a3_1,c4}",
+"orbit": 6,
+"nsig": 991,
+"states": 6337,
+"nonfirstgen": 5571,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 48,
+"1": 657,
+"2": 2205,
+"3": 2671,
+"4": 756
+}
+},
+{
+"B": "{g0,g1,a3_0,a4_0}",
+"orbit": 12,
+"nsig": 992,
+"states": 3063,
+"nonfirstgen": 2414,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 9,
+"1": 175,
+"2": 958,
+"3": 1443,
+"4": 478
+}
+},
+{
+"B": "{al0,m0,a3_0,c3}",
+"orbit": 24,
+"nsig": 1004,
+"states": 4564,
+"nonfirstgen": 4067,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 28,
+"1": 406,
+"2": 1488,
+"3": 2027,
+"4": 615
+}
+},
+{
+"B": "{al0,m0,a3_0,c4}",
+"orbit": 24,
+"nsig": 1017,
+"states": 4585,
+"nonfirstgen": 3990,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 28,
+"1": 374,
+"2": 1482,
+"3": 2061,
+"4": 640
+}
+},
+{
+"B": "{al0,m0,m1,c3}",
+"orbit": 12,
+"nsig": 1038,
+"states": 4726,
+"nonfirstgen": 4233,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 28,
+"1": 392,
+"2": 1537,
+"3": 2124,
+"4": 645
+}
+},
+{
+"B": "{g0,m0,m1,m2}",
+"orbit": 3,
+"nsig": 1044,
+"states": 4021,
+"nonfirstgen": 3643,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"1": 285,
+"2": 1287,
+"3": 1884,
+"4": 565
+}
+},
+{
+"B": "{m0,a3_0,c3,c4}",
+"orbit": 12,
+"nsig": 1046,
+"states": 6312,
+"nonfirstgen": 5835,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 71,
+"1": 706,
+"2": 2223,
+"3": 2614,
+"4": 698
+}
+},
+{
+"B": "{g0,g1,m0,m1}",
+"orbit": 9,
+"nsig": 1065,
+"states": 2879,
+"nonfirstgen": 2268,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 5,
+"1": 149,
+"2": 874,
+"3": 1396,
+"4": 455
+}
+},
+{
+"B": "{g0,a3_0,a4_0,c3}",
+"orbit": 24,
+"nsig": 1100,
+"states": 4665,
+"nonfirstgen": 4083,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 36,
+"1": 404,
+"2": 1558,
+"3": 2067,
+"4": 600
+}
+},
+{
+"B": "{g0,a3_0,a3_1,a4_0}",
+"orbit": 12,
+"nsig": 1113,
+"states": 4729,
+"nonfirstgen": 4072,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 36,
+"1": 404,
+"2": 1588,
+"3": 2080,
+"4": 621
+}
+},
+{
+"B": "{g0,g1,m0,a3_0}",
+"orbit": 36,
+"nsig": 1127,
+"states": 3116,
+"nonfirstgen": 2470,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 8,
+"1": 180,
+"2": 967,
+"3": 1484,
+"4": 477
+}
+},
+{
+"B": "{g0,m0,m1,c3}",
+"orbit": 18,
+"nsig": 1153,
+"states": 4243,
+"nonfirstgen": 3845,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 26,
+"1": 367,
+"2": 1414,
+"3": 1899,
+"4": 537
+}
+},
+{
+"B": "{al0,g0,m0,a3_0}",
+"orbit": 72,
+"nsig": 1200,
+"states": 3251,
+"nonfirstgen": 2711,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 12,
+"1": 207,
+"2": 999,
+"3": 1524,
+"4": 509
+}
+},
+{
+"B": "{al0,m0,a3_0,a4_0}",
+"orbit": 24,
+"nsig": 1220,
+"states": 4047,
+"nonfirstgen": 3574,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 20,
+"1": 359,
+"2": 1344,
+"3": 1798,
+"4": 526
+}
+},
+{
+"B": "{g0,m0,a3_0,c3}",
+"orbit": 36,
+"nsig": 1235,
+"states": 4639,
+"nonfirstgen": 4203,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 35,
+"1": 429,
+"2": 1554,
+"3": 2044,
+"4": 577
+}
+},
+{
+"B": "{g0,m0,a3_0,c4}",
+"orbit": 36,
+"nsig": 1247,
+"states": 4631,
+"nonfirstgen": 4098,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 34,
+"1": 391,
+"2": 1545,
+"3": 2068,
+"4": 593
+}
+},
+{
+"B": "{al0,g0,m0,m1}",
+"orbit": 18,
+"nsig": 1281,
+"states": 3448,
+"nonfirstgen": 2830,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 12,
+"1": 194,
+"2": 1038,
+"3": 1643,
+"4": 561
+}
+},
+{
+"B": "{g0,m0,a3_0,a3_1}",
+"orbit": 18,
+"nsig": 1293,
+"states": 4940,
+"nonfirstgen": 4348,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 33,
+"1": 445,
+"2": 1633,
+"3": 2186,
+"4": 643
+}
+},
+{
+"B": "{al0,m0,m1,a3_0}",
+"orbit": 24,
+"nsig": 1304,
+"states": 4385,
+"nonfirstgen": 3927,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 20,
+"1": 371,
+"2": 1423,
+"3": 1962,
+"4": 609
+}
+},
+{
+"B": "{m0,a3_0,a3_1,a4_0}",
+"orbit": 12,
+"nsig": 1327,
+"states": 6096,
+"nonfirstgen": 5552,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 60,
+"1": 714,
+"2": 2142,
+"3": 2514,
+"4": 666
+}
+},
+{
+"B": "{m0,m1,a3_0,c4}",
+"orbit": 12,
+"nsig": 1363,
+"states": 6290,
+"nonfirstgen": 5874,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 56,
+"1": 731,
+"2": 2178,
+"3": 2633,
+"4": 692
+}
+},
+{
+"B": "{m0,a3_0,a4_0,c3}",
+"orbit": 24,
+"nsig": 1470,
+"states": 6783,
+"nonfirstgen": 6224,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 79,
+"1": 799,
+"2": 2363,
+"3": 2794,
+"4": 748
+}
+},
+{
+"B": "{g0,m0,m1,a3_0}",
+"orbit": 36,
+"nsig": 1814,
+"states": 4977,
+"nonfirstgen": 4496,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 32,
+"1": 446,
+"2": 1643,
+"3": 2210,
+"4": 646
+}
+},
+{
+"B": "{m0,m1,a3_0,a4_0}",
+"orbit": 12,
+"nsig": 1869,
+"states": 6319,
+"nonfirstgen": 5953,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 59,
+"1": 768,
+"2": 2186,
+"3": 2622,
+"4": 684
+}
+},
+{
+"B": "{g0,m0,a3_0,a4_0}",
+"orbit": 36,
+"nsig": 1912,
+"states": 5253,
+"nonfirstgen": 4709,
+"always_firstgen": false,
+"num5pairs_with_base": {
+"0": 45,
+"1": 488,
+"2": 1758,
+"3": 2293,
+"4": 669
+}
+},
+{
+"B": "{v,g0,g1,g2}",
+"orbit": 2,
+"nsig": 20,
+"states": 88,
+"nonfirstgen": 0,
+"always_firstgen": true,
+"num5pairs_with_base": {
+"2": 9,
+"3": 42,
+"4": 37
+}
+},
+{
+"B": "{v,al0,al1,a3_0}",
+"orbit": 4,
+"nsig": 29,
+"states": 172,
+"nonfirstgen": 0,
+"always_firstgen": true,
+"num5pairs_with_base": {
+"2": 24,
+"3": 76,
+"4": 72
+}
+},
+{
+"B": "{v,g0,g1,c3}",
+"orbit": 6,
+"nsig": 40,
+"states": 194,
+"nonfirstgen": 0,
+"always_firstgen": true,
+"num5pairs_with_base": {
+"2": 19,
+"3": 109,
+"4": 66
+}
+},
+{
+"B": "{v,w,m0,m1}",
+"orbit": 3,
+"nsig": 50,
+"states": 258,
+"nonfirstgen": 0,
+"always_firstgen": true,
+"num5pairs_with_base": {
+"2": 38,
+"3": 120,
+"4": 100
+}
+},
+{
+"B": "{v,al0,a3_0,a3_1}",
+"orbit": 4,
+"nsig": 64,
+"states": 460,
+"nonfirstgen": 0,
+"always_firstgen": true,
+"num5pairs_with_base": {
+"2": 78,
+"3": 247,
+"4": 135
+}
+},
+{
+"B": "{al0,al1,g0,g1}",
+"orbit": 3,
+"nsig": 97,
+"states": 361,
+"nonfirstgen": 0,
+"always_firstgen": true,
+"num5pairs_with_base": {
+"2": 48,
+"3": 195,
+"4": 118
+}
+},
+{
+"B": "{al0,g0,g1,g2}",
+"orbit": 2,
+"nsig": 114,
+"states": 467,
+"nonfirstgen": 0,
+"always_firstgen": true,
+"num5pairs_with_base": {
+"2": 60,
+"3": 305,
+"4": 102
+}
+}
+]

@@ -1,0 +1,36 @@
+== chunk Thu Oct 15 23:18:33 UTC 2026
+[w11] branch k4:3211 edges 8 K=50 (KB bound 50; sound=True) opt={'gen1auto': '1', 'sel': '11,12,15,16,21,22,23', 'extra': 'J1@T012_0+T013_0+T023_0+T023_1', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1000', 'maxadd': '600'}
+  edges: ['g1:(B2,B1):T123_0', 'g1:(B2,B1):T123_1', 'g1:(B3,B1):T123_0', 'g1:(B3,B1):T123_1', 'g1:(B3,B2):T123_0', 'g1:(B3,B2):T123_1', 'g1:(B3,B2):T123_2', 'J1']
+eager2 808
+eager3 1008
+f1all 56
+built 1.4s vars=81787 clauses=450536 inst=1872 tags={'AV': 32, 'def': 389353, 'E21': 8, 'A': 60, 'L': 248, 'D1': 5336, 'R1': 7, 'R3': 252, 'SA': 49006, 'POOL': 400, 'SB': 4418, 'W7': 1416}
+it 0: SAT (7.2s) inst=2099 cl=816388 viol=227 {'R3': 17, 'SA': 51, 'W7': 38, 'TT': 10, 'D1': 36, 'L': 75} added=227 esc=0 pool_used=16
+it 1: SAT (11.9s) inst=2162 cl=948720 viol=63 {'R3': 7, 'SA': 5, 'W7': 3, 'TT': 1, 'D1': 19, 'L': 28} added=63 esc=3 pool_used=8
+it 2: SAT (52.0s) inst=2171 cl=961994 viol=9 {'SA': 2, 'D1': 4, 'L': 3} added=9 esc=0 pool_used=4
+it 3: SAT (8.3s) inst=2192 cl=993702 viol=21 {'SA': 5, 'W7': 6, 'TT': 2, 'D1': 2, 'L': 6} added=21 esc=1 pool_used=7
+it 4: SAT (1.5s) inst=2204 cl=1024469 viol=12 {'SA': 2, 'D1': 3, 'L': 7} added=12 esc=0 pool_used=5
+it 5: SAT (1.5s) inst=2209 cl=1031464 viol=5 {'SA': 1, 'D1': 2, 'L': 2} added=5 esc=0 pool_used=3
+it 6: SAT (4.1s) inst=2229 cl=1066173 viol=20 {'SA': 7, 'W7': 3, 'TT': 1, 'L': 9} added=20 esc=0 pool_used=4
+it 7: SAT (2.1s) inst=2242 cl=1081068 viol=13 {'SA': 5, 'W7': 3, 'TT': 1, 'D1': 1, 'L': 3} added=13 esc=1 pool_used=3
+it 8: SAT (3.8s) inst=2243 cl=1085666 viol=1 {'L': 1} added=1 esc=0 pool_used=4
+it 9: SAT (7.6s) inst=2256 cl=1124547 viol=13 {'SA': 4, 'D1': 1, 'L': 8} added=13 esc=0 pool_used=6
+it 10: SAT (2.2s) inst=2271 cl=1159077 viol=15 {'SA': 3, 'W7': 3, 'TT': 1, 'L': 8} added=15 esc=2 pool_used=2
+it 11: SAT (22.6s) inst=2278 cl=1176433 viol=7 {'D1': 3, 'L': 4} added=7 esc=0 pool_used=8
+it 12: SAT (1.0s) inst=2282 cl=1186429 viol=4 {'SA': 2, 'L': 2} added=4 esc=0 pool_used=5
+it 13: SAT (1.1s) inst=2285 cl=1196165 viol=3 {'SA': 1, 'L': 2} added=3 esc=1 pool_used=7
+it 14: SAT (4.0s) inst=2293 cl=1214396 viol=8 {'SA': 4, 'L': 4} added=8 esc=2 pool_used=7
+it 15: SAT (7.0s) inst=2293 cl=1214396 viol=0 {} added=0 esc=0 pool_used=5
+VIOLATION-FREE: literal configuration written
+== exit 0 Thu Oct 15 23:20:56 UTC 2026
+== chunk Thu Oct 15 23:22:10 UTC 2026
+[w11] branch k4:3211 edges 8 K=50 (KB bound 50; sound=True) opt={'gen1auto': '1', 'sel': '11,12,15,16,21,22,23', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1000', 'maxadd': '600', 'extra': 'J1@T012_0+T013_0+T023_0+T023_1'}
+  edges: ['g1:(B2,B1):T123_0', 'g1:(B2,B1):T123_1', 'g1:(B3,B1):T123_0', 'g1:(B3,B1):T123_1', 'g1:(B3,B2):T123_0', 'g1:(B3,B2):T123_1', 'g1:(B3,B2):T123_2', 'J1']
+restored 2293 instances
+built 1.6s vars=182350 clauses=1214396 inst=2293 tags={'AV': 32, 'def': 1143538, 'E21': 8, 'A': 60, 'L': 410, 'D1': 8815, 'R1': 7, 'R3': 300, 'SA': 54864, 'POOL': 400, 'SB': 4418, 'W7': 1528, 'TT': 16}
+it 0: SAT (15.0s) inst=2294 cl=1217811 viol=1 {'L': 1} added=1 esc=0 pool_used=3
+it 1: SAT (10.7s) inst=2305 cl=1229463 viol=11 {'SA': 4, 'W7': 3, 'TT': 1, 'L': 3} added=11 esc=0 pool_used=4
+it 2: SAT (3.0s) inst=2309 cl=1229565 viol=4 {'R3': 2, 'D1': 2} added=4 esc=0 pool_used=2
+it 3: SAT (0.0s) inst=2309 cl=1229565 viol=0 {} added=0 esc=0 pool_used=2
+VIOLATION-FREE: literal configuration written
+== exit 0 Thu Oct 15 23:22:41 UTC 2026

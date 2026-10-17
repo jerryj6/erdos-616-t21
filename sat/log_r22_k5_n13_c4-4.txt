@@ -1,0 +1,3 @@
+r=22 k=5 n=13 csizes 4..4 vars=715
+P1 clauses 715 pair clauses 0
+SAT: found family of 715 core sets after 1 iterations

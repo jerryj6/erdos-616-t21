@@ -1,0 +1,5 @@
+branch k4:3211 edges 24 K=144 (KB bound 144; sound=True)
+built 1.3s vars=329942 clauses=986120 tags={'AV': 96, 'def': 947508, 'E21': 24, 'A': 372, 'L': 1344, 'D1': 720, 'R1': 24, 'R3': 48, 'SA': 6216, 'POOL': 3456, 'SB': 26312}
+it 0: SAT (49.2s) inst=600 cl=4170876 viol=6030 {'SA': 1812, 'R3': 512, 'W7': 1024, 'TT': 206, 'D1': 1875, 'L': 601} added=600 esc=0 pool_used=49
+it 1: SAT (136.1s) inst=1200 cl=6156704 viol=5470 {'R3': 473, 'SA': 1387, 'W7': 712, 'TT': 100, 'D1': 2197, 'L': 601} added=600 esc=0 pool_used=53
+it 2: SAT (207.9s) inst=1800 cl=8046298 viol=4042 {'SA': 953, 'R3': 360, 'W7': 451, 'TT': 90, 'D1': 1587, 'L': 601} added=600 esc=0 pool_used=56

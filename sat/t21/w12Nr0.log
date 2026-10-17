@@ -1,0 +1,67 @@
+== chunk Fri Oct 16 00:34:36 UTC 2026
+[w11] branch k4:3211 edges 14 K=92 (KB bound 92; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2,11,12,15,16,21,22,23', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'extra': 'JM1@T012_0+T023_0+T023_1+p01_0;JN2@T012_0+T013_0+T123_0+T123_2;JN3@T012_0+T023_1+T123_0+p12_0;JN4@T012_0+T013_0+p01_0+p02_0', 'warm': 'w10x_w12Mr1.json'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'g1:(B2,B1):T123_0', 'g1:(B2,B1):T123_1', 'g1:(B3,B1):T123_0', 'g1:(B3,B1):T123_1', 'g1:(B3,B2):T123_0', 'g1:(B3,B2):T123_1', 'g1:(B3,B2):T123_2', 'JM1', 'JN2', 'JN3', 'JN4']
+eager2 2068
+eager3 2640
+f1all 364
+warm 839
+built 16.1s vars=543897 clauses=3376188 inst=5911 tags={'AV': 56, 'def': 3189211, 'E21': 14, 'A': 147, 'L': 1204, 'D1': 21371, 'R1': 10, 'R3': 704, 'SA': 147140, 'POOL': 1288, 'SB': 11039, 'W7': 3988, 'TT': 16}
+it 0: SAT (629.7s) inst=6511 cl=4814555 viol=624 {'SA': 124, 'R3': 48, 'W7': 53, 'TT': 12, 'D1': 148, 'L': 239} added=600 esc=1 pool_used=33
+== exit 124 Fri Oct 16 00:53:46 UTC 2026
+== chunk Fri Oct 16 00:53:47 UTC 2026
+[w11] branch k4:3211 edges 14 K=92 (KB bound 92; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2,11,12,15,16,21,22,23', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'extra': 'JM1@T012_0+T023_0+T023_1+p01_0;JN2@T012_0+T013_0+T123_0+T123_2;JN3@T012_0+T023_1+T123_0+p12_0;JN4@T012_0+T013_0+p01_0+p02_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'g1:(B2,B1):T123_0', 'g1:(B2,B1):T123_1', 'g1:(B3,B1):T123_0', 'g1:(B3,B1):T123_1', 'g1:(B3,B2):T123_0', 'g1:(B3,B2):T123_1', 'g1:(B3,B2):T123_2', 'JM1', 'JN2', 'JN3', 'JN4']
+restored 6511 instances
+built 20.6s vars=745606 clauses=4814555 inst=6511 tags={'AV': 56, 'def': 4611946, 'E21': 14, 'A': 147, 'L': 1419, 'D1': 28623, 'R1': 10, 'R3': 800, 'SA': 155091, 'POOL': 1288, 'SB': 11039, 'W7': 4094, 'TT': 28}
+== killed by resuming agent Fri Oct 16 00:56:15 UTC 2026 to pick up the hard-limit patch
+== chunk Fri Oct 16 00:56:29 UTC 2026
+[w11] branch k4:3211 edges 14 K=92 (KB bound 92; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2,11,12,15,16,21,22,23', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'extra': 'JM1@T012_0+T023_0+T023_1+p01_0;JN2@T012_0+T013_0+T123_0+T123_2;JN3@T012_0+T023_1+T123_0+p12_0;JN4@T012_0+T013_0+p01_0+p02_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'g1:(B2,B1):T123_0', 'g1:(B2,B1):T123_1', 'g1:(B3,B1):T123_0', 'g1:(B3,B1):T123_1', 'g1:(B3,B2):T123_0', 'g1:(B3,B2):T123_1', 'g1:(B3,B2):T123_2', 'JM1', 'JN2', 'JN3', 'JN4']
+restored 6511 instances
+built 20.8s vars=745606 clauses=4814555 inst=6511 tags={'AV': 56, 'def': 4611946, 'E21': 14, 'A': 147, 'L': 1419, 'D1': 28623, 'R1': 10, 'R3': 800, 'SA': 155091, 'POOL': 1288, 'SB': 11039, 'W7': 4094, 'TT': 28}
+== sandbox restart ~01:14 UTC killed this chunk (it 1 solve lost)
+== chunk Fri Oct 16 01:18:53 UTC 2026
+== restarted by resuming agent Fri Oct 16 01:20:22 UTC 2026 (phase-hint patch)
+== chunk Fri Oct 16 01:20:22 UTC 2026
+[w11] branch k4:3211 edges 14 K=92 (KB bound 92; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2,11,12,15,16,21,22,23', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JM1@T012_0+T023_0+T023_1+p01_0;JN2@T012_0+T013_0+T123_0+T123_2;JN3@T012_0+T023_1+T123_0+p12_0;JN4@T012_0+T013_0+p01_0+p02_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'g1:(B2,B1):T123_0', 'g1:(B2,B1):T123_1', 'g1:(B3,B1):T123_0', 'g1:(B3,B1):T123_1', 'g1:(B3,B2):T123_0', 'g1:(B3,B2):T123_1', 'g1:(B3,B2):T123_2', 'JM1', 'JN2', 'JN3', 'JN4']
+restored 6511 instances
+built 13.2s vars=745606 clauses=4814555 inst=6511 tags={'AV': 56, 'def': 4611946, 'E21': 14, 'A': 147, 'L': 1419, 'D1': 28623, 'R1': 10, 'R3': 800, 'SA': 155091, 'POOL': 1288, 'SB': 11039, 'W7': 4094, 'TT': 28}
+it 0: SAT (553.7s) inst=6919 cl=5534243 viol=408 {'R3': 18, 'SA': 113, 'W7': 67, 'TT': 21, 'D1': 65, 'L': 124} added=408 esc=1 pool_used=32
+next solve would pass hard limit; checkpointed
+== exit 0 Fri Oct 16 01:30:13 UTC 2026
+== chunk Fri Oct 16 01:30:13 UTC 2026
+[w11] branch k4:3211 edges 14 K=92 (KB bound 92; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2,11,12,15,16,21,22,23', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JM1@T012_0+T023_0+T023_1+p01_0;JN2@T012_0+T013_0+T123_0+T123_2;JN3@T012_0+T023_1+T123_0+p12_0;JN4@T012_0+T013_0+p01_0+p02_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'g1:(B2,B1):T123_0', 'g1:(B2,B1):T123_1', 'g1:(B3,B1):T123_0', 'g1:(B3,B1):T123_1', 'g1:(B3,B2):T123_0', 'g1:(B3,B2):T123_1', 'g1:(B3,B2):T123_2', 'JM1', 'JN2', 'JN3', 'JN4']
+restored 6919 instances
+built 14.9s vars=843457 clauses=5534243 inst=6919 tags={'AV': 56, 'def': 5320767, 'E21': 14, 'A': 147, 'L': 1543, 'D1': 31808, 'R1': 10, 'R3': 836, 'SA': 162458, 'POOL': 1288, 'SB': 11039, 'W7': 4228, 'TT': 49}
+phases set 745606
+== exit 124 Fri Oct 16 01:49:24 UTC 2026
+== chunk Fri Oct 16 01:49:24 UTC 2026
+[w11] branch k4:3211 edges 14 K=92 (KB bound 92; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2,11,12,15,16,21,22,23', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JM1@T012_0+T023_0+T023_1+p01_0;JN2@T012_0+T013_0+T123_0+T123_2;JN3@T012_0+T023_1+T123_0+p12_0;JN4@T012_0+T013_0+p01_0+p02_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'g1:(B2,B1):T123_0', 'g1:(B2,B1):T123_1', 'g1:(B3,B1):T123_0', 'g1:(B3,B1):T123_1', 'g1:(B3,B2):T123_0', 'g1:(B3,B2):T123_1', 'g1:(B3,B2):T123_2', 'JM1', 'JN2', 'JN3', 'JN4']
+restored 6919 instances
+built 22.9s vars=843457 clauses=5534243 inst=6919 tags={'AV': 56, 'def': 5320767, 'E21': 14, 'A': 147, 'L': 1543, 'D1': 31808, 'R1': 10, 'R3': 836, 'SA': 162458, 'POOL': 1288, 'SB': 11039, 'W7': 4228, 'TT': 49}
+phases set 745606
+== chunk Fri Oct 16 03:35:32 UTC 2026
+[w11] branch k4:3211 edges 14 K=92 (KB bound 92; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2,11,12,15,16,21,22,23', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JM1@T012_0+T023_0+T023_1+p01_0;JN2@T012_0+T013_0+T123_0+T123_2;JN3@T012_0+T023_1+T123_0+p12_0;JN4@T012_0+T013_0+p01_0+p02_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'g1:(B2,B1):T123_0', 'g1:(B2,B1):T123_1', 'g1:(B3,B1):T123_0', 'g1:(B3,B1):T123_1', 'g1:(B3,B2):T123_0', 'g1:(B3,B2):T123_1', 'g1:(B3,B2):T123_2', 'JM1', 'JN2', 'JN3', 'JN4']
+restored 6919 instances
+built 16.4s vars=843457 clauses=5534243 inst=6919 tags={'AV': 56, 'def': 5320767, 'E21': 14, 'A': 147, 'L': 1543, 'D1': 31808, 'R1': 10, 'R3': 836, 'SA': 162458, 'POOL': 1288, 'SB': 11039, 'W7': 4228, 'TT': 49}
+phases set 745606
+== chunk Fri Oct 16 04:14:26 UTC 2026
+== relaunched Wave13 Fri Oct 16 04:19:20 UTC 2026 (box restarted; CPU0 full core)
+== chunk Fri Oct 16 04:19:22 UTC 2026
+[w11] branch k4:3211 edges 14 K=92 (KB bound 92; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2,11,12,15,16,21,22,23', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JM1@T012_0+T023_0+T023_1+p01_0;JN2@T012_0+T013_0+T123_0+T123_2;JN3@T012_0+T023_1+T123_0+p12_0;JN4@T012_0+T013_0+p01_0+p02_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'g1:(B2,B1):T123_0', 'g1:(B2,B1):T123_1', 'g1:(B3,B1):T123_0', 'g1:(B3,B1):T123_1', 'g1:(B3,B2):T123_0', 'g1:(B3,B2):T123_1', 'g1:(B3,B2):T123_2', 'JM1', 'JN2', 'JN3', 'JN4']
+restored 6919 instances
+built 16.4s vars=843457 clauses=5534243 inst=6919 tags={'AV': 56, 'def': 5320767, 'E21': 14, 'A': 147, 'L': 1543, 'D1': 31808, 'R1': 10, 'R3': 836, 'SA': 162458, 'POOL': 1288, 'SB': 11039, 'W7': 4228, 'TT': 49}
+phases set 745606
+== exit 124 Fri Oct 16 04:38:32 UTC 2026
+== chunk Fri Oct 16 04:38:32 UTC 2026
+[w11] branch k4:3211 edges 14 K=92 (KB bound 92; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2,11,12,15,16,21,22,23', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JM1@T012_0+T023_0+T023_1+p01_0;JN2@T012_0+T013_0+T123_0+T123_2;JN3@T012_0+T023_1+T123_0+p12_0;JN4@T012_0+T013_0+p01_0+p02_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'g1:(B2,B1):T123_0', 'g1:(B2,B1):T123_1', 'g1:(B3,B1):T123_0', 'g1:(B3,B1):T123_1', 'g1:(B3,B2):T123_0', 'g1:(B3,B2):T123_1', 'g1:(B3,B2):T123_2', 'JM1', 'JN2', 'JN3', 'JN4']
+== paused by Wave 13 agent Fri Oct 16 04:38:46 UTC 2026: no solve completed on shared CPU 0 (4th consecutive chunk); CPU 0 reassigned to sub-chain Q
+== chunk Fri Oct 16 05:13:48 UTC 2026
+== exit 143 Fri Oct 16 05:14:22 UTC 2026
+== killed again Fri Oct 16 05:14:23 UTC 2026 by the Wave 13 compute agent: chain N is PAUSED (see w12_N_PAUSED)

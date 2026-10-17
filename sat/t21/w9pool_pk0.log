@@ -1,0 +1,4 @@
+it 0: SAT (0.0s) edges=0 inst=0 cl=0 viol=0 added=0 need=24 +edges 24
+it 1: SAT (3.5s) edges=24 inst=800 cl=2746471 viol=903 added=800
+it 2: SAT (86.1s) edges=24 inst=1225 cl=4325579 viol=425 added=425
+restored 24 1225

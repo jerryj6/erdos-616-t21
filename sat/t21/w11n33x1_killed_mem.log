@@ -1,0 +1,8 @@
+[w11] branch nok4:3,3 edges 22 K=144 (KB bound 144; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2,3,4,5,6,10,11,12,13,14,15,16,17,18', 'extra': 'J31@al0+al1+al2+cl0;J22@al0+al1+cl0+cl1;J13@al0+cl0+cl1+cl2;g2[B0|(B1,B0).m0].ah0@m0+al0+al1+al2;g2[B0|(B1,B0).m1].a00@m1+al0+al1+al2;g2[B0|(B1,B0).m2].ah0@m2+al0+al1+al2', 'eager2': '1', 'eager3': '1', 'f1all': '1', 'no24': '1', 'warm': 'w10x_w11n33mN.json', 'tlim': '1000', 'maxadd': '400'}
+  edges: ['g1:(B1,B0):m0', 'g1:(B1,B0):m1', 'g1:(B1,B0):m2', 'g1:(B2,B0):al0', 'g1:(B2,B0):al1', 'g1:(B2,B0):al2', 'g1:(B2,B0):ag0', 'g1:(B3,B0):ah0', 'g1:(B2,B1):cl0', 'g1:(B2,B1):cl1', 'g1:(B2,B1):cl2', 'g1:(B2,B1):cg0', 'g1:(B3,B1):cl0', 'g1:(B3,B1):cl1', 'g1:(B3,B1):cl2', 'g1:(B3,B1):ch0', 'J31', 'J22', 'J13', 'g2[B0|(B1,B0).m0].ah0', 'g2[B0|(B1,B0).m1].a00', 'g2[B0|(B1,B0).m2].ah0']
+eager2 4286
+eager3 26496
+no24 base-pair instances 1375
+f1all 1540
+warm 1401
+built 23.0s vars=2447344 clauses=14572430 inst=35098 tags={'AV': 88, 'def': 13736850, 'E21': 22, 'A': 319, 'L': 3261, 'D1': 62122, 'R1': 16, 'R3': 1639, 'SA': 690263, 'POOL': 3168, 'SB': 24235, 'W7': 20263, 'NK': 10135, 'N24': 20046, 'TT': 3}

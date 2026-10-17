@@ -1,0 +1,17 @@
+== gen-1 only (nedges=19, K=KB bound)
+K=114 (KB bound 114, sound=True) instances kept 380/380 vars=304920 clauses=1352137
+clause tags: {"AV": 76, "def": 1315509, "E21": 19, "A": 247, "L": 880, "D1": 4696, "R1": 19, "R3": 198, "SA": 10560, "POOL": 2166, "SB": 17515, "W7": 168, "NK": 84}
+solve UNSAT 25.0s
+c detected empty clause; start verification via backward checking
+s VERIFIED
+c verification time: 9.810 seconds
+drat-trim 9.8s
+== no symmetry breaking
+K=154 (KB bound 154, sound=True) instances kept 380/380 vars=465809 clauses=1864340
+clause tags: {"AV": 96, "def": 1841872, "E21": 24, "A": 372, "L": 1350, "D1": 4821, "R1": 19, "R3": 198, "SA": 11640, "POOL": 3696, "W7": 168, "NK": 84}
+solve UNSAT 30.0s
+c detected empty clause; start verification via backward checking
+s VERIFIED
+c verification time: 11.675 seconds
+drat-trim 11.8s
+DONE

@@ -1,0 +1,10 @@
+[w11] branch nok4:3,3 edges 16 K=96 (KB bound 96; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2,3,4,5,6,10,11,12,13,14,15,16,17,18', 'eager2': '1', 'eager3': '1', 'f1all': '1', 'no24': '1', 'warm': 'w10x_w11n33m.json', 'tlim': '1000', 'maxadd': '400'}
+  edges: ['g1:(B1,B0):m0', 'g1:(B1,B0):m1', 'g1:(B1,B0):m2', 'g1:(B2,B0):al0', 'g1:(B2,B0):al1', 'g1:(B2,B0):al2', 'g1:(B2,B0):ag0', 'g1:(B3,B0):ah0', 'g1:(B2,B1):cl0', 'g1:(B2,B1):cl1', 'g1:(B2,B1):cl2', 'g1:(B2,B1):cg0', 'g1:(B3,B1):cl0', 'g1:(B3,B1):cl1', 'g1:(B3,B1):cl2', 'g1:(B3,B1):ch0']
+eager2 2672
+eager3 14688
+no24 base-pair instances 760
+f1all 560
+warm 1401
+built 10.6s vars=1070109 clauses=6985446 inst=20081 tags={'AV': 64, 'def': 6502845, 'E21': 16, 'A': 184, 'L': 1777, 'D1': 52564, 'R1': 16, 'R3': 1255, 'SA': 384362, 'POOL': 1536, 'SB': 13015, 'W7': 11209, 'NK': 5608, 'N24': 10992, 'TT': 3}
+it 0: SAT (127.0s) inst=20081 cl=6985446 viol=0 {} added=0 esc=0 pool_used=8
+VIOLATION-FREE: literal configuration written

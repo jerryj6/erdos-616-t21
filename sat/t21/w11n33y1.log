@@ -1,0 +1,16 @@
+[w11] branch nok4:3,3 edges 19 K=118 (KB bound 118; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2,3,4,5,6,10,11,12,13,14,15,16,17,18', 'extra': 'J31@al0+al1+al2+cl0;J13@al0+cl0+cl1+cl2;Jv@cl0+cl1+cl2+cg0', 'eager2': '1', 'eager3': 'g1', 'n24g2': '0', 'f1all': '1', 'no24': '1', 'tlim': '1000', 'maxadd': '600'}
+  edges: ['g1:(B1,B0):m0', 'g1:(B1,B0):m1', 'g1:(B1,B0):m2', 'g1:(B2,B0):al0', 'g1:(B2,B0):al1', 'g1:(B2,B0):al2', 'g1:(B2,B0):ag0', 'g1:(B3,B0):ah0', 'g1:(B2,B1):cl0', 'g1:(B2,B1):cl1', 'g1:(B2,B1):cl2', 'g1:(B2,B1):cg0', 'g1:(B3,B1):cl0', 'g1:(B3,B1):cl1', 'g1:(B3,B1):cl2', 'g1:(B3,B1):ch0', 'J31', 'J13', 'Jv']
+eager2 3518
+eager3 11628
+no24 base-pair instances 1045
+f1all 969
+built 8.8s vars=1007140 clauses=5586945 inst=17160 tags={'AV': 76, 'def': 5053371, 'E21': 19, 'A': 247, 'L': 1843, 'D1': 31275, 'R1': 17, 'R3': 1374, 'SA': 456295, 'POOL': 2242, 'SB': 17967, 'W7': 13518, 'NK': 6763, 'N24': 1938}
+it 0: SAT (127.7s) inst=17760 cl=7256011 viol=620 {'R3': 42, 'SA': 19, 'W7': 11, 'N24': 7, 'D1': 261, 'L': 280} added=600 esc=0 pool_used=33
+it 1: SAT (264.0s) inst=18021 cl=8090001 viol=261 {'SA': 7, 'R3': 11, 'N24': 12, 'D1': 104, 'L': 127} added=261 esc=0 pool_used=31
+it 2: SAT (27.0s) inst=18147 cl=8403234 viol=126 {'SA': 23, 'R3': 6, 'N24': 9, 'W7': 4, 'D1': 26, 'L': 58} added=126 esc=0 pool_used=24
+it 3: SAT (125.3s) inst=18223 cl=8631843 viol=76 {'SA': 3, 'R3': 2, 'W7': 12, 'D1': 18, 'L': 41} added=76 esc=0 pool_used=31
+it 4: SAT (142.3s) inst=18281 cl=8773746 viol=58 {'SA': 1, 'W7': 1, 'D1': 31, 'L': 25} added=58 esc=0 pool_used=36
+it 5: SAT (14.6s) inst=18317 cl=8834869 viol=36 {'SA': 11, 'W7': 1, 'D1': 13, 'L': 11} added=36 esc=0 pool_used=12
+it 6: SAT (26.5s) inst=18386 cl=9050358 viol=69 {'SA': 8, 'W7': 2, 'D1': 23, 'L': 36} added=69 esc=0 pool_used=30
+it 7: SAT (35.8s) inst=18445 cl=9180069 viol=59 {'SA': 7, 'R3': 4, 'W7': 14, 'TT': 1, 'D1': 9, 'L': 24} added=59 esc=0 pool_used=20
+it 8: UNSAT (150.4s) inst=18445 vars=1505778 clauses=9180069 sound=True

@@ -1,17 +1,12 @@
 > **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
 
-> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
-> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
-> scripts, build directories or logs from the original working environment that are not part of the proof and were not
-> published; nothing the final theorem or the certificate checks depends on is among them.
-
 # Erdős #616, r = 21: toward t(21) = 4. Working file (2026-10-14)
 > Referee report (2026-10-15): docs/referee/t21-referee.md — §1, D1, W6-U, W7-I all SOUND; machine checks re-verified.
 
 Wave 10 (end of file, "Wave 10 outside-H"): the non-uniform Lemma H is OO at derived pairs. Full outside-disjointness is FALSE in Case N (a witness and a single overlap in exactly 4−c points). New 3-way lemmas SQ and SF refute the W9 stall cores by hand. Case N is still OPEN.
 Status: **OPEN.** t(21) ∈ {4,5} is not settled. **Wave 7 (2026-10-15): Case I (triangle) PROVED impossible (§7.4, hand proof + DRAT cross-check); only Case N remains.** Wave 6 (§6.3): the uniform case — which contains both known
 example types — is PROVED impossible; t(21)=4 now ⟺ every 5-pair is uniform (§6.6). This file keeps what is PROVED, what is COMPUTED (with
-certificate), and what is CONJECTURED, kept apart. The companion file is candidates/erdos-616-loop.md
+certificate), and what is CONJECTURED, kept apart. The companion file is docs/loop-notes.md
 (core reformulation, L1, L2, and the certified claim "core ≥ 15").
 
 Setting: G is 21-uniform with property L = every subfamily of edges whose union has ≤ 60 vertices has a common
@@ -102,7 +97,7 @@ W1, W2 and §4 mentioned in the brief were NOT in the file (lost in a rollback).
 *Proof.* Pick x ∈ M∖L and a single F of type x (R.2). By R.3 (singles of ≥2 types exist) |F∖(E∪E')| = 12.
 {E,E',L,F} has empty intersection (⊆ M∩F∩L = {x}∩L). Union = 37 + 12 + |L∖(E∪E'∪F)| ≥ 61, so
 |L∖(E∪E')| ≥ 12. ∎  (r=16 analogue: |L∩(E∪E')| ≤ 7 for a 4-pair; holds in H(16,10,7): core part of L is 7.)
-D1 is used as a reified constraint inside the region model work/e616/t21/w6model.py (source at end of section).
+D1 is used as a reified constraint inside the region model sat/t21/w6model.py (source at end of section).
 
 ### 6.1 Case I = some Lemma-T witness is a single = "triangle" (re-derived, proved)
 Case I: singles G (type v), H (type w≠v) with |A_G∩A_H| = 1, say A_G∩A_H = {p} (or the C-side version). By S(c),
@@ -172,7 +167,7 @@ union 12; by H their outside parts are pairwise disjoint. So the 4 edges have em
 *Sanity vs. examples.* At r = 22 (H(13,9)) the same family has union 12 + 4·13 = 64 > 63 and H's count gives 64:
 no contradiction, as it must be. At r = 16 (S has 10 points, B's are 7-sets) a 4-family of 7-sets with empty
 intersection and union ≤ 9 would need 4 disjoint pairs covering 9 points — impossible, so no contradiction there either.
-Scripts: work/e616/t21/w6_uclosure.py (Kneser reachability, closure, bad family), w6_check_examples.py.
+Scripts: sat/t21/w6_uclosure.py (Kneser reachability, closure, bad family), w6_check_examples.py.
 **Consequence:** a counterexample has a non-uniform 5-pair, i.e. lies in Case I or Case N.
 
 ### 6.4 Additional triangle facts (proved) and what remains in Case I
@@ -184,7 +179,7 @@ avoided point). Hence an edge Z avoiding {x_ij, x_ik, c, c'} (Tri-4) **contains 
 x_ij ∉ W then |W∩C0| ≥ 3 (Tri-5).
 CP-SAT (pruned region model w6fast.py, triangle fixed, D1 on, L on all ≤4-subfamilies): guided witness sets
 {J,Y12,D}, {Y12,Y13,Y23}, {J,Z1,D} (k=7), {J,Y12,Y13,D}, {Y12,Y13,Y23,D}, {Y12,Y13,Z1,D} (k=8) and
-{J,Y12,Y13,Y23,D} (k=9, 943 s) are all **FEASIBLE** (k=9 solution in work/e616/t21/w6_tri_b.log satisfies
+{J,Y12,Y13,Y23,D} (k=9, 943 s) are all **FEASIBLE** (k=9 solution in sat/t21/w6_tri_b.log satisfies
 Tri-2 by inspection). k=11 {J,Y12,Y13,Y23,Z1,Z2,Z3} did not finish (killed; CPU contention). So no
 bounded-witness contradiction for the triangle is in reach of this model; the triangle is locally consistent
 with ≥ 9 edges.
@@ -214,7 +209,7 @@ union — the mechanism behind D1, Tri-2, Tri-3 and Lemma H.
 
 ### 6.8 Script sources (Wave 6)
 
-#### work/e616/t21/w6model.py
+#### sat/t21/w6model.py
 ```python
 """Wave 6 region model (generic in r, K=tau target, W=window).  Edges 0..k-1; c[T] = #vertices whose membership
 set among the k edges is exactly T.  Constraints (all TRUE consequences in any counterexample G):
@@ -226,7 +221,6 @@ set among the k edges is exactly T.  Constraints (all TRUE consequences in any c
   fixed: list of (inc, exc, op, val) constraints on group sizes over ALL k edges (case hypotheses).
 INFEASIBLE => no counterexample containing the hypothesised configuration."""
 import itertools, time, sys
-sys.path.append("work/e616/pylib")
 from ortools.sat.python import cp_model
 
 def grp(k, inc, exc, without=None):
@@ -315,13 +309,12 @@ def min_cover(k, sol, maxsize=4):
 B = lambda *idx: sum(1 << i for i in idx)
 ```
 
-#### work/e616/t21/w6fast.py
+#### sat/t21/w6fast.py
 ```python
 """Pruned region model: like w6model.build but region variables only for T whose restriction to the first k0 edges
 lies in `base` (list of allowed k0-bit regions, 0 allowed = vertex in none of the first k0 edges).  Sound when the
 first k0 edges are fully fixed by the case hypothesis (base sizes given in `basesz`)."""
 import itertools, time, sys
-sys.path.append("work/e616/pylib")
 from ortools.sat.python import cp_model
 
 def build(k, k0, basesz, pats, r=21, K=5, W=60, d1=True, maxfam=99):
@@ -372,7 +365,7 @@ def solve(k, k0, basesz, pats, tl=100, workers=2, **kw):
     return name, sol, time.time() - t0, tb
 ```
 
-#### work/e616/t21/w6tri2.py
+#### sat/t21/w6tri2.py
 ```python
 import sys, json
 from w6fast import solve
@@ -408,7 +401,7 @@ while True:
     print('  cover ->', [(bin(T)[2:].zfill(k)[::-1], mu) for T, mu in cov], flush=True); k += 1
 ```
 
-#### work/e616/t21/w6caseN.py
+#### sat/t21/w6caseN.py
 ```python
 """Case N / non-uniform probe: 0=E1 1=E2 (5-pair), 2=G single type v, 3=H single type w, |A_G&A_H|=a, |C_G&C_H|=c.
 Then CEGAR witness edges (min 4-covers).  Usage: python w6caseN.py a c kmax tl"""
@@ -430,7 +423,7 @@ while k <= kmax:
 if sol is not None: print('  last sol:', show(k if k <= kmax else kmax, sol))
 ```
 
-#### work/e616/t21/w6_uclosure.py
+#### sat/t21/w6_uclosure.py
 ```python
 r"""Checks for Lemma W6-U (Case II-U): (1) moves N -> {t} u (B\N), t in N, on 5-subsets of a 9-set B are connected
 (complements walk on Kneser K(9,4)); (2) the relative rule B -> S13 \ C (C a 4-subset of B) closes from one 9-set to
@@ -462,7 +455,7 @@ print('bad family in closure:', all(s in F for s in fam), 'intersection:', set.i
       'union size:', len(frozenset().union(*fam)), '-> span with disjoint 12-point outsides =', len(frozenset().union(*fam)) + 48)
 ```
 
-#### work/e616/t21/w6_check_examples.py
+#### sat/t21/w6_check_examples.py
 ```python
 """Literal checks of Wave-6 lemmas on the known examples: r=16 H(16,10,7) (tau=4, window 45, tight analogue)
 and r=22 H(22,13,9) (tau=5, window 63, slack analogue).  Checks: min pair = K; D1 analogue (cap 4r-W-3K) at r=16;
@@ -494,7 +487,7 @@ for (r, k, q, K, W) in [(16, 10, 7, 4, 45), (22, 13, 9, 5, 63)]:
 
 ## 2026-10-15 05:14 EDT run: five-singles feasibility (Case N), NEGATIVE
 Sweep A16 finished: n=19 cycmult:7, 23 cycmult:2, 25 cycmult:2, 21 cycmult:4 UNSAT; 24 cycmult:5 TIMEOUT. No r=21 FOUND.
-Unit: SAT model of the (A,C)-parts of 5 singles of distinct types (|A_i|=|C_i|=4 in a 16-point set; Lemma S a,c>=1, a+c>=5, a=1=>C equal, c=1=>A equal; every 3 share a point; every 4 share a point or |∪A|+|∪C|>=9) with pair (0,1) forced to each Case-N (a,c) in {(2,3),(3,2),(2,4),(4,2),(3,3),(3,4),(4,3)}: ALL SAT. So five singles alone give no contradiction; a contradiction in Case N must use extra edges (Lemma T witnesses, multi edges, D1 for the pair (G,H)=5-pair with M'=(A_G∩A_H)∪(C_G∩C_H)). Script: work/e616/t21/five_singles.py (pysat Cadical, ~60 lines; regenerate from this description). Stall 17.
+Unit: SAT model of the (A,C)-parts of 5 singles of distinct types (|A_i|=|C_i|=4 in a 16-point set; Lemma S a,c>=1, a+c>=5, a=1=>C equal, c=1=>A equal; every 3 share a point; every 4 share a point or |∪A|+|∪C|>=9) with pair (0,1) forced to each Case-N (a,c) in {(2,3),(3,2),(2,4),(4,2),(3,3),(3,4),(4,3)}: ALL SAT. So five singles alone give no contradiction; a contradiction in Case N must use extra edges (Lemma T witnesses, multi edges, D1 for the pair (G,H)=5-pair with M'=(A_G∩A_H)∪(C_G∩C_H)). Script: sat/t21/five_singles.py (pysat Cadical, ~60 lines; regenerate from this description). Stall 17.
 
 ```
 # Case N feasibility of the 5 singles' (A,C)-parts at r=21 (necessary conditions only)
@@ -619,7 +612,7 @@ For a 5-pair (E1,E2) and singles G (type v), H (type w≠v): G∩H = (A_G∩A_H)
 O_G∩O_H = ∅ (S(a)) and O_G,O_H lie outside E1∪E2. Inclusion–exclusion: pairs 5,5,5,5,5,a+c; triples
 E1E2G={v}, E1E2H={w}, E1GH=A_G∩A_H (a), E2GH=C_G∩C_H (c); quadruple ∅; union 84−(25+a+c)+(2+a+c) = **61 for every
 (a,c)** (the 4-family is always exactly tight). For a+c=5 all six pairs are 5-pairs ("K4 configuration"). Concrete
-instance check: work/e616/t21/k4verify.py prints pairs [5,5,5,5,5,a+c], triples [1,1,a,c], union 61 for all 8 classes.
+instance check: sat/t21/k4verify.py prints pairs [5,5,5,5,5,a+c], triples [1,1,a,c], union 61 for all 8 classes.
 **General K4 facts (proved):** (i) any 4 edges, pairwise meeting in exactly 5, with empty 4-fold intersection have
 union 54 + Σ(triples) ≥ 61, so Σ triples ≥ 7; triple sizes are ≥ 1 (F1), so the triple vector is (4,1,1,1)
 [= triangle Tri-0], (3,2,1,1) [= Case N (2,3)/(3,2)] or (2,2,2,1) [then some 5-pair has one single and one multi with
@@ -659,10 +652,10 @@ the A-part of every W^k_q contains U_k := ∪_c S_c (≥ 3 points of Q_a∪Q_b),
 x_bk ∉ U_a, x_bk ∈ A^a_q forces A^a_q = U_a ∪ {x_bk} with |U_a| = 3.
 **COMPUTED (certified) finishing step.** The finite system {W-facts, Y-facts, (CP) for all 9×12 pairs (W,Y), (A), (O)} on the
 21 points of Q is UNSATISFIABLE:
-* pysat/CaDiCaL encoding work/e616/t21/w7_trace3.py with W7FLAGS=A,c3 (only these constraints are active; the optional
+* pysat/CaDiCaL encoding sat/t21/w7_trace3.py with W7FLAGS=A,c3 (only these constraints are active; the optional
   groups inter/Sd/D/cpW/cpcond/tri are OFF): UNSAT; CNF w7_core_A_c3.cnf (23764 vars, 61564 clauses), DRAT proof
   w7_core_A_c3.drat, **drat-trim: s VERIFIED** (5559-clause core).
-* independent CP-SAT re-encoding work/e616/t21/w7_core.py (written separately from the constraint list above): INFEASIBLE.
+* independent CP-SAT re-encoding sat/t21/w7_core.py (written separately from the constraint list above): INFEASIBLE.
   Controls (same file): dropping (A) → FEASIBLE; using only 3 of the 4 values of c → FEASIBLE. So the contradiction
   genuinely uses (A) and all four points of C0, and the encodings are not vacuous.
 * Under the extra hypothesis H4 (all e = 4) the system is UNSAT even without (A) (w7_trace.py / w7_trace2.py).
@@ -714,11 +707,11 @@ disjointness to pin o-points; the "tight/non-tight U" dichotomy) should be tried
 triple intersection.
 
 #### Script sources (Wave 7)
-* work/e616/t21/w7_trace3.py — pysat model M3 (flags; the certificate used W7FLAGS=A,c3). Kept in the workspace;
+* sat/t21/w7_trace3.py — pysat model M3 (flags; the certificate used W7FLAGS=A,c3). Kept in the workspace;
   constraint list is its docstring (= 7.3 list + optional groups).
-* work/e616/t21/w7_core.py — independent CP-SAT core model (source below).
-* work/e616/t21/w7_check_examples.py — CP' literal check on H(16,10,7), H(22,13,9).
-* certificate: work/e616/t21/w7_core_A_c3.cnf + .drat, checked with work/e616/tools/drat-trim (VERIFIED).
+* sat/t21/w7_core.py — independent CP-SAT core model (source below).
+* sat/t21/w7_check_examples.py — CP' literal check on H(16,10,7), H(22,13,9).
+* certificate: sat/t21/w7_core_A_c3.cnf + .drat, checked with drat-trim (VERIFIED).
 ```python
 r"""W7 core finite model (independent CP-SAT re-encoding of the part of M3 that is needed).
 Points of Q: x12=0, x13=1, x23=2, Q1={3,4,5}, Q2={6,7,8}, Q3={9,10,11}, Q*={12..20}.  C0 = {0,1,2,3} (labels c).
@@ -733,7 +726,6 @@ Constraints:
 Usage: python3 w7_core.py [extra-claim-name]
 """
 import sys, itertools
-sys.path.append("work/e616/pylib")
 from ortools.sat.python import cp_model
 X = {(1,2): 0, (1,3): 1, (2,3): 2}
 Qi = {1: [3,4,5], 2: [6,7,8], 3: [9,10,11]}; Qs = list(range(12, 21)); PTS = range(21)
@@ -793,7 +785,7 @@ if __name__ == '__main__':
     print('control without (A):', run(useA=False))
     print('control with only 3 values of c:', run(ncs=3))
 ```
-Sanity check of Step 4: work/e616/t21/w7_step4_check.py brute-forces all 20³ triples (U1,U2,U3) of 3-sets and finds
+Sanity check of Step 4: sat/t21/w7_step4_check.py brute-forces all 20³ triples (U1,U2,U3) of 3-sets and finds
 **0** satisfying (★) — agrees with the hand argument. Background CP-SAT probe w7_wc3g (|W∩C0| = 3, k=9) was UNKNOWN after
 900 s and has been killed; it is superseded by 7.4.
 
@@ -818,7 +810,7 @@ A-parts of two singles of (Q,X) of types x≠y are τ1∖{x}, τ2∖{y}; so **a 
 ⟺ "tangents to τ at distinct points meet in exactly 4". Case N with a ∈ {2,3} (WLOG, swapping E1,E2 if a = 4)
 ⟺ some 𝒯_{E1} has two tangents of one trace at distinct points meeting in 2 or 3 points.
 *Hoped-for lemma (would finish Case N via W6-U, applied on both sides):* T1+T2+T3 ⟹ tangents at distinct points
-meet in 4. **FALSE** as a pure set-system statement: work/e616/t21/tracefam.py (pysat, one boolean per 5-subset of
+meet in 4. **FALSE** as a pure set-system statement: sat/t21/tracefam.py (pysat, one boolean per 5-subset of
 an n-set; T1, closure T2, all triangles forbidden) finds for n = 10, 11, 12 with seed M={0..4}, τ_G={0,5,6,7,8},
 τ_H={1,6,7,8,9} (a = 3) a system of 126 traces; independently re-verified (tracefam_check.py → tf10.out): T1, T2,
 T3 hold, one set from each complementary pair of [10], point degrees [73,67,71,71,71,71,67,67,67,5] — it is the
@@ -831,7 +823,7 @@ r=22 H(22,13,9): 126 traces, same. (No K4 can exist there at all: pairwise-K q-s
 complements, 4·3 > 10, 4·4 > 13.)
 
 ### N.3 Region model on the K4 base (COMPUTED, all FEASIBLE — no local contradiction)
-work/e616/t21/k4model.py (base regions) and k4m2.py (base split into named points), constraints: |E|=21, Lemma A, L on
+sat/t21/k4model.py (base regions) and k4m2.py (base split into named points), constraints: |E|=21, Lemma A, L on
 every subfamily containing a new edge, D1, R3a (a single of a 5-pair meets both edges in exactly 5), NT (no triangle:
 cross-type singles of every 5-pair in the model have a,c ≥ 2). Witnesses: singles S{ij}_x = edge avoiding M_ij∖{x}.
 * every 1, 2 and 3 region-level single witnesses (k4sweep.py, 17 patterns, all 1140 triples): FEASIBLE;
@@ -860,7 +852,7 @@ N.3 (K4 region model feasible to k = 9; named 5-witness sets feasible). Suggeste
 too weak; or a W6-U-style closure for N-noK4 where every witness meets the other edge in ≥ 6.
 
 ### N.6 Script sources (Wave 7 Case N)
-#### work/e616/t21/k4verify.py
+#### sat/t21/k4verify.py
 ```python
 """Verify the K4 configuration claim (06:14 run) concretely: build E1=M+A, E2=M+C, G (type v), H (type w) with
 |A_G&A_H|=a, |C_G&C_H|=c, O_G, O_H disjoint 12-sets (Lemma R.3/S(a)); print pairwise/triple sizes and union."""
@@ -875,7 +867,7 @@ for a, c in [(2,3),(3,2),(2,4),(4,2),(3,3),(3,4),(4,3),(1,4)]:
     tr = [len(F[i]&F[j]&F[k]) for i,j,k in itertools.combinations(range(4),3)]
     print((a,c), 'pairs', pr, 'triples', tr, 'quad', len(E1&E2&G&H), 'union', len(E1|E2|G|H))
 ```
-#### work/e616/t21/k4model.py
+#### sat/t21/k4model.py
 ```python
 """Wave 7 Case N: region model with a fixed K4 configuration as base.
 Base edges P0..P3 (bits 0..3), pairwise |Pi&Pj| = 5, empty 4-fold intersection, triple sizes tt[l] = |cap_{i!=l} Pi|
@@ -891,7 +883,6 @@ Witness patterns: pats[e] = list of (pred, mu): pred(T) on regions of earlier ed
 points then edge e avoids >= mu points of each group (sum mu <= 4, tau >= 5).
 INFEASIBLE => the hypothesised configuration cannot occur in a counterexample."""
 import itertools, time, sys
-sys.path.append("work/e616/pylib")
 from ortools.sat.python import cp_model
 
 def base_sizes(tt, r=21):
@@ -993,7 +984,7 @@ def show(k, sol):
 def reg(b):  # predicate: vertex lies in base region b (any membership in earlier new edges)
     return lambda T: (T & 15) == b
 ```
-#### work/e616/t21/k4m2.py
+#### sat/t21/k4m2.py
 ```python
 """Wave 7 Case N, model v2: like k4model.py but the fixed base is a list of ATOMS (refinement of the base regions,
 so individual points such as each m3-point can be named).  atoms: list of (name, basemask(4 bits over P0..P3), size).
@@ -1002,7 +993,6 @@ Same TRUE constraints as k4model.py (Lemma A, L on all subfamilies with a new ed
 pats[e] = list of (atomset, mu): edge e avoids >= mu points of the union of those atoms (unconditional: mu <= size);
 sum mu <= 4."""
 import itertools, time, sys
-sys.path.append("work/e616/pylib")
 from ortools.sat.python import cp_model
 from k4model import base_sizes
 
@@ -1102,7 +1092,7 @@ def show(n, atoms, sol):
 def A(atoms, *names):
     return [i for i, a in enumerate(atoms) if a[0] in names]
 ```
-#### work/e616/t21/k4m2run.py
+#### sat/t21/k4m2run.py
 ```python
 import sys, itertools, json
 from k4m2 import *
@@ -1125,13 +1115,12 @@ if __name__ == '__main__':
     print(names, st, f'{t:.1f}s', flush=True)
     if sol and '-v' in sys.argv: print(json.dumps(show(len(names), atoms, sol)))
 ```
-#### work/e616/t21/tracefam.py
+#### sat/t21/tracefam.py
 ```python
 """Trace-system SAT over all 5-subsets of an n-set: boolean per 5-subset. T1 intersecting, T2 closure
 (every member and every point of it has a tangent member meeting it exactly there), T3 no triangle.
 Seed: tau={0..4}, tau1={0,5,6,7,8}, tau2={1}+(4-set meeting {5..8} in a points).  Usage: tracefam.py n a"""
 import sys, itertools
-sys.path.append("work/e616/pylib")
 from pysat.solvers import Cadical153
 n, a = int(sys.argv[1]), int(sys.argv[2])
 S = [frozenset(c) for c in itertools.combinations(range(n), 5)]
@@ -1165,7 +1154,7 @@ if r:
     m = set(x for x in sol.get_model() if x > 0)
     fam = [sorted(s) for s in S if idx[s] in m]; print(len(fam), fam[:60])
 ```
-#### work/e616/t21/w7N_check_examples.py
+#### sat/t21/w7N_check_examples.py
 ```python
 """Wave 7 Case N: literal checks on H(16,10,7) (r=16,K=4) and H(22,13,9) (r=22,K=5) of the trace-system facts
 T1 (traces E1&X of K-pair partners X pairwise intersect), T2 (every trace has a tangent trace at each of its
@@ -1191,7 +1180,7 @@ for (r, k, q, K) in [(16, 10, 7, 4), (22, 13, 9, 5)]:
              for i, j, l in itertools.combinations(nb, 3))
     print(f'r={r}: traces={len(tr)} T1={T1} T2={T2} T3={T3} tangents-uniform={tang_equal} K4-through-E0={k4}')
 ```
-Other scripts (variants, in work/e616/t21/): k4wit.py (region-level single patterns), k4sweep.py (all combos of size s), k4cegar.py (CEGAR, 4-point max-degree covers), k4batch.py (named sets), k4enum1.py/k4stats.py (enumerate one witness edge, per-region ranges), tracesys.py (closed k-trace SAT), tracefam_check.py. Logs: k4sweep_23_s3.log, k4cegar_23.log, k4batch_23.log, k4_gh5.log, tf10.out.
+Other scripts (variants, in sat/t21/): k4wit.py (region-level single patterns), k4sweep.py (all combos of size s), k4cegar.py (CEGAR, 4-point max-degree covers), k4batch.py (named sets), k4enum1.py/k4stats.py (enumerate one witness edge, per-region ranges), tracesys.py (closed k-trace SAT), tracefam_check.py. Logs: k4sweep_23_s3.log, k4cegar_23.log, k4batch_23.log, k4_gh5.log, tf10.out.
 
 ## Wave 8 N-noK4 (2026-10-15, started ~09:20 EDT)
 **Result: N-noK4 is NOT closed.** What follows: an exact reformulation, four new proved lemmas, and computer
@@ -1241,7 +1230,7 @@ Then W'∩C* = {c}, and W' is a type-c single of (E2,F_z) for every z ∈ D. R.3
 NK give: |W'∩(C∖C*)| = 4−m1, W'∩A ⊆ ∩_{z∈D} A_z, and m1 + |W'∩A_z| ≥ 6 for all z ∈ D. Hence m1 ≥ 2 and |D| ≤ 3.
 
 ### N8.5 Computation (all FEASIBLE; sound relaxations, so they show only that these local arguments cannot close the branch)
-Model work/e616/t21/w8n_model.py (CP-SAT). Points: M, A, C, and O_0..O_4 named (97 points). Edges: E1, E2, and five
+Model sat/t21/w8n_model.py (CP-SAT). Points: M, A, C, and O_0..O_4 named (97 points). Edges: E1, E2, and five
 singles F_y with variable parts and fixed disjoint outsides (pair (F0,F1) forced to the class). Optional: the Lemma-T
 witnesses of F0 (A- and C-side, 8 edges), the witnesses of F1, and τ-edges J_B avoiding chosen 4-sets B. Every other edge
 has a "rest" outside the model. Constraints: Lemma A with rest overlaps; L on every ≤4-family that contains an edge with
@@ -1254,7 +1243,7 @@ no rest, with the Hunter (spanning-tree) upper bound on the union; NK, fully rei
 * + witnesses of F1 (16 witnesses): UNKNOWN (90 s per CEGAR iteration on a CPU shared with other jobs; w8n_lazy.py,
   w8n_lazy_24.log). Not a result.
 * **Explicit local configuration (verified independently).** Class (2,4), 5 singles + J avoiding {v,w}∪α, C*, A_0 and
-  {v,w,c1,c2}: realised as an explicit 11-edge partial hypergraph (fresh points for rests): work/e616/t21/w8n_realized_24J.json.
+  {v,w,c1,c2}: realised as an explicit 11-edge partial hypergraph (fresh points for rests): sat/t21/w8n_realized_24J.json.
   It was checked by w8n_realize.py with plain set arithmetic: all sizes are 21, pairwise intersections ≥ 5, **L holds for every one of the 2^11
   subfamilies, and NK holds at every 5-pair inside the family**. Non-uniform classes (2,4), (3,4) and (4,3) occur at 8 different 5-pairs, among
   them (E2,J_{C*}), which shows the transposition of ZF. Log: w8n_real24J.keep.log. C*-avoider: M ∪ {a0,a1,a2,a4}, with
@@ -1276,7 +1265,7 @@ show that the resulting family of "M-partners" {E1} ∪ {X} forces a W6-U-type 4
 (2) **Propagation lemma (P):** under NK, (X,Y) uniform ⟹ (X,F) uniform for every single F. Together with one uniform 5-pair this
 would give a contradiction via W6-U, because W6-U only uses pairs reached by propagation G. (P) is not implied by uniformity of
 (X,Y): the singles of (X,F) are multis of (X,Y).
-Scripts: w8n_model.py, w8n_lazy.py, w8n_J.py, w8n_realize.py, w8n_singles.py, w8n_check_examples.py (all in work/e616/t21/).
+Scripts: w8n_model.py, w8n_lazy.py, w8n_J.py, w8n_realize.py, w8n_singles.py, w8n_check_examples.py (all in sat/t21/).
 
 ## Wave 8 N-K4 (2026-10-15, started ~09:15 EDT)
 **Result: N-K4 is NOT closed.** I found no contradiction, so this wave has **no UNSAT claim, no DRAT certificate and no
@@ -1315,7 +1304,7 @@ Check: w8lemmaG.py enumerates every core trace plus O-count vector allowed by Le
 instances satisfy the lemma.
 (Consequence: two type-γ singles of (P2,P3) that avoid v have the same A-part on {v}∪a3∪c3 and different m3 points.)
 
-### NK4.3 New model: point-level CNF with every point of P0∪…∪P3 named (work/e616/t21/w8sat.py)
+### NK4.3 New model: point-level CNF with every point of P0∪…∪P3 named (sat/t21/w8sat.py)
 The 16 core points and all 45 points of O0…O3 are named. Each new edge is a 0/1 vector over these 61 points. The
 constraints are exactly the proved facts used so far, each kept in a form that stays TRUE when the U-part is ignored:
 (S) singles: F∩N_ij = {x}, |F∩P_i| = |F∩P_j| = 5 (R.3), |F∩P_k| ≥ 5;
@@ -1372,11 +1361,11 @@ are uniform, then run W6-U's closure on S. S is a 13-set, as in W6-U. P3 (P3∩S
 must absorb.
 (2) CEGAR on the +U model with second-generation singles (singles of (P_i,F) for first-generation F) instead of generic
 τ-edges.
-Scripts (work/e616/t21/): w8sat.py (CNF model), w8k4.py (CP-SAT count/named model), w8sub.py, w8enum.py (per-class
+Scripts (sat/t21/): w8sat.py (CNF model), w8k4.py (CP-SAT count/named model), w8sub.py, w8enum.py (per-class
 trace enumeration), w8cegar.py, w8cegar2.py, w8backbone.py, w8avoid.py, w8realize.py, w8lemmaG.py, w8lemmaVW.py,
 w8K4_check_examples.py. Logs: w8k4_3211_full.log, w8k4_3211_named.log, w8sat_apex0_tt.log, w8sat_all_tt.log,
 w8sat_all_tt_U.log, w8cegar_3211_all.log, w8cegar2_3211.log, w8realize_3211.log, w8sat_2221_all_tt_U.log.
-pysat was missing from work/e616/pylib after a sandbox restart; I reinstalled it (python-sat 1.9.dev16).
+pysat was missing after a sandbox restart; I reinstalled it (python-sat 1.9.dev16).
 
 ## Wave 9 propagation (2026-10-15, started ~15:20 EDT)
 **Result: Case N is NOT closed, and the planned route "(P) + W6-U closure" has no local first step.** Below: three
@@ -1417,7 +1406,7 @@ Fix y ∈ N; (X,F_y) is a 5-pair with N' = {y}∪A0.
 Literal check of (b)/(c) on the examples (w9_check_examples.py): `r=16: type-p singles checked=480, deviant: 0`,
 `r=22: checked=800, deviant: 0` (both examples are uniform, so (P) holds there).
 
-### P9.3 COMPUTED: one uniform pair forces no new rigid 4-set (sound S-closure, work/e616/t21/w9_sclosure.py)
+### P9.3 COMPUTED: one uniform pair forces no new rigid 4-set (sound S-closure, sat/t21/w9_sclosure.py)
 Model: the 7 "good" edges X, Y, F_z (S-parts S∖D for D = C0, A0, N∖z; pairwise disjoint 12-point outsides). For a
 4-set D ⊂ S, a generic edge E avoiding D has S-part e ⊂ S∖D and overlaps o_i with the good outsides. Constraints (all
 proved): Lemma A, capacity Σo_i ≤ 21 − |e|, F1 for every good pair, L on {P_i,P_j,P_l,E} for every good triple whose
@@ -1428,7 +1417,7 @@ Output: `iter 1: good=7 newly rigid=0` (with and without NK). w9_probe2.py: for 
 classes are exactly the deviant (k,c) of P9.2(b). **Meaning: (P) cannot be proved from one unknown edge against the
 uniform pair; any proof needs several unknown edges interacting.**
 
-### P9.4 COMPUTED: (P) is locally FALSE in the (3,2,1,1)-K4 (work/e616/t21/w9_p02u.py on top of w8sat.build)
+### P9.4 COMPUTED: (P) is locally FALSE in the (3,2,1,1)-K4 (sat/t21/w9_p02u.py on top of w8sat.build)
 The Wave-8 point-level CNF (all 24 first-generation K4 witnesses, + TT), with every (0,2)-single **forced to have the
 parts of P1** (F∩(P0∖N02) = M∖v, F∩(P2∖N02) = γ∪c3), i.e. "(P0,P2) uniform at first generation":
 * `SAT 97 s` (3.38 M clauses), log w9_p02u_tt.log.
@@ -1471,7 +1460,7 @@ a unit of loss by itself. (Wave 8's w8n_model already found the C-uniform (2,4) 
   sets that meet both D_{y,p} and the deviant's S-part), or a global/counting argument. A concrete next experiment:
   extend w9_sclosure.py to pairs of generic edges (patterns e1, e2 plus a U-overlap variable), restricted to the
   deviant classes of P9.2(b).
-Scripts (work/e616/t21/): w9_sclosure.py, w9_probe.py, w9_probe2.py, w9_p02u.py, w9_check_examples.py,
+Scripts (sat/t21/): w9_sclosure.py, w9_probe.py, w9_probe2.py, w9_p02u.py, w9_check_examples.py,
 w9_check_pg.py. Logs: w9_p02u_tt.log, w9_p02u_tt_gen3.log, w9_p02u_tt_U.log.
 
 ## Wave 9 CEGAR (2026-10-15, ~11:25–12:50 EDT; computational, N-K4 and N-noK4)
@@ -1482,7 +1471,7 @@ That explains why every U-mode run so far (NK4.4 included) came out SAT, and it 
 **W9.0 The (2,2,2,1) run** (w8sat_2221_all_tt_U.log): **SAT** in 797.5 s (6.31 M clauses, all 27 first-generation
 witnesses, +TT +U). So there is no first-generation contradiction here either. By NK4.0 the split does not need (2,2,2,1).
 
-**W9.1 Model** (work/e616/t21/w9lazy.py, the SAT/CNF encoding; w9cp.py is the same set of instances in CP-SAT). Base:
+**W9.1 Model** (sat/t21/w9lazy.py, the SAT/CNF encoding; w9cp.py is the same set of instances in CP-SAT). Base:
 4 edges, all 61 points named: K4 = (3,2,1,1), or noK4 = (E1,E2,G,H) with class (a,c). New edges are generic edges
 that avoid a 4-set (justified by τ ≥ 5 alone). u[F,G] has the **exact** meaning min(|F∩G∖base|, 6), so "no common
 outside point" (u = 0) can be used soundly. Each clause is tagged with the lemma it instantiates:
@@ -1664,7 +1653,7 @@ Hand refutations, exact integer re-check in w10_handcheck.py:
      does not depend on the core.
 4. **No hand global contradiction was found.** The configurations stay locally consistent modulo these 3-way obstructions.
 
-Scripts (work/e616/t21/): w10_ulp.py, w10_iis.py, w10_deg.py, w10_handcheck.py, w10_check_examples.py, w10sq.py, w10run.py.
+Scripts (sat/t21/): w10_ulp.py, w10_iis.py, w10_deg.py, w10_handcheck.py, w10_check_examples.py, w10sq.py, w10run.py.
 Logs/data:
 - ULP and IIS logs: w10_ulp_cpt_23.log, w10_ulp_cpt_22.log, w10_ulp_cpt_23_nof1.log, w10_ulp_cn33.log, w10_iis_cpt22.log, w10_iis_cn33.log,
   w10_iis_sqk4_33.log.
@@ -1689,7 +1678,7 @@ Scope of the claim. The certificate proves this:
 Every one of those is a proved consequence of {L, τ ≥ 5, W7-I, N-noK4}. So the instance is impossible in N-noK4.
 It is not a proof of anything in N-K4: the control *nonk* is SAT (X.5).
 
-### X.1 Encoding (work/e616/t21/w10x_exact.py)
+### X.1 Encoding (sat/t21/w10x_exact.py)
 **Points.**
 - The 61 named points of the base B0..B3 (all of B0∪…∪B3).
 - K POOL points u0..u{K−1}, which lie outside the base.
@@ -1808,7 +1797,7 @@ Expected: violated → UNSAT, satisfied → SAT.
 - No generic edge, and no TT instance.
 - The 6 L-families are {E1,F2,F3,F10}, {E1,H,F7,F11}, {E1,H,F8,F11}, {E1,F0,F4,F8}, {E1,F2,F4,F9} and {E1,G,F4,F18} (indices into w9_cn24.json).
 
-### X.5 Certificate and controls (w10x_cert.py: deterministic CNF rebuild, CaDiCaL 1.5.3 DRAT, work/e616/tools/drat-trim)
+### X.5 Certificate and controls (w10x_cert.py: deterministic CNF rebuild, CaDiCaL 1.5.3 DRAT, drat-trim)
 Certificates:
 - **(C1) 24-edge model, K=154, 380 core instances:**
   - w10x_n24s_core.cnf (p cnf 470489 1892225) + w10x_n24s_core.cnf.drat;
@@ -1874,7 +1863,7 @@ So every lemma kind is used. NK is essential, so **the statement is specific to 
 - TT (W7-1) is NOT used by the core.
 - The certificate is for class (2,4) under NK only. N-K4 is untouched by it (control nonk is SAT).
 
-### X.9 Files (work/e616/t21/)
+### X.9 Files (sat/t21/)
 - Encoder and tools: w10x_exact.py (encoder + lazy loop), w10x_core.py (UNSAT core), w10x_cert.py (CNF + DRAT + drat-trim, controls),
   w10x_selftest.py (encoding control), w10x_verify.py (independent literal checker + τ), w10x_go.sh, w10x_ctrl.sh, w10x_ctrl2.sh,
   w10x_queue.sh.
@@ -1885,7 +1874,7 @@ So every lemma kind is used. NK is essential, so **the statement is specific to 
 ## Wave 11 noK4 (3,3)/(3,4) (2026-10-15, ~14:40–16:36 EDT run crashed without a write-up; reconstructed from its files 16:40 EDT)
 Context: Wave 10 exact-outside (X.1–X.9) closed class (2,4)/(4,2) (refereed SOUND, docs/referee/w10-referee.md). By N8.0 + W6-U
 an N-noK4 counterexample now needs a 5-pair with a cross-type pair (G,H) of class (3,3) or (3,4)/(4,3). This wave attacks both with
-the SAME encoder (w10x_exact.py) through a thin driver work/e616/t21/w11_exact.py. Status at the time of writing is in W11.0;
+the SAME encoder (w10x_exact.py) through a thin driver sat/t21/w11_exact.py. Status at the time of writing is in W11.0;
 it is updated after each milestone below.
 
 ### W11.0 Status (updated 22:25 UTC = 18:25 EDT; milestone log in W11.5, which sits further down because another agent's
@@ -1967,7 +1956,7 @@ it is updated after each milestone below.
 **Result so far: N-K4 (3,2,1,1) is NOT decided. No UNSAT claim, no DRAT certificate yet, no realized configuration.**
 What exists is a sound Benders pipeline, 2204 exactly re-checked Farkas cuts, and a running sub-instance. Details below.
 
-### B11.1 Method (work/e616/t21/w11_benders.py, w11_sub.py)
+### B11.1 Method (sat/t21/w11_benders.py, w11_sub.py)
 * **Master** = the Wave 8 point-level CNF (w8sat.build('3211'), NK4.3): traces b_F ⊆ the 61 named points of P0..P3 for the
   24 first-generation singles S^{ij}_x, +TT, +SB (lex order of columns inside each O_i; the O_i points are fully symmetric,
   every constraint and every cut is invariant). Variant `2` (w11_base2.cnf, 6.03 M clauses) adds eager **L4A** = L on
@@ -2017,20 +2006,20 @@ be built and checked with w10x_verify-style DFS).
 ### W11.5 Milestone log (appended as results arrive; times UTC)
 - 20:43 noJ04 controls finished: nonk SAT (75.9 s); **no-SB UNSAT (100.5 s), `s VERIFIED`**. So C2 needs neither SB nor J04.
 - 20:46 **(3,4) minimal instance w11n34min: 17 slots = the 16 first-generation singles + J31 only (K = 104 = KB bound), same 637
-  core instances (none mentions a dropped edge; built by work/e616/t21/w11n_mindrop.py from w10x_w11n34x1_core_noJ04.json).
+  core instances (none mentions a dropped edge; built by sat/t21/w11n_mindrop.py from w10x_w11n34x1_core_noJ04.json).
   CaDiCaL UNSAT 88.7 s, drat-trim `s VERIFIED`** (313256 vars, 1544863 clauses). SHA-256 w10x_w11n34min_cert.sha256:
   cnf 75536e33…, drat 6c7fc519…. This is the certificate to cite for (3,4)/(4,3): base + 16 singles + ONE τ-edge avoiding
   {al0,al1,al2,cl0} (3 points of A_G∩A_H, 1 point of C_G∩C_H). Controls: log w11n34min_cert.log (script w11n_ctrl.sh).
 - 20:50 (3,3): assumption-based core extraction on w11n33y1 (18445 instances, 9.18 M clauses) **timed out** in round 0 (1150 s cap;
-  no core written). Switched to a DRAT-based core (work/e616/t21/w11n_dratcore.py, chain w11n_dc_chain.sh / w11n_dc_resume.sh,
+  no core written). Switched to a DRAT-based core (sat/t21/w11n_dratcore.py, chain w11n_dc_chain.sh / w11n_dc_resume.sh,
   log w11n33y1_dcore.log): fresh CaDiCaL solve of the full CNF with binary DRAT → `drat-trim -c` → instances owning a core clause.
   That list is only a candidate; it is then certified from scratch by w10x_cert.py.
 - (3,4) min controls (w11n34min_cert.log): drop N24 SAT, L SAT, D1 SAT, SA SAT, W7 SAT, R3 SAT; TT absent (vacuous).
-- 21:03 **sandbox restart** (all processes killed, /tmp and ~/.local wiped; python libs now from work/e616/pylib via PYTHONPATH).
+- 21:03 **sandbox restart** (all processes killed, /tmp and ~/.local wiped; python libraries reinstalled).
   Lost: the first DRAT-core solve of w11n33y1 (it had loaded the CNF, RSS ≈1.5 GB, no result), and the drat-trim step of the
   (3,4)-min no-SB control (its CaDiCaL solve had finished: **UNSAT 109.0 s**; drat-trim not run). The (3,4)-min nonk control
   finished first: **SAT** (202 s). So (3,4)-min: certificate VERIFIED, every drop-one-kind control SAT, nonk SAT, noSB UNSAT
-  (unverified, but C2 noSB on the 21-slot set is VERIFIED). Scratch now goes to work/e616/t21/w11dc_tmp/, not RAM-backed /tmp.
+  (unverified, but C2 noSB on the 21-slot set is VERIFIED). Scratch now goes to a scratch directory, not RAM-backed /tmp.
 - 21:24 **(3,3) lean instance w11n33z1: 17 slots = the 16 first-generation singles + J31{al0,al1,al2,cl0} only (K = 104 = KB bound;
   the (3,3) analogue of the (3,4) certificate). Lazy loop (fresh, same options as y1): it 0..16 SAT (violations 939 → 193 → … → 34),
   it 17 UNSAT** (6.88 M clauses, 15626 instances; log w11n33z1.log, checkpoint w10x_w11n33z1.json, marker w10x_w11n33z1.UNSAT).
@@ -2039,7 +2028,7 @@ be built and checked with w10x_verify-style DFS).
 ### B11.5 Continuation (16:40–17:40 EDT): extended oracle, and a REALIZED 7-single sub-configuration
 **Events.** Sandbox restart ~17:03 EDT killed the old-oracle A queue during its it-16 master solve (third time it 16 was
 lost: >18 min per solve on a CPU shared with the noK4 agent). The old-oracle A/C queues were not relaunched.
-**New code** (work/e616/t21/):
+**New code** (sat/t21/):
 * `w11_big.py`: whole-slot-set LP with lazy L rows + deletion filter (fallback when no ≤4 subset is infeasible).
 * `w11e_oracle.py` (EXTENDED oracle) = the B11.1 LP plus rows for the proved 5-pair lemmas at the DERIVED 5-pairs
   (P_k,F) (F a slot with |b_F∩P_k| = 5; named-only condition since base edges have no outside points):
@@ -2115,7 +2104,7 @@ lost: >18 min per solve on a CPU shared with the noK4 agent). The old-oracle A/C
 * **Orchestrator running:** `w11e_chain.sh` (C up to 8 chunks; if C is realized → A up to 8 chunks; if A realized → F).
   On UNSAT, w11e_queue.sh runs w11e_finish.sh (dump, CaDiCaL DRAT + drat-trim, nocuts control, w11e_recheck, w11e_enctest),
   log w11e_TAG_cert.log. On STALL it runs w11_realize.py + w10x_verify.py, log w11e_TAG_realize.log.
-  A sandbox restart kills it; resume with `cd work/e616/t21 && setsid nohup ./w11e_chain.sh &`.
+  A sandbox restart kills it; resume with `cd sat/t21 && setsid nohup ./w11e_chain.sh &`.
 - (Wave 11 noK4) ~22:48 (3,3) C3 controls so far (w11n33z1_dcore_cert.log): drop N24 **SAT** (170 s), L **SAT** (218 s), D1 **SAT**
   (137 s), SA **SAT** (212 s), W7(+NK) **SAT** (219 s); **drop R3: UNSAT** (318 s; drat-trim of it running). So the lazy R3 instances
   are redundant here (the drat-trim core is not minimal: assumption-based minimisation of the 2394 instances timed out at 1150 s,
@@ -2149,9 +2138,8 @@ lost: >18 min per solve on a CPU shared with the noK4 agent). The old-oracle A/C
 - **Caveats (honest).** (i) Not refereed. The Wave 10 referee re-encoded only the (2,4) core. Still to check independently: the N24
   tag, the generic τ-edge slot J31 (ν = 5 in KB), and the 637 + 2394 instance lists (e.g. with sat/w10ref/ref_enc.py extended by
   N24). (ii) The (3,3) and (3,4) results depend on the Wave 10 theorem (drop N24 SAT) and on NK (nonk SAT). (iii) The (3,3) core is not
-  minimal (assumption-based minimisation timed out twice at the 20-min cap). (iv) Solver: CaDiCaL 1.5.3 via pysat (work/e616/pylib
-  after the restarts, python-sat 1.9.dev16); checker work/e616/tools/drat-trim.
-- **Files (work/e616/t21/).** Drivers: w11_exact.py (lazy loop), w11n_go.sh, w11n_mindrop.py (multi-edge drop), w11n_ctrl.sh /
+  minimal (assumption-based minimisation timed out twice at the 20-min cap). (iv) Solver: CaDiCaL 1.5.3 via pysat (python-sat 1.9.dev16); checker drat-trim.
+- **Files (sat/t21/).** Drivers: w11_exact.py (lazy loop), w11n_go.sh, w11n_mindrop.py (multi-edge drop), w11n_ctrl.sh /
   w11n_ctrl_resume2.sh (certificate + controls), w11n_core.sh, w11n_dratcore.py + w11n_dc_chain.sh (DRAT-based core),
   w11n_replay.py (incremental replay with proof; not needed in the end). Checkpoints: w10x_w11n34x1.json, w10x_w11n34x1_core.json,
   w10x_w11n34x1_core_noJ04.json, w10x_w11n34min.json, w10x_w11n33y1.json, w10x_w11n33z1.json, w10x_w11n33z1_dcore.json.
@@ -2166,7 +2154,7 @@ Wave 10–11 noK4 theorems assume "no K4 anywhere" and are NOT available here. E
 minus NK/N24: A, L/XL, R1, R3, SA, D1, W7 (= W7-I, a global theorem), TT. Every slot is "an edge avoiding a fixed 4-set of
 named points" (exists by τ ≥ 5), so one UNSAT instance kills N-K4 outright (same coverage argument as W11.1); K = KB bound.
 
-### W12.1 Method: exact-encoding τ-CEGAR (work/e616/t21/w12_cegar.py, w12_ext.py, w12_scan.py, w12_go.sh, w12_run.sh)
+### W12.1 Method: exact-encoding τ-CEGAR (sat/t21/w12_cegar.py, w12_ext.py, w12_scan.py, w12_go.sh, w12_run.sh)
 * Lesson from Wave 11 noK4 (3,3)/(3,4): the 16 first-generation singles alone were REALIZED (violation-free, τ = 2,
   transversal {al0,cl0}); J31 avoids {al0,al1,al2,cl0} ⊇ that transversal, i.e. 4 of the 6 points of G∩H. So J31 is "an edge
   avoiding a small transversal of the realized partial family, completed inside the shared core".
@@ -2219,7 +2207,7 @@ named points" (exists by τ ≥ 5), so one UNSAT instance kills N-K4 outright (s
   elapsed + 1.15·(last solve time) would pass it; `w12_cegar.py` passes hard=1110. Chain restarted 00:58 with the patch.
 - Background helpers left running: `w12_run.sh N` (driver, ≤12 rounds; state w12_N_state.json) and `w12_after.sh N` (waits for the
   driver; if it ends UNSAT runs w10x_core.py then w11n_ctrl.sh = certificate + drat-trim + drop-one-kind + noSB; log
-  w12_N_after.log). Resume after a restart: `cd work/e616/t21 && setsid nohup ./w12_run.sh N sel=0,1,2,11,12,15,16,21,22,23 per=3
+  w12_N_after.log). Resume after a restart: `cd sat/t21 && setsid nohup ./w12_run.sh N sel=0,1,2,11,12,15,16,21,22,23 per=3
   maxrounds=12 & setsid nohup ./w12_after.sh N &`.
 - ~01:14 **sandbox restart** killed chunk 2 during its it-1 solve (already > 15 min wall). Nothing lost from the checkpoint (6511
   instances). Second driver-only patch: `w11_exact.py` option `phase=1` saves each SAT model (w10x_TAG_phase.npy) and seeds the
@@ -2244,7 +2232,7 @@ just to realize 10 singles, an UNSAT (if it exists at this slot set) is several 
 may be needed. The ext filter does not discriminate between τ-edges (most transversal 4-sets are "non-extendable"), so the
 choice of τ-edges is still essentially blind; a structural lemma (NK4.6 (1), "one-deviant" propagation) would be a better guide.
 **Left running:** chain N driver (w12_run.sh N, ≤ 12 rounds) and w12_after.sh N (core + certificate + controls on UNSAT).
-Read w12_N_cegar.log, w12Nr*.log, w12_N_after.log; restart with work/e616/t21/w12_launchN.sh after a sandbox restart.
+Read w12_N_cegar.log, w12Nr*.log, w12_N_after.log; restart with sat/t21/w12_launchN.sh after a sandbox restart.
 
 ## Wave 13 N-K4 compute (2026-10-16, started 00:18 EDT = 04:18 UTC; computational; nothing here is UNSAT unless marked VERIFIED)
 ### W13.0 State found at start
@@ -2351,7 +2339,7 @@ the independent literal checker w10x_verify.py: Lemma A, L on every subfamily wi
    The rigidity-ranked candidates (A1–A3, B1, B2, B4) did NOT decide anything when split into two halves; jointly (S) undecided.
 **Left running:** chains T and U (w12_run.sh T/U, mt=1, ≤ 20 rounds) and w12_after.sh T/U (on UNSAT: w10x_core.py, then
 w11n_ctrl.sh = certificate + drat-trim + drop-one-kind + noSB; log w12_{T,U}_after.log). After a sandbox restart run
-`work/e616/t21/w13_launchTU.sh` (NOT w12_launchN.sh, which is now guarded by w12_N_PAUSED). Coverage, if either ends UNSAT:
+`sat/t21/w13_launchTU.sh` (NOT w12_launchN.sh, which is now guarded by w12_N_PAUSED). Coverage, if either ends UNSAT:
 every slot is "an edge avoiding a fixed 4-set of named points (or a first-generation single)", which exists in every N-K4
 counterexample by τ ≥ 5 / the single lemmas, so one UNSAT instance with K = KB bound refutes N-K4 outright (W11.1/W12 argument).
 Patches made this wave (selection/driver only; no clause of any existing instance changed): w12_go.sh `W12CPU`; w10x_exact.py
@@ -2359,7 +2347,7 @@ Patches made this wave (selection/driver only; no clause of any existing instanc
 
 ## Wave 13 N-K4 structure (2026-10-16, started 00:18 EDT; hand/structural route; a parallel "Wave 13 N-K4 compute" section is above)
 Notation N.0(iii)/NK4: P0..P3, v=T012, w=T013, α={al0,al1}=T023, γ={g0,g1,g2}=T123, m3={m0,m1,m2}=p01, a3=p02, a4=p03,
-c3=p12, c4=p13 (w8 names in brackets where needed). Core = these 16 points. Scripts in work/e616/t21/w13_*.py (PYTHONPATH=work/e616/pylib).
+c3=p12, c4=p13 (w8 names in brackets where needed). Core = these 16 points. Scripts in sat/t21/w13_*.py.
 ### S13.1 One-new-edge enumeration (COMPUTED, exhaustive, sound) — w13_enum.py
 For one edge X (core trace b ⊆ core, o_i = |X∩O_i|) every proved constraint that involves only X and base edges:
 F1/R.1, Lemma A, capacity, L3 (= L on {P_i,P_j,P_k,X}), D1 at the six base 5-pairs, W7-I at base pairs, and at DERIVED
@@ -2430,7 +2418,7 @@ of (G,H) (|G∩H| = 7 there), so it is a genuinely new rigid edge. In the (3,2,1
 α∪{γ_i}…) all have |G∩H| = |P2∩P3| = 5, so their avoiders are **first-generation singles** (Lemma G family) — the J31 move is
 already spent at generation 1. The K4 analogue that is not a single is the set of ALL triple points of one base edge,
 {v,w}∪α (Lemma JA), whose avoider is squeezed by three L3's and six apex inequalities at once.
-### S13.6 Deliverable: τ-edge candidate list (work/e616/t21/w13_tau_candidates.json; generator w13_mkcand.py)
+### S13.6 Deliverable: τ-edge candidate list (sat/t21/w13_tau_candidates.json; generator w13_mkcand.py)
 Principle (stated honestly): no core 4-set is forced-hit by the first-gen singles at the 1- or 2-edge level (S13.3), so the list is
 ranked by (1) invariance under the base symmetry group (order 576), (2) rigidity of the avoider (number of local region signatures,
 w13_rigid.json), (3) not being a disguised first-gen single. Every entry is sound as a slot regardless of ranking (τ ≥ 5).
@@ -2495,7 +2483,7 @@ No sanity check vs H(16,10,7)/H(22,13,9)/PG(2,4) was needed: no new lemma was pr
 
 ## Wave 14 global encoding (2026-10-16, started 09:10 EDT = 13:10 UTC; computational; nothing here is UNSAT unless marked VERIFIED)
 Box had just restarted (uptime 0); W13 chains T/U were relaunched by someone else ~13:15 UTC (not by this wave). All jobs of this
-wave run on CPU 0 with nice 10. Files: sat/t21/w14/ (PYTHONPATH=work/e616/pylib).
+wave run on CPU 0 with nice 10. Files: sat/t21/w14/.
 ### G14.1 The reduction (PROVED; it is a relaxation, so UNSAT of it refutes N-K4)
 Let G be an N-K4 counterexample with base P0..P3, core C (16 points). For a non-base edge F put tr(F) = F∩C, o(F) = (|F∩O_i|).
 Model Φ: one Boolean x_t per feasible core trace t (the 18217 of w13_feas.json); clauses
@@ -2540,7 +2528,7 @@ is a weakening, so how many edges an outside point lies in never enters (it woul
   in favour of the tree. Checkpoint w14_lazy_pairs.npy kept.
 * Certificate plan (w14_cert.py, written, not yet run): per root case r, CNF_r = 1730 COV + the CONF clauses actually used + unit
   x_r; DRAT = the global gac lemmas [−t], then for each node every elimination as the RUP lemma (¬cube ∨ ¬x_t) with a logged
-  witness B', then ¬cube after its children; end with [−x_r] and the empty clause. Check with work/e616/tools/drat-trim.
+  witness B', then ¬cube after its children; end with [−x_r] and the empty clause. Check with drat-trim.
 - 14:25 UTC: the first full DFS (w14_tree.py) closed root case r = {v,al0,al1,m0,m1,c3,c4} completely: **139 nodes, all leaves
   wipeouts, max depth 4–5** (log w14_tree.log / w14_tree.jsonl). Replaced by w14_tree2.py (same rule and branching; supports
   updated incrementally from the parent, ≈1.5 s/node; emits the DRAT lemmas on the fly; resumable per root child; driver

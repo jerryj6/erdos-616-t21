@@ -1,0 +1,3 @@
+r=16 k=4 n=10 csizes 3..3 vars=120
+P1 clauses 120 pair clauses 0
+SAT: found family of 120 core sets after 1 iterations

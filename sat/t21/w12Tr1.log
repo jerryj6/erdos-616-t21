@@ -1,0 +1,50 @@
+== chunk Fri Oct 16 05:21:44 UTC 2026
+[w11] branch k4:3211 edges 12 K=90 (KB bound 90; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JSA1a@T012_0+T013_0+T023_0+T023_1;JSA2a@T012_0+T013_0+p12_0+p13_0;JSA3a@T023_0+T023_1+p12_0+p13_0;JSB1a@T012_0+T013_0+T123_0+T123_1;JSB1b@T012_0+T013_0+T123_0+T123_2;JSB1c@T012_0+T013_0+T123_1+T123_2;JT1a@T012_0+T123_0+p01_0+p03_0;JT1b@T123_0+p01_0+p01_2+p03_0;JT1c@T123_0+T123_2+p01_0+p03_0', 'warm': 'w10x_w12Tr0.json'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JSA1a', 'JSA2a', 'JSA3a', 'JSB1a', 'JSB1b', 'JSB1c', 'JT1a', 'JT1b', 'JT1c']
+eager2 1248
+eager3 120
+f1all 220
+warm 776
+built 10.4s vars=355532 clauses=2125779 inst=2364 tags={'AV': 48, 'def': 2049083, 'E21': 12, 'A': 114, 'L': 821, 'D1': 12932, 'R1': 3, 'R3': 252, 'SA': 50832, 'POOL': 1080, 'SB': 9301, 'W7': 1266, 'TT': 35}
+it 0: SAT (193.8s) inst=2698 cl=2565491 viol=334 {'SA': 84, 'R3': 12, 'W7': 69, 'TT': 25, 'D1': 84, 'L': 60} added=334 esc=1 pool_used=32
+it 1: SAT (382.7s) inst=2906 cl=3153234 viol=208 {'SA': 49, 'R3': 14, 'W7': 9, 'TT': 3, 'D1': 36, 'L': 97} added=208 esc=5 pool_used=14
+== exit 124 Fri Oct 16 05:40:54 UTC 2026
+== chunk Fri Oct 16 05:40:55 UTC 2026
+[w11] branch k4:3211 edges 12 K=90 (KB bound 90; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JSA1a@T012_0+T013_0+T023_0+T023_1;JSA2a@T012_0+T013_0+p12_0+p13_0;JSA3a@T023_0+T023_1+p12_0+p13_0;JSB1a@T012_0+T013_0+T123_0+T123_1;JSB1b@T012_0+T013_0+T123_0+T123_2;JSB1c@T012_0+T013_0+T123_1+T123_2;JT1a@T012_0+T123_0+p01_0+p03_0;JT1b@T123_0+p01_0+p01_2+p03_0;JT1c@T123_0+T123_2+p01_0+p03_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JSA1a', 'JSA2a', 'JSA3a', 'JSB1a', 'JSB1b', 'JSB1c', 'JT1a', 'JT1b', 'JT1c']
+restored 2906 instances
+built 13.8s vars=499427 clauses=3153234 inst=2906 tags={'AV': 48, 'def': 3061609, 'E21': 12, 'A': 114, 'L': 978, 'D1': 18812, 'R1': 3, 'R3': 304, 'SA': 59488, 'POOL': 1080, 'SB': 9301, 'W7': 1422, 'TT': 63}
+phases set 417518
+it 0: SAT (224.3s) inst=2997 cl=3333434 viol=91 {'SA': 28, 'R3': 4, 'D1': 22, 'L': 37} added=91 esc=4 pool_used=18
+it 1: SAT (144.4s) inst=3014 cl=3389147 viol=17 {'D1': 9, 'L': 8} added=17 esc=6 pool_used=12
+it 2: SAT (462.7s) inst=3059 cl=3472360 viol=45 {'R3': 6, 'SA': 3, 'D1': 20, 'L': 16} added=45 esc=3 pool_used=15
+next solve would pass hard limit; checkpointed
+== exit 0 Fri Oct 16 05:55:48 UTC 2026
+== chunk Fri Oct 16 05:55:48 UTC 2026
+[w11] branch k4:3211 edges 12 K=90 (KB bound 90; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JSA1a@T012_0+T013_0+T023_0+T023_1;JSA2a@T012_0+T013_0+p12_0+p13_0;JSA3a@T023_0+T023_1+p12_0+p13_0;JSB1a@T012_0+T013_0+T123_0+T123_1;JSB1b@T012_0+T013_0+T123_0+T123_2;JSB1c@T012_0+T013_0+T123_1+T123_2;JT1a@T012_0+T123_0+p01_0+p03_0;JT1b@T123_0+p01_0+p01_2+p03_0;JT1c@T123_0+T123_2+p01_0+p03_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JSA1a', 'JSA2a', 'JSA3a', 'JSB1a', 'JSB1b', 'JSB1c', 'JT1a', 'JT1b', 'JT1c']
+restored 3059 instances
+built 14.2s vars=545786 clauses=3472360 inst=3059 tags={'AV': 48, 'def': 3376180, 'E21': 12, 'A': 114, 'L': 1039, 'D1': 21311, 'R1': 3, 'R3': 324, 'SA': 61463, 'POOL': 1080, 'SB': 9301, 'W7': 1422, 'TT': 63}
+phases set 534182
+== sandbox restart ~05:58 UTC; relaunch Fri Oct 16 06:01:02 UTC 2026
+== chunk Fri Oct 16 06:01:07 UTC 2026
+[w11] branch k4:3211 edges 12 K=90 (KB bound 90; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JSA1a@T012_0+T013_0+T023_0+T023_1;JSA2a@T012_0+T013_0+p12_0+p13_0;JSA3a@T023_0+T023_1+p12_0+p13_0;JSB1a@T012_0+T013_0+T123_0+T123_1;JSB1b@T012_0+T013_0+T123_0+T123_2;JSB1c@T012_0+T013_0+T123_1+T123_2;JT1a@T012_0+T123_0+p01_0+p03_0;JT1b@T123_0+p01_0+p01_2+p03_0;JT1c@T123_0+T123_2+p01_0+p03_0'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JSA1a', 'JSA2a', 'JSA3a', 'JSB1a', 'JSB1b', 'JSB1c', 'JT1a', 'JT1b', 'JT1c']
+restored 3059 instances
+built 8.1s vars=545786 clauses=3472360 inst=3059 tags={'AV': 48, 'def': 3376180, 'E21': 12, 'A': 114, 'L': 1039, 'D1': 21311, 'R1': 3, 'R3': 324, 'SA': 61463, 'POOL': 1080, 'SB': 9301, 'W7': 1422, 'TT': 63}
+phases set 534182
+it 0: SAT (104.7s) inst=3087 cl=3526813 viol=28 {'SA': 8, 'W7': 3, 'TT': 1, 'D1': 6, 'L': 10} added=28 esc=3 pool_used=15
+it 1: SAT (68.6s) inst=3104 cl=3556178 viol=17 {'SA': 1, 'D1': 10, 'L': 6} added=17 esc=1 pool_used=13
+it 2: SAT (12.3s) inst=3118 cl=3572402 viol=14 {'SA': 2, 'R3': 2, 'D1': 7, 'L': 3} added=14 esc=0 pool_used=16
+it 3: SAT (47.7s) inst=3128 cl=3596659 viol=10 {'SA': 2, 'D1': 4, 'L': 4} added=10 esc=1 pool_used=15
+it 4: SAT (50.9s) inst=3136 cl=3616920 viol=8 {'SA': 2, 'D1': 2, 'L': 4} added=8 esc=1 pool_used=14
+it 5: SAT (45.7s) inst=3148 cl=3642454 viol=12 {'SA': 1, 'D1': 5, 'L': 6} added=12 esc=0 pool_used=15
+it 6: SAT (65.4s) inst=3165 cl=3664044 viol=17 {'R3': 2, 'SA': 1, 'D1': 9, 'L': 5} added=17 esc=1 pool_used=13
+it 7: SAT (3.0s) inst=3166 cl=3664093 viol=1 {'D1': 1} added=1 esc=0 pool_used=15
+it 8: SAT (30.5s) inst=3185 cl=3693919 viol=19 {'SA': 7, 'W7': 3, 'TT': 1, 'D1': 1, 'L': 7} added=19 esc=0 pool_used=15
+it 9: SAT (5.2s) inst=3189 cl=3707967 viol=4 {'SA': 2, 'L': 2} added=4 esc=1 pool_used=17
+it 10: SAT (29.1s) inst=3193 cl=3717715 viol=4 {'D1': 2, 'L': 2} added=4 esc=1 pool_used=12
+it 11: SAT (21.6s) inst=3195 cl=3717813 viol=2 {'D1': 2} added=2 esc=0 pool_used=12
+it 12: SAT (4.1s) inst=3195 cl=3717813 viol=0 {} added=0 esc=0 pool_used=14
+VIOLATION-FREE: literal configuration written
+== exit 0 Fri Oct 16 06:11:00 UTC 2026

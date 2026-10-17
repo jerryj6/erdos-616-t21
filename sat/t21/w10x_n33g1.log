@@ -1,0 +1,4 @@
+branch nok4:3,3 edges 19 K=114 (KB bound 114; sound=True) opt={'gen1auto': '1', 'eager2': '1', 'tlim': '1000', 'maxadd': '800'}
+eager2 instances 3686
+restored 6954 instances
+built 13.7s vars=1719150 clauses=10696536 tags={'AV': 76, 'def': 10474116, 'E21': 19, 'A': 247, 'L': 1967, 'D1': 72680, 'R1': 19, 'R3': 1936, 'SA': 121636, 'POOL': 2166, 'SB': 17515, 'W7': 2704, 'NK': 1352, 'TT': 103}

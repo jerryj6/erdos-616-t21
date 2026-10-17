@@ -1,0 +1,3 @@
+r21_K5_n13_c4-4: pool 715, base clauses 715
+it 1: |F|=715 new 11395 total 12110 t=47.1
+UNSAT after 2 iterations, 12110 clauses, 47.1s

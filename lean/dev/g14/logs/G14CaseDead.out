@@ -1,0 +1,5 @@
+'G14.caseDead' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ G14.chkDead._native.native_decide.ax_1_1,
+ E616.w14_certdead.certOk_eq._native.native_decide.ax_1_1]

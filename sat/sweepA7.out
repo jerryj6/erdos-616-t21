@@ -1,0 +1,8 @@
+n=20 r=21 K=5 S in [9,13] group=cycmult:3 |G|=80 orbits=9252 selfok=1674 (0.9s)
+  it=20 chosen=7 sets=560 kind=dfs new=22 total=344 pairs=6676 expanded=34 (5.3s)
+  it=40 chosen=6 sets=480 kind=dfs new=16 total=672 pairs=9396 expanded=55 (7.0s)
+  it=60 chosen=7 sets=560 kind=dfs new=22 total=961 pairs=13067 expanded=82 (8.2s)
+  it=80 chosen=7 sets=520 kind=dfs new=27 total=1277 pairs=16127 expanded=104 (9.3s)
+  it=100 chosen=7 sets=560 kind=dfs new=22 total=1760 pairs=18424 expanded=124 (11.0s)
+  it=120 chosen=8 sets=640 kind=dfs new=40 total=2181 pairs=21074 expanded=142 (12.6s)
+  it=140 chosen=7 sets=560 kind=dfs new=21 total=2626 pairs=22980 expanded=158 (14.1s)

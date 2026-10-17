@@ -1,0 +1,17 @@
+== chunk Fri Oct 16 04:43:54 UTC 2026
+[w11] branch k4:3211 edges 16 K=118 (KB bound 118; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JM1@T012_0+T023_0+T023_1+p01_0;JN2@T012_0+T013_0+T123_0+T123_2;JN3@T012_0+T023_1+T123_0+p12_0;JN4@T012_0+T013_0+p01_0+p02_0;JP1a@T012_0+T123_0+T123_1+T123_2;JP1b@T023_0+T123_1+T123_2+p01_2;JP1c@T023_0+T123_1+T123_2+p01_1;JP2a@T013_0+T023_0+T023_1+p01_0;JP2b@T013_0+T023_0+T123_0+p01_2;JP2c@T023_1+T123_0+T123_1+p01_0;JP3a@T013_0+T123_1+p01_1+p01_2;JP3b@T013_0+T123_0+T123_1+T123_2;JP3c@T013_0+T123_0+T123_1+p01_2', 'warm': 'w10x_w12Pr2.json'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JM1', 'JN2', 'JN3', 'JN4', 'JP1a', 'JP1b', 'JP1c', 'JP2a', 'JP2b', 'JP2c', 'JP3a', 'JP3b', 'JP3c']
+eager2 2184
+eager3 420
+f1all 560
+warm 2393
+built 8.0s vars=1012645 clauses=6272448 inst=5557 tags={'AV': 64, 'def': 6103632, 'E21': 16, 'A': 184, 'L': 1933, 'D1': 40527, 'R1': 5, 'R3': 664, 'SA': 105830, 'POOL': 1888, 'SB': 15105, 'W7': 2532, 'TT': 68}
+it 0: SAT (113.5s) inst=5877 cl=7353192 viol=320 {'SA': 31, 'R3': 17, 'W7': 9, 'TT': 3, 'D1': 139, 'L': 121} added=320 esc=2 pool_used=37
+== moved to CPU 0 Fri Oct 16 04:48:21 UTC 2026
+== chunk Fri Oct 16 04:48:21 UTC 2026
+[w11] branch k4:3211 edges 16 K=118 (KB bound 118; sound=True) opt={'gen1auto': '1', 'sel': '0,1,2', 'eager2': '1', 'eager3': 'g1', 'f1all': '1', 'tlim': '1050', 'maxadd': '600', 'hard': '1110', 'phase': '1', 'extra': 'JM1@T012_0+T023_0+T023_1+p01_0;JN2@T012_0+T013_0+T123_0+T123_2;JN3@T012_0+T023_1+T123_0+p12_0;JN4@T012_0+T013_0+p01_0+p02_0;JP1a@T012_0+T123_0+T123_1+T123_2;JP1b@T023_0+T123_1+T123_2+p01_2;JP1c@T023_0+T123_1+T123_2+p01_1;JP2a@T013_0+T023_0+T023_1+p01_0;JP2b@T013_0+T023_0+T123_0+p01_2;JP2c@T023_1+T123_0+T123_1+p01_0;JP3a@T013_0+T123_1+p01_1+p01_2;JP3b@T013_0+T123_0+T123_1+T123_2;JP3c@T013_0+T123_0+T123_1+p01_2'}
+  edges: ['g1:(B1,B0):p01_0', 'g1:(B1,B0):p01_1', 'g1:(B1,B0):p01_2', 'JM1', 'JN2', 'JN3', 'JN4', 'JP1a', 'JP1b', 'JP1c', 'JP2a', 'JP2b', 'JP2c', 'JP3a', 'JP3b', 'JP3c']
+restored 5877 instances
+built 29.8s vars=1174104 clauses=7353192 inst=5877 tags={'AV': 64, 'def': 7175363, 'E21': 16, 'A': 184, 'L': 2054, 'D1': 47338, 'R1': 5, 'R3': 698, 'SA': 107856, 'POOL': 1888, 'SB': 15105, 'W7': 2550, 'TT': 71}
+phases set 1012645
+== paused Fri Oct 16 04:59:31 UTC 2026: no solve completed on shared CPU 0 in 11 min (correction: not 17); CPU 0 given to sub-chain T

@@ -1,0 +1,5 @@
+'G14.case14968' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ G14.chk14968._native.native_decide.ax_1_1,
+ E616.w14_14968.certOk_eq._native.native_decide.ax_1_1]

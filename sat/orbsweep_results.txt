@@ -1,0 +1,36 @@
+15 cyc UNSAT | n=15 r=21 K=5 S in [9,11] group=cyc |G|=15 orbits=627 selfok=308 (0.1s) | UNSAT it=98 lazy clauses=7778 (1.4s)
+16 cyc UNSAT | n=16 r=21 K=5 S in [9,12] group=cyc |G|=16 orbits=1608 selfok=681 (0.0s) | UNSAT it=366 lazy clauses=24725 (4.1s)
+17 cyc UNSAT | n=17 r=21 K=5 S in [9,13] group=cyc |G|=17 orbits=3806 selfok=1576 (0.0s) | UNSAT it=52123 lazy clauses=712389 (371.2s)
+17 aff UNSAT | n=17 r=21 K=5 S in [9,13] group=aff |G|=272 orbits=255 selfok=85 (0.1s) | UNSAT it=122 lazy clauses=210 (3.7s)
+19 aff UNSAT | n=19 r=21 K=5 S in [9,15] group=aff |G|=342 orbits=1078 selfok=294 (0.0s) | UNSAT it=250 lazy clauses=468 (12.8s)
+17 pg23sym smax=13 UNSAT | n=17 r=21 K=5 S in [9,13] group=pg23sym |G|=134784 orbits=64 selfok=41 (1.3s) | UNSAT it=68 lazy clauses=302 (88.2s)
+15 semi:5 smax=11 TIMEOUT | n=15 r=21 K=5 S in [9,11] group=semi:5 |G|=5 orbits=1877 selfok=1377 (0.1s) | TIMEOUT it=1153 clauses=599201
+15 cycmult:2 smax=11 UNSAT | n=15 r=21 K=5 S in [9,11] group=cycmult:2 |G|=60 orbits=174 selfok=83 (0.0s) | UNSAT it=11 lazy clauses=616 (3.2s)
+16 semim:8 smax=12 UNSAT | n=16 r=21 K=5 S in [9,12] group=semim:8 |G|=16 orbits=1727 selfok=614 (0.0s) | UNSAT it=226 lazy clauses=32006 (85.3s)
+18 pg23sym smax=14 UNSAT | n=18 r=21 K=5 S in [9,14] group=pg23sym |G|=673920 orbits=89 selfok=59 (13.1s) | UNSAT it=285 lazy clauses=1219 (641.9s)
+16 cycmult:3 smax=12 UNSAT | n=16 r=21 K=5 S in [9,12] group=cycmult:3 |G|=64 orbits=463 selfok=170 (0.0s) | UNSAT it=107 lazy clauses=5421 (54.3s)
+15 pg23fix smax=11 UNSAT | n=15 r=21 K=5 S in [9,11] group=pg23fix |G|=5616 orbits=32 selfok=24 (0.0s) | UNSAT it=24 lazy clauses=178 (13.4s)
+16 pg23fix smax=12 UNSAT | n=16 r=21 K=5 S in [9,12] group=pg23fix |G|=5616 orbits=84 selfok=59 (0.0s) | UNSAT it=101 lazy clauses=834 (57.1s)
+16 cycmult:7 smax=12 UNSAT | n=16 r=21 K=5 S in [9,12] group=cycmult:7 |G|=32 orbits=854 selfok=295 (0.0s) | UNSAT it=190 lazy clauses=14329 (109.1s)
+16 semiw:4 smax=12 UNSAT | n=16 r=21 K=5 S in [9,12] group=semiw:4 |G|=16 orbits=1621 selfok=567 (0.0s) | UNSAT it=18 lazy clauses=4367 (8.4s)
+17 cycmult:4 smax=13 UNSAT | n=17 r=21 K=5 S in [9,13] group=cycmult:4 |G|=68 orbits=1018 selfok=340 (0.0s) | UNSAT it=58 lazy clauses=2220 (53.9s)
+17 cycmult:2 smax=13 UNSAT | n=17 r=21 K=5 S in [9,13] group=cycmult:2 |G|=136 orbits=510 selfok=170 (0.0s) | UNSAT it=43 lazy clauses=457 (31.4s)
+18 cycmult:5 smax=14 TIMEOUT | n=18 r=21 K=5 S in [9,14] group=cycmult:5 |G|=108 orbits=1536 selfok=329 (0.0s) | TIMEOUT it=431 clauses=13388
+21 ag23pl smax=17 TIMEOUT | n=21 r=21 K=5 S in [9,17] group=ag23pl |G|=432 orbits=5180 selfok=1998 (0.4s) | TIMEOUT it=903 clauses=5661
+18 cycmult:7 smax=14 UNSAT | n=18 r=21 K=5 S in [9,14] group=cycmult:7 |G|=54 orbits=2926 selfok=955 (0.0s) | UNSAT it=453 lazy clauses=13602 (166.0s)
+26 pg23pld smax=15 UNSAT | n=26 r=21 K=5 S in [9,15] group=pg23pld |G|=11232 orbits=6976 selfok=87 (43.6s) | UNSAT it=88 lazy clauses=102 (189.6s)
+26 pg23x2 smax=15 UNSAT | n=26 r=21 K=5 S in [9,15] group=pg23x2 |G|=11232 orbits=6939 selfok=154 (30.1s) | UNSAT it=135 lazy clauses=191 (238.1s)
+18 semiw:9 smax=14 TIMEOUT | n=18 r=21 K=5 S in [9,14] group=semiw:9 |G|=18 orbits=8596 selfok=3117 (0.0s) | TIMEOUT it=1026 clauses=170171
+19 cycmult:3 smax=13 UNSAT | n=19 r=21 K=5 S in [9,13] group=cycmult:3 |G|=342 orbits=1028 selfok=244 (0.9s) | UNSAT it=177 lazy clauses=347 (61.5s)
+20 cycmult:3 smax=13 UNSAT | n=20 r=21 K=5 S in [9,13] group=cycmult:3 |G|=80 orbits=9252 selfok=1674 (0.1s) | UNSAT it=882 lazy clauses=22656 (70.0s)
+22 cycmult:3 smax=13 UNSAT | n=22 r=21 K=5 S in [9,13] group=cycmult:3 |G|=110 orbits=27234 selfok=4266 (0.3s) | UNSAT it=3784 lazy clauses=11088 (54.0s)
+21 cycmult:2 smax=13 UNSAT | n=21 r=21 K=5 S in [9,13] group=cycmult:2 |G|=126 orbits=12160 selfok=2954 (0.2s) | UNSAT it=2538 lazy clauses=14438 (88.7s)
+18 semiw:6 smax=14 TIMEOUT | n=18 r=21 K=5 S in [9,14] group=semiw:6 |G|=18 orbits=8608 selfok=3240 (0.9s) | TIMEOUT it=5571 clauses=1401669
+17 semiw:4 smax=13 ERR AssertionError() |  | 
+19 semiw:3 smax=15 ERR AssertionError() |  | 
+20 cyc smax=13 UNSAT | n=20 r=21 K=5 S in [9,13] group=cyc |G|=20 orbits=36234 selfok=10916 (0.9s) | UNSAT it=2243 lazy clauses=274237 (66.3s)
+19 cycmult:7 smax=13 UNSAT | n=19 r=21 K=5 S in [9,13] group=cycmult:7 |G|=57 orbits=5974 selfok=2162 (1.0s) | UNSAT it=1012 lazy clauses=20467 (63.2s)
+23 cycmult:2 smax=13 UNSAT | n=23 r=21 K=5 S in [9,13] group=cycmult:2 |G|=253 orbits=22966 selfok=2258 (0.7s) | UNSAT it=2252 lazy clauses=2269 (48.0s)
+24 cycmult:5 smax=13 TIMEOUT | n=24 r=21 K=5 S in [9,13] group=cycmult:5 |G|=48 orbits=229559 selfok=27111 (1.3s) | TIMEOUT it=4955 clauses=98407
+25 cycmult:2 smax=13 UNSAT | n=25 r=21 K=5 S in [9,13] group=cycmult:2 |G|=500 orbits=40551 selfok=3 (2.7s) | UNSAT it=1 lazy clauses=1 (3.3s)
+21 cycmult:4 smax=13 UNSAT | n=21 r=21 K=5 S in [9,13] group=cycmult:4 |G|=63 orbits=23844 selfok=7038 (0.2s) | UNSAT it=4577 lazy clauses=62995 (116.2s)

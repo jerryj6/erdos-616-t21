@@ -8,9 +8,7 @@
 * `lean-reports/` — reports written while the Lean formalization was built: `plan`, `main` (statement, reduction,
   local lemmas), `handA` (W6-U, case split), `w7i`, `lrat` (LRAT layer), `bridge-g14`, `bridge-nok4`, `final`.
   Long Lean listings that duplicate files now under `lean/` have been replaced by a pointer.
-* `path-map.md` — the correspondence between original working-directory paths and this repository, used to rewrite
-  the paths in these notes and in the paper (kept for provenance).
+* `loop-notes.md` — early notes (core reformulation, CEGAR searches, symmetric sweeps); scripts in `sat/`.
 
 **These are internal working notes**, kept for provenance. They were written during development, with
-computational (AI-agent) assistance, and mention run names and timings of the original working environment;
-file paths have been rewritten to this repository where the file is included. They are not peer review.
+computational (AI-agent) assistance, and mention run names and timings of the original working environment. They are not peer review.

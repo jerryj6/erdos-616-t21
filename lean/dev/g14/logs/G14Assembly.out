@@ -1,0 +1,16 @@
+'Erdos616R21.NK4_leaf_of_chunked' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ G14.chk14968._native.native_decide.ax_1_1,
+ G14.chk15116._native.native_decide.ax_1_1,
+ G14.chk15954._native.native_decide.ax_1_1,
+ G14.chk16054._native.native_decide.ax_1_1,
+ G14.chk17917._native.native_decide.ax_1_1,
+ G14.chkDead._native.native_decide.ax_1_1,
+ G14.root_ok._native.native_decide.ax_1_1,
+ G14.univ_ok._native.native_decide.ax_1_1,
+ E616.w14_14968.certOk_eq._native.native_decide.ax_1_1,
+ E616.w14_15116.certOk_eq._native.native_decide.ax_1_1,
+ E616.w14_17917.certOk_eq._native.native_decide.ax_1_1,
+ E616.w14_certdead.certOk_eq._native.native_decide.ax_1_1]
+exit 0 time 1s MAXRSS 1801 MB

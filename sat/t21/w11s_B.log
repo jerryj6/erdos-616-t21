@@ -1,0 +1,8 @@
+== run start it=0 slots=7 applicable certs=235 clauses=1002224 load 36s
+it 0: master SAT (56.3s); 3 LP cuts (|E| 4..4) scan 20s
+it 1: master SAT (11.4s); 5 GENERIC cuts
+it 2: master SAT (10.8s); 9 GENERIC cuts
+it 3: master SAT (2.2s); 3 GENERIC cuts
+it 4: master SAT (1.8s); 4 GENERIC cuts
+it 5: master SAT (0.0s), NO infeasible subset at all (whole-set LP feasible) (2s) -> STALL (w11s_B_stall.json)
+== run end it=5 (218s)

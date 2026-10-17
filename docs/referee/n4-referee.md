@@ -1,10 +1,5 @@
 > **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
 
-> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
-> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
-> scripts, build directories or logs from the original working environment that are not part of the proof and were not
-> published; nothing the final theorem or the certificate checks depends on is among them.
-
 # Referee: exhaustiveness of the Case-N split (Erdős #616, r = 21)
 Independent referee, 2026-10-16, 12:55–13:25 EDT. **Scope:** the case tree that runs from "a 21-uniform family with L and τ ≥ 5"
 down to the leaves {W6-U, W7-I, N-K4 (3,2,1,1), N-noK4 (2,4)/(4,2), (3,3), (3,4)/(4,3)}, plus a check that each leaf matches the

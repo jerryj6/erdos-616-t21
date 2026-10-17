@@ -1,10 +1,5 @@
 > **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
 
-> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
-> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
-> scripts, build directories or logs from the original working environment that are not part of the proof and were not
-> published; nothing the final theorem or the certificate checks depends on is among them.
-
 # Independent referee: Wave 14 global encoding (refutation of N-K4, Erdős #616 r=21)
 Started 2026-10-16 12:20 EDT. Adversarial referee; own code in sat/t21/w14ref/ (imports nothing from w13_/w14_ scripts).
 **VERDICT (12:52 EDT): G14 is SOUND. No gap found in items (1)–(5).** The N-K4 (3,2,1,1) branch is refuted by Φ, provided the
@@ -26,7 +21,7 @@ Out of scope here (must be refereed separately before claiming t(21)=4): N.4's d
 
 ## Milestone log (EDT)
 - 12:40 Read G14.1–G14.4, N.0, NK4, S13.1, w13_enum/w14_compat/w14_indep (statements only). SHA-256 of all 10 case CNF/DRAT files
-  match w14_cert2.sha256. Referee drat-trim re-runs (work/e616/tools/drat-trim, own core output w14ref/drat_<case>.core):
+  match w14_cert2.sha256. Referee drat-trim re-runs (drat-trim, own core output w14ref/drat_<case>.core):
   15116, 17917, 14968, 15954 `s VERIFIED`; 16054, certdead running.
 - Authors' queue: run_indep_all finished (w14_indep_all.DONE): 16054 1 952 309/1 952 309 and 17917 353 380/353 380 core CONF
   clauses re-checked, 0 disagreements (their logs). Controls: drop A, drop OO → SAT (recorded); drop SAME, drop D1d → TIMEOUT

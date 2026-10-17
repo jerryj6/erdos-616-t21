@@ -1,0 +1,14 @@
+[w11] branch nok4:3,4 edges 19 K=114 (KB bound 114; sound=True) opt={'gen1auto': '1', 'eager2': '1', 'eager3': '1', 'f1all': '1', 'warm': 'w10x_w11n34m.json', 'tlim': '1000', 'maxadd': '400'}
+  edges: ['g1:(B1,B0):m0', 'g1:(B1,B0):m1', 'g1:(B1,B0):m2', 'g1:(B2,B0):al0', 'g1:(B2,B0):al1', 'g1:(B2,B0):al2', 'g1:(B2,B0):ag0', 'g1:(B3,B0):al0', 'g1:(B3,B0):al1', 'g1:(B3,B0):al2', 'g1:(B3,B0):ah0', 'g1:(B2,B1):cl0', 'g1:(B2,B1):cl1', 'g1:(B2,B1):cl2', 'g1:(B2,B1):cl3', 'g1:(B3,B1):cl0', 'g1:(B3,B1):cl1', 'g1:(B3,B1):cl2', 'g1:(B3,B1):cl3']
+eager2 3686
+eager3 15960
+f1all 969
+warm 480
+built 12.5s vars=1323841 clauses=7886043 inst=21095 tags={'AV': 76, 'def': 7189544, 'E21': 19, 'A': 247, 'L': 2096, 'D1': 43539, 'R1': 19, 'R3': 1596, 'SA': 602342, 'POOL': 2166, 'SB': 17628, 'W7': 17844, 'NK': 8927}
+it 0: SAT (197.8s) inst=21149 cl=7984362 viol=54 {'SA': 1, 'D1': 32, 'L': 21} added=54 esc=0 pool_used=49
+it 1: SAT (18.9s) inst=21157 cl=7984754 viol=8 {'D1': 8} added=8 esc=0 pool_used=37
+it 2: SAT (93.2s) inst=21170 cl=8050084 viol=13 {'SA': 2, 'D1': 8, 'L': 3} added=13 esc=0 pool_used=54
+it 3: SAT (22.1s) inst=21269 cl=8441787 viol=99 {'SA': 14, 'R3': 4, 'W7': 4, 'D1': 25, 'L': 52} added=99 esc=0 pool_used=39
+it 4: SAT (32.8s) inst=21337 cl=8880448 viol=68 {'R3': 4, 'D1': 16, 'L': 48} added=68 esc=0 pool_used=44
+it 5: SAT (103.3s) inst=21385 cl=9046718 viol=48 {'SA': 4, 'R3': 2, 'D1': 7, 'L': 35} added=48 esc=0 pool_used=50
+it 6: SAT (36.2s) inst=21448 cl=9190233 viol=63 {'R3': 5, 'D1': 28, 'L': 30} added=63 esc=0 pool_used=41

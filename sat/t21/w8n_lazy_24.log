@@ -1,0 +1,3 @@
+it 0: OPTIMAL (9.1s) violated=249 families=0
+it 1: UNKNOWN (90.1s) families=249
+RESULT (2, 4) ('A0', 'C0', 'A1', 'C1') UNKNOWN

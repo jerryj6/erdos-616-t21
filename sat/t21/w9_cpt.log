@@ -1,0 +1,77 @@
+restored 12 edges 403 instances
+it 0: SAT (47.4s) edges=12 inst=405 viol=2 added=2
+it 1: SAT (12.3s) edges=12 inst=406 viol=1 added=1
+it 2: SAT (4.9s) edges=12 inst=406 viol=0 added=0 need=182 (gens [1, 2]) +edges 12
+it 3: SAT (12.5s) edges=24 inst=656 viol=675 added=250
+it 4: SAT (8.3s) edges=24 inst=906 viol=553 added=250
+restored 24 edges 906 instances
+it 0: SAT (74.6s) edges=24 inst=1307 viol=401 added=401
+restored 24 edges 1307 instances
+it 0: SAT (179.9s) edges=24 inst=1388 cl=1979153 viol=98 added=81
+restored 24 edges 1388 instances
+it 0: SAT (94.8s) edges=24 inst=1430 cl=2039931 viol=45 added=42
+it 1: SAT (54.0s) edges=24 inst=1462 cl=2076473 viol=35 added=32
+it 2: SAT (18.1s) edges=24 inst=1482 cl=2094364 viol=25 added=20
+it 3: SAT (3.5s) edges=24 inst=1511 cl=2132550 viol=31 added=29
+it 4: SAT (3.5s) edges=24 inst=1548 cl=2192142 viol=39 added=37
+it 5: SAT (19.9s) edges=24 inst=1564 cl=2202345 viol=18 added=16
+it 6: SAT (23.1s) edges=24 inst=1591 cl=2225501 viol=28 added=27
+it 7: SAT (6.6s) edges=24 inst=1615 cl=2266163 viol=26 added=24
+it 8: SAT (4.0s) edges=24 inst=1628 cl=2286047 viol=15 added=13
+it 9: SAT (24.2s) edges=24 inst=1647 cl=2333260 viol=22 added=19
+it 10: SAT (4.7s) edges=24 inst=1660 cl=2342689 viol=14 added=13
+it 11: SAT (3.2s) edges=24 inst=1672 cl=2353877 viol=12 added=12
+it 12: SAT (5.9s) edges=24 inst=1682 cl=2364246 viol=12 added=10
+it 13: SAT (5.5s) edges=24 inst=1695 cl=2394643 viol=17 added=13
+it 14: SAT (6.0s) edges=24 inst=1710 cl=2420134 viol=17 added=15
+it 15: SAT (0.5s) edges=24 inst=1731 cl=2474222 viol=21 added=21
+it 16: SAT (6.3s) edges=24 inst=1745 cl=2504363 viol=16 added=14
+it 17: SAT (5.5s) edges=24 inst=1761 cl=2526373 viol=17 added=16
+it 18: SAT (4.5s) edges=24 inst=1773 cl=2541460 viol=13 added=12
+it 19: SAT (1.1s) edges=24 inst=1793 cl=2576364 viol=22 added=20
+it 20: SAT (3.6s) edges=24 inst=1797 cl=2583531 viol=6 added=4
+it 21: SAT (1.8s) edges=24 inst=1817 cl=2619523 viol=20 added=20
+it 22: SAT (4.0s) edges=24 inst=1829 cl=2629055 viol=13 added=12
+it 23: SAT (0.9s) edges=24 inst=1849 cl=2670440 viol=21 added=20
+it 24: SAT (22.8s) edges=24 inst=1868 cl=2694896 viol=20 added=19
+it 25: SAT (1.6s) edges=24 inst=1893 cl=2732511 viol=27 added=25
+it 26: SAT (0.9s) edges=24 inst=1903 cl=2755752 viol=14 added=10
+it 27: SAT (11.3s) edges=24 inst=1909 cl=2768927 viol=7 added=6
+it 28: SAT (1.5s) edges=24 inst=1920 cl=2788771 viol=11 added=11
+it 29: SAT (5.4s) edges=24 inst=1928 cl=2793179 viol=9 added=8
+it 30: SAT (22.6s) edges=24 inst=1933 cl=2797029 viol=5 added=5
+it 31: SAT (7.5s) edges=24 inst=1940 cl=2809712 viol=7 added=7
+it 32: SAT (1.1s) edges=24 inst=1947 cl=2827607 viol=8 added=7
+it 33: SAT (9.3s) edges=24 inst=1953 cl=2840049 viol=6 added=6
+it 34: SAT (6.9s) edges=24 inst=1959 cl=2842625 viol=7 added=6
+it 35: SAT (1.1s) edges=24 inst=1965 cl=2868104 viol=6 added=6
+it 36: SAT (0.6s) edges=24 inst=1974 cl=2894118 viol=9 added=9
+it 37: SAT (5.3s) edges=24 inst=1976 cl=2904034 viol=2 added=2
+it 38: SAT (9.6s) edges=24 inst=1979 cl=2907088 viol=3 added=3
+it 39: SAT (4.3s) edges=24 inst=1985 cl=2923337 viol=6 added=6
+it 40: SAT (8.3s) edges=24 inst=1990 cl=2925727 viol=5 added=5
+it 41: SAT (7.1s) edges=24 inst=1992 cl=2926829 viol=2 added=2
+it 42: SAT (1.5s) edges=24 inst=1995 cl=2932246 viol=3 added=3
+it 43: SAT (1.3s) edges=24 inst=2005 cl=2957574 viol=10 added=10
+it 44: SAT (4.9s) edges=24 inst=2011 cl=2962526 viol=10 added=6
+it 45: SAT (5.2s) edges=24 inst=2031 cl=2990047 viol=20 added=20
+it 46: SAT (0.9s) edges=24 inst=2039 cl=3017327 viol=8 added=8
+it 47: SAT (1.7s) edges=24 inst=2052 cl=3045987 viol=13 added=13
+it 48: SAT (1.3s) edges=24 inst=2073 cl=3081196 viol=21 added=21
+it 49: SAT (1.9s) edges=24 inst=2088 cl=3101734 viol=15 added=15
+it 50: SAT (1.9s) edges=24 inst=2097 cl=3113740 viol=9 added=9
+it 51: SAT (8.7s) edges=24 inst=2098 cl=3113926 viol=1 added=1
+it 52: SAT (1.5s) edges=24 inst=2112 cl=3140437 viol=14 added=14
+it 53: SAT (7.2s) edges=24 inst=2118 cl=3143743 viol=6 added=6
+it 54: SAT (6.0s) edges=24 inst=2119 cl=3143924 viol=1 added=1
+it 55: SAT (1.5s) edges=24 inst=2125 cl=3171100 viol=6 added=6
+it 56: SAT (0.6s) edges=24 inst=2134 cl=3195599 viol=9 added=9
+it 57: SAT (32.9s) edges=24 inst=2137 cl=3196887 viol=3 added=3
+it 58: SAT (6.4s) edges=24 inst=2137 cl=3196887 viol=0 added=0 need=192 (gens [2]) +edges 40
+it 59: SAT (3.5s) edges=64 inst=2529 cl=4870430 viol=401 added=392
+it 60: SAT (6.8s) edges=64 inst=2814 cl=5168472 viol=401 added=285
+it 61: SAT (39.7s) edges=64 inst=3130 cl=5498968 viol=401 added=316
+it 62: SAT (169.7s) edges=64 inst=3379 cl=5724434 viol=401 added=249
+it 63: SAT (42.0s) edges=64 inst=3696 cl=6066189 viol=401 added=317
+it 64: SAT (37.4s) edges=64 inst=3948 cl=6299139 viol=402 added=252
+it 65: SAT (193.5s) edges=64 inst=4267 cl=6659459 viol=401 added=319

@@ -1,0 +1,5 @@
+edges 20 points 233
+LemmaA min pair 5
+L: subfamilies with union <= 60 examined 1665 violations 0 []
+5-pairs 111 violations {'R3': 0, 'SA': 0, 'D1': 0, 'W7': 0, 'NK': 0, 'TT': 0} cross-type classes (a,c):count {(3, 3): 48, (3, 4): 25, (4, 3): 16, (4, 4): 38}
+tau = 2 e.g. ['al0', 'cl0']

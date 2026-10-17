@@ -1,0 +1,7 @@
+n=18 r=21 K=5 S in [9,13] group=cyc |G|=18 orbits=8424 selfok=2945 (1.0s)
+  it=20 chosen=21 sets=378 kind=dfs new=208 total=2797 pairs=29970 expanded=115 (4.2s)
+  it=40 chosen=20 sets=360 kind=dfs new=191 total=5858 pairs=36439 expanded=158 (5.0s)
+  it=60 chosen=19 sets=342 kind=dfs new=172 total=9101 pairs=44442 expanded=197 (5.8s)
+  it=80 chosen=20 sets=360 kind=dfs new=191 total=12886 pairs=46033 expanded=205 (6.6s)
+  it=100 chosen=23 sets=414 kind=dfs new=176 total=16376 pairs=54541 expanded=242 (7.6s)
+  it=120 chosen=21 sets=378 kind=dfs new=178 total=19995 pairs=56445 expanded=254 (8.4s)

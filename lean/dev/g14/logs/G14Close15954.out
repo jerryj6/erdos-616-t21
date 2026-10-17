@@ -1,0 +1,18 @@
+'G14.case15954' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ G14.chk15954._native.native_decide.ax_1_1,
+ G14.univ_ok._native.native_decide.ax_1_1,
+ E616C.w14_15954.hlast._native.native_decide.ax_1_1,
+ E616C.w14_15954.B0.ok_eq._native.native_decide.ax_1_1,
+ E616C.w14_15954.B1.ok_eq._native.native_decide.ax_1_1,
+ E616C.w14_15954.B10.ok_eq._native.native_decide.ax_1_1,
+ E616C.w14_15954.B2.ok_eq._native.native_decide.ax_1_1,
+ E616C.w14_15954.B3.ok_eq._native.native_decide.ax_1_1,
+ E616C.w14_15954.B4.ok_eq._native.native_decide.ax_1_1,
+ E616C.w14_15954.B5.ok_eq._native.native_decide.ax_1_1,
+ E616C.w14_15954.B6.ok_eq._native.native_decide.ax_1_1,
+ E616C.w14_15954.B7.ok_eq._native.native_decide.ax_1_1,
+ E616C.w14_15954.B8.ok_eq._native.native_decide.ax_1_1,
+ E616C.w14_15954.B9.ok_eq._native.native_decide.ax_1_1]
+exit 0 time 8s MAXRSS 626 MB

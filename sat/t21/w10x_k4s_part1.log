@@ -1,0 +1,4 @@
+branch k4:3211 edges 24 K=144 (KB bound 144; sound=True) opt={'eager2': '1', 'tlim': '1000', 'maxadd': '800'}
+eager2 instances 6384
+built 4.8s vars=668738 clauses=3595544 tags={'AV': 96, 'def': 3365772, 'E21': 24, 'A': 372, 'L': 1344, 'D1': 55824, 'R1': 24, 'R3': 2400, 'SA': 136320, 'POOL': 3456, 'SB': 26312, 'W7': 3600}
+it 0: SAT (165.6s) inst=7184 cl=5752910 viol=8085 {'SA': 3288, 'R3': 358, 'W7': 2321, 'TT': 643, 'D1': 874, 'L': 601} added=800 esc=0 pool_used=70
