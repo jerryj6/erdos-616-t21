@@ -7,7 +7,7 @@ This repository contains a computer-assisted proof that **t(21) = 4** for
 * a Lean 4 formalization of the whole argument, end to end, against the statement of the problem in
   [google-deepmind/formal-conjectures](https://github.com/google-deepmind/formal-conjectures) (`lean/`),
 * the generators, checkers and independent re-encodings of the SAT instances used for the four computational
-  leaves (`sat/`), with the certificates (CNF / DRAT / LRAT) distributed as a release asset,
+  leaves (`sat/`), with the certificates (CNF / DRAT / LRAT) archived on Zenodo (DOI [10.5281/zenodo.23441107](https://doi.org/10.5281/zenodo.23441107)),
 * internal proof notes and referee reports (`docs/`).
 
 The result concerns r = 21 only. It is computer-assisted and has not been externally peer-reviewed; see
@@ -92,15 +92,16 @@ makes the checker return `false`.
 
 ### 1. Get the certificates
 
-The CNF, DRAT and LRAT files (≈ 4.6 GB unpacked) are not in git. They are the release asset
-`e616-sat-certs.tar.zst` of release **v1.0** (338,202,909 bytes), SHA-256
+The CNF, DRAT and LRAT files (≈ 4.6 GB unpacked) are not in git. They are the archive
+`e616-sat-certs.tar.zst` (338,202,909 bytes) in Zenodo record [10.5281/zenodo.23441107](https://doi.org/10.5281/zenodo.23441107)
+(stored there in eight parts, `.part00`–`.part07`; concatenate them in order, as the script does), SHA-256
 
 ```
 189bc3300f63f16ed4203989f381227b46587002e8717099076ae9c4f6510c95
 ```
 
 ```sh
-scripts/fetch_certs.sh                      # downloads the v1.0 asset of this repository's GitHub origin
+scripts/fetch_certs.sh                      # downloads the archive from Zenodo
 scripts/fetch_certs.sh path/to/e616-sat-certs.tar.zst   # or use a local copy
 ```
 

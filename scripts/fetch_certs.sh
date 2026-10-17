@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Download (or take a local copy of) the certificate tarball and lay out data/ for the Lean build and the SAT checks.
 #
-#   scripts/fetch_certs.sh                     # download from the GitHub release v1.0
+#   scripts/fetch_certs.sh                     # download from Zenodo (DOI 10.5281/zenodo.23441107)
 #   scripts/fetch_certs.sh /path/to/e616-sat-certs.tar.zst   # use a local copy
 #
 # Environment: E616_CERTS_URL overrides the download URL.
@@ -20,15 +20,18 @@ SHA=189bc3300f63f16ed4203989f381227b46587002e8717099076ae9c4f6510c95
 D="$ROOT/data"; mkdir -p "$D"
 TAR="${1:-$D/e616-sat-certs.tar.zst}"
 if [ ! -f "$TAR" ]; then
-  # default: the v1.0 release asset of this repository's GitHub origin
-  if [ -z "${E616_CERTS_URL:-}" ]; then
-    ORIGIN="$(git -C "$ROOT" remote get-url origin 2>/dev/null || true)"
-    SLUG="$(printf '%s' "$ORIGIN" | sed -E 's#(\.git)?$##; s#^.*github\.com[:/]##')"
-    [ -n "$SLUG" ] || { echo "cannot determine the GitHub repository; set E616_CERTS_URL or pass the tarball path" >&2; exit 1; }
-    E616_CERTS_URL="https://github.com/$SLUG/releases/download/v1.0/e616-sat-certs.tar.zst"
+  if [ -n "${E616_CERTS_URL:-}" ]; then
+    echo "downloading $E616_CERTS_URL"; curl -L --fail -o "$TAR" "$E616_CERTS_URL"
+  else
+    # default: Zenodo record 23441107 (DOI 10.5281/zenodo.23441107), stored as 8 parts .part00-.part07
+    Z=https://zenodo.org/records/23441107/files
+    : > "$TAR.tmp"
+    for i in 00 01 02 03 04 05 06 07; do
+      echo "downloading part $i of 07"
+      curl -L --fail "$Z/e616-sat-certs.tar.zst.part$i?download=1" >> "$TAR.tmp"
+    done
+    mv "$TAR.tmp" "$TAR"
   fi
-  URL="$E616_CERTS_URL"
-  echo "downloading $URL"; curl -L --fail -o "$TAR" "$URL"
 fi
 echo "$SHA  $TAR" | sha256sum -c -
 

@@ -2,7 +2,7 @@
 
 This directory holds the scripts that produced the case CNFs and DRAT certificates of the four computational leaves,
 the independent referee re-implementations, and small summary logs. The certificates themselves (CNF, DRAT, LRAT;
-≈ 4.6 GB) are the release asset `e616-sat-certs.tar.zst` (SHA-256 in `SHA256SUMS`, per-member hashes in
+≈ 4.6 GB) are the archive `e616-sat-certs.tar.zst` on Zenodo (DOI 10.5281/zenodo.23441107) (SHA-256 in `SHA256SUMS`, per-member hashes in
 `SHA256SUMS.members`); `scripts/fetch_certs.sh` downloads and unpacks it under `data/raw/`.
 
 **Nothing here is trusted by the Lean theorem.** The Lean development re-checks every clause of every case CNF with
@@ -23,7 +23,7 @@ comes from; the paper (§7) and `docs/proof-notes.md` give the mathematics.
 
 ```
 sat/
-  SHA256SUMS            hash of the release tarball
+  SHA256SUMS            hash of the certificate tarball
   SHA256SUMS.members    hashes of every file in the tarball (paths relative to data/raw/)
   w11ref/tr/            leaves (N24), (N33), (N34): the trace relaxations Φ_{a,c}
   t21/w14/              leaf (K): the G14 trace system for the (3,2,1,1)-K4

@@ -7,7 +7,7 @@ This file records what was actually run on the released tree, and what it printe
 * Lean `leanprover/lean4:v4.35.0` (commit `eb6cafb7290e8bd5f2937522d8d804f58f02bafc`), aarch64 Linux, 2 cores, 7 GB RAM.
 * Mathlib `56a005855ea17e0b0958f73ec801ae140b0a1679` with its pinned dependencies (`lake-manifest.json`); the
   `.olean` files of the Mathlib modules in the import closure were taken from a prebuilt copy of that revision.
-* Certificates: the release asset `e616-sat-certs.tar.zst` (SHA-256 `189bc330…c95`), laid out by
+* Certificates: the archive `e616-sat-certs.tar.zst` (Zenodo, DOI 10.5281/zenodo.23441107) (SHA-256 `189bc330…c95`), laid out by
   `scripts/fetch_certs.sh`.
 
 ## What was run (2026-10-17)
