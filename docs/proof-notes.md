@@ -1,7 +1,12 @@
-> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. File paths, run names and timings refer to the original working directory, not to this repository; see `docs/path-map.md` for the correspondence. The curated statements are in `paper/` and `README.md`.
+> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
+
+> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
+> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
+> scripts, build directories or logs from the original working environment that are not part of the proof and were not
+> published; nothing the final theorem or the certificate checks depends on is among them.
 
 # Erdős #616, r = 21: toward t(21) = 4. Working file (2026-10-14)
-> Referee report (2026-10-15): candidates/erdos-616-t21-referee.md — §1, D1, W6-U, W7-I all SOUND; machine checks re-verified.
+> Referee report (2026-10-15): docs/referee/t21-referee.md — §1, D1, W6-U, W7-I all SOUND; machine checks re-verified.
 
 Wave 10 (end of file, "Wave 10 outside-H"): the non-uniform Lemma H is OO at derived pairs. Full outside-disjointness is FALSE in Case N (a witness and a single overlap in exactly 4−c points). New 3-way lemmas SQ and SF refute the W9 stall cores by hand. Case N is still OPEN.
 Status: **OPEN.** t(21) ∈ {4,5} is not settled. **Wave 7 (2026-10-15): Case I (triangle) PROVED impossible (§7.4, hand proof + DRAT cross-check); only Case N remains.** Wave 6 (§6.3): the uniform case — which contains both known
@@ -875,7 +880,7 @@ for a, c in [(2,3),(3,2),(2,4),(4,2),(3,3),(3,4),(4,3),(1,4)]:
 Base edges P0..P3 (bits 0..3), pairwise |Pi&Pj| = 5, empty 4-fold intersection, triple sizes tt[l] = |cap_{i!=l} Pi|
 (sum 7).  Pair-private p_ij = 5 - t_ijk - t_ijl, outside O_i = 21 - sum(triples containing i) - sum_j p_ij.
 New edges 4..k-1.  Region c[T] for T (k-bit mask) whose low 4 bits are a nonempty-base region or 0 (outside).
-TRUE constraints at r=21 used (all proved in candidates/erdos-616-t21-upper.md section 1/6):
+TRUE constraints at r=21 used (all proved in docs/proof-notes.md section 1/6):
   |E|=21; |Ei&Ej|>=5 (Lemma A); L on every subfamily (>=3 edges, containing a new edge);
   D1: (i,j) 5-pair, M_ij not inside E_l  ->  |E_l & (E_i|E_j)| <= 9;
   R3a: (i,j) 5-pair, |E_k & M_ij| = 1  ->  |E_k & E_i| = |E_k & E_j| = 5   (R.2+R.3: singles of >=2 types exist);
@@ -1877,7 +1882,7 @@ So every lemma kind is used. NK is essential, so **the statement is specific to 
 - Logs: w10x_n24s.log, w10x_n24s_core.log, w10x_n24s_cert.log, w10x_n24s_ctrl.log, w10x_n24s_ctrl2.log, w10x_k4*.log, w10x_n33g1*.log.
 
 ## Wave 11 noK4 (3,3)/(3,4) (2026-10-15, ~14:40–16:36 EDT run crashed without a write-up; reconstructed from its files 16:40 EDT)
-Context: Wave 10 exact-outside (X.1–X.9) closed class (2,4)/(4,2) (refereed SOUND, candidates/erdos-616-w10-referee.md). By N8.0 + W6-U
+Context: Wave 10 exact-outside (X.1–X.9) closed class (2,4)/(4,2) (refereed SOUND, docs/referee/w10-referee.md). By N8.0 + W6-U
 an N-noK4 counterexample now needs a 5-pair with a cross-type pair (G,H) of class (3,3) or (3,4)/(4,3). This wave attacks both with
 the SAME encoder (w10x_exact.py) through a thin driver work/e616/t21/w11_exact.py. Status at the time of writing is in W11.0;
 it is updated after each milestone below.
@@ -1899,7 +1904,7 @@ it is updated after each milestone below.
   Wave 10 (2,4) theorem (tag N24; drop=N24 is SAT) and NK (nonk is SAT), so they are specific to N-noK4 and depend on Wave 10.
 - **Not yet refereed.** New ingredients relative to the refereed Wave 10 certificate: tag N24; a slot that is a generic τ-edge
   (J31, ν = 5 in KB); the eager layers eager3/f1all (instances of refereed lemmas); the drivers w11_exact.py / w11n_*.py. The
-  referee's independent encoder (work/e616/w10ref/) has not been run on these instance lists.
+  referee's independent encoder (sat/w10ref/) has not been run on these instance lists.
 
 ### W11.1 What the instances are, and why they cover the WHOLE class (not a sub-case)
 - **Base.** `nok4:a,c` = base_nok4(a,c) (w9lazy.py): E1=B0, E2=B1, G=B2 (type v), H=B3 (type w) with |A_G∩A_H| = a (points al*),
@@ -2141,7 +2146,7 @@ lost: >18 min per solve on a CPU shared with the noK4 agent). The old-oracle A/C
   class-(a,c) 5-pair (W11.1). (4,3) = (3,4) with E1↔E2 swapped. With Wave 10 ((2,4)/(4,2)), N8.0 and W6-U, **N-noK4 is closed
   (computer-assisted), so Case N reduces to N-K4.**
 - **Caveats (honest).** (i) Not refereed. The Wave 10 referee re-encoded only the (2,4) core. Still to check independently: the N24
-  tag, the generic τ-edge slot J31 (ν = 5 in KB), and the 637 + 2394 instance lists (e.g. with work/e616/w10ref/ref_enc.py extended by
+  tag, the generic τ-edge slot J31 (ν = 5 in KB), and the 637 + 2394 instance lists (e.g. with sat/w10ref/ref_enc.py extended by
   N24). (ii) The (3,3) and (3,4) results depend on the Wave 10 theorem (drop N24 SAT) and on NK (nonk SAT). (iii) The (3,3) core is not
   minimal (assumption-based minimisation timed out twice at the 20-min cap). (iv) Solver: CaDiCaL 1.5.3 via pysat (work/e616/pylib
   after the restarts, python-sat 1.9.dev16); checker work/e616/tools/drat-trim.
@@ -2489,7 +2494,7 @@ No sanity check vs H(16,10,7)/H(22,13,9)/PG(2,4) was needed: no new lemma was pr
 
 ## Wave 14 global encoding (2026-10-16, started 09:10 EDT = 13:10 UTC; computational; nothing here is UNSAT unless marked VERIFIED)
 Box had just restarted (uptime 0); W13 chains T/U were relaunched by someone else ~13:15 UTC (not by this wave). All jobs of this
-wave run on CPU 0 with nice 10. Files: work/e616/t21/w14/ (PYTHONPATH=work/e616/pylib).
+wave run on CPU 0 with nice 10. Files: sat/t21/w14/ (PYTHONPATH=work/e616/pylib).
 ### G14.1 The reduction (PROVED; it is a relaxation, so UNSAT of it refutes N-K4)
 Let G be an N-K4 counterexample with base P0..P3, core C (16 points). For a non-base edge F put tr(F) = F∩C, o(F) = (|F∩O_i|).
 Model Φ: one Boolean x_t per feasible core trace t (the 18217 of w13_feas.json); clauses
@@ -2561,7 +2566,7 @@ is a weakening, so how many edges an outside point lies in never enters (it woul
   * Independent re-check of the 14968 core CONF clauses with w14_indep.py (exhaustive integer overlaps, literal rules, no shared
     code with w14_compat/w14_group): **all 494 409 core CONF clauses of the 14968 certificate re-checked, 0 disagreements** (14:47 UTC).
 - ~14:46 UTC sandbox restart (lost the partial 2nd root child of case 15954 only); relaunched 14:48 with w14_resume.sh.
-- Restart script for everything of this wave: work/e616/t21/w14/w14_resume.sh (tree+certs, drop-one controls queued after the
+- Restart script for everything of this wave: sat/t21/w14/w14_resume.sh (tree+certs, drop-one controls queued after the
   tree, independent core re-checks of every certificate).
 - 15:05 UTC: **case r = {v,al0,al1,m0,a4_0,c3,c4} (15954): 1558 tree nodes; w14_cert2_15954.cnf (3 896 902 clauses: 1730 COV +
   3 895 171 CONF + x_r) + .drat (2 517 837 lemmas incl. the 3416 gac units, 286 MB): drat-trim `s VERIFIED`** (171 s; core
@@ -2581,7 +2586,7 @@ is a weakening, so how many edges an outside point lies in never enters (it woul
 | r = {v,al0,al1,m0,a4_0,c3,c4} (15954) | w14_cert2_15954.cnf (3 896 902) | 2 517 837 | 1 558 | `s VERIFIED` 171 s | 1 706 359 / 196 384 |
 | r = {v,al0,al1,m0,m1,a4_0,c3,c4} (16054) | w14_cert2_16054.cnf (4 181 029) | 1 952 921 | ≈1 550 | `s VERIFIED` 198 s | 1 953 320 / 183 695 |
 | r = {v,al0,al1,m0,m1,a4_0,a4_1,c3,c4} (17917) | w14_cert2_17917.cnf (759 549) | 11 508 | 7 | `s VERIFIED` 3.1 s | 353 624 / 3 038 |
-SHA-256 of every case CNF/DRAT: work/e616/t21/w14/w14_cert2.sha256 (certdead: recompute; it is regenerated deterministically by
+SHA-256 of every case CNF/DRAT: sat/t21/w14/w14_cert2.sha256 (certdead: recompute; it is regenerated deterministically by
 w14_certdead.py). Every case CNF = the 1730 COV clauses (full avoider lists over all 18217 traces) + CONF binary clauses + unit x_r.
 **Logical chain (each step PROVED or VERIFIED as marked):**
 1. (PROVED, G14.1) An N-K4 counterexample gives a model of Φ (x_t = "some non-base edge has core trace t").

@@ -1,4 +1,9 @@
-> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. File paths, run names and timings refer to the original working directory, not to this repository; see `docs/path-map.md` for the correspondence. The curated statements are in `paper/` and `README.md`.
+> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
+
+> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
+> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
+> scripts, build directories or logs from the original working environment that are not part of the proof and were not
+> published; nothing the final theorem or the certificate checks depends on is among them.
 
 # Erdős #616, t(21)=4: Lean-checked LRAT certificates
 
@@ -56,39 +61,39 @@ No Mathlib anywhere: only `import Std.Tactic.BVDecide.LRAT` (core).
 ## Status per certificate
 | name | CNF | sha256[:16] | drat-trim -L | LRAT size | Lean time / RSS | parser round-trip | status |
 |---|---|---|---|---|---|---|---|
-| tree_34_0 | work/e616/w11ref/tr/tree_34_0.cnf | 9c2017a5050d2682 | VERIFIED 0.1s | 0.2 MB | 2.6s /  | 27245 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_34_1 | work/e616/w11ref/tr/tree_34_1.cnf | 368df8312ee01f61 | VERIFIED 1.3s | 0.3 MB | 3.4s /  | 53275 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_34_2 | work/e616/w11ref/tr/tree_34_2.cnf | 568280da8549105f | VERIFIED 1.0s | 0.1 MB | 2.9s / 656 MB | 23890 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_34_3 | work/e616/w11ref/tr/tree_34_3.cnf | 0245f5f42e2c040d | VERIFIED 1.1s | 0.4 MB | 3.3s / 658 MB | 67051 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_34_4 | work/e616/w11ref/tr/tree_34_4.cnf | 46dede8f3aa99a0b | VERIFIED 1.2s | 1.4 MB | 6.4s / 672 MB | 201946 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_24x_0 | work/e616/w11ref/tr/tree_24x_0.cnf | dca56a2b44b9add2 | VERIFIED 1.3s | 0.2 MB | 4.5s /  | 28303 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_24x_1 | work/e616/w11ref/tr/tree_24x_1.cnf | 9f4cfa640f4668e2 | VERIFIED 1.4s | 0.7 MB | 6.4s /  | 111017 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_24x_2 | work/e616/w11ref/tr/tree_24x_2.cnf | 34c74312df1645f7 | VERIFIED 1.7s | 2.6 MB | 12.1s / 709 MB | 373456 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_24x_3 | work/e616/w11ref/tr/tree_24x_3.cnf | df50f593abf43da4 | VERIFIED 1.4s | 1.3 MB | 9.1s /  | 208075 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_24x_4 | work/e616/w11ref/tr/tree_24x_4.cnf | 0d445eaf1f2cf94d | VERIFIED 1.4s | 0.9 MB | 7.7s /  | 140840 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_24x_5 | work/e616/w11ref/tr/tree_24x_5.cnf | 9b566ea296af0f9b | VERIFIED 1.5s | 0.3 MB | 5.4s / 660 MB | 46331 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_24x_6 | work/e616/w11ref/tr/tree_24x_6.cnf | ff9d9ab4b389f02b | VERIFIED 1.2s | 0.7 MB | 6.8s / 664 MB | 120025 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_33_0 | work/e616/w11ref/tr/tree_33_0.cnf | eeb1da891b705ccf | VERIFIED 1.7s | 1.4 MB | 9.8s / 682 MB | 219736 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_33_1 | work/e616/w11ref/tr/tree_33_1.cnf | 5d308a07d4cbd84a | VERIFIED 1.4s | 1.2 MB | 8.8s / 681 MB | 186503 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_33_2 | work/e616/w11ref/tr/tree_33_2.cnf | 481ef63ce20a2d72 | VERIFIED 1.5s | 0.6 MB | 6.8s / 662 MB | 97707 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_33_3 | work/e616/w11ref/tr/tree_33_3.cnf | dc9253c64759bd0e | VERIFIED 2.9s | 8.2 MB | 22.8s / 800 MB | 824917 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_33_4 | work/e616/w11ref/tr/tree_33_4.cnf | 6d3a592e871cd9e9 | VERIFIED 2.3s | 6.9 MB | 20.7s / 771 MB | 719757 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_33_5 | work/e616/w11ref/tr/tree_33_5.cnf | 1844ab3f8b82c967 | VERIFIED 1.5s | 1.1 MB | 8.2s / 679 MB | 173246 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_33_6 | work/e616/w11ref/tr/tree_33_6.cnf | 3d506bb0b797959b | VERIFIED 1.7s | 2.0 MB | 11.4s / 692 MB | 295146 cl. IDENTICAL | **LEAN-CHECKED** |
-| tree_33_7 | work/e616/w11ref/tr/tree_33_7.cnf | bcb519bfb80dc9fe | VERIFIED 1.4s | 2.1 MB | 9.7s / 691 MB | 235710 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_34_0 | sat/w11ref/tr/tree_34_0.cnf | 9c2017a5050d2682 | VERIFIED 0.1s | 0.2 MB | 2.6s /  | 27245 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_34_1 | sat/w11ref/tr/tree_34_1.cnf | 368df8312ee01f61 | VERIFIED 1.3s | 0.3 MB | 3.4s /  | 53275 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_34_2 | sat/w11ref/tr/tree_34_2.cnf | 568280da8549105f | VERIFIED 1.0s | 0.1 MB | 2.9s / 656 MB | 23890 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_34_3 | sat/w11ref/tr/tree_34_3.cnf | 0245f5f42e2c040d | VERIFIED 1.1s | 0.4 MB | 3.3s / 658 MB | 67051 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_34_4 | sat/w11ref/tr/tree_34_4.cnf | 46dede8f3aa99a0b | VERIFIED 1.2s | 1.4 MB | 6.4s / 672 MB | 201946 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_24x_0 | sat/w11ref/tr/tree_24x_0.cnf | dca56a2b44b9add2 | VERIFIED 1.3s | 0.2 MB | 4.5s /  | 28303 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_24x_1 | sat/w11ref/tr/tree_24x_1.cnf | 9f4cfa640f4668e2 | VERIFIED 1.4s | 0.7 MB | 6.4s /  | 111017 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_24x_2 | sat/w11ref/tr/tree_24x_2.cnf | 34c74312df1645f7 | VERIFIED 1.7s | 2.6 MB | 12.1s / 709 MB | 373456 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_24x_3 | sat/w11ref/tr/tree_24x_3.cnf | df50f593abf43da4 | VERIFIED 1.4s | 1.3 MB | 9.1s /  | 208075 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_24x_4 | sat/w11ref/tr/tree_24x_4.cnf | 0d445eaf1f2cf94d | VERIFIED 1.4s | 0.9 MB | 7.7s /  | 140840 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_24x_5 | sat/w11ref/tr/tree_24x_5.cnf | 9b566ea296af0f9b | VERIFIED 1.5s | 0.3 MB | 5.4s / 660 MB | 46331 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_24x_6 | sat/w11ref/tr/tree_24x_6.cnf | ff9d9ab4b389f02b | VERIFIED 1.2s | 0.7 MB | 6.8s / 664 MB | 120025 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_33_0 | sat/w11ref/tr/tree_33_0.cnf | eeb1da891b705ccf | VERIFIED 1.7s | 1.4 MB | 9.8s / 682 MB | 219736 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_33_1 | sat/w11ref/tr/tree_33_1.cnf | 5d308a07d4cbd84a | VERIFIED 1.4s | 1.2 MB | 8.8s / 681 MB | 186503 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_33_2 | sat/w11ref/tr/tree_33_2.cnf | 481ef63ce20a2d72 | VERIFIED 1.5s | 0.6 MB | 6.8s / 662 MB | 97707 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_33_3 | sat/w11ref/tr/tree_33_3.cnf | dc9253c64759bd0e | VERIFIED 2.9s | 8.2 MB | 22.8s / 800 MB | 824917 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_33_4 | sat/w11ref/tr/tree_33_4.cnf | 6d3a592e871cd9e9 | VERIFIED 2.3s | 6.9 MB | 20.7s / 771 MB | 719757 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_33_5 | sat/w11ref/tr/tree_33_5.cnf | 1844ab3f8b82c967 | VERIFIED 1.5s | 1.1 MB | 8.2s / 679 MB | 173246 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_33_6 | sat/w11ref/tr/tree_33_6.cnf | 3d506bb0b797959b | VERIFIED 1.7s | 2.0 MB | 11.4s / 692 MB | 295146 cl. IDENTICAL | **LEAN-CHECKED** |
+| tree_33_7 | sat/w11ref/tr/tree_33_7.cnf | bcb519bfb80dc9fe | VERIFIED 1.4s | 2.1 MB | 9.7s / 691 MB | 235710 cl. IDENTICAL | **LEAN-CHECKED** |
 | w7_core_A_c3 | work/e616/t21/w7_core_A_c3.cnf | 6f418e181cce50a0 | VERIFIED 1.6s | 1.2 MB | 2.6s / 657 MB | 61564 cl. IDENTICAL | **LEAN-CHECKED** |
 | ref_w7_min | work/e616/referee/ref_w7_min.cnf | 87379defeceee3a2 | VERIFIED 0.9s | 0.9 MB | 3.3s / 655 MB | 61569 cl. IDENTICAL | **LEAN-CHECKED** |
-| w14_certdead | work/e616/t21/w14/w14_certdead.cnf | f90e8f69a0c1c545 | VERIFIED 2.0s | 6.0 MB | 27.0s / 812 MB | 594808 cl. IDENTICAL | **LEAN-CHECKED** |
-| w14_15116 | work/e616/t21/w14/w14_cert2_15116.cnf | 16b477098c987fee | VERIFIED 2.7s | 8.5 MB | 28.6s / 832 MB | 668659 cl. IDENTICAL | **LEAN-CHECKED** |
-| w14_17917 | work/e616/t21/w14/w14_cert2_17917.cnf | 7b189864a477d79e | VERIFIED 3.1s | 10.6 MB | 31.4s / 838 MB | 759549 cl. IDENTICAL | **LEAN-CHECKED** |
-| w14_14968 | work/e616/t21/w14/w14_cert2_14968.cnf | fe2913a2bb6cf9eb | VERIFIED 5.1s | 34.0 MB | 38.1s / 950 MB | 1024649 cl. IDENTICAL | **LEAN-CHECKED** + **LEAN-CHECKED (chunked, 1 blocks)** |
-| ref_n19 | work/e616/w10ref/ref_n19.cnf | 50b210a56e25b991 | VERIFIED 8.3s | 32.0 MB | 76.7s / 1148 MB | 2334395 cl. IDENTICAL | **LEAN-CHECKED** |
+| w14_certdead | data/cnf/w14_certdead.cnf | f90e8f69a0c1c545 | VERIFIED 2.0s | 6.0 MB | 27.0s / 812 MB | 594808 cl. IDENTICAL | **LEAN-CHECKED** |
+| w14_15116 | sat/t21/w14/w14_cert2_15116.cnf | 16b477098c987fee | VERIFIED 2.7s | 8.5 MB | 28.6s / 832 MB | 668659 cl. IDENTICAL | **LEAN-CHECKED** |
+| w14_17917 | sat/t21/w14/w14_cert2_17917.cnf | 7b189864a477d79e | VERIFIED 3.1s | 10.6 MB | 31.4s / 838 MB | 759549 cl. IDENTICAL | **LEAN-CHECKED** |
+| w14_14968 | sat/t21/w14/w14_cert2_14968.cnf | fe2913a2bb6cf9eb | VERIFIED 5.1s | 34.0 MB | 38.1s / 950 MB | 1024649 cl. IDENTICAL | **LEAN-CHECKED** + **LEAN-CHECKED (chunked, 1 blocks)** |
+| ref_n19 | sat/w10ref/ref_n19.cnf | 50b210a56e25b991 | VERIFIED 8.3s | 32.0 MB | 76.7s / 1148 MB | 2334395 cl. IDENTICAL | **LEAN-CHECKED** |
 | ref_n34 | work/e616/w11ref/ref_n34.cnf | 798ed3b9ec9dce85 | VERIFIED 15.5s | 52.7 MB | 84.3s / 1287 MB | 2530515 cl. IDENTICAL | **LEAN-CHECKED** |
 | w10x_n24s_core_n19 | work/e616/t21/w10x_n24s_core_n19.cnf | ad8ef018d43e3aa7 | VERIFIED 13.6s | 15.3 MB | 44.9s / 969 MB | 1352137 cl. IDENTICAL | **LEAN-CHECKED** |
 | w10x_n24s_core | work/e616/t21/w10x_n24s_core.cnf | af4666729ad00b52 | VERIFIED 16.0s | 20.4 MB | 62.3s / 1115 MB | 1892225 cl. IDENTICAL | **LEAN-CHECKED** |
 | w10x_w11n34min | work/e616/t21/w10x_w11n34min.cnf | 75536e33bec1dcfc | VERIFIED 16.8s | 18.8 MB | 51.8s / 1034 MB | 1544863 cl. IDENTICAL | **LEAN-CHECKED** |
-| w14_16054 | work/e616/t21/w14/w14_cert2_16054.cnf | 98c79253bf5c0d3d | VERIFIED 83.6s | 1026.2 MB | 288 (sum)s / 1775 MB max | 4181029 cl. IDENTICAL | **LEAN-CHECKED (chunked, 10 blocks)** |
-| w14_15954 | work/e616/t21/w14/w14_cert2_15954.cnf | 6a8d4fc2628635a3 | VERIFIED 106.0s | 1115.2 MB | 291 (sum)s / 1743 MB max | 3896902 cl. IDENTICAL | **LEAN-CHECKED (chunked, 11 blocks)** |
+| w14_16054 | sat/t21/w14/w14_cert2_16054.cnf | 98c79253bf5c0d3d | VERIFIED 83.6s | 1026.2 MB | 288 (sum)s / 1775 MB max | 4181029 cl. IDENTICAL | **LEAN-CHECKED (chunked, 10 blocks)** |
+| w14_15954 | sat/t21/w14/w14_cert2_15954.cnf | 6a8d4fc2628635a3 | VERIFIED 106.0s | 1115.2 MB | 291 (sum)s / 1743 MB max | 3896902 cl. IDENTICAL | **LEAN-CHECKED (chunked, 11 blocks)** |
 | w10x_w11n33z1_dcore | work/e616/t21/w10x_w11n33z1_dcore.cnf | 69911893633c8d36 | VERIFIED 735.1s | 208.7 MB | 83 (sum)s / 2059 MB max | 4641833 cl. IDENTICAL | **LEAN-CHECKED (chunked, 2 blocks)** |
 
 ## Sources

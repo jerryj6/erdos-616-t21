@@ -1,8 +1,13 @@
-> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. File paths, run names and timings refer to the original working directory, not to this repository; see `docs/path-map.md` for the correspondence. The curated statements are in `paper/` and `README.md`.
+> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
+
+> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
+> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
+> scripts, build directories or logs from the original working environment that are not part of the proof and were not
+> published; nothing the final theorem or the certificate checks depends on is among them.
 
 # Lean formalization: Erdős #616 at r = 21 — statement, reduction, §1 lemmas, lower bound
 
-Plan / dependency DAG / estimate: candidates/lean-erdos616-plan.md.
+Plan / dependency DAG / estimate: docs/lean-reports/plan.md.
 
 ## Status (milestone 2, 2026-10-16 ~17:15 EDT): **Full.lean checks, 0 sorry, 0 errors** (milestone 1 at ~17:05 had everything except the last three rows)
 Check: `lean Full.lean` (+ `#print axioms` block) → `exit 0` in 4 s; every listed theorem depends only on
@@ -10,7 +15,7 @@ Check: `lean Full.lean` (+ `#print axioms` block) → `exit 0` in 4 s; every lis
 ("Type mismatch"), so the file is really elaborated. Warnings only (style: deprecated `push Not` alternatives, `<;>` lint,
 unused section variables).
 
-| item (hand proof: candidates/erdos-616-t21-upper.md §1, §6.0, §7.3; loop.md §3) | Lean name | status |
+| item (hand proof: docs/proof-notes.md §1, §6.0, §7.3; loop.md §3) | Lean name | status |
 |---|---|---|
 | formal-conjectures defs copied verbatim (`Set.HasFiniteTransversal`, `Finset.IsUniform`, `Finset.hypergraphInduce`, `Hypergraph.localTransversalBound`) | — | ✅ |
 | r = 21 statement `localTransversalBound 21 60 1 = 4` | `Statement` | stated |
@@ -117,5 +122,5 @@ export LEAN_PATH=/tmp/E/lib:/tmp/lean-tc/lib/lean
 ( S=$(date +%s); /tmp/lean-tc/bin/lean $f > $f.out 2>&1; echo "exit $? time $(( $(date +%s) - S ))s" > $f.done ) 
 ```
 
-## Full source: work/e616lean/Full.lean (1202 lines)
+## Full source: lean/Erdos616/Basic.lean (1202 lines)
 *[1202-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*

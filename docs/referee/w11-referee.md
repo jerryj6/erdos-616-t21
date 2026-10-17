@@ -1,12 +1,17 @@
-> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. File paths, run names and timings refer to the original working directory, not to this repository; see `docs/path-map.md` for the correspondence. The curated statements are in `paper/` and `README.md`.
+> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
+
+> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
+> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
+> scripts, build directories or logs from the original working environment that are not part of the proof and were not
+> published; nothing the final theorem or the certificate checks depends on is among them.
 
 # Referee report: Wave 11 N-noK4 classes (3,3) and (3,4)/(4,3) (Erdős #616, r = 21)
 Referee run 2026-10-15, started 19:15 EDT. Hostile reading. IN PROGRESS (sections are filled in as work completes).
-- **Scope:** candidates/erdos-616-t21-upper.md, "Wave 11 noK4 (3,3)/(3,4)" W11.0–W11.6 (W11.5/W11.6 sit after the B11 sections).
-- **Taken as SOUND without re-checking:** everything refereed in candidates/erdos-616-t21-referee.md and
-  candidates/erdos-616-w10-referee.md (Lemma KB, R.1–R.3, S(a), D1, W6-U, W7-I, NK under N-noK4, the (2,4) theorem).
+- **Scope:** docs/proof-notes.md, "Wave 11 noK4 (3,3)/(3,4)" W11.0–W11.6 (W11.5/W11.6 sit after the B11 sections).
+- **Taken as SOUND without re-checking:** everything refereed in docs/referee/t21-referee.md and
+  docs/referee/w10-referee.md (Lemma KB, R.1–R.3, S(a), D1, W6-U, W7-I, NK under N-noK4, the (2,4) theorem).
 - **Independent work:** work/e616/w11ref/ (new directory). Encoder written from the statements; reuses only the
-  predecessor referee's CNF helpers (work/e616/w10ref/ref_enc.py), never w9/w10x/w11 code. Only the instance lists
+  predecessor referee's CNF helpers (sat/w10ref/ref_enc.py), never w9/w10x/w11 code. Only the instance lists
   (which edges each lemma instance names) are read from the authors' checkpoints.
 
 ## 1. Coverage argument (W11.1): **SOUND**
@@ -53,7 +58,7 @@ instances are conditional lemma instances, so UNSAT of one instance excludes the
 ## 3. Independent re-encoding (work/e616/w11ref/)
 **Encoder ref_enc11.py.** Base, 16 singles and J31 rebuilt from the definitions (§1); only the instance lists are read from the
 authors' checkpoints (w10x_w11n34min.json sha256 4053982…, 637 instances; w10x_w11n33z1_dcore.json sha256 2bb2011…, 2394).
-Model = the predecessor's (work/e616/w10ref/ref_enc.py): slot bits over 61 named + K = 104 pool points, privates implicit,
+Model = the predecessor's (sat/w10ref/ref_enc.py): slot bits over 61 named + K = 104 pool points, privates implicit,
 NO symmetry breaking and NO "pool point in 0 or ≥ 2 slots" restriction. Eager: AV (and R1, R3-at-base, SAbase for the 16 singles
 only), E21, Lemma A (slot–base, slot–slot), D1 at the 5 base pairs, L on {base subfamily}+slot, F1. Lazy instances in exact
 per-point form conditional on their hypotheses: R3, D1, SA, W7(+NK), L, and **N24** (§2). Auxiliaries: Tseitin AND and full
@@ -182,7 +187,7 @@ Solver: **Glucose 4 (pysat 1.9.dev16)**, not CaDiCaL. Checker: work/e616/tools/d
   statement of the encoding, only for base+2 slots). Harmless: a control only shows that the dropped kind is *needed within this
   instance list*; the N24 model is clean even under that extra literal test.
 
-## §5 independent (3,3) via trace encoding (started 2026-10-16 12:55 EDT; work/e616/w11ref/tr/)
+## §5 independent (3,3) via trace encoding (started 2026-10-16 12:55 EDT; sat/w11ref/tr/)
 Route: the slot/pool re-encoding of §3b never finished (sandbox resets every ~45 min; cube tree stalled; cube33L put on hold,
 file w11ref/cube33L.hold, queue kept). New route in the style of the refereed Wave 14 N-K4 model Φ, but written from scratch
 (tr_core.py imports nothing from w9/w10x/w11/w13/w14/w14ref). Only the authors' literal realization JSONs are read, as DATA.

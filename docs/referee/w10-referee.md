@@ -1,12 +1,17 @@
-> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. File paths, run names and timings refer to the original working directory, not to this repository; see `docs/path-map.md` for the correspondence. The curated statements are in `paper/` and `README.md`.
+> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
+
+> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
+> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
+> scripts, build directories or logs from the original working environment that are not part of the proof and were not
+> published; nothing the final theorem or the certificate checks depends on is among them.
 
 # Referee report: Wave 10 exact-outside, N-noK4 class (2,4) closure (Erdős #616, r = 21)
 Referee run 2026-10-15, ~14:40–14:55 EDT. This was a hostile reading.
-- **Scope:** in candidates/erdos-616-t21-upper.md, "Wave 10 exact-outside" (X.1–X.9, including X.2 Lemma KB), "Wave 8 N-noK4" N8.0, and N.4,
+- **Scope:** in docs/proof-notes.md, "Wave 10 exact-outside" (X.1–X.9, including X.2 Lemma KB), "Wave 8 N-noK4" N8.0, and N.4,
   which defines N-noK4.
-- **Taken as SOUND without re-checking:** the lemmas refereed in candidates/erdos-616-t21-referee.md. These are §1 (A, R.1–R.3, S, T),
+- **Taken as SOUND without re-checking:** the lemmas refereed in docs/referee/t21-referee.md. These are §1 (A, R.1–R.3, S, T),
   D1, the §6.2 case split, W6-U and W7-I.
-- **Independent work:** everything I built is in work/e616/w10ref/. My encoder does not import or copy any w9/w10x code.
+- **Independent work:** everything I built is in sat/w10ref/. My encoder does not import or copy any w9/w10x code.
 
 ## Verdict summary
 | # | Item | Verdict |
@@ -58,7 +63,7 @@ reaches a lex-leader in every orbit.
 private point. It is still UNSAT. The authors' C3 run (no SB) shows the same.
 
 ## 2. Independent re-encoding: UNSAT, DRAT VERIFIED
-**Encoder: work/e616/w10ref/ref_enc.py.** I wrote it from the mathematical statements.
+**Encoder: sat/w10ref/ref_enc.py.** I wrote it from the mathematical statements.
 - **Base.** The (2,4) base is built from its definition: M; al = A_G∩A_H (2 points); ag, ah (2 each); a0 (10); cl = C_G = C_H (4);
   c0 (12); og, oh (12 each). The code asserts the defining relations: |G∩H| = 6 = al∪cl, the five base 5-pairs, and disjoint O-parts.
 - **Slots.** The 19 slots are derived from the base, not read from a file. They are mapped to the w9_cn24.json indices 0..18 by label,
@@ -164,7 +169,7 @@ every 5-pair.
 4. Wording: "Every one of those is a proved consequence of {L, τ ≥ 5, W7-I, N-noK4}". It also uses Lemma A, R.1–R.3 and D1, which are
    consequences of L and τ ≥ 5, so the statement is fine.
 
-## Files (work/e616/w10ref/)
+## Files (sat/w10ref/)
 - **Code:** ref_enc.py (independent encoder), ref_solve.py (pysat Glucose 4 + DRAT + drat-trim), ref_check.py (literal set-arithmetic
   checker of the eager statements and the 380 instances).
 - **Certificate:** ref_n19.cnf, ref_n19.cnf.glucose4.drat, ref_n19.sha256, solve_n19_glucose4.log.

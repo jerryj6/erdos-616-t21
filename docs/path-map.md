@@ -1,7 +1,8 @@
 # Path map: working tree → this repository
 
-The internal reports in `docs/` (and §11 of the paper) refer to files by their paths in the original working directory.
-This table gives the corresponding file in this repository. Lean sources were renamed into one module tree; apart from
+The internal reports in `docs/` and the paper were originally written with paths in the working directory. Those paths
+have now been rewritten to the repository paths below (paper §11 and Table 4 directly; `docs/` mechanically from this
+table). The table is kept for provenance and for reading the raw logs, which are unchanged. Lean sources were renamed into one module tree; apart from
 `import` lines, `include_str` data paths, the output path of the parser round-trip `#eval`, and file pointers inside
 comments, their contents are unchanged (checked mechanically, see `lean/VERIFICATION.md`).
 

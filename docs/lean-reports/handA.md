@@ -1,9 +1,14 @@
-> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. File paths, run names and timings refer to the original working directory, not to this repository; see `docs/path-map.md` for the correspondence. The curated statements are in `paper/` and `README.md`.
+> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
+
+> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
+> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
+> scripts, build directories or logs from the original working environment that are not part of the proof and were not
+> published; nothing the final theorem or the certificate checks depends on is among them.
 
 # Lean formalization, part HAND-A: W6-U, the Case-N split, Lemma KB, and assembly of t(21) = 4 from leaf Props
 
-Written 2026-10-16 (~17:45 EDT). Source: `work/e616lean/HandA.lean` (892 lines; it imports `E616Full`, which is an
-unchanged copy of `work/e616lean/Full.lean` compiled as a module). **0 sorry.** Axioms: `propext`, `Classical.choice`,
+Written 2026-10-16 (~17:45 EDT). Source: `lean/Erdos616/HandA.lean` (892 lines; it imports `E616Full`, which is an
+unchanged copy of `lean/Erdos616/Basic.lean` compiled as a module). **0 sorry.** Axioms: `propext`, `Classical.choice`,
 `Quot.sound` only. Check time 24 s (Lean 4.35.0, Mathlib 56a00585, targeted imports). Build artefacts are in
 `work/e616lean/handA_build/`: `HandA.olean`, logs, a `#print axioms` check copy, and `run.sh`.
 
@@ -101,5 +106,5 @@ Erdos616R21.erdos_616_r21_of_leaves : Erdos616R21.W7I_leaf →
       Erdos616R21.noK4_33_leaf → Erdos616R21.noK4_34_leaf → Hypergraph.localTransversalBound 21 (3 * 21 - 3) 1 = 4
 ```
 
-## Full source: work/e616lean/HandA.lean
+## Full source: lean/Erdos616/HandA.lean
 *[892-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*

@@ -1,13 +1,18 @@
-> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. File paths, run names and timings refer to the original working directory, not to this repository; see `docs/path-map.md` for the correspondence. The curated statements are in `paper/` and `README.md`.
+> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
+
+> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
+> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
+> scripts, build directories or logs from the original working environment that are not part of the proof and were not
+> published; nothing the final theorem or the certificate checks depends on is among them.
 
 # Lean bridge for the N-K4 leaf (G14) of t(21) = 4 (Erdős #616)
 
 **STATUS (2026-10-16 ≈19:25 EDT): DONE.** `Erdos616R21.NK4_leaf_proved : NK4_leaf` (HandA's statement) compiles in
-work/e616lean/G14Full.lean with 0 sorry and no hypotheses; axioms = standard three + native_decide aux axioms of the G14
+lean/Erdos616/G14/Leaf.lean with 0 sorry and no hypotheses; axioms = standard three + native_decide aux axioms of the G14
 checkers and the LRAT checkers (see Milestone 7).
 
 Started 2026-10-16 ~17:10 EDT. Files: work/e616lean/g14/ (G14Check.lean = core-only checkers + glue; T.txt = var→trace table),
-work/e616lean/BridgeG14.lean (Mathlib side, to come). Status lines are appended per milestone below.
+lean/Erdos616/G14/Bridge.lean (Mathlib side, to come). Status lines are appended per milestone below.
 
 ## Design (milestone 0, 17:20 EDT)
 Split into two layers so the heavy computation runs in core Lean (no Mathlib, natively compiled) and the hand proofs live on the
@@ -54,9 +59,9 @@ Mathlib side:
   `hpull : validPerm s → (M s0).occ t → (M s).occ (pull s t)`, derive False.
 Left for the next milestones: native_decide theorems `univOK () = true`, `rootOK = true`, `checkCNF (parse cnfText_k) extra_k = true`
 (importing the LRAT cert modules) ⇒ the five case lemmas + dead lemma; then the Mathlib side (Model from Counter + labelled base).
-### work/e616lean/g14/G14Check.lean
+### lean/Erdos616Checkers/G14Check.lean
 *[204-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*
-### work/e616lean/g14/G14Glue.lean
+### lean/Erdos616/G14/Glue.lean
 ```lean
 import G14Check
 /-!
@@ -158,7 +163,7 @@ theorem eval_of_check (M : Model) (hu : univOK () = true) (f : CNF Nat) (extra :
 
 end G14
 ```
-### work/e616lean/g14/G14Root.lean
+### lean/Erdos616/G14/Root.lean
 ```lean
 import G14Glue
 /-!
@@ -268,7 +273,7 @@ Native bench (not yet as Lean theorems): w14_cert2_15954 (3 896 902 clauses, 82 
 103 s): every clause accepted except the unit `[x_r]`. These two are LRAT-checked in chunk mode with the parser
 `LratChunk.parseDimacsFast`; their Lean case lemmas will import only the `w14_*_Data` module (84 MB) and take the
 `not_exists_sat` of the `_Final` module (1 GB of block oleans) as a hypothesis, to stay under the memory budget.
-Mathlib side (work/e616lean/BridgeG14.lean, compiles, 0 sorry so far): bit-mask lemmas (`maskOf`, `testBit_maskOf`,
+Mathlib side (lean/Erdos616/G14/Bridge.lean, compiles, 0 sorry so far): bit-mask lemmas (`maskOf`, `testBit_maskOf`,
 `pc_eq_card`), `LBase` (labelled base: `P : Fin 4 → Finset V`, injective `c : Fin 16 → V`, membership table, pairwise
 intersections inside the core), `tr`, `testBit_tr`, `card_core` (|S ∩ core| = pc m for any mask m describing S on the
 core), `card_part` (|S| = |S∩core| + Σ_q |S∩O_q| + |S \ ⋃P|).
@@ -305,9 +310,9 @@ PairSound proof (BridgeG14Pair.lean): z := st (F ∩ F') ∈ zbox (z_mem_zbox); 
 Lemma A trivial for zumin; F1 = inter3; SAME = S_a_O (F∩F' ⊆ P_i∪P_j ⇒ I ⊆ P_i∪P_j, z_q = 0 off i,j, z_U = 0) + W7I + S_b with
 A-part = pc(I∧P_i∧¬P_j) + z_i (partA, via card_inter_P on (F∩F')\\P_j); L on X∪{F,F'} via new L6 (propL) for all 11 X with
 region counting (card_inter_UX, outX_eq, osX_eq, 16-way case split on X's bits); D1 at derived 5-pairs both directions.
-### work/e616lean/BridgeG14Pair.lean
+### lean/Erdos616/G14/BridgePair.lean
 *[460-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*
-### work/e616lean/BridgeG14.lean (Parts A–E, as compiled)
+### lean/Erdos616/G14/Bridge.lean (Parts A–E, as compiled)
 *[1152-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*
 
 ## Milestone 5 (≈19:15 EDT): BridgeG14Final.lean compiles — NK4_leaf (HandA's statement) from the certificate facts, 0 sorry
@@ -332,7 +337,7 @@ Erdos616R21.NK4_leaf_of_certs : G14.univOK () = true →
   (swap of the first two), which matches exactly. Region counts via exact_pair_card; points from card_eq_one/two/three;
   injectivity via the decided column lemma G14_col (decide +kernel) + within-region distinctness.
 * `NK4_leaf_of_certs (hu hr caseR caseDead) : NK4_leaf`.
-### work/e616lean/BridgeG14Final.lean
+### lean/Erdos616/G14/BridgeFinal.lean
 *[219-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*
 
 ## Milestone 6 (≈19:20 EDT): G14Assembly.lean — HandA's NK4_leaf modulo only the two chunked UNSAT statements
@@ -361,7 +366,7 @@ Statement: `NK4_leaf_of_chunked (h15954 : ¬ ∃ a, (LratChunk.parseDimacsFast E
 Linking them in one environment needs importing w14_15954_Final + w14_16054_Final (1.15 GB of oleans each; Lean loads
 oleans fully, so RSS ≈ 1.8 GB + 2.3 GB) — over the 2.5 GB budget. Core-only closing files G14Close15954/16054.lean (one
 chunked case each, no Mathlib) are being run to check the statements match: see milestone 7.
-### work/e616lean/G14Assembly.lean
+### lean/Erdos616/G14/Assembly.lean
 ```lean
 import BridgeG14Final
 import G14Univ
@@ -399,7 +404,7 @@ end Erdos616R21
 #print axioms Erdos616R21.NK4_leaf_of_chunked
 ```
 
-## Milestone 7 (≈19:25 EDT): **NK4_leaf proved, no hypotheses, 0 sorry** (work/e616lean/G14Full.lean)
+## Milestone 7 (≈19:25 EDT): **NK4_leaf proved, no hypotheses, 0 sorry** (lean/Erdos616/G14/Leaf.lean)
 ```lean
 import G14Assembly
 import w14_15954_Final

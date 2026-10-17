@@ -196,8 +196,9 @@ data/                (git-ignored) certificates, created by scripts/fetch_certs.
   it.
 * **Literature.** The published text of Erdős–Hajnal–Tuza (1991) was not available to us; its results are cited from
   a transcription. Neither half of the proof uses any result from that paper.
-* The paper's §11 (data availability) and the internal reports refer to paths in the original working directory;
-  `docs/path-map.md` maps them to this repository.
+* **Paths.** The paper (§11, Table 4) and the internal reports in `docs/` use repository paths. Paths still starting with
+  `work/` or `candidates/` in `docs/` name exploratory scripts and build directories that are not part of the proof and
+  were not published; `docs/path-map.md` records the old-to-new correspondence for reading the raw logs.
 
 ## Citation
 

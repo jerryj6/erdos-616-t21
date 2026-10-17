@@ -1,11 +1,16 @@
-> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. File paths, run names and timings refer to the original working directory, not to this repository; see `docs/path-map.md` for the correspondence. The curated statements are in `paper/` and `README.md`.
+> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
+
+> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
+> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
+> scripts, build directories or logs from the original working environment that are not part of the proof and were not
+> published; nothing the final theorem or the certificate checks depends on is among them.
 
 # Referee: exhaustiveness of the Case-N split (Erdős #616, r = 21)
 Independent referee, 2026-10-16, 12:55–13:25 EDT. **Scope:** the case tree that runs from "a 21-uniform family with L and τ ≥ 5"
 down to the leaves {W6-U, W7-I, N-K4 (3,2,1,1), N-noK4 (2,4)/(4,2), (3,3), (3,4)/(4,3)}, plus a check that each leaf matches the
 base configuration hard-coded in the w10x / w11 / w14 encoders.
 **Not in scope:** whether the encoders, the lemma instances inside them, or the certificates are correct. Those have their own
-referee files: w10/w11/w14-referee. Everything below was re-derived by hand. My own scripts are in work/e616/nref/.
+referee files: w10/w11/w14-referee. Everything below was re-derived by hand. My own scripts are in sat/nref/.
 
 ## Verdict: the split is EXHAUSTIVE and every reduction step is SOUND. No gap found.
 I found two wording defects, neither used anywhere (C1, C2 at the end).

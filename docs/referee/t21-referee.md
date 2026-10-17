@@ -1,6 +1,11 @@
-> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. File paths, run names and timings refer to the original working directory, not to this repository; see `docs/path-map.md` for the correspondence. The curated statements are in `paper/` and `README.md`.
+> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
 
-# Referee report: Erdős #616, r = 21 (candidates/erdos-616-t21-upper.md §1, §6.0, §6.3, §7)
+> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
+> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
+> scripts, build directories or logs from the original working environment that are not part of the proof and were not
+> published; nothing the final theorem or the certificate checks depends on is among them.
+
+# Referee report: Erdős #616, r = 21 (docs/proof-notes.md §1, §6.0, §6.3, §7)
 Referee run 2026-10-15 (~09:15–09:45 EDT). Hostile, line-by-line reading. Scope: §1 (F1, F2, Lemma A, R, Cor R1, S, K, T),
 §6.0 D1, §6.2 case split, §6.3 Theorem W6-U, §7.1–7.4 Theorem W7-I (Tri-0, Tri-1, Tri-2, W7-2, W7-5/CP', Steps 0–4),
 plus the core reformulation and L1 in candidates/erdos-616-loop.md §3. Case N (§6.5, N.*) and L2 / n=14 are **not** refereed here.

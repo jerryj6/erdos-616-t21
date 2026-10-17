@@ -614,7 +614,7 @@ theorem erdos_616_t21_eq_4 :
     Hypergraph.localTransversalBound 21 (3 * 21 - 3) 1 = 4 :=
   erdos_616_r21_of_NK4 Erdos616R21.NK4_leaf_proved
 \end{verbatim}}
-in \file{work/e616lean/final/Erdos616R21Final.lean}. The four definitions are \emph{copied verbatim} into our file \file{Full.lean}, in the same namespaces, rather than imported. The reason is that \texttt{formal-conjectures} pins Lean v4.33.1 with its own Mathlib, while we used Lean 4.35.0 with Mathlib revision \texttt{56a00585}. Porting means replacing the copies by the import, and we have not checked that step mechanically (see \S\ref{sec:limits}).
+in \file{lean/Erdos616/Final.lean}. The four definitions are \emph{copied verbatim} into our file \file{lean/Erdos616/Basic.lean}, in the same namespaces, rather than imported. The reason is that \texttt{formal-conjectures} pins Lean v4.33.1 with its own Mathlib, while we used Lean 4.35.0 with Mathlib revision \texttt{56a00585}. Porting means replacing the copies by the import, and we have not checked that step mechanically (see \S\ref{sec:limits}).
 
 \subsection{Architecture}
 \begin{table}[ht]\small
@@ -624,14 +624,14 @@ in \file{work/e616lean/final/Erdos616R21Final.lean}. The four definitions are \e
 \toprule
 file(s) & lines & content\\
 \midrule
-\texttt{Full.lean} & 1202 & copied definitions; local hypothesis $\Leftrightarrow$ (L); reduction to minimal families; lower bound $H(21,10,7)$ (\texttt{four\_le}); \texttt{erdos\_616\_r21\_iff}: statement $\Leftrightarrow$ no \texttt{Counter}; F1, Lemma A, R.1--R.3, S, K, T, D1, CP$'$, classes, K4 span $61$\\
+\texttt{Basic.lean} & 1202 & copied definitions; local hypothesis $\Leftrightarrow$ (L); reduction to minimal families; lower bound $H(21,10,7)$ (\texttt{four\_le}); \texttt{erdos\_616\_r21\_iff}: statement $\Leftrightarrow$ no \texttt{Counter}; F1, Lemma A, R.1--R.3, S, K, T, D1, CP$'$, classes, K4 span $61$\\
 \texttt{HandA.lean} & 892 & Theorem W6-U (no computation); case split (Thm.~\ref{thm:split}); Lemma KB; \texttt{erdos\_616\_r21\_of\_leaves}\\
 \texttt{W7I.lean} & 944 & Theorem W7-I by the hand proof of \S\ref{sec:W7I}\\
-\texttt{g14/G14Check}, \texttt{G14Glue}, \texttt{G14Root}, case files & $\approx$500 & core-Lean checkers for leaf (K): states, universe, pair rules, clause checker; glue theorem \texttt{eval\_of\_check}; root split (native)\\
-\texttt{BridgeG14}, \texttt{BridgeG14Pair}, \texttt{BridgeG14Final}, \texttt{G14Assembly}, \texttt{G14Full} & $\approx$1880 & semantics for leaf (K): labelled base from a K4, \texttt{edgeSound}, \texttt{pairSound}, \texttt{NK4\_leaf\_proved}\\
-\texttt{bridge/TrCheck}, \texttt{TrRun*}, \texttt{WitData} & $\approx$450 & core-Lean re-implementation of $\Phi_{a,c}$; clause and orbit checker (native)\\
-\file{bridge/NoK4{Base,Frame,Edge,Pair,Build}}, \texttt{BridgeNoK4} & $\approx$2480 & semantics for (N24), (N33), (N34): base from a cross pair, EdgeSound, PairSound, symmetry, the three leaves\\
-\texttt{e616lrat/LratCheck}, \texttt{LratChunk}, \texttt{certs/*} & $\approx$190 + gen. & DIMACS parser; LRAT checking with Lean core's \texttt{Std.Tactic.BVDecide.LRAT.check} and its soundness theorem; chunked mode (native)\\
+\texttt{Checkers/G14Check}, \texttt{G14/Glue}, \texttt{G14/Root}, case files & $\approx$500 & core-Lean checkers for leaf (K): states, universe, pair rules, clause checker; glue theorem \texttt{eval\_of\_check}; root split (native)\\
+\texttt{G14/Bridge}, \texttt{BridgePair}, \texttt{BridgeFinal}, \texttt{Assembly}, \texttt{Leaf} & $\approx$1880 & semantics for leaf (K): labelled base from a K4, \texttt{edgeSound}, \texttt{pairSound}, \texttt{NK4\_leaf\_proved}\\
+\texttt{Checkers/TrCheck}, \texttt{NoK4/TrRun*}, \texttt{WitData} & $\approx$450 & core-Lean re-implementation of $\Phi_{a,c}$; clause and orbit checker (native)\\
+\file{NoK4/{Base,Frame,Edge,Pair,Build}}, \texttt{Leaves}, \texttt{Assembly} & $\approx$2480 & semantics for (N24), (N33), (N34): base from a cross pair, EdgeSound, PairSound, symmetry, the three leaves\\
+\texttt{Checkers/LratCheck}, \texttt{LratChunk}, \texttt{Cert/*} & $\approx$190 + gen. & DIMACS parser; LRAT checking with Lean core's \texttt{Std.Tactic.BVDecide.LRAT.check} and its soundness theorem; chunked mode (native)\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -693,14 +693,14 @@ Every component was re-examined by separate adversarial ``referee'' runs. These 
 
 %======================================================================
 \section{Data availability}\label{sec:data}
-All files are in the author's project workspace. Paths below are relative to its root, and they are available from the author on request.
+Everything is in the public repository \url{https://github.com/jerryj6/erdos-616-t21} (tag \texttt{v1.0}); paths below are relative to its root. The certificate archive \file{e616-sat-certs.tar.zst} (323\,MiB, SHA-256 \texttt{189bc330\dots0c95}) is laid out under \file{data/} by \file{scripts/fetch_certs.sh}, which checks every file against \file{lean/DATA.sha256}.
 {\raggedright
 \begin{itemize}
-\item Mathematics (working notes, with the full history of all waves and every script source): \file{candidates/erdos-616-t21-upper.md}, \file{candidates/erdos-616-loop.md}; referee reports \file{candidates/erdos-616-{t21,n4,w10,w11,w14}-referee.md}.
-\item Lean: \file{work/e616lean/} (\file{Full.lean}, \file{HandA.lean}, \file{W7I.lean}, \file{BridgeG14*.lean}, \file{g14/}, \file{bridge/}, \file{final/Erdos616R21Final.lean}, \file{final/final.out}, \file{final/Neg.lean}); LRAT layer \file{work/e616lrat/}; reports \file{candidates/lean-erdos616{,-plan,-lrat,-handA,-w7i,-bridge-g14,-bridge-nok4,-final}.md}. The md5 of \file{Erdos616R21Final.lean} is \texttt{542fd30b\dots}.
-\item Leaf (K) certificates: \file{work/e616/t21/w14/} (\file{w14_cert2_<r>.cnf/.drat}, \file{w14_certdead.cnf/.drat}, SHA-256 in \file{w14_cert2.sha256}); referee code \file{work/e616/t21/w14ref/}.
-\item N-noK4 certificates: \file{work/e616/w11ref/tr/} (\file{tree_24x_k}, \file{tree_33_k}, \file{tree_34_k}, \file{.cnf/.drat}; universes \file{st_*.npz}; logs \file{tree_*.log}, \file{certcheck*.log}).
-\item SHA-256 prefixes of the CNFs used by the final theorem are recorded in \file{candidates/lean-erdos616-lrat.md}. Examples: \file{w14_cert2_15954.cnf} \texttt{6a8d4fc2628635a3}, \file{w14_cert2_16054.cnf} \texttt{98c79253bf5c0d3d}, \file{tree_33_3.cnf} \texttt{dc9253c64759bd0e}.
+\item Mathematics: working notes with the history of all waves, \file{docs/proof-notes.md}; referee reports \file{docs/referee/{t21,n4,w10,w11,w14}-referee.md}.
+\item Lean: module tree \file{lean/Erdos616/} (statement \file{Basic.lean}, \file{HandA.lean}, \file{W7I.lean}, \file{G14/}, \file{NoK4/}, \file{Cert/}, final theorem \file{Final.lean}); checkers \file{lean/Erdos616Checkers/} (LRAT, \file{G14Check.lean}, \file{TrCheck.lean}); negative control \file{lean/test/Neg.lean}; build and axiom logs \file{lean/logs/}, procedure \file{lean/VERIFICATION.md}; reports \file{docs/lean-reports/}. A direct rebuild from the certificate data is \file{scripts/build_direct.py}.
+\item Leaf (K) certificates: \file{data/cnf/w14_<r>.cnf}, \file{data/cnf/w14_certdead.cnf} with DRAT and LRAT proofs in the archive; generators, logs and controls \file{sat/t21/w14/}; referee code \file{sat/t21/w14ref/}.
+\item N-noK4 certificates: \file{data/cnf/tree_{24x,33,34}_k.cnf} with proofs in the archive; encoder, universes and logs \file{sat/w11ref/tr/}. Case-split referee code \file{sat/nref/}, (2,4) referee encoder \file{sat/w10ref/}, LRAT conversion \file{sat/lrat/}.
+\item Hashes: \file{lean/DATA.sha256} (files consumed by the Lean build), \file{sat/SHA256SUMS.members} (every archive member). Examples: \file{w14_15954.cnf} \texttt{6a8d4fc2628635a3}, \file{w14_16054.cnf} \texttt{98c79253bf5c0d3d}, \file{tree_33_3.cnf} \texttt{dc9253c64759bd0e}. DRAT re-check: \file{scripts/check_drat.sh}.
 \item Tools: CaDiCaL~1.5.3 and Glucose~4 via PySAT~\cite{pysat}, Kissat~4.0.4, \texttt{drat-trim}~\cite{drat-trim}, Lean~4.35.0~\cite{lean4}, Mathlib~\cite{mathlib}.
 \end{itemize}}
 

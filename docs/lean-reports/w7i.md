@@ -1,8 +1,13 @@
-> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. File paths, run names and timings refer to the original working directory, not to this repository; see `docs/path-map.md` for the correspondence. The curated statements are in `paper/` and `README.md`.
+> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
+
+> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
+> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
+> scripts, build directories or logs from the original working environment that are not part of the proof and were not
+> published; nothing the final theorem or the certificate checks depends on is among them.
 
 # Lean formalization, part W7-I: Theorem W7-I (triangle case impossible), Erdős #616, r = 21
 
-Status (milestone 1 at 17:58 EDT; logs re-run after a sandbox reset, 18:25 EDT = 22:25 UTC): **DONE. work/e616lean/W7I.lean checks: 0 errors, 0 sorry.**
+Status (milestone 1 at 17:58 EDT; logs re-run after a sandbox reset, 18:25 EDT = 22:25 UTC): **DONE. lean/Erdos616/W7I.lean checks: 0 errors, 0 sorry.**
 Every theorem depends only on `propext, Classical.choice, Quot.sound`. The negative control fails as it should.
 **No SAT/DRAT certificate is used.** The finite step of upper.md §7.3 is replaced by the hand Steps 0–4 of §7.4
 (the refereed hand proof), so no encoding bridge to w7_core_A_c3 / ref_w7_min is needed.
@@ -45,7 +50,7 @@ remark "the Y's are a fixed choice" is not needed.
 #   cd $TC/lib/lean && find . -name '*.ir.sig' -print0 | xargs -0 cp -n --parents -t /tmp/lean-tc/lib/lean/
 #   cp -rn $TC/lib/lean/Lake* /tmp/lean-tc/lib/lean/        (TC=/workspace/.elan/toolchains/leanprover--lean4---v4.35.0)
 mkdir -p /tmp/w7 && cd /tmp/w7
-cp $W/work/e616lean/Full.lean E616Full.lean; cp $W/work/e616lean/W7I.lean .
+cp lean/Erdos616/Basic.lean E616Full.lean; cp lean/Erdos616/W7I.lean .
 export LEAN_PATH=/tmp/E/lib:/tmp/lean-tc/lib/lean:/tmp/w7
 nice /tmp/lean-tc/bin/lean -o E616Full.olean E616Full.lean     # exit 0, 6 s
 nice /tmp/lean-tc/bin/lean -o W7I.olean W7I.lean               # exit 0, 5-6 s
@@ -121,5 +126,5 @@ HandA errors: 0
 'W7I_leaf_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
 ```
 
-## Full source: work/e616lean/W7I.lean (944 lines, md5 ae6006677a52acee141869e292f272e4)
+## Full source: lean/Erdos616/W7I.lean (944 lines, md5 ae6006677a52acee141869e292f272e4)
 *[944-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*

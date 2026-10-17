@@ -1,9 +1,14 @@
-> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. File paths, run names and timings refer to the original working directory, not to this repository; see `docs/path-map.md` for the correspondence. The curated statements are in `paper/` and `README.md`.
+> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
+
+> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
+> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
+> scripts, build directories or logs from the original working environment that are not part of the proof and were not
+> published; nothing the final theorem or the certificate checks depends on is among them.
 
 # Independent referee: Wave 14 global encoding (refutation of N-K4, Erdős #616 r=21)
-Started 2026-10-16 12:20 EDT. Adversarial referee; own code in work/e616/t21/w14ref/ (imports nothing from w13_/w14_ scripts).
+Started 2026-10-16 12:20 EDT. Adversarial referee; own code in sat/t21/w14ref/ (imports nothing from w13_/w14_ scripts).
 **VERDICT (12:52 EDT): G14 is SOUND. No gap found in items (1)–(5).** The N-K4 (3,2,1,1) branch is refuted by Φ, provided the
-lemmas it rests on (§1 Lemma A/R/S, D1, W7-I) are sound; those were already refereed SOUND (candidates/erdos-616-t21-referee.md).
+lemmas it rests on (§1 Lemma A/R/S, D1, W7-I) are sound; those were already refereed SOUND (docs/referee/t21-referee.md).
 Out of scope here (must be refereed separately before claiming t(21)=4): N.4's dichotomy N-K4 / N-noK4 and the W11 N-noK4 closure.
 
 ## Summary per item
@@ -26,7 +31,7 @@ Out of scope here (must be refereed separately before claiming t(21)=4): N.4's d
 - Authors' queue: run_indep_all finished (w14_indep_all.DONE): 16054 1 952 309/1 952 309 and 17917 353 380/353 380 core CONF
   clauses re-checked, 0 disagreements (their logs). Controls: drop A, drop OO → SAT (recorded); drop SAME, drop D1d → TIMEOUT
   (1200 s, undecided); F1, L3 in progress when the box reset.
-- 12:44 (after a box reset 12:28) Referee's own code, work/e616/t21/w14ref/ (imports nothing from w13_/w14_; reads the authors'
+- 12:44 (after a box reset 12:28) Referee's own code, sat/t21/w14ref/ (imports nothing from w13_/w14_; reads the authors'
   files only as DATA: CNF/DRAT, var→trace table w14_conf.npz['T'], realization JSONs):
   * ref_states.py: per-edge rules re-implemented from S13.1's lemma list, enumerated over the FULL integer box
     0 ≤ o_q ≤ |O_q|, |b|+Σo ≤ 21 (no {L,L+1} shortcut): **18 217 traces, 49 967 states — identical to w13_feas.json /
@@ -89,7 +94,7 @@ Out of scope here (must be refereed separately before claiming t(21)=4): N.4's d
   a counterexample on the same labelled base; it has an edge of trace r. Only invariance of the hypothesis is used, not of any
   computed matrix. σ (P2↔P3) is not needed for the root step (it moves w to v, so it is not in Stab(B*)).
 
-## Files (referee; all in work/e616/t21/w14ref/)
+## Files (referee; all in sat/t21/w14ref/)
 ref_states.py (+ ref_states_*.json chunks, ref_universe.py → ref_states.npz, ref_feas.json), pairref.py (numba; pairref.c is the
 same algorithm in C, unused: no compiler on the box), ref_cov.py, ref_orbit.py, ref_real.py, ref_density.py, ref_dep.py,
 ref_fullconf.py (+ fc_*.npz, fc.log), logs pair_*.log, cov_*.log, dep_*.log, drat_*.log/.core, ks_*.log. Restart scripts:

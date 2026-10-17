@@ -1,15 +1,20 @@
-> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. File paths, run names and timings refer to the original working directory, not to this repository; see `docs/path-map.md` for the correspondence. The curated statements are in `paper/` and `README.md`.
+> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
+
+> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
+> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
+> scripts, build directories or logs from the original working environment that are not part of the proof and were not
+> published; nothing the final theorem or the certificate checks depends on is among them.
 
 # Lean encoding-soundness bridge for the N-noK4 leaves (2,4), (3,3), (3,4) of t(21) = 4 (Erdős #616)
 
 **STATUS (19:30 EDT): DONE — `Erdos616R21.noK4_24_leaf`, `noK4_33_leaf`, `noK4_34_leaf` (HandA's exact defs) proved in
-work/e616lean/BridgeNoK4.lean, 0 sorry; trusted base = Lean axioms + native_decide (checker acceptance + LRAT certs). With W7I:
+lean/Erdos616/NoK4/Leaves.lean, 0 sorry; trusted base = Lean axioms + native_decide (checker acceptance + LRAT certs). With W7I:
 t(21) = 4 ⇐ NK4_leaf (bridge/NoK4Assembly.lean). See M6/M7 at the end; full sources pasted there.**
 
-Started 2026-10-16 ~17:10 EDT. Work dir: work/e616lean/bridge/ (main file requested at work/e616lean/BridgeNoK4.lean).
-Encoding bridged: the INDEPENDENT referee trace encoding Φ_{a,c} (work/e616/w11ref/tr/tr_core.py, soundness argument
-candidates/erdos-616-w11-referee.md §5.1), whose 20 case CNFs tree_24x_0..6, tree_33_0..7, tree_34_0..4 are already
-Lean-checked UNSAT (`E616.<name>.not_exists_sat`, work/e616lrat/certs/, see candidates/lean-erdos616-lrat.md).
+Started 2026-10-16 ~17:10 EDT. Work dir: work/e616lean/bridge/ (main file requested at lean/Erdos616/NoK4/Leaves.lean).
+Encoding bridged: the INDEPENDENT referee trace encoding Φ_{a,c} (sat/w11ref/tr/tr_core.py, soundness argument
+docs/referee/w11-referee.md §5.1), whose 20 case CNFs tree_24x_0..6, tree_33_0..7, tree_34_0..4 are already
+Lean-checked UNSAT (`E616.<name>.not_exists_sat`, work/e616lrat/certs/, see docs/lean-reports/lrat.md).
 
 ## Architecture
 1. `bridge/TrCheck.lean` (core Lean only, compiled to a shared library and loaded with `--load-dynlib`):
@@ -84,7 +89,7 @@ blocks compilation of Mathlib-importing files. Status per file (bridge/ unless n
 * NoK4Edge.lean — L5/L6, edge rules: eBox, eA, eF1, eL (slot trick: P_q for q∈S else X), eBasePair (D1, R3, SA, CLS),
   eDerived (D1, R3, SA, CLS at (P_i, X)), `edgeSound`. Not yet compiled.
 * NoK4Pair.lean — pair rules: pA, pF1, pL (L6), pSAME, pDer1 (both orders), pDer2, `pairSound`. Not yet compiled.
-* work/e616lean/BridgeNoK4.lean — `noK4_34_leaf`, `noK4_24_leaf`, `noK4_33_leaf` from `leaf_of_sound` + the certificates'
+* lean/Erdos616/NoK4/Leaves.lean — `noK4_34_leaf`, `noK4_24_leaf`, `noK4_33_leaf` from `leaf_of_sound` + the certificates'
   `not_exists_sat`; `clsHyp_flags0/2` derive `CLSHyp` from W7-I / NK / N24 hypotheses + `cross_class`.
 
 ### M1 complete (18:24 EDT): `ok33` checked
@@ -115,7 +120,7 @@ and the three orbit covers are verified. Logs: bridge/TrRun{34,24x,33}.lean.out/
   `Nonempty (Base C H)` whenever `regf a c p = cnt C p` for all multi-bit patterns p and all core indices of C have multi-bit
   patterns (`multi34/33/24x`, `cnt34/33/24x` by `decide`). Proof: region cards from single_card/cross_class via 11
   intersection identities (`card_eq_sum_R`, fiberwise sums) + omega; labelling `core i := (region of patC i).toList[rank i]`.
-* work/e616lean/BridgeNoK4.lean rewritten: imports HandA; `clsHyp_of_props` (CLSHyp from HandA's `W7I_prop`, `NK_prop`,
+* lean/Erdos616/NoK4/Leaves.lean rewritten: imports HandA; `clsHyp_of_props` (CLSHyp from HandA's `W7I_prop`, `NK_prop`,
   `N24_prop` + `cross_class`, finite check `clsOk34/33` by decide), `clsHyp_of_props24` (no N24), internal
   `leaf34_base/leaf33_base/leaf24_base`, and **`noK4_34_leaf_holds : Erdos616R21.noK4_34_leaf`**,
   `noK4_33_leaf_holds : Erdos616R21.noK4_33_leaf`, `noK4_24_leaf_holds : Erdos616R21.noK4_24_leaf` — HandA's exact defs.
@@ -130,18 +135,18 @@ and the three orbit covers are verified. Logs: bridge/TrRun{34,24x,33}.lean.out/
 * Environment note: fresh-sandbox copy now `bridge/helpcopy.sh` (parallel toolchain copy + tar extract of /tmp/E, ~3 min)
   and `bridge/fixcopy.py` (re-copies size-mismatched toolchain files after concurrent setups; a half-written
   `Lean/Util/CollectFVars.olean` gave "invalid header" once).
-* Now compiling: bridge/HandA.lean (copy of work/e616lean/HandA.lean) → work/e616lean/BridgeNoK4.lean.
+* Now compiling: bridge/HandA.lean (copy of lean/Erdos616/HandA.lean) → lean/Erdos616/NoK4/Leaves.lean.
 
 
 ### M6 (2026-10-16 19:25 EDT): **all three HandA leaves PROVED — 0 sorry, 0 errors**
-`work/e616lean/BridgeNoK4.lean` compiles (exit 0; `lean` from bridge/ with LEAN_PATH = bridge : e616lrat : /tmp/E/lib : toolchain;
-log work/e616lean/BridgeNoK4.lean.out). It imports HandA (bridge/HandA.lean, md5 4d9a8976… = work/e616lean/HandA.lean) and proves
+`lean/Erdos616/NoK4/Leaves.lean` compiles (exit 0; `lean` from bridge/ with LEAN_PATH = bridge : e616lrat : /tmp/E/lib : toolchain;
+log work/e616lean/BridgeNoK4.lean.out). It imports HandA (bridge/HandA.lean, md5 4d9a8976… = lean/Erdos616/HandA.lean) and proves
 `Erdos616R21.noK4_34_leaf`, `Erdos616R21.noK4_33_leaf`, `Erdos616R21.noK4_24_leaf` — HandA's own `def`s, so the statements match the
 HandA leaf table by construction (hypotheses Counter, W7I_prop, NK_prop[, N24_prop]; conclusion: no CrossPair of class (a,c)).
 No `sorry` anywhere in the chain (grep of all sources: none; no `sorryAx` in any axiom list).
 
 Chain (all bridge/ unless noted, each compiled to .olean, exit 0): TrCheck → WitData → TrRun34/24x/33 (native_decide) ;
-E616Full → NoK4Base → NoK4Frame → NoK4Edge → NoK4Pair ; NoK4Base → NoK4Build ; HandA ; → work/e616lean/BridgeNoK4.lean.
+E616Full → NoK4Base → NoK4Frame → NoK4Edge → NoK4Pair ; NoK4Base → NoK4Build ; HandA ; → lean/Erdos616/NoK4/Leaves.lean.
 
 `#print axioms` (verbatim):
 ```
@@ -180,7 +185,7 @@ E616Full → NoK4Base → NoK4Frame → NoK4Edge → NoK4Pair ; NoK4Base → NoK
 ```
 Trusted base beyond Lean's three standard axioms: `native_decide` (compiled-code evaluation) for (i) the checker acceptance
 theorems ok34/ok33/ok24x (TrCheck re-derivation of every clause of the 20 case CNFs + orbit cover) and (ii) the 20 LRAT
-certificate checks `certOk_eq` of the case CNFs (from candidates/lean-erdos616-lrat.md). Everything semantic (encoding
+certificate checks `certOk_eq` of the case CNFs (from docs/lean-reports/lrat.md). Everything semantic (encoding
 soundness: Base construction from a cross pair, rule soundness, assignment, symmetry) is kernel-checked.
 
 Consistency note: TrRun34.olean (21:47 UTC) predates the last TrCheck.olean (22:14 UTC), but TrCheck.lean was last modified 21:46,
@@ -188,8 +193,8 @@ i.e. the 22:14 build is a rebuild of the same source; WitData.lean 21:27 predate
 
 
 ### M7 (19:30 EDT): assembly check — t(21) = 4 modulo the G14 leaf only
-bridge/NoK4Assembly.lean (exit 0) imports BridgeNoK4Leaves (= copy of work/e616lean/BridgeNoK4.lean, compiled as a module) and
-W7I (copy of work/e616lean/W7I.lean) and proves
+bridge/NoK4Assembly.lean (exit 0) imports BridgeNoK4Leaves (= copy of lean/Erdos616/NoK4/Leaves.lean, compiled as a module) and
+W7I (copy of lean/Erdos616/W7I.lean) and proves
 `theorem erdos_616_r21_of_NK4 (hK4 : Erdos616R21.NK4_leaf) : Hypergraph.localTransversalBound 21 (3 * 21 - 3) 1 = 4`
 via HandA's `erdos_616_r21_of_leaves`. `#print axioms`:
 ```
@@ -223,25 +228,25 @@ via HandA's `erdos_616_r21_of_leaves`. `#print axioms`:
 
 ## Final sources (as compiled at M6/M7)
 
-#### work/e616lean/bridge/NoK4Base.lean
+#### lean/Erdos616/NoK4/Base.lean
 *[215-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*
 
-#### work/e616lean/bridge/NoK4Frame.lean
+#### lean/Erdos616/NoK4/Frame.lean
 *[499-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*
 
-#### work/e616lean/bridge/NoK4Edge.lean
+#### lean/Erdos616/NoK4/Edge.lean
 *[696-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*
 
-#### work/e616lean/bridge/NoK4Pair.lean
+#### lean/Erdos616/NoK4/Pair.lean
 *[601-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*
 
-#### work/e616lean/bridge/NoK4Build.lean
+#### lean/Erdos616/NoK4/Build.lean
 *[331-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*
 
-#### work/e616lean/BridgeNoK4.lean
+#### lean/Erdos616/NoK4/Leaves.lean
 *[141-line Lean listing omitted here: it duplicates a source file now under `lean/` (see `docs/path-map.md`).]*
 
-#### work/e616lean/bridge/NoK4Assembly.lean
+#### lean/Erdos616/NoK4/Assembly.lean
 ```lean
 import BridgeNoK4Leaves
 import W7I

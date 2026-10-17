@@ -1,9 +1,14 @@
-> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. File paths, run names and timings refer to the original working directory, not to this repository; see `docs/path-map.md` for the correspondence. The curated statements are in `paper/` and `README.md`.
+> **Internal working note.** This file is a raw report written while the proof was being developed and checked. It is kept for provenance. Run names and timings refer to the original working environment. The curated statements are in `paper/` and `README.md`.
+
+> **Paths.** File paths in this report have been rewritten to their location in this repository wherever the file is
+> included (`lean/`, `sat/`, `docs/`, `data/`). Paths still beginning with `work/`, `candidates/` or `/tmp/` name exploratory
+> scripts, build directories or logs from the original working environment that are not part of the proof and were not
+> published; nothing the final theorem or the certificate checks depends on is among them.
 
 # Lean formalization plan: t(21) = 4 (Erdős #616, r = 21)
 
-Written 2026-10-16 (~15:45 EDT). Companion file with Lean sources and check logs: candidates/lean-erdos616.md.
-Hand proofs: candidates/erdos-616-t21-upper.md ("upper.md"), candidates/erdos-616-loop.md §3 ("loop.md").
+Written 2026-10-16 (~15:45 EDT). Companion file with Lean sources and check logs: docs/lean-reports/main.md.
+Hand proofs: docs/proof-notes.md ("upper.md"), candidates/erdos-616-loop.md §3 ("loop.md").
 Referee files: erdos-616-t21-referee.md, -n4-referee.md, -w10-referee.md, -w11-referee.md, -w14-referee.md.
 
 ## 0. Target statement (matches formal-conjectures)
@@ -120,8 +125,8 @@ For each certificate CNF φ, one needs a Lean theorem: *Counter H (+ case hypoth
 * **Leaf CNF UNSAT [C].** DRAT → LRAT (drat-trim -L) → `Std.Tactic.BVDecide.LRAT` checker. A parallel agent is already doing
   this in work/e616lrat/ (I did not touch it). That gives "this DIMACS file is UNSAT" but **not** the bridge.
 
-## 2. What is formalized in this session (details, sources and logs in candidates/lean-erdos616.md)
-Lean file work/e616lean/Full.lean (~1 100 lines), 0 sorry, axioms = propext / Classical.choice / Quot.sound only:
+## 2. What is formalized in this session (details, sources and logs in docs/lean-reports/main.md)
+Lean file lean/Erdos616/Basic.lean (~1 100 lines), 0 sorry, axioms = propext / Classical.choice / Quot.sound only:
 * statement for r = 21 with the formal-conjectures definitions copied verbatim;
 * **`erdos_616_r21_iff`: `localTransversalBound 21 (3*21-3) 1 = 4 ↔ ∀ n (H : Finset (Finset (Fin n))), ¬ Counter H`**
   — this includes the full lower bound (EHT example H(21,10,7), transported to `Fin n`);
@@ -131,7 +136,7 @@ Lean file work/e616lean/Full.lean (~1 100 lines), 0 sorry, axioms = propext / Cl
 Not formalized: everything below the "rigid base" node (W6-U, Tri-*, W7-2, W7-I Steps 0–4, N.4/N8.0 split, KB, the per-edge
 and pairwise rule lists of S13.1/G14, and all three encoding bridges).
 
-Parallel work (not mine; candidates/lean-erdos616-lrat.md, work/e616lrat/): all 34 load-bearing leaf CNFs (W7-I cross-check,
+Parallel work (not mine; docs/lean-reports/lrat.md, work/e616lrat/): all 34 load-bearing leaf CNFs (W7-I cross-check,
 w10x (2,4), w11 (3,4)/(3,3), the six G14 N-K4 CNFs) are UNSAT-checked in Lean via `Std.Tactic.BVDecide.LRAT.check_sound` +
 `native_decide`. That closes the [C] boxes of the DAG; the [B] bridges (CNF ⇐ lemmas) remain the critical path. A bridge's
 target type is now fixed: it must produce, from `Counter H` (+ case hypotheses), an assignment `a` with
