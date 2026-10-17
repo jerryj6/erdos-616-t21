@@ -1,0 +1,128 @@
+case 16054 {v,al0,al1,m0,m1,a4_0,c3,c4} root BRANCH ('{v,al0,al1,a4_0}', 12)
+  closed 2 3 0 {'nodes': 59, 'lemmas': 87184} 42
+  closed 2 3 1 {'nodes': 60, 'lemmas': 90951} 43
+  closed 2 3 2 {'nodes': 61, 'lemmas': 94717} 45
+  closed 2 3 3 {'nodes': 65, 'lemmas': 100585} 48
+  closed 2 3 4 {'nodes': 68, 'lemmas': 106833} 51
+  closed 2 3 5 {'nodes': 92, 'lemmas': 145444} 68
+  closed 2 3 6 {'nodes': 116, 'lemmas': 184026} 84
+  closed 2 3 7 {'nodes': 120, 'lemmas': 189051} 87
+  closed 2 3 8 {'nodes': 125, 'lemmas': 199827} 92
+  closed 2 3 9 {'nodes': 130, 'lemmas': 210605} 97
+  closed 2 3 10 {'nodes': 131, 'lemmas': 213136} 98
+  closed 2 3 11 {'nodes': 132, 'lemmas': 217811} 100
+  closed 2 3 12 {'nodes': 133, 'lemmas': 222486} 102
+  closed 1 2 0 {'nodes': 133, 'lemmas': 222487} 102
+root child 0 of 12 done {'nodes': 133, 'lemmas': 222487} 103
+  closed 2 3 1 {'nodes': 192, 'lemmas': 308705} 176
+  closed 2 3 2 {'nodes': 193, 'lemmas': 312470} 179
+  closed 2 3 3 {'nodes': 194, 'lemmas': 316234} 183
+  closed 2 3 4 {'nodes': 198, 'lemmas': 322100} 189
+  closed 2 3 5 {'nodes': 201, 'lemmas': 328346} 194
+  closed 2 3 6 {'nodes': 225, 'lemmas': 366958} 229
+  closed 2 3 7 {'nodes': 249, 'lemmas': 405541} 264
+  closed 2 3 8 {'nodes': 253, 'lemmas': 410567} 270
+  closed 2 3 9 {'nodes': 258, 'lemmas': 421339} 279
+  closed 2 3 10 {'nodes': 263, 'lemmas': 432113} 284
+  closed 2 3 11 {'nodes': 264, 'lemmas': 434644} 285
+  closed 2 3 12 {'nodes': 265, 'lemmas': 439319} 287
+  closed 2 3 13 {'nodes': 266, 'lemmas': 443994} 289
+  closed 1 2 1 {'nodes': 266, 'lemmas': 443995} 289
+root child 1 of 12 done {'nodes': 266, 'lemmas': 443995} 290
+  closed 2 3 2 {'nodes': 325, 'lemmas': 530381} 328
+  closed 2 3 3 {'nodes': 326, 'lemmas': 534144} 329
+  closed 2 3 4 {'nodes': 327, 'lemmas': 537906} 331
+  closed 2 3 5 {'nodes': 331, 'lemmas': 543770} 334
+  closed 2 3 6 {'nodes': 334, 'lemmas': 550014} 337
+  closed 2 3 7 {'nodes': 358, 'lemmas': 588706} 353
+  closed 2 3 8 {'nodes': 382, 'lemmas': 627369} 370
+  closed 2 3 9 {'nodes': 386, 'lemmas': 632396} 373
+  closed 2 3 10 {'nodes': 391, 'lemmas': 643164} 378
+  closed 2 3 11 {'nodes': 396, 'lemmas': 653934} 382
+  closed 2 3 12 {'nodes': 397, 'lemmas': 656465} 384
+  closed 2 3 13 {'nodes': 398, 'lemmas': 661140} 386
+  closed 2 3 14 {'nodes': 399, 'lemmas': 665815} 388
+  closed 1 2 2 {'nodes': 399, 'lemmas': 665816} 388
+root child 2 of 12 done {'nodes': 399, 'lemmas': 665816} 389
+  closed 2 3 3 {'nodes': 458, 'lemmas': 752006} 427
+  closed 2 3 4 {'nodes': 459, 'lemmas': 755767} 429
+  closed 2 3 5 {'nodes': 460, 'lemmas': 759527} 430
+  closed 2 3 6 {'nodes': 464, 'lemmas': 765387} 433
+  closed 2 3 7 {'nodes': 467, 'lemmas': 771624} 436
+  closed 2 3 8 {'nodes': 491, 'lemmas': 810229} 453
+  closed 2 3 9 {'nodes': 515, 'lemmas': 848805} 472
+  closed 2 3 10 {'nodes': 519, 'lemmas': 853818} 478
+  closed 2 3 11 {'nodes': 524, 'lemmas': 864582} 488
+  closed 2 3 12 {'nodes': 529, 'lemmas': 875348} 498
+  closed 2 3 13 {'nodes': 530, 'lemmas': 877868} 501
+  closed 2 3 14 {'nodes': 531, 'lemmas': 882532} 505
+  closed 2 3 15 {'nodes': 532, 'lemmas': 887196} 509
+  closed 1 2 3 {'nodes': 532, 'lemmas': 887197} 509
+root child 3 of 12 done {'nodes': 532, 'lemmas': 887197} 511
+  closed 2 3 4 {'nodes': 591, 'lemmas': 973412} 590
+  closed 2 3 5 {'nodes': 592, 'lemmas': 977171} 593
+  closed 2 3 6 {'nodes': 593, 'lemmas': 980929} 597
+  closed 2 3 7 {'nodes': 597, 'lemmas': 986787} 603
+  closed 2 3 8 {'nodes': 600, 'lemmas': 993022} 608
+  closed 2 3 9 {'nodes': 624, 'lemmas': 1031628} 644
+  closed 2 3 10 {'nodes': 648, 'lemmas': 1070205} 697
+  closed 2 3 11 {'nodes': 652, 'lemmas': 1075219} 705
+  closed 2 3 12 {'nodes': 657, 'lemmas': 1085979} 720
+  closed 2 3 13 {'nodes': 662, 'lemmas': 1096741} 735
+  closed 2 3 14 {'nodes': 663, 'lemmas': 1099261} 739
+  closed 2 3 15 {'nodes': 664, 'lemmas': 1103925} 745
+  closed 2 3 16 {'nodes': 665, 'lemmas': 1108589} 751
+  closed 1 2 4 {'nodes': 665, 'lemmas': 1108590} 751
+root child 4 of 12 done {'nodes': 665, 'lemmas': 1108590} 755
+  closed 2 3 5 {'nodes': 724, 'lemmas': 1194973} 930
+  closed 2 3 6 {'nodes': 725, 'lemmas': 1198730} 939
+  closed 2 3 7 {'nodes': 726, 'lemmas': 1202486} 948
+  closed 2 3 8 {'nodes': 730, 'lemmas': 1208342} 963
+  closed 2 3 9 {'nodes': 733, 'lemmas': 1214575} 978
+  closed 2 3 10 {'nodes': 757, 'lemmas': 1253261} 1069
+  closed 2 3 11 {'nodes': 781, 'lemmas': 1291918} 1161
+  closed 2 3 12 {'nodes': 785, 'lemmas': 1296933} 1175
+  closed 2 3 13 {'nodes': 790, 'lemmas': 1307689} 1201
+  closed 2 3 14 {'nodes': 795, 'lemmas': 1318447} 1228
+  closed 2 3 15 {'nodes': 796, 'lemmas': 1320967} 1234
+  closed 2 3 16 {'nodes': 797, 'lemmas': 1325631} 1244
+  closed 2 3 17 {'nodes': 798, 'lemmas': 1330295} 1255
+  closed 1 2 5 {'nodes': 798, 'lemmas': 1330296} 1255
+root child 5 of 12 done {'nodes': 798, 'lemmas': 1330296} 1260
+  closed 2 3 6 {'nodes': 804, 'lemmas': 1338462} 1291
+  closed 2 3 7 {'nodes': 809, 'lemmas': 1345663} 1310
+  closed 2 3 8 {'nodes': 842, 'lemmas': 1392947} 1395
+  closed 2 3 9 {'nodes': 875, 'lemmas': 1440146} 1479
+  closed 2 3 10 {'nodes': 908, 'lemmas': 1487360} 1564
+  closed 2 3 11 {'nodes': 941, 'lemmas': 1534436} 1648
+  closed 1 2 6 {'nodes': 941, 'lemmas': 1534437} 1648
+root child 6 of 12 done {'nodes': 941, 'lemmas': 1534437} 1654
+  closed 2 3 7 {'nodes': 947, 'lemmas': 1542602} 1683
+  closed 2 3 8 {'nodes': 952, 'lemmas': 1549803} 1702
+  closed 2 3 9 {'nodes': 985, 'lemmas': 1597087} 1786
+  closed 2 3 10 {'nodes': 1018, 'lemmas': 1644286} 1871
+  closed 2 3 11 {'nodes': 1051, 'lemmas': 1691500} 1947
+case 16054 {v,al0,al1,m0,m1,a4_0,c3,c4} root BRANCH ('{v,al0,al1,a4_0}', 12)
+  closed 2 3 7 {'nodes': 6, 'lemmas': 9156} 17
+  closed 2 3 8 {'nodes': 11, 'lemmas': 16357} 24
+  closed 2 3 9 {'nodes': 44, 'lemmas': 63641} 58
+  closed 2 3 10 {'nodes': 77, 'lemmas': 110840} 91
+  closed 2 3 11 {'nodes': 110, 'lemmas': 158054} 124
+  closed 2 3 12 {'nodes': 143, 'lemmas': 205130} 156
+  closed 1 2 7 {'nodes': 143, 'lemmas': 205131} 156
+root child 7 of 12 done {'nodes': 143, 'lemmas': 205131} 160
+  closed 2 3 8 {'nodes': 149, 'lemmas': 213295} 172
+  closed 2 3 9 {'nodes': 154, 'lemmas': 220496} 179
+  closed 2 3 10 {'nodes': 187, 'lemmas': 267780} 213
+  closed 2 3 11 {'nodes': 220, 'lemmas': 314979} 246
+  closed 2 3 12 {'nodes': 253, 'lemmas': 362193} 279
+  closed 2 3 13 {'nodes': 286, 'lemmas': 409269} 311
+  closed 1 2 8 {'nodes': 286, 'lemmas': 409270} 311
+root child 8 of 12 done {'nodes': 286, 'lemmas': 409270} 313
+  closed 1 2 9 {'nodes': 287, 'lemmas': 411532} 318
+root child 9 of 12 done {'nodes': 287, 'lemmas': 411532} 318
+  closed 1 2 10 {'nodes': 288, 'lemmas': 413794} 322
+root child 10 of 12 done {'nodes': 288, 'lemmas': 413794} 322
+  closed 1 2 11 {'nodes': 289, 'lemmas': 416056} 327
+root child 11 of 12 done {'nodes': 289, 'lemmas': 416056} 327
+ASSEMBLED case 16054 conf clauses 4179298 nodes this run {'nodes': 289, 'lemmas': 416058} 355

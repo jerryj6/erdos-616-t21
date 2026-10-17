@@ -1,0 +1,28 @@
+C invariance spot-check OK
+sup rows 0 2
+sup rows 800 4
+sup rows 1600 5
+sup rows 2400 7
+sup rows 3200 9
+sup rows 4000 11
+sup rows 4800 14
+sup rows 5600 16
+sup rows 6400 18
+sup rows 7200 20
+sup rows 8000 22
+sup rows 8800 24
+sup rows 9600 26
+sup rows 10400 28
+sup rows 11200 30
+sup rows 12000 32
+sup rows 12800 34
+sup rows 13600 36
+sup rows 14400 37
+global zero-support entries among alive (should be 0): 0
+B* {w,g0,g1,g2} alive avoiders 19 |Stab| 288 cases 5
+case {v,al0,al1,m0,m1,c3,c4} ('OPEN-fixpoint', 8411) rounds 5 elim 2789 51
+case {al0,al1,m0,m1,m2,c3,c4} ('CLOSED-wipeout', '{v,w,al0,al1}') rounds 3 elim 2066 64
+case {v,al0,al1,m0,a4_0,c3,c4} ('OPEN-fixpoint', 10012) rounds 4 elim 1403 75
+case {v,al0,al1,m0,m1,a4_0,c3,c4} ('OPEN-fixpoint', 11564) rounds 3 elim 991 83
+case {v,al0,al1,m0,m1,a4_0,a4_1,c3,c4} ('OPEN-fixpoint', 9143) rounds 5 elim 2485 95
+cases 5 closed 1

@@ -1,0 +1,5 @@
+needed B 1730
+binary 4179298 nonbinary 1731 positive 1731 non-positive non-binary 0
+COV(B) present EXACTLY (my avoider list): 1730 of 1730 missing 0
+unit x 16055 trace 53645 {v,al0,al1,m0,m1,a4_0,c3,c4}
+other positive clauses: 0 []

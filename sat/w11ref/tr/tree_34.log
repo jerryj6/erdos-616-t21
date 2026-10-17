@@ -1,0 +1,12 @@
+B* ['v', 'al0', 'al1', 'al2'] avoiders 20 |Stab| 864 orbits 5
+tree_34_0 r 2649 DONE nodes 1 leaves 1 max depth 0 lemmas 1836 CONF in CNF 26259 1s
+tree_34_0: s VERIFIED Fri Oct 16 19:24:16 UTC 2026
+tree_34_1 r 6317 DONE nodes 1 leaves 1 max depth 0 lemmas 2806 CONF in CNF 52289 0s
+tree_34_1: s VERIFIED Fri Oct 16 19:24:18 UTC 2026
+tree_34_2 r 6324 DONE nodes 1 leaves 1 max depth 0 lemmas 3995 CONF in CNF 22904 0s
+tree_34_2: s VERIFIED Fri Oct 16 19:24:19 UTC 2026
+tree_34_3 r 6500 DONE nodes 1 leaves 1 max depth 0 lemmas 2848 CONF in CNF 66065 0s
+tree_34_3: s VERIFIED Fri Oct 16 19:24:20 UTC 2026
+tree_34_4 r 6506 DONE nodes 4 leaves 3 max depth 1 lemmas 8402 CONF in CNF 200960 1s
+tree_34_4: s VERIFIED Fri Oct 16 19:24:22 UTC 2026
+tree 34 done Fri Oct 16 19:24:44 UTC 2026

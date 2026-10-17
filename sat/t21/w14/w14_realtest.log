@@ -1,0 +1,4 @@
+w10x_w12Ur0_real.json traces 12 CONF ok needR 611 rounds 3 alive 16163 R survives
+w12_M10_real_keep.json traces 10 CONF ok needR 718 rounds 3 alive 16897 R survives
+w10x_w12Pr2_real.json traces 12 CONF ok needR 669 rounds 3 alive 16039 R survives
+w11_B_real_keep.json traces 7 CONF ok needR 802 rounds 2 alive 17339 R survives

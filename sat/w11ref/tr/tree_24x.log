@@ -1,0 +1,16 @@
+B* ['v', 'cl0', 'cl1', 'cl2'] avoiders 25 |Stab| 288 orbits 7
+tree_24x_0 r 3950 DONE nodes 1 leaves 1 max depth 0 lemmas 2784 CONF in CNF 26983 0s
+tree_24x_0: s VERIFIED Fri Oct 16 19:28:43 UTC 2026
+tree_24x_1 r 3959 DONE nodes 1 leaves 1 max depth 0 lemmas 6051 CONF in CNF 109697 0s
+tree_24x_1: s VERIFIED Fri Oct 16 19:28:45 UTC 2026
+tree_24x_2 r 3971 DONE nodes 1 leaves 1 max depth 0 lemmas 6519 CONF in CNF 372136 1s
+tree_24x_2: s VERIFIED Fri Oct 16 19:28:47 UTC 2026
+tree_24x_3 r 3978 DONE nodes 1 leaves 1 max depth 0 lemmas 5197 CONF in CNF 206755 1s
+tree_24x_3: s VERIFIED Fri Oct 16 19:28:49 UTC 2026
+tree_24x_4 r 4009 DONE nodes 1 leaves 1 max depth 0 lemmas 5330 CONF in CNF 139520 1s
+tree_24x_4: s VERIFIED Fri Oct 16 19:28:51 UTC 2026
+tree_24x_5 r 4021 DONE nodes 1 leaves 1 max depth 0 lemmas 3481 CONF in CNF 45011 0s
+tree_24x_5: s VERIFIED Fri Oct 16 19:28:53 UTC 2026
+tree_24x_6 r 4025 DONE nodes 1 leaves 1 max depth 0 lemmas 4630 CONF in CNF 118705 0s
+tree_24x_6: s VERIFIED Fri Oct 16 19:28:55 UTC 2026
+tree 24x done Fri Oct 16 19:30:13 UTC 2026

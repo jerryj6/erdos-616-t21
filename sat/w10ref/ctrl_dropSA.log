@@ -1,0 +1,5 @@
+K=114 vars=616101 clauses=2323257 tags={'AV': 76, 'R1': 19, 'E21': 19, 'A': 247, 'R3': 131, 'D1': 190, 'Lbase': 266, 'F1': 684, 'SAbase': 3726, 'W7+NK': 84, 'L': 6}
+loaded 2323257 clauses nv=616101 in 0.6s
+glucose4: SAT in 140.9s
+instances satisfied 359 violated 21 violated kinds ['SA']
+eager spot-check violations 0

@@ -1,0 +1,5 @@
+distinct CONF clauses used by the 8 tree CNFs 1803882
+per-edge: full o-box of sampled universe traces: rejected states 0 passing generic check 0
+per-edge: sampled universe states failing generic check 0 | sampled non-universe states 19 passing generic check 0
+conflict pairs re-checked 200 generic finds compatible 0
+non-conflict pairs re-checked 200 generic finds conflict 0

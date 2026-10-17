@@ -1,0 +1,9 @@
+case 14968 core binary 494409 core nonbinary 354 full-rules disagreements 0
+  drop A: 240186 core clauses lost
+  drop F1: 0 core clauses lost
+  drop SAME: 40 core clauses lost
+  drop OO(L|X|=2): 133236 core clauses lost
+  drop L|X|=3: 0 core clauses lost
+  drop L|X|=4: 0 core clauses lost
+  drop D1d: 5492 core clauses lost
+  drop L3+L4: 0 core clauses lost

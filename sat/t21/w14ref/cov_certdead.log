@@ -1,0 +1,5 @@
+needed B 1730
+binary 593077 nonbinary 1731 positive 1731 non-positive non-binary 0
+COV(B) present EXACTLY (my avoider list): 1730 of 1730 missing 0
+other positive clauses: 1 [51]
+  all literals avoid B*={w,g0,g1,g2}: True

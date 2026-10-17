@@ -1,0 +1,10 @@
+s UNSATISFIABLE
+kissat exit 20
+c parsing input formula with 18217 variables and 759549 clauses
+c finished parsing
+c detected empty clause; start verification via backward checking
+c 360325 of 759549 clauses in core                            
+c 90428 of 178900 lemmas in core using 6115325 resolution steps
+c 65818 RAT lemmas in core; 18176 redundant literals in core lemmas
+s VERIFIED
+c verification time: 306.660 seconds

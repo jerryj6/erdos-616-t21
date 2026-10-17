@@ -1,0 +1,9 @@
+case certdead core binary 253375 core nonbinary 160 full-rules disagreements 0
+  drop A: 108457 core clauses lost
+  drop F1: 0 core clauses lost
+  drop SAME: 0 core clauses lost
+  drop OO(L|X|=2): 71375 core clauses lost
+  drop L|X|=3: 0 core clauses lost
+  drop L|X|=4: 0 core clauses lost
+  drop D1d: 573 core clauses lost
+  drop L3+L4: 0 core clauses lost

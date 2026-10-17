@@ -1,0 +1,4 @@
+indep traces 18217 states 49967 | w14 traces 18217 states 49967
+states accepted here but NOT in w14_states (potential over-rejection): 0
+states in w14_states rejected here: 0
+DONE

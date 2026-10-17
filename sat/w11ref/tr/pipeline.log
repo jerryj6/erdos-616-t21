@@ -1,0 +1,7 @@
+== pipeline start Fri Oct 16 17:16:06 UTC 2026
+33 vars 10674 needed B 1325 empty COV 0 min COV 24 CONF 9653036 units 0 -> phi33.cnf.tmp
+== pipeline start Fri Oct 16 18:50:36 UTC 2026
+phi33: UNSAT  Fri Oct 16 18:50:36 UTC 2026
+33k core 15 traces 12492 states 38199 sizes {4: 9, 5: 95, 6: 1175, 7: 3318, 8: 4437, 9: 3455, 10: 2, 15: 1} time 10s
+33k vars 12492 needed B 1325 empty COV 0 min COV 51 CONF 15839939 units 0 -> phi33k.cnf.tmp
+phi33k:   Fri Oct 16 19:16:24 UTC 2026

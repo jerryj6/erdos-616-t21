@@ -1,0 +1,8 @@
+per-edge: full o-box of sampled universe traces: rejected states 124294 passing generic check 0
+per-edge: sampled universe states failing generic check 0 | sampled non-universe states 12 passing generic check 0
+conflict pairs re-checked 50 generic finds compatible 0
+Traceback (most recent call last):
+  File "<workdir>/e616/w11ref/tr/tr_indep.py", line 105, in <module>
+    allc = set(map(tuple, np.load(f'pairs_{tag}.npy').tolist())) if NS and 'noncompat' not in sys.argv else set(); nc = 0 if 'noncompat' not in sys.argv else NS; dis2 = 0
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+MemoryError

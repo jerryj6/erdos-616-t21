@@ -1,0 +1,2 @@
+core conflict clauses 494409 not conflicts under full rules (must be 0): 0
+core clauses that NEED each family: {'SAME': 148, 'A': 240360, 'F1': 60, 'OO': 133236, 'L3': 0, 'D1d': 5492}

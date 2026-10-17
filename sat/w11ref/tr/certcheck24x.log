@@ -1,0 +1,8 @@
+B* 14337 needed True |Stab| 288 orbits of reps cover avoiders of B*: True
+tree_24x_0: COV clauses 1319 all in Φ True complete True, units [[3951]] == x_r True, binary 26983 all CONF of Φ True, other 0
+tree_24x_1: COV clauses 1319 all in Φ True complete True, units [[3960]] == x_r True, binary 109697 all CONF of Φ True, other 0
+tree_24x_2: COV clauses 1319 all in Φ True complete True, units [[3972]] == x_r True, binary 372136 all CONF of Φ True, other 0
+tree_24x_3: COV clauses 1319 all in Φ True complete True, units [[3979]] == x_r True, binary 206755 all CONF of Φ True, other 0
+tree_24x_4: COV clauses 1319 all in Φ True complete True, units [[4010]] == x_r True, binary 139520 all CONF of Φ True, other 0
+tree_24x_5: COV clauses 1319 all in Φ True complete True, units [[4022]] == x_r True, binary 45011 all CONF of Φ True, other 0
+tree_24x_6: COV clauses 1319 all in Φ True complete True, units [[4026]] == x_r True, binary 118705 all CONF of Φ True, other 0

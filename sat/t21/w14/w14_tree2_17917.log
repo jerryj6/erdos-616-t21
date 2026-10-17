@@ -1,0 +1,14 @@
+case 17917 {v,al0,al1,m0,m1,a4_0,a4_1,c3,c4} root BRANCH ('{v,al0,al1,c3}', 6)
+  closed 1 2 0 {'nodes': 1, 'lemmas': 3396} 10
+root child 0 of 6 done {'nodes': 1, 'lemmas': 3396} 10
+  closed 1 2 1 {'nodes': 2, 'lemmas': 4306} 12
+root child 1 of 6 done {'nodes': 2, 'lemmas': 4306} 12
+  closed 1 2 2 {'nodes': 3, 'lemmas': 5215} 15
+root child 2 of 6 done {'nodes': 3, 'lemmas': 5215} 15
+  closed 1 2 3 {'nodes': 4, 'lemmas': 6172} 18
+root child 3 of 6 done {'nodes': 4, 'lemmas': 6172} 18
+  closed 1 2 4 {'nodes': 5, 'lemmas': 7130} 20
+root child 4 of 6 done {'nodes': 5, 'lemmas': 7130} 20
+  closed 1 2 5 {'nodes': 6, 'lemmas': 8089} 23
+root child 5 of 6 done {'nodes': 6, 'lemmas': 8089} 23
+ASSEMBLED case 17917 conf clauses 757818 nodes this run {'nodes': 6, 'lemmas': 8091} 26

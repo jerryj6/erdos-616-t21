@@ -1,0 +1,9 @@
+case_33_0 r 2531 derived units 5212 wipeout True alive 5461 CONF in case CNF 46710
+case_33_0: 
+case_33_1 r 2538 derived units 4318 wipeout True alive 6355 CONF in case CNF 70055
+case_33_1: 
+case_33_2 r 2818 derived units 3105 wipeout True alive 7568 CONF in case CNF 68982
+case_33_2: 
+case_33_3 r 2827 derived units 4869 wipeout False alive 5804 CONF in case CNF 2393850
+s UNSATISFIABLE
+case_33_3 kissat rc 20

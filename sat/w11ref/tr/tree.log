@@ -1,0 +1,16 @@
+tree_33_3 r 2827 DONE nodes 10 leaves 9 max depth 1 lemmas 26953 CONF in CNF 823591 32s
+tree_33_0 r 2531 DONE nodes 1 leaves 1 max depth 0 lemmas 5213 CONF in CNF 218410 8s
+tree_33_0: s VERIFIED Fri Oct 16 18:46:29 UTC 2026
+tree_33_1 r 2538 DONE nodes 1 leaves 1 max depth 0 lemmas 4319 CONF in CNF 185177 1s
+tree_33_1: s VERIFIED Fri Oct 16 18:46:33 UTC 2026
+tree_33_2 r 2818 DONE nodes 1 leaves 1 max depth 0 lemmas 3106 CONF in CNF 96381 1s
+tree_33_2: s VERIFIED Fri Oct 16 18:46:37 UTC 2026
+tree_33_3: s VERIFIED Fri Oct 16 18:46:38 UTC 2026
+tree_33_4 r 4075 DONE nodes 4 leaves 3 max depth 1 lemmas 13350 CONF in CNF 718431 3s
+tree_33_4: s VERIFIED Fri Oct 16 18:46:46 UTC 2026
+tree_33_5 r 5525 DONE nodes 1 leaves 1 max depth 0 lemmas 5161 CONF in CNF 171920 1s
+tree_33_5: s VERIFIED Fri Oct 16 18:46:51 UTC 2026
+tree_33_6 r 5532 DONE nodes 1 leaves 1 max depth 0 lemmas 6859 CONF in CNF 293820 2s
+tree_33_6: s VERIFIED Fri Oct 16 18:46:55 UTC 2026
+tree_33_7 r 5691 DONE nodes 1 leaves 1 max depth 0 lemmas 6584 CONF in CNF 234384 1s
+tree_33_7: s VERIFIED Fri Oct 16 18:46:59 UTC 2026

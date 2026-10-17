@@ -1,0 +1,7 @@
+<repo>/lean/test/Neg.lean:6:2: error: Type mismatch
+  erdos_616_r21_of_NK4 Erdos616R21.NK4_leaf_proved
+has type
+  Hypergraph.localTransversalBound 21 (3 * 21 - 3) 1 = 4
+but is expected to have type
+  Hypergraph.localTransversalBound 21 (3 * 21 - 3) 1 = 5
+'erdos_616_t21_eq_4' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

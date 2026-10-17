@@ -1,0 +1,50 @@
+case 14968 {v,al0,al1,m0,m1,c3,c4} root BRANCH ('{v,al0,al1,m0}', 6)
+  closed 2 3 0 {'nodes': 6, 'lemmas': 6071} 22
+  closed 2 3 1 {'nodes': 11, 'lemmas': 8954} 29
+  closed 2 3 2 {'nodes': 16, 'lemmas': 11838} 36
+  closed 2 3 3 {'nodes': 17, 'lemmas': 13811} 39
+  closed 2 3 4 {'nodes': 20, 'lemmas': 16904} 44
+  closed 2 3 5 {'nodes': 23, 'lemmas': 19997} 49
+  closed 1 2 0 {'nodes': 23, 'lemmas': 19998} 49
+root child 0 of 6 done {'nodes': 23, 'lemmas': 19998} 50
+  closed 2 3 1 {'nodes': 29, 'lemmas': 23422} 60
+  closed 2 3 2 {'nodes': 34, 'lemmas': 26172} 67
+  closed 2 3 3 {'nodes': 39, 'lemmas': 29057} 74
+  closed 2 3 4 {'nodes': 42, 'lemmas': 32150} 79
+  closed 2 3 5 {'nodes': 43, 'lemmas': 34123} 82
+  closed 2 3 6 {'nodes': 46, 'lemmas': 37216} 87
+  closed 1 2 1 {'nodes': 46, 'lemmas': 37217} 87
+root child 1 of 6 done {'nodes': 46, 'lemmas': 37217} 87
+  closed 2 3 2 {'nodes': 52, 'lemmas': 40642} 97
+  closed 2 3 3 {'nodes': 57, 'lemmas': 43527} 103
+  closed 2 3 4 {'nodes': 62, 'lemmas': 46286} 111
+  closed 2 3 5 {'nodes': 65, 'lemmas': 49379} 115
+  closed 2 3 6 {'nodes': 68, 'lemmas': 52472} 120
+  closed 2 3 7 {'nodes': 69, 'lemmas': 54445} 123
+  closed 1 2 2 {'nodes': 69, 'lemmas': 54446} 123
+root child 2 of 6 done {'nodes': 69, 'lemmas': 54446} 123
+  closed 2 3 3 {'nodes': 71, 'lemmas': 56960} 129
+  closed 2 3 4 {'nodes': 74, 'lemmas': 60054} 134
+  closed 2 3 5 {'nodes': 77, 'lemmas': 63148} 139
+  closed 2 3 6 {'nodes': 82, 'lemmas': 65896} 146
+  closed 2 3 7 {'nodes': 87, 'lemmas': 68792} 154
+  closed 2 3 8 {'nodes': 92, 'lemmas': 71687} 161
+  closed 1 2 3 {'nodes': 92, 'lemmas': 71688} 161
+root child 3 of 6 done {'nodes': 92, 'lemmas': 71688} 161
+  closed 2 3 4 {'nodes': 96, 'lemmas': 75322} 169
+  closed 2 3 5 {'nodes': 97, 'lemmas': 77296} 171
+  closed 2 3 6 {'nodes': 100, 'lemmas': 80390} 176
+  closed 2 3 7 {'nodes': 105, 'lemmas': 83286} 183
+  closed 2 3 8 {'nodes': 110, 'lemmas': 86058} 190
+  closed 2 3 9 {'nodes': 115, 'lemmas': 88952} 197
+  closed 1 2 4 {'nodes': 115, 'lemmas': 88953} 197
+root child 4 of 6 done {'nodes': 115, 'lemmas': 88953} 197
+  closed 2 3 5 {'nodes': 119, 'lemmas': 92587} 205
+  closed 2 3 6 {'nodes': 122, 'lemmas': 95681} 210
+  closed 2 3 7 {'nodes': 123, 'lemmas': 97655} 213
+  closed 2 3 8 {'nodes': 128, 'lemmas': 100550} 220
+  closed 2 3 9 {'nodes': 133, 'lemmas': 103444} 227
+  closed 2 3 10 {'nodes': 138, 'lemmas': 106240} 234
+  closed 1 2 5 {'nodes': 138, 'lemmas': 106241} 234
+root child 5 of 6 done {'nodes': 138, 'lemmas': 106241} 235
+ASSEMBLED case 14968 conf clauses 1022918 nodes this run {'nodes': 138, 'lemmas': 106243} 244

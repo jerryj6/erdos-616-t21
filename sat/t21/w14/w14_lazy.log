@@ -1,0 +1,85 @@
+vars 18217 cover clauses 1730 loaded pairs 0
+it 1 on 18216 cover 159 conflicts 1159 new 4284 total 4284 t 4
+it 2 on 18013 cover 159 conflicts 1454 new 7960 total 12244 t 7
+it 3 on 17817 cover 166 conflicts 1187 new 13082 total 25326 t 10
+it 4 on 17423 cover 166 conflicts 1247 new 15931 total 41257 t 13
+it 5 on 17090 cover 167 conflicts 2367 new 19280 total 60537 t 19
+it 6 on 16799 cover 164 conflicts 2025 new 10570 total 71107 t 24
+it 7 on 16641 cover 167 conflicts 1722 new 16998 total 88105 t 28
+it 8 on 16211 cover 165 conflicts 1968 new 15148 total 103253 t 33
+it 9 on 15906 cover 170 conflicts 2438 new 35577 total 138830 t 39
+it 10 on 340 cover 340 conflicts 7261 new 45336 total 184166 t 57
+it 11 on 243 cover 243 conflicts 3638 new 87890 total 272056 t 68
+it 12 on 215 cover 215 conflicts 4928 new 136818 total 408874 t 83
+it 13 on 183 cover 183 conflicts 2909 new 131892 total 540766 t 96
+it 14 on 180 cover 180 conflicts 3426 new 104478 total 645244 t 111
+it 15 on 172 cover 172 conflicts 2674 new 69204 total 714448 t 125
+it 16 on 12172 cover 154 conflicts 2507 new 28934 total 743382 t 137
+it 17 on 11892 cover 181 conflicts 4237 new 49356 total 792738 t 155
+it 18 on 11701 cover 155 conflicts 2018 new 21626 total 814364 t 168
+it 19 on 11364 cover 202 conflicts 4109 new 38228 total 852592 t 186
+it 20 on 11167 cover 192 conflicts 3150 new 32850 total 885442 t 204
+it 21 on 10830 cover 167 conflicts 3380 new 38296 total 923738 t 220
+it 22 on 10596 cover 223 conflicts 5153 new 57268 total 981006 t 235
+it 23 on 10245 cover 187 conflicts 3156 new 43596 total 1024602 t 248
+it 24 on 10016 cover 210 conflicts 4074 new 44876 total 1069478 t 262
+it 25 on 9467 cover 221 conflicts 5725 new 79467 total 1148945 t 281
+gac units 3416
+vars 18217 cover clauses 1730 loaded pairs 1148945
+it 1 on 8456 cover 266 conflicts 3790 new 40584 total 1189529 t 14
+it 2 on 7846 cover 299 conflicts 5464 new 106887 total 1296416 t 33
+it 3 on 7017 cover 256 conflicts 5047 new 109313 total 1405729 t 52
+it 4 on 6259 cover 266 conflicts 3982 new 137962 total 1543691 t 71
+it 5 on 5454 cover 178 conflicts 2624 new 156505 total 1700196 t 89
+it 6 on 4789 cover 214 conflicts 3557 new 208674 total 1908870 t 109
+it 7 on 4112 cover 132 conflicts 1762 new 118588 total 2027458 t 126
+it 8 on 3717 cover 207 conflicts 2916 new 166277 total 2193735 t 147
+it 9 on 2868 cover 201 conflicts 2613 new 156186 total 2349921 t 174
+it 10 on 2230 cover 159 conflicts 1550 new 162900 total 2512821 t 196
+it 11 on 1834 cover 145 conflicts 1785 new 214989 total 2727810 t 221
+it 12 on 1505 cover 114 conflicts 1275 new 147684 total 2875494 t 250
+gac units 3416
+vars 18217 cover clauses 1730 loaded pairs 2875494
+it 1 on 1688 cover 177 conflicts 2141 new 121926 total 2997420 t 2
+it 2 on 1312 cover 143 conflicts 1328 new 165762 total 3163182 t 3
+it 3 on 1056 cover 129 conflicts 1157 new 155412 total 3318594 t 3
+it 4 on 857 cover 126 conflicts 1179 new 165138 total 3483732 t 4
+it 5 on 670 cover 164 conflicts 1857 new 207240 total 3690972 t 7
+it 6 on 344 cover 113 conflicts 878 new 125802 total 3816774 t 7
+it 7 on 288 cover 143 conflicts 1174 new 182790 total 3999564 t 8
+it 8 on 174 cover 125 conflicts 941 new 159336 total 4158900 t 8
+it 9 on 109 cover 100 conflicts 652 new 139092 total 4297992 t 9
+it 10 on 112 cover 103 conflicts 678 new 136380 total 4434372 t 11
+it 11 on 128 cover 120 conflicts 1001 new 190848 total 4625220 t 12
+it 12 on 112 cover 106 conflicts 631 new 113994 total 4739214 t 12
+it 13 on 99 cover 92 conflicts 577 new 133443 total 4872657 t 13
+it 14 on 100 cover 94 conflicts 602 new 119760 total 4992417 t 14
+it 15 on 110 cover 102 conflicts 652 new 134550 total 5126967 t 17
+it 16 on 96 cover 89 conflicts 607 new 117948 total 5244915 t 17
+it 17 on 140 cover 131 conflicts 927 new 157116 total 5402031 t 18
+it 18 on 101 cover 94 conflicts 747 new 123258 total 5525289 t 19
+it 19 on 108 cover 102 conflicts 734 new 109248 total 5634537 t 19
+it 20 on 107 cover 99 conflicts 852 new 150954 total 5785491 t 22
+it 21 on 115 cover 109 conflicts 865 new 141516 total 5927007 t 22
+it 22 on 94 cover 85 conflicts 582 new 120096 total 6047103 t 22
+it 23 on 99 cover 93 conflicts 619 new 112680 total 6159783 t 23
+it 24 on 412 cover 142 conflicts 1324 new 123476 total 6283259 t 27
+it 25 on 109 cover 93 conflicts 818 new 109872 total 6393131 t 29
+it 26 on 95 cover 81 conflicts 490 new 89076 total 6482207 t 29
+it 27 on 90 cover 76 conflicts 541 new 89988 total 6572195 t 30
+it 28 on 113 cover 101 conflicts 753 new 95100 total 6667295 t 35
+it 29 on 125 cover 115 conflicts 1001 new 108354 total 6775649 t 49
+it 30 on 125 cover 120 conflicts 671 new 123678 total 6899327 t 58
+it 31 on 120 cover 116 conflicts 1125 new 159234 total 7058561 t 59
+it 32 on 95 cover 91 conflicts 640 new 90462 total 7149023 t 64
+it 33 on 88 cover 84 conflicts 523 new 88164 total 7237187 t 107
+it 34 on 90 cover 86 conflicts 495 new 87168 total 7324355 t 123
+gac units 3416
+vars 18217 cover clauses 1730 loaded pairs 6899327
+it 1 on 96 cover 96 conflicts 505 new 81780 total 6981107 t 20
+it 2 on 90 cover 88 conflicts 649 new 109798 total 7090905 t 27
+it 3 on 98 cover 97 conflicts 622 new 80166 total 7171071 t 27
+it 4 on 90 cover 89 conflicts 802 new 103812 total 7274883 t 71
+it 5 on 96 cover 95 conflicts 741 new 86856 total 7361739 t 172
+it 6 on 86 cover 85 conflicts 596 new 80904 total 7442643 t 394
+it 7 on 80 cover 80 conflicts 470 new 69648 total 7512291 t 544

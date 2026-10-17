@@ -1,0 +1,723 @@
+\documentclass[11pt]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[margin=1.05in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+
+\setlist{leftmargin=*,itemsep=2pt,topsep=3pt}
+\allowdisplaybreaks
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{convention}[theorem]{Convention}
+
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\Phiv}{\Phi}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\Cov}{\mathrm{COV}}
+\newcommand{\Conf}{\mathrm{CONF}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\file}[1]{\path{#1}}
+\renewcommand{\UrlFont}{\ttfamily\small}
+\makeatletter\g@addto@macro{\UrlBreaks}{\do\-\do\_\do\,}\makeatother
+
+\title[$t(21)=4$ for Erd\H{o}s Problem \#616]{The local-to-global transversal number of\\ $21$-uniform hypergraphs is $4$\\ (Erd\H{o}s Problem \#616 at $r=21$)}
+\author{Jerry Yong (with computational assistance)}
+\thanks{This is a computer-assisted proof; see Sections~\ref{sec:lean}--\ref{sec:limits} for exactly what is machine-checked and what is trusted.}
+\date{17 October 2026}
+
+\begin{document}
+
+\begin{abstract}
+For $r\ge 3$ let $t(r)$ be the largest transversal number $\tau(\cF)$ of a finite $r$-uniform hypergraph $\cF$ in which every subhypergraph spanned by at most $3r-3$ vertices has $\tau\le 1$. Erd\H{o}s, Hajnal and Tuza proved $\lfloor 3r/16+7/8\rfloor\le t(r)\le\lceil r/5\rceil$, and their constructions determine $t(r)$ for $3\le r\le 20$; for $r=21$ the bounds give $t(21)\in\{4,5\}$. We prove $t(21)=4$. The lower bound is the Erd\H{o}s--Hajnal--Tuza construction $H(21,10,7)$. For the upper bound we show that a $21$-uniform hypergraph with the local property and $\tau\ge 5$ cannot exist. A local reduction forces two edges meeting in exactly five vertices and a rigid configuration around them. We then split into cases: all such pairs are ``uniform'', a ``triangle'' occurs, or neither. The uniform case and the triangle case are excluded by hand proofs. The remaining case splits into four finite configurations, each excluded by an unsatisfiable trace relaxation whose clauses are instances of the proved lemmas, with DRAT certificates. The whole argument is also formalized in Lean~4 against the statement of the problem in the \texttt{formal-conjectures} repository. The final theorem \texttt{erdos\_616\_t21\_eq\_4} depends on the Lean kernel, the three standard axioms, and \texttt{native\_decide} evaluations of a verified LRAT checker and of the clause/trace checkers. The result concerns $r=21$ only. It is computer-assisted and has not been externally peer-reviewed.
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+%======================================================================
+\section{Introduction}\label{sec:intro}
+
+\subsection{The problem}
+A \emph{transversal} of a family $\cF$ of finite sets is a set of vertices meeting every member of $\cF$; $\tau(\cF)$ denotes the least size of a transversal. For a vertex set $S$ the subhypergraph \emph{spanned} (induced) by $S$ is $\cF[S]=\{e\in\cF: e\subseteq S\}$.
+
+\begin{definition}
+For $r\ge 3$, $t(r)$ is the largest value of $\tau(\cF)$ over finite $r$-uniform hypergraphs $\cF$ such that $\tau(\cF[S])\le 1$ for every vertex set $S$ with $|S|\le 3r-3$.
+\end{definition}
+
+This is Problem \#616 in Bloom's list of Erd\H{o}s problems \cite{EP616}, going back to Erd\H{o}s, Hajnal and Tuza \cite{EHT91}. They proved
+\begin{equation}\label{eq:EHT}
+\Bigl\lfloor \tfrac{3r}{16}+\tfrac78\Bigr\rfloor \;\le\; t(r)\;\le\;\Bigl\lceil \tfrac r5\Bigr\rceil .
+\end{equation}
+The upper bound is \cite[Thm.~3]{EHT91}. The lower bound comes from a family of constructions $H(r,k,q)$ \cite[\S3]{EHT91}. We did not have access to the published PDF of \cite{EHT91}. Our statements of its results follow a third-party transcription~\cite{scinet}, and our proof does not use any result of \cite{EHT91}: both bounds proved here are self-contained. For $3\le r\le 20$, the specialization $H(r,3t+1,2t+1)$ (local property for $r\ge 5t+1+\lfloor (t-1)/3\rfloor$, $\tau=t+1$) together with the upper bound in \eqref{eq:EHT} determines $t(r)=\lceil r/5\rceil$. At $r=21$, \eqref{eq:EHT} gives $\lfloor 63/16+7/8\rfloor=4\le t(21)\le\lceil 21/5\rceil=5$.
+
+The first rank not settled by \eqref{eq:EHT} and these constructions is $r=21$. According to the erdosproblems.ai wiki for Problem \#616 (checked 16 October 2026), $r=21$ is the smallest open rank. The upper-bound argument of \cite{EHT91} at $t=4$ requires a window of $p(21,4)=61$ vertices, which exceeds $3r-3=60$ by exactly one.
+
+\subsection{Main result}
+\begin{theorem}\label{thm:main}
+$t(21)=4$. That is, every finite $21$-uniform hypergraph in which every subhypergraph spanned by at most $60$ vertices has transversal number at most $1$ has transversal number at most $4$, and this bound is attained.
+\end{theorem}
+
+The lower bound $t(21)\ge 4$ is the construction in \S\ref{sec:lower}. The upper bound $t(21)\le 4$ takes up the rest of the paper. Its logical structure is (Theorem~\ref{thm:split}):
+\begin{enumerate}
+\item a local reduction (\S\ref{sec:prelim}) that finds a \emph{$5$-pair} (two edges meeting in exactly $5$ vertices) and forces a rigid configuration around it;
+\item a hand proof that not every $5$-pair can be \emph{uniform} (Theorem~W6-U, \S\ref{sec:W6U});
+\item a hand proof that no $5$-pair has a \emph{triangle} (Theorem~W7-I, \S\ref{sec:W7I});
+\item an exhaustive split of the remaining case into four finite configurations (\S\ref{sec:split}), each refuted by an unsatisfiable propositional relaxation whose clauses are instances of the proved lemmas (\S\ref{sec:leaves}).
+\end{enumerate}
+All four steps, including the soundness of each relaxation, are formalized in Lean~4. The formal statement is the one in the \texttt{formal-conjectures} repository (\S\ref{sec:lean}).
+
+\subsection{What this paper does not claim}
+We make no claim about $t(r)$ for any $r\neq 21$, and in particular none about the asymptotics of $t(r)/r$. Several lemmas below are stated for $r=21$ only. Where we know how they behave at other ranks we say so, but nothing is claimed there. Section~\ref{sec:limits} lists the limitations of the proof.
+
+%======================================================================
+\section{The lower bound}\label{sec:lower}
+
+\begin{proposition}[the construction $H(21,10,7)$]\label{prop:lower}
+Let $K$ be a $10$-element set. For each $7$-subset $S\subseteq K$ take $14$ new vertices $P_S$, distinct for distinct $S$, and let $\cF_{\mathrm{low}}=\{S\cup P_S: S\in\binom{K}{7}\}$. Then $\cF_{\mathrm{low}}$ is $21$-uniform with $120$ edges and $1690$ vertices, every subhypergraph spanned by at most $60$ vertices has $\tau\le 1$, and $\tau(\cF_{\mathrm{low}})=4$.
+\end{proposition}
+
+\begin{proof}
+Edges have $7+14=21$ vertices. Distinct edges meet only inside $K$.
+
+\emph{Local property.} Let $\cF'\subseteq\cF_{\mathrm{low}}$ be nonempty with no common vertex. If $|\cF'|\le 3$, the complements $K\setminus S$ of the corresponding $7$-sets have $3$ points each and cover at most $9<10$ points of $K$, so the $7$-sets have a common point. Hence $|\cF'|\ge 4$. Four edges have at least $4\cdot 14$ private vertices and at least $7$ vertices in $K$, so they span at least $63>60$ vertices. A subhypergraph spanned by $\le 60$ vertices therefore consists of edges with a common vertex (or no edges), and has $\tau\le 1$.
+
+\emph{Transversal number.} Any $4$ points of $K$ meet every $7$-subset of $K$ (its complement has only $3$ points), so $\tau\le 4$. Let $T$ be a set of $3$ vertices and $k=|T\cap K|\le 3$. Each of the $3-k$ vertices of $T$ outside $K$ is private and lies in one edge. The number of edges whose $7$-set avoids $T\cap K$ is $\binom{10-k}{7}$, which is $120,36,8,1$ for $k=0,1,2,3$, in each case more than $3-k$. So some edge avoids $T$, and $\tau\ge 4$.
+\end{proof}
+
+This is the $t=3$ member $H(r,3t+1,2t+1)=H(21,10,7)$ of the family of \cite{EHT91}, where the analogous construction is used for all $r\ge16$. Here we only need $r=21$. The proposition is formalized in Lean (theorem \texttt{four\_le}, \S\ref{sec:lean}).
+
+%======================================================================
+\section{Preliminaries and the local reduction}\label{sec:prelim}
+
+\subsection{Setting}
+Throughout, $\cF$ is a finite $21$-uniform hypergraph on a vertex set $V$. We write $\bigcup\cF'$ for the union of a subfamily.
+
+\begin{definition}
+$\cF$ has \emph{property (L)} if every nonempty subfamily $\cF'\subseteq\cF$ with $|\bigcup\cF'|\le 60$ has a common vertex. $\cF$ has \emph{property (T)} if every set $B$ of at most $4$ vertices is disjoint from some edge of $\cF$, i.e.\ $\tau(\cF)\ge 5$. A \emph{counterexample} is a finite $21$-uniform hypergraph with (L) and (T).
+\end{definition}
+
+\begin{lemma}\label{lem:local-L}
+$\cF$ satisfies the hypothesis of Theorem~\ref{thm:main} (every subhypergraph spanned by $\le 60$ vertices has $\tau\le1$) if and only if it has property (L).
+\end{lemma}
+\begin{proof}
+If (L) holds and $|S|\le 60$, then $\cF[S]$ is empty or has union of size $\le 60$, so it has a common vertex. Conversely, a subfamily $\cF'$ with $|\bigcup\cF'|\le 60$ is contained in $\cF[\bigcup\cF']$, whose transversal of size $\le 1$ is a common vertex of $\cF'$ (it is nonempty because $\cF'$ is).
+\end{proof}
+
+So the upper bound of Theorem~\ref{thm:main} is equivalent to: \emph{there is no counterexample}. Throughout \S\S\ref{sec:prelim}--\ref{sec:leaves}, $\cF$ denotes a counterexample, and we derive a contradiction. We use (L) in its contrapositive form:
+
+\begin{convention}[span bound]
+If edges $X_1,\dots,X_m$ of $\cF$ have no common vertex, then $|X_1\cup\dots\cup X_m|\ge 61$. We say that ``(L) forces'' an inequality when it follows this way from a family whose empty intersection has been verified.
+\end{convention}
+
+\begin{lemma}[F1]\label{lem:F1}
+Any two edges meet, and any three edges have a common vertex. Consequently, for edges $E\ne E'$ the set $E\cap E'$ meets every edge.
+\end{lemma}
+\begin{proof}
+Two disjoint edges span $42\le 60$ vertices. If three pairwise intersecting edges had no common vertex, their union would have size $63-\sum|\text{pairwise intersections}|\le 60$. The last statement applies this to $E,E',E''$.
+\end{proof}
+
+\subsection{Five-pairs}
+\begin{lemma}[Lemma A]\label{lem:A}
+\textup{(i)} Distinct edges meet in at least $5$ vertices. \textup{(ii)} Some two edges meet in exactly $5$ vertices.
+\end{lemma}
+\begin{proof}
+(i) By Lemma~\ref{lem:F1}, $E\cap E'$ is a transversal of $\cF$. If $|E\cap E'|\le 4$, (T) gives an edge disjoint from it, a contradiction. (This is the statement called L1 in our working notes.)
+
+(ii) By (T), $\cF$ has at least two edges. Let $m$ be the minimum of $|E_1\cap E_2|$ over pairs of distinct edges, attained at $(E_1,E_2)$, and put $M=E_1\cap E_2$. Suppose $m\ge 6$. Cover $M$ by $k=\lceil m/4\rceil$ sets $B_1,\dots,B_k$ of size $4$ (overlaps allowed) and use (T) to choose edges $F_j$ with $F_j\cap B_j=\emptyset$. Then $F_j\notin\{E_1,E_2\}$, and the family $\{E_1,E_2,F_1,\dots,F_k\}$ has empty intersection, since a common vertex would lie in $M\setminus\bigcup B_j=\emptyset$. By minimality $|F_j\cap E_i|\ge m$, and $|F_j\cap M|\le m-4$, so
+\[|F_j\cap(E_1\cup E_2)|\ge 2m-(m-4)=m+4,\qquad |F_j\setminus(E_1\cup E_2)|\le 17-m .\]
+In particular $m\le 17$, and the family spans at most $(42-m)+\lceil m/4\rceil(17-m)$ vertices. For $m=6,\dots,17$ this equals
+\[58,\ 55,\ 52,\ 57,\ 53,\ 49,\ 45,\ 45,\ 40,\ 35,\ 30,\ 25,\]
+always at most $60$, contradicting (L). Hence $m=5$ by (i).
+\end{proof}
+At $m=5$ the same count gives $37+2\cdot 12=61$, one more than the window. The rest of the proof exploits this tightness.
+
+\begin{definition}
+A \emph{$5$-pair} is an ordered pair $(X,Y)$ of edges with $|X\cap Y|=5$. For a $5$-pair $(E_1,E_2)$ we write $M=E_1\cap E_2$, $A=E_1\setminus M$, $C=E_2\setminus M$ (so $|A|=|C|=16$ and $|E_1\cup E_2|=37$). An edge $F$ with $F\cap M=\{x\}$ is a \emph{single of type $x$}. Its \emph{A-part}, \emph{C-part} and \emph{outside part} are $A_F=F\cap A$, $C_F=F\cap C$, $O_F=F\setminus(E_1\cup E_2)$. An edge meeting $M$ in at least $2$ points is \emph{multi}.
+\end{definition}
+
+\begin{lemma}[Lemma R: rigidity at a $5$-pair]\label{lem:R}
+Let $(E_1,E_2)$ be a $5$-pair. Then
+\begin{enumerate}[label=\textup{R.\arabic*}]
+\item\label{R1} $M$ is a transversal of $\cF$;
+\item\label{R2} for every $x\in M$ there is a single of type $x$;
+\item\label{R3} if $F,F'$ are singles of distinct types then $|F\cap E_1|=|F\cap E_2|=|F'\cap E_1|=|F'\cap E_2|=5$, $|O_F|=|O_{F'}|=12$ and $O_F\cap O_{F'}=\emptyset$.
+\end{enumerate}
+Consequently every single $F$ has $|A_F|=|C_F|=4$ and $|O_F|=12$.
+\end{lemma}
+\begin{proof}
+R.1: If $F\cap M=\emptyset$, then $F\notin\{E_1,E_2\}$, $\{E_1,E_2,F\}$ has empty intersection, and by Lemma~\ref{lem:A}(i) $F$ has at least $5$ points in each of $A$ and $C$. So the union has at most $37+21-10=48$ points, contradicting (L).
+R.2: By (T) some edge avoids $M\setminus\{x\}$. By R.1 it contains $x$.
+R.3: $F\ne F'$, neither is $E_1$ or $E_2$, and $\{E_1,E_2,F,F'\}$ has empty intersection, since a common point would lie in $M\cap F\cap F'=\{x\}\cap\{y\}$. By Lemma~\ref{lem:A}(i), $|F\cap(E_1\cup E_2)|=|F\cap E_1|+|F\cap E_2|-1\ge 9$, so $|O_F|\le 12$, and similarly $|O_{F'}|\le 12$. The union therefore has at most $37+12+12-|O_F\cap O_{F'}|\le 61$ points. (L) forces $\ge 61$, so all these inequalities are equalities. The final sentence follows because, by R.2, every single has a single of another type (there are five types).
+\end{proof}
+
+\begin{corollary}[Cor.~R1]\label{cor:R1}
+If $F$ is a single of type $x$ of $(E_1,E_2)$, then $(E_1,F)$ and $(E_2,F)$ are $5$-pairs, with $E_1\cap F=\{x\}\cup A_F$ and $E_2\cap F=\{x\}\cup C_F$. In particular $\{x\}\cup A_F$ and $\{x\}\cup C_F$ are transversals of $\cF$.
+\end{corollary}
+
+\begin{lemma}[Lemma S: cross-type singles]\label{lem:S}
+Let $G$ and $H$ be singles of types $v\ne w$ of the $5$-pair $(E_1,E_2)$. Then:
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item $A_G\cap A_H\ne\emptyset$, $C_G\cap C_H\ne\emptyset$ and $O_G\cap O_H=\emptyset$;
+\item $|A_G\cap A_H|+|C_G\cap C_H|\ge 5$, and in fact $G\cap H=(A_G\cap A_H)\cup(C_G\cap C_H)$;
+\item if $|A_G\cap A_H|=1$ then $C_G=C_H$, and if $|C_G\cap C_H|=1$ then $A_G=A_H$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(a) $\{v\}\cup A_G$ is a transversal (Cor.~\ref{cor:R1}) and $v\notin H$, so $H$ meets $A_G$. The same argument gives the C-side, and $O_G\cap O_H=\emptyset$ is R.3.
+(b) $G\cap M=\{v\}$ and $H\cap M=\{w\}$ are disjoint, and the outside parts are disjoint by (a), so $G\cap H\subseteq A\cup C$. Now apply Lemma~\ref{lem:A}(i).
+(c) $(E_1,G)$ is a $5$-pair with $M'=\{v\}\cup A_G$. $E_2$ is a single of type $v$ of it, and $H$ is a single of the type $p$, where $A_G\cap A_H=\{p\}$ (because $v\notin H$). Their outside parts with respect to $(E_1,G)$ are $E_2\setminus(E_1\cup G)=C\setminus C_G$ and a set containing $C_H\setminus C_G$. These are disjoint by R.3, so $C_H\subseteq C_G$. Both sets have size $4$, so they are equal. The other half follows by symmetry.
+\end{proof}
+
+\begin{lemma}[Lemma K: multi edges]\label{lem:K}
+Let $K$ be an edge with $K\cap M=Q$, $|Q|=k\ge 2$. Then $|K\cap A|\ge 5-k$ and $|K\cap C|\ge 5-k$. If $x\in M\setminus Q$ and $F$ is a single of type $x$, then $K$ meets $A_F$ and $C_F$, and $|K\cap A|+|K\cap C|\le 9-k-|K\cap O_F|$.
+\end{lemma}
+\begin{proof}
+The first line is Lemma~\ref{lem:A}(i) applied to $(K,E_1)$ and $(K,E_2)$. $K$ meets $A_F$ and $C_F$ by Cor.~\ref{cor:R1}, since $x\notin K$. The family $\{E_1,E_2,K,F\}$ has empty intersection, and its union has size $37+12+|K\setminus(E_1\cup E_2)|-|K\cap O_F|$, where $|K\setminus(E_1\cup E_2)|=21-k-|K\cap A|-|K\cap C|$. (L) forces this union to be $\ge 61$.
+\end{proof}
+
+\begin{lemma}[Lemma T: witnesses]\label{lem:T}
+Let $G$ be a single of type $v$ of $(E_1,E_2)$ and let $p\in A_G$. There is an edge $W$ with $W\cap(\{v\}\cup A_G)=\{p\}$. Every such $W$ satisfies $W\cap C\subseteq C_G$. If $W$ is a single of $(E_1,E_2)$, then its type is $\ne v$, $C_W=C_G$ and $A_W\cap A_G=\{p\}$. The same holds with $A$ and $C$ exchanged.
+\end{lemma}
+\begin{proof}
+Apply R.2 and R.3 to the $5$-pair $(E_1,G)$, at which $E_2$ is the single of type $v$ with outside part $C\setminus C_G$.
+\end{proof}
+
+\begin{lemma}[D1]\label{lem:D1}
+Let $(X,Y)$ be a $5$-pair with $N=X\cap Y$, and let $L$ be an edge with $N\not\subseteq L$. Then $|L\cap(X\cup Y)|\le 9$.
+\end{lemma}
+\begin{proof}
+Pick $x\in N\setminus L$ and a single $F$ of type $x$ (R.2). Then $L\notin\{X,Y,F\}$ and $\{X,Y,L,F\}$ has empty intersection, since a common point would lie in $N\cap F\cap L\subseteq\{x\}\cap L$. Since $|X\cup Y\cup F|=37+12=49$ (Lemma~\ref{lem:R}), (L) forces $|L\setminus(X\cup Y\cup F)|\ge 12$, so $|L\cap(X\cup Y)|\le 9$.
+\end{proof}
+
+\begin{lemma}[CP$'$: the $49$-triple inequality]\label{lem:CP}
+Let $Q,X_1,X_2$ be edges pairwise meeting in exactly $5$ points with $Q\cap X_1\cap X_2=\{p\}$, and put $D=(X_1\cap X_2)\setminus Q$ $(|D|=4)$. Then every edge $F$ with $p\notin F$ satisfies
+\[\bigl|(F\cap Q)\setminus(X_1\cup X_2)\bigr|\;\le\;|F\cap D|-1 .\]
+\end{lemma}
+\begin{proof}
+$|Q\cup X_1\cup X_2|=63-15+1=49$. Also $F\notin\{Q,X_1,X_2\}$, and $\{Q,X_1,X_2,F\}$ has empty intersection, so (L) forces $|F\cap(Q\cup X_1\cup X_2)|\le 9$. The set $Q\cup X_1\cup X_2$ is the disjoint union of $Q$, $D$, $X_1\setminus(Q\cup D)$ and $X_2\setminus(Q\cup D)$ (because $X_1\cap X_2\subseteq Q\cup D$). By Lemma~\ref{lem:A}(i), $|F\cap(X_i\setminus(Q\cup D))|\ge 5-|F\cap D|-|F\cap Q\cap X_i|$. Summing the four parts gives $|F\cap Q|-|F\cap Q\cap X_1|-|F\cap Q\cap X_2|\le |F\cap D|-1$. Since $p\notin F$, the left side equals $|(F\cap Q)\setminus(X_1\cup X_2)|$.
+\end{proof}
+
+\begin{remark}
+The $5$-pair $(E_1,E_2)$ together with a single $F$ is such a triple, with $p$ the type of $F$. CP$'$ is tight on the projective-plane model $\mathrm{PG}(2,4)$ described in our working notes, so it cannot be sharpened in general. At $r=22$ the constant $-1$ becomes $0$; this is the slack that the proofs of \S\S\ref{sec:W6U}--\ref{sec:W7I} use.
+\end{remark}
+
+\subsection{Cross-type classes}
+\begin{definition}
+For singles $G,H$ of distinct types of a $5$-pair, their \emph{class} is $(a,c)=(|A_G\cap A_H|,|C_G\cap C_H|)$. The $5$-pair is \emph{uniform} if all its singles have the same A-part and the same C-part.
+\end{definition}
+
+\begin{lemma}\label{lem:class}
+Let $G,H$ be cross-type singles of class $(a,c)$, of types $v,w$. Then $1\le a,c\le 4$, $a+c\ge 5$, $|G\cap H|=a+c$, $a=1\Rightarrow c=4$ and $c=1\Rightarrow a=4$. The four edges $E_1,E_2,G,H$ have empty common intersection, pairwise intersections of sizes $5,5,5,5,5,a+c$, triple intersections $E_1E_2G=\{v\}$, $E_1E_2H=\{w\}$, $E_1GH=A_G\cap A_H$, $E_2GH=C_G\cap C_H$, and union of size exactly $61$.
+\end{lemma}
+\begin{proof}
+Everything except the last sentence is Lemma~\ref{lem:S}. The last sentence is inclusion--exclusion: $84-(25+a+c)+(1+1+a+c)-0=61$.
+\end{proof}
+
+\begin{lemma}\label{lem:uniform44}
+A $5$-pair is uniform if and only if every pair of cross-type singles has class $(4,4)$.
+\end{lemma}
+\begin{proof}
+One direction is clear. For the other, two singles of distinct types then have equal parts. For two singles of the same type $y$, R.2 gives a single of a third type $z\ne y$, whose parts equal both.
+\end{proof}
+
+\begin{remark}[sanity checks]
+Every lemma above was checked literally on the two Erd\H{o}s--Hajnal--Tuza extremal examples $H(16,10,7)$ ($r=16$, minimum intersection $4$) and $H(22,13,9)$ ($r=22$, minimum intersection $5$), in their rank-$r$ analogues: rigidity, Lemma~S, D1 with caps $7$ and $10$, and CP$'$ (no violations). In both examples every minimum pair is uniform and no triangle occurs.
+\end{remark}
+
+%======================================================================
+\section{The uniform case: Theorem W6-U}\label{sec:W6U}
+
+\begin{theorem}[W6-U]\label{thm:W6U}
+In a counterexample, not every $5$-pair is uniform.
+\end{theorem}
+
+Throughout this section, assume for contradiction that every $5$-pair is uniform. For a $5$-pair $(X,Y)$ with $N=X\cap Y$ write $\alpha(X,Y)\subseteq X\setminus N$ and $\gamma(X,Y)\subseteq Y\setminus N$ for the common A-part and C-part of its singles (both $4$-sets, well defined by R.2 and Lemma~\ref{lem:R}).
+
+Fix a $5$-pair $(E_1,E_2)$ (Lemma~\ref{lem:A}), with $M$, $A_0=\alpha(E_1,E_2)$, $C_0=\gamma(E_1,E_2)$, and put $S=M\cup A_0\cup C_0$, a set of $13$ points.
+
+\begin{definition}
+A $5$-pair $(X,Y)$ with $N=X\cap Y$, $\alpha=\alpha(X,Y)$, $\gamma=\gamma(X,Y)$ is \emph{good} if $N\subseteq S$, $X\cap S=N\cup\alpha$ and $Y\cap S=N\cup\gamma$, so that $S=N\sqcup\alpha\sqcup\gamma$. For an edge $X$ in a good pair put $B_X=X\cap S$ ($9$ points) and $O(X)=X\setminus S$ ($12$ points).
+\end{definition}
+
+$(E_1,E_2)$ is good. Note that $B_X$ depends only on $X$.
+
+\begin{lemma}[propagation G]\label{lem:G}
+Let $(X,Y)$ be good with $N,\alpha,\gamma$, and let $F$ be a single of type $y\in N$. Then $F\cap(X\cup Y)=\{y\}\cup\alpha\cup\gamma$, so $B_F=S\setminus(N\setminus\{y\})$, $O(F)=F\setminus(X\cup Y)$, and $O(F)$ is disjoint from $O(X)$ and $O(Y)$. Moreover, $(X,F)$ is good, with $N'=\{y\}\cup\alpha$, $\alpha(X,F)=N\setminus\{y\}$ and $\gamma(X,F)=\gamma$.
+\end{lemma}
+\begin{proof}
+By uniformity and Lemma~\ref{lem:R}, $F\cap N=\{y\}$, $F\cap(X\setminus N)=\alpha$ and $F\cap(Y\setminus N)=\gamma$. Since $S\subseteq X\cup Y$, this gives $B_F$, and $O(F)=F\setminus(X\cup Y)$. Since $F\cap X$ and $F\cap Y$ lie in $S$, $F$ misses $O(X)$ and $O(Y)$. Next, $X\cap F=\{y\}\cup\alpha$ has size $5$. With respect to $(X,F)$, $Y$ is a single of type $y$ (as $Y\cap\alpha=\emptyset$), with A-part $Y\cap(X\setminus N')=N\setminus\{y\}$ and C-part $(Y\cap F)\setminus\{y\}=\gamma$. Uniformity of $(X,F)$ gives $\alpha(X,F)$ and $\gamma(X,F)$, and the conditions for goodness are immediate: $X\cap S=N'\sqcup(N\setminus\{y\})$ and $F\cap S=N'\sqcup\gamma$.
+\end{proof}
+
+\begin{lemma}[relatives]\label{lem:relatives}
+Let $X$ be in a good pair. For every $4$-set $D\subseteq B_X$ there is an edge $U$ in a good pair with $B_U=S\setminus D$ and $O(U)\cap O(X)=\emptyset$.
+\end{lemma}
+\begin{proof}
+Fix $X$ and a good pair $(X,Y)$. Lemma~\ref{lem:G} replaces $(X,Y)$ by $(X,F)$, where $N'=\{y\}\cup(B_X\setminus N)$. In terms of the $4$-set $B_X\setminus N$, this moves $B_X\setminus N$ to $N\setminus\{y\}$, which is disjoint from it. All five such moves are available because singles of every type exist (R.2). These are exactly the edges of the Kneser graph $K(9,4)$ on the $4$-subsets of the $9$-set $B_X$, which is connected since $9\ge 2\cdot4+1$. Hence every $5$-set $N''\subseteq B_X$ occurs as $X\cap Z$ for a good pair $(X,Z)$. Given $D$, pick $t\in B_X\setminus D$, take $N''=D\cup\{t\}$, and let $U$ be a single of type $t$ of $(X,Z)$. By Lemma~\ref{lem:G}, $(X,U)$ is good, $B_U=S\setminus(N''\setminus\{t\})=S\setminus D$, and $O(U)\cap O(X)=\emptyset$.
+\end{proof}
+
+\begin{lemma}[Lemma H: outside parts are disjoint]\label{lem:H}
+Let $X$ be in a good pair and let $X'$ be an edge with $B_X\not\subseteq X'$. Then $|X'\cap S|+|X'\cap O(X)|\le 9$. In particular, if $X,X'$ are edges in good pairs with $B_X\ne B_{X'}$, then $O(X)\cap O(X')=\emptyset$.
+\end{lemma}
+\begin{proof}
+Pick $t\in B_X\setminus X'$ and split $B_X\setminus\{t\}$ into two $4$-sets $D_U,D_V$. Let $U,V$ be the relatives given by Lemma~\ref{lem:relatives}. A point of $X\cap U$ outside $S$ would lie in $O(X)\cap O(U)=\emptyset$, so $X\cap U\cap V=B_X\cap(S\setminus D_U)\cap(S\setminus D_V)=\{t\}$. Since $t\notin X'$, $X'\notin\{X,U,V\}$ and $\{X,X',U,V\}$ has empty intersection. Its union has at most $13+3\cdot12+(21-|X'\cap S|-|X'\cap O(X)|)$ points, and (L) forces this to be $\ge 61$. For the last claim, $X'\cap S=B_{X'}$ is a $9$-set different from $B_X$, so $B_X\not\subseteq X'$ and $|X'\cap S|=9$, hence $X'\cap O(X)=\emptyset$.
+\end{proof}
+
+\begin{lemma}[closure]\label{lem:closure}
+For every $9$-subset $B\subseteq S$ there is an edge $X$ in a good pair with $B_X=B$.
+\end{lemma}
+\begin{proof}
+Lemma~\ref{lem:relatives} says: if $B_X=S\setminus D_0$ is realized and $D$ is a $4$-set disjoint from $D_0$, then $S\setminus D$ is realized. Any two $4$-subsets $D_0,D$ of the $13$-set $S$ have a common disjoint $4$-set, because $|D_0\cup D|\le 8$. So two steps reach $S\setminus D$ from $B_{E_1}=S\setminus C_0$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:W6U}]
+Pick $s_0\in S$ and partition $S\setminus\{s_0\}$ into four triples $R_1,\dots,R_4$. By Lemma~\ref{lem:closure} there are edges $X_1,\dots,X_4$ in good pairs with $B_{X_i}=S\setminus(\{s_0\}\cup R_i)$. These $9$-sets are distinct, have empty intersection, and their union is $S\setminus\{s_0\}$, of size $12$. By Lemma~\ref{lem:H} the outside parts $O(X_i)$ are pairwise disjoint. So the $X_i$ have empty common intersection and span $12+4\cdot 12=60\le 60$ vertices, contradicting (L).
+\end{proof}
+
+\begin{remark}
+At $r=22$ the same family spans $12+4\cdot13=64>63$, so there is no contradiction, as there must not be: the extremal example $H(22,13,9)$ has only uniform minimum pairs. Uniformity is exactly the structure of the known extremal examples, and Theorem~\ref{thm:W6U} uses the tightness at $r=21$ in an essential way. The Lean proof (\S\ref{sec:lean}) avoids both the Kneser connectivity and the closure computation. It uses an induction on $|N\setminus T|$ and the two-step argument above, so no finite computation enters.
+\end{remark}
+
+%======================================================================
+\section{The triangle case: Theorem W7-I}\label{sec:W7I}
+
+\begin{theorem}[W7-I]\label{thm:W7I}
+In a counterexample, no $5$-pair has cross-type singles of class $(a,c)$ with $a=1$ or $c=1$.
+\end{theorem}
+
+This statement is \emph{global}: it applies to every $5$-pair, not only to a distinguished one. By symmetry ($E_1\leftrightarrow E_2$) it suffices to treat $a=1$. So suppose $(E_1,E_2)$ is a $5$-pair with singles $G$ (type $v$) and $H$ (type $w\ne v$) and $A_G\cap A_H=\{p\}$. By Lemma~\ref{lem:S}(c), $C_G=C_H=:C_0$.
+
+\subsection{The triangle configuration}
+Rename $Q=E_1$, $P_1=E_2$, $P_2=G$, $P_3=H$, $x_{12}=v$, $x_{13}=w$, $x_{23}=p$. Indices $\{i,j,k\}=\{1,2,3\}$ are always distinct, and $x_{ij}=x_{ji}$.
+
+\begin{lemma}[Tri-0]\label{lem:tri0}
+All six pairs among $Q,P_1,P_2,P_3$ meet in exactly $5$ points. Moreover $Q\cap P_i\cap P_j=\{x_{ij}\}$, $P_1\cap P_2\cap P_3=C_0$, the four-fold intersection is empty, $\ell_i:=Q\cap P_i=\{x_{ij},x_{ik}\}\sqcup Q_i$ with $|Q_i|=3$, $Q_*:=Q\setminus(\ell_1\cup\ell_2\cup\ell_3)$ has $9$ points, $P_i\cap P_j=C_0\cup\{x_{ij}\}$, and $P_i=\ell_i\sqcup C_0\sqcup O_i$ with $|O_i|=12$, where $O_i=P_i\setminus(Q\cup P_j\cup P_k)$. The $O_i$ are pairwise disjoint and disjoint from $Q$.
+\end{lemma}
+\begin{proof}
+This is Lemma~\ref{lem:class} with $(a,c)=(1,4)$, written out: $Q\cap P_1=M$, $Q\cap P_2=\{v\}\cup A_G$, $Q\cap P_3=\{w\}\cup A_H$, $P_1\cap P_2=\{v\}\cup C_0$, $P_1\cap P_3=\{w\}\cup C_0$, and $P_2\cap P_3=\{p\}\cup C_0$.
+\end{proof}
+
+The configuration is symmetric in $P_1,P_2,P_3$. Every $5$-set $\ell_i$ and $P_i\cap P_j$ is the intersection of a $5$-pair. Let $U=V\setminus(Q\cup P_1\cup P_2\cup P_3)$.
+
+\begin{lemma}[Tri-2: the $Y$-edges]\label{lem:tri2}
+Let $(a,b)$ be a pair of base indices with third index $k$, and let $c\in C_0$. There is an edge $Y=Y^{ab}_c$ with $Y\cap(C_0\cup\{x_{ab}\})=\{c\}$. Every such $Y$ satisfies: $Y\cap(Q_k\cup Q_*)=\emptyset$, $x_{ab}\notin Y$, $x_{ak},x_{bk}\in Y$, $|Y\cap P_a|=|Y\cap P_b|=5$, and $|Y\cap Q_a|+|Y\cap Q_b|\ge 3$.
+\end{lemma}
+\begin{proof}
+Existence is R.2 for the $5$-pair $(P_a,P_b)$, whose intersection is $C_0\cup\{x_{ab}\}$, so $Y$ is a single of type $c$ of that pair. $Q$ is a single of type $x_{ab}$ of the same pair, with outside part $Q\setminus(\ell_a\cup\ell_b)=Q_k\cup Q_*$ ($12$ points). R.3 gives $Y\cap(Q_k\cup Q_*)=\emptyset$ and $|Y\cap P_a|=|Y\cap P_b|=5$.
+
+Suppose $x_{ak}\notin Y$. Then $\{Q,P_a,P_k,Y\}$ has empty intersection, since $Q\cap P_a\cap P_k=\{x_{ak}\}$. As $|Q\cup P_a\cup P_k|=49$, (L) forces $|Y\cap(Q\cup P_a\cup P_k)|\le 9$. But $|Y\cap(P_a\cup P_k)|\ge 5+5-|Y\cap(C_0\cup\{x_{ak}\})|=9$, so $Y\cap Q\subseteq P_a\cup P_k$. Removing the excluded points from $\ell_a\cup\ell_k$, this gives $Y\cap Q\subseteq Q_a\cup\{x_{bk}\}$, which has $4$ points, contradicting Lemma~\ref{lem:A}(i). The same argument with $\{Q,P_b,P_k,Y\}$ gives $x_{bk}\in Y$. Finally $Y\cap Q=\{x_{ak},x_{bk}\}\cup(Y\cap Q_a)\cup(Y\cap Q_b)$ has at least $5$ points.
+\end{proof}
+
+For each unordered base pair $\{a,b\}$ and each $c\in C_0$ we \emph{fix} one such edge $Y^{ab}_c=Y^{ba}_c$, and write $S^{ab}_c=Y^{ab}_c\cap(Q_a\cup Q_b)$, so $|S^{ab}_c|\ge 3$. The four edges $Y^{ab}_c$ ($c\in C_0$) are singles of pairwise distinct types of $(P_a,P_b)$.
+
+\begin{lemma}[W7-2: the $W$-edges]\label{lem:W72}
+Let $q\in Q_i$. There is an edge $W=W^i_q$ with $W\cap\ell_i=\{q\}$. Every such $W$ satisfies: $W\cap O_j=W\cap O_k=\emptyset$; $W\cap Q=\{q\}\sqcup A_W$ with $A_W\subseteq Q\setminus\ell_i$ and $|A_W|=4$; $e:=|W\cap C_0|\in\{3,4\}$; and $|W\cap O_i|=4-e$.
+\end{lemma}
+\begin{proof}
+$W$ exists by R.2 for the $5$-pair $(Q,P_i)$. At this pair, $P_j$ is a single of type $x_{ij}$ with A-part $\ell_j\setminus\{x_{ij}\}$, C-part $C_0$ and outside part $O_j$, and similarly for $P_k$. Since $W$ has type $q\ne x_{ij},x_{ik}$, Lemma~\ref{lem:S}(a) gives $W\cap O_j=W\cap O_k=\emptyset$, and Lemma~\ref{lem:R} gives $|W\cap Q|=|W\cap P_i|=5$. The C-part of $W$ is $(W\cap C_0)\cup(W\cap O_i)$, of size $4$. Lemma~\ref{lem:S}(b) against $P_j$ and $P_k$ gives $|A_W\cap\ell_j|+e\ge 5$ and $|A_W\cap\ell_k|+e\ge5$. But $|A_W\cap\ell_j|+|A_W\cap\ell_k|\le |A_W|+|\ell_j\cap\ell_k|=5$, so $2e\ge 5$ and $e\ge 3$.
+\end{proof}
+
+If $e=3$, write $o_W$ for the unique point of $W\cap O_i$ and $m_W$ for the unique point of $C_0\setminus W$. For $q\in Q_i$ fix one $W^i_q$ and write $A^i_q=A_{W^i_q}$, $K^i_q=W^i_q\cap C_0$, and $c^*(q)=m_{W^i_q}$ if $e=3$, $c^*(q)$ arbitrary if $e=4$.
+
+\begin{lemma}[CP instance]\label{lem:hit}
+Let $q\in Q_i$, $W=W^i_q$, and let $F$ be an edge with $q\notin F$ and $|F\cap C_0|=1$, say $F\cap C_0=\{c\}$. Then
+\[\bigl|(F\cap Q)\setminus(\ell_i\cup\{q\}\cup A^i_q)\bigr|\le [c\in K^i_q]+[o_W\in F]-1,\]
+where $[o_W\in F]=0$ if $e=4$. In particular, if $e=4$, or if $F$ is $Y^{\cdot\cdot}_{c^*(q)}$, then the right side is at most $0$.
+\end{lemma}
+\begin{proof}
+$(Q,P_i,W)$ pairwise meet in $5$ (the last pair by R.3), with $Q\cap P_i\cap W=\{q\}$ and $(P_i\cap W)\setminus Q=K^i_q\cup(W\cap O_i)$. Apply Lemma~\ref{lem:CP}. If $e=4$ then $K^i_q=C_0\ni c$ and $W\cap O_i=\emptyset$. If $c=c^*(q)=m_W$ then $c\notin K^i_q$.
+\end{proof}
+
+\begin{lemma}[(A): $o$-points]\label{lem:Aprop}
+Let $W=W^k_q$ with $e=3$, and let $(a,b)$ be the complementary pair. Then $o_W$ lies in at most one of the four edges $Y^{ab}_c$, $c\in C_0$.
+\end{lemma}
+\begin{proof}
+$o_W\in O_k$ lies outside $P_a\cup P_b$. The $Y^{ab}_c$ are singles of pairwise distinct types of $(P_a,P_b)$, so by R.3 their outside parts are pairwise disjoint.
+\end{proof}
+
+\subsection{The finite argument}
+For each index $k$ with complementary pair $(a,b)$ put
+\[U_k=\bigcup_{c\in C_0}S^{ab}_c\subseteq Q_a\cup Q_b .\]
+
+\begin{lemma}[Step 0]\label{lem:step0}
+For every $k$ and every $q\in Q_k$, $U_k\subseteq A^k_q$. Hence $3\le |U_k|\le 4$.
+\end{lemma}
+\begin{proof}
+Let $W=W^k_q$ and $Y=Y^{ab}_c$. Then $q\notin Y$ because $Y\cap Q_k=\emptyset$. Since $Y\cap Q=\{x_{ak},x_{bk}\}\cup S^{ab}_c$ with $x_{ak},x_{bk}\in\ell_k$, Lemma~\ref{lem:hit} reads $|S^{ab}_c\setminus A^k_q|\le [c\in K^k_q]+[o_W\in Y]-1$. If $e=4$ the right side is $0$. If $e=3$ and $c=m_W$, the right side is $[o_W\in Y^{ab}_{m_W}]-1$, which must be $\ge 0$. So $o_W\in Y^{ab}_{m_W}$ and $S^{ab}_{m_W}\subseteq A^k_q$. By Lemma~\ref{lem:Aprop}, $o_W\notin Y^{ab}_c$ for $c\ne m_W$, so the right side is again $0$ for those $c$. Thus $S^{ab}_c\subseteq A^k_q$ for all $c$. Finally $|S^{ab}_c|\ge 3$ and $|A^k_q|=4$.
+\end{proof}
+
+Call $k$ \emph{tight} if $|U_k|=3$. Then $S^{ab}_c=U_k$ for every $c$.
+
+\begin{lemma}[Step 1]\label{lem:step1}
+Let $(a,b)$ be a base pair with third index $k$, let $q\in Q_a$, and suppose $q\notin Y^{ab}_{c^*(q)}$. Then $a$ is tight, $A^a_q=U_a\cup\{x_{bk}\}$, and $Y^{ab}_{c^*(q)}\cap Q_b\subseteq U_a$. The same holds with the pair $(a,k)$ and $Y^{ak}_{c^*(q)}\cap Q_k$ in place of $(a,b)$ and $Y^{ab}_{c^*(q)}\cap Q_b$.
+\end{lemma}
+\begin{proof}
+Let $F=Y^{ab}_{c^*(q)}$. Then $F\cap Q=\{x_{ak},x_{bk}\}\cup(F\cap Q_a)\cup(F\cap Q_b)$, where $x_{ak}\in\ell_a$, $F\cap Q_a\subseteq\ell_a$, $x_{bk}\notin\ell_a$ and $F\cap Q_b\cap\ell_a=\emptyset$. By Lemma~\ref{lem:hit}, $|(\{x_{bk}\}\cup(F\cap Q_b))\setminus A^a_q|\le 0$. So $\{x_{bk}\}\cup(F\cap Q_b)\subseteq A^a_q$. By Lemma~\ref{lem:step0}, $A^a_q\supseteq U_a$, where $U_a\subseteq Q_b\cup Q_k$ does not contain $x_{bk}$. As $|U_a|\ge3$ and $|A^a_q|=4$, we get $|U_a|=3$, $A^a_q=U_a\cup\{x_{bk}\}$, and $F\cap Q_b\subseteq U_a$.
+\end{proof}
+
+\begin{lemma}[Step 2]\label{lem:step2}
+If $k$ is not tight, then for every $q\in Q_k$ and each other index $d$, $q\in Y^{kd}_{c^*(q)}$.
+\end{lemma}
+\begin{proof}
+Since $U_k\subseteq A^k_q$ and both have $4$ points, $A^k_q=U_k\subseteq Q_a\cup Q_b$, so $x_{ab}\notin A^k_q$. Let $d\in\{a,b\}$ with other index $d'$, and $Y=Y^{kd}_{c^*(q)}$ (third index $d'$). If $q\notin Y$, Lemma~\ref{lem:hit} gives $|(\{x_{dd'}\}\cup(Y\cap Q_d))\setminus A^k_q|\le 0$. But $x_{dd'}=x_{ab}\in Y\setminus A^k_q$ by Lemma~\ref{lem:tri2}, a contradiction.
+\end{proof}
+
+\begin{lemma}[Step 3]\label{lem:step3}
+Every index is tight.
+\end{lemma}
+\begin{proof}
+Suppose $k$ is not tight, with complementary pair $\{a,b\}$. $U_k\subseteq Q_a\cup Q_b$ has $4$ points, so some $d\in\{a,b\}$ has $|U_k\cap Q_d|\le 2$. Let $d'$ be the other index.
+(i) Pick $q\in Q_d\setminus U_k$. For every $c$, $Y^{dd'}_c\cap(Q_d\cup Q_{d'})\subseteq U_k$, so $q\notin Y^{dd'}_{c^*(q)}$. Step~1 (with $(a,b):=(d,d')$) shows that $d$ is tight and $Y^{dd'}_{c^*(q)}\cap Q_{d'}\subseteq U_d$.
+(ii) Since $d$ is tight, $Y^{d'k}_c\cap(Q_{d'}\cup Q_k)=U_d$ for every $c$. By Step~2 every $q'\in Q_k$ lies in $Y^{kd'}_{c^*(q')}$, hence in $U_d$. So $Q_k\subseteq U_d$, and since $|U_d|=3$, $U_d=Q_k$.
+(iii) Then $Y^{dd'}_{c^*(q)}\cap Q_{d'}\subseteq U_d\cap Q_{d'}=\emptyset$, so $|Y^{dd'}_{c^*(q)}\cap Q_d|\ge 3$ by Lemma~\ref{lem:tri2}. But this set lies in $U_k\cap Q_d$, which has at most $2$ points.
+\end{proof}
+
+\begin{lemma}[Step 4]\label{lem:step4}
+Not every index is tight.
+\end{lemma}
+\begin{proof}
+Suppose all are tight, and for distinct indices $k,a$ put $u_{ka}=|U_k\cap Q_a|$, so $u_{ka}+u_{kb}=3$. First we show:
+
+$(\star)$ \emph{If $u_{ka}\le 2$, then $U_k\cap Q_b\subseteq U_a\cap Q_b$.} Indeed, pick $q\in Q_a\setminus U_k$. Since $k$ is tight, every $Y^{ab}_c$ meets $Q_a\cup Q_b$ exactly in $U_k$, so $q\notin Y^{ab}_{c^*(q)}$. Step~1 gives $Y^{ab}_{c^*(q)}\cap Q_b\subseteq U_a$, and the left side equals $U_k\cap Q_b$.
+
+(i) If all six numbers $u_{ka}$ lie in $\{1,2\}$, then $(\star)$ applied to $(k,a)$ and to $(a,k)$ gives $U_k\cap Q_b=U_a\cap Q_b$. So $s_b:=|U_\cdot\cap Q_b|$ does not depend on which of the two other indices is used, and $s_a+s_b=3$ for all three pairs. Adding the three equations gives $2(s_1+s_2+s_3)=9$, impossible.
+
+(ii) Otherwise some $u_{ka}=3$ and $u_{kb}=0$. By $(\star)$ for $(k,b)$, $Q_a=U_k\cap Q_a\subseteq U_b$, so $u_{ba}=3$ and $u_{bk}=0$. If $u_{ab}\le 2$, $(\star)$ for $(a,b)$ gives $U_a\cap Q_k\subseteq U_b\cap Q_k=\emptyset$, so $u_{ak}=0$ and $u_{ab}=3$, a contradiction. So $u_{ab}=3$ and $u_{ak}=0$, and $(\star)$ for $(a,k)$ gives $U_a\cap Q_b\subseteq U_k\cap Q_b=\emptyset$, again a contradiction.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:W7I}]
+Steps~3 and~4 contradict each other.
+\end{proof}
+
+\begin{remark}
+The argument uses only Lemma~\ref{lem:A}, R.2, R.3, Lemma~\ref{lem:S}(a),(b),(c), Tri-0, Tri-2, W7-2, CP$'$ and (A). Apart from the slack $-1$ in CP$'$, it does not depend on $r=21$. At $r=22$ the slack is $0$, the bound in Step~1 becomes $\le1$, and the argument breaks, consistently with $H(22,13,9)$. The hand proof was preceded by a computer proof of the finite step: a CNF of $23\,764$ variables and $61\,564$ clauses, with a DRAT certificate checked by \texttt{drat-trim} and by Lean's LRAT checker. An independent referee encoding using only the ingredients listed above is also UNSAT. Controls show that dropping (A), or using only three of the four points of $C_0$, makes the system satisfiable. The Lean formalization of Theorem~\ref{thm:W7I} uses the hand proof, not the certificate.
+\end{remark}
+
+%======================================================================
+\section{The case split}\label{sec:split}
+
+\begin{definition}
+\begin{enumerate}
+\item A \emph{$(3,2,1,1)$-K4} is a set of four distinct edges $P_0,P_1,P_2,P_3$, pairwise meeting in exactly $5$ points, with empty four-fold intersection and triple intersections $T_{ijk}=P_i\cap P_j\cap P_k$ of sizes $|T_{012}|=|T_{013}|=1$, $|T_{023}|=2$, $|T_{123}|=3$.
+\item $\cF$ satisfies \emph{NK} if at every $5$-pair any two singles of distinct types meet in at least $6$ points.
+\item $\cF$ satisfies \emph{N24} if no $5$-pair has cross-type singles of class $(2,4)$ or $(4,2)$.
+\end{enumerate}
+\end{definition}
+
+Any four edges that pairwise meet in exactly $5$ points and have triple sizes $\{1,1,2,3\}$ as a multiset can be labelled as in (1). The two singleton triples share two indices, which we call $0,1$, and swapping $0\leftrightarrow1$ if necessary puts the $2$-point triple at $\{0,2,3\}$.
+
+\begin{lemma}[K4 regions]\label{lem:K4regions}
+In a $(3,2,1,1)$-K4 write $v,w$ for the points of $T_{012},T_{013}$, $\alpha=T_{023}$, $\gamma=T_{123}$. Then the points lying in exactly two of the $P_q$ form the sets $m_3=(P_0\cap P_1)\setminus(P_2\cup P_3)$, $a_3=(P_0\cap P_2)\setminus(P_1\cup P_3)$, $a_4=(P_0\cap P_3)\setminus(P_1\cup P_2)$, $c_3=(P_1\cap P_2)\setminus(P_0\cup P_3)$, $c_4=(P_1\cap P_3)\setminus(P_0\cup P_2)$ of sizes $3,2,2,1,1$, and $(P_2\cap P_3)\setminus(P_0\cup P_1)=\emptyset$. The \emph{core} (points in at least two $P_q$) has $16$ points. The private parts $O_q=P_q\setminus\text{core}$ have sizes $10,11,12,12$, and $|P_0\cup\dots\cup P_3|=61$.
+\end{lemma}
+\begin{proof}
+Since the four-fold intersection is empty, $|(P_i\cap P_j)\setminus(P_k\cup P_l)|=5-|T_{ijk}|-|T_{ijl}|$. The rest is counting: $|P_0\cap\mathrm{core}|=1+1+2+3+2+2=11$, $|P_1\cap\mathrm{core}|=1+1+3+3+1+1=10$, and $|P_2\cap\mathrm{core}|=|P_3\cap\mathrm{core}|=9$.
+\end{proof}
+
+\begin{lemma}[NK violations are K4s]\label{lem:NKviol}
+Assume the conclusion of Theorem~\ref{thm:W7I}. If some $5$-pair $(X,Y)$ has singles $Z,Z'$ of distinct types $y,y'$ with $|Z\cap Z'|=5$, then $\{X,Y,Z,Z'\}$ is a $(3,2,1,1)$-K4.
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:class}, $|Z\cap Z'|=a+c=5$ with $a,c\ge 1$. Theorem~\ref{thm:W7I} excludes $a=1$ and $c=1$, so $(a,c)\in\{(2,3),(3,2)\}$. The six pairwise intersections have size $5$ (R.3 and the hypothesis), the four-fold intersection is empty, and the triples are $\{y\},\{y'\},A_Z\cap A_{Z'},C_Z\cap C_{Z'}$, of sizes $1,1,a,c$.
+\end{proof}
+
+\begin{theorem}[exhaustive split]\label{thm:split}
+Let $\cF$ be a counterexample. Then at least one of the following holds:
+\begin{enumerate}
+\item[\textup{(K)}] $\cF$ contains a $(3,2,1,1)$-K4;
+\item[\textup{(N24)}] $\cF$ satisfies NK, and some $5$-pair has cross-type singles of class $(2,4)$;
+\item[\textup{(N33)}] $\cF$ satisfies NK and N24, and some $5$-pair has cross-type singles of class $(3,3)$;
+\item[\textup{(N34)}] $\cF$ satisfies NK and N24, and some $5$-pair has cross-type singles of class $(3,4)$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+By Theorem~\ref{thm:W6U} some $5$-pair $(E_1,E_2)$ is non-uniform. By Lemma~\ref{lem:uniform44} it has a cross-type pair of class $\neq(4,4)$. If NK fails somewhere, Lemma~\ref{lem:NKviol} gives (K). Otherwise NK holds. Then every cross-type class $(a,c)$, at any $5$-pair, satisfies $a,c\ge2$ (Theorem~\ref{thm:W7I} and Lemma~\ref{lem:class}), $a,c\le4$ and $a+c\ge6$. So it is one of $(2,4),(4,2),(3,3),(3,4),(4,3),(4,4)$. Exchanging $E_1\leftrightarrow E_2$ (which exchanges A- and C-parts) turns $(4,2)$ into $(2,4)$ and $(4,3)$ into $(3,4)$. If a class $(2,4)$ or $(4,2)$ occurs anywhere we are in (N24). Otherwise N24 holds and the class $\ne(4,4)$ at $(E_1,E_2)$ gives (N33) or (N34).
+\end{proof}
+
+\begin{theorem}[the four leaves]\label{thm:leaves}
+Let $\cF$ be a counterexample.
+\begin{enumerate}
+\item[\textup{(K)}] $\cF$ contains no $(3,2,1,1)$-K4. (Uses Theorem~\ref{thm:W7I}.)
+\item[\textup{(N24)}] If $\cF$ satisfies NK, no $5$-pair has class $(2,4)$. (Uses Theorem~\ref{thm:W7I} and NK.)
+\item[\textup{(N33),(N34)}] If $\cF$ satisfies NK and N24, no $5$-pair has class $(3,3)$ or $(3,4)$. (Uses Theorem~\ref{thm:W7I}, NK and N24.)
+\end{enumerate}
+\end{theorem}
+
+The proof is computer-assisted (\S\ref{sec:leaves}). Given Theorem~\ref{thm:leaves}, the upper bound follows without circularity. Leaf (K) and Lemma~\ref{lem:NKviol} give NK. Leaf (N24), applied with $E_1\leftrightarrow E_2$ as well, gives N24. Leaves (N33) and (N34) then exclude the last two alternatives of Theorem~\ref{thm:split}. This proves $t(21)\le 4$, and with Proposition~\ref{prop:lower}, Theorem~\ref{thm:main}.
+
+\begin{remark}[corrections to our working notes]\label{rem:C1C2}
+Two statements in our working notes were worded too strongly. Neither is used above.
+\emph{(C1)} For four edges pairwise meeting in exactly $5$ with empty four-fold intersection, (L) gives $54+\sum|T_{ijk}|\ge 61$, so $\sum|T_{ijk}|\ge 7$. The notes then said that ``the triple vector is $(4,1,1,1)$, $(3,2,1,1)$ or $(2,2,2,1)$''. This list is correct only when $\sum|T_{ijk}|=7$. Vectors such as $(3,2,2,1)$, $(3,2,2,2)$ and $(2,2,2,2)$ are not excluded by these counts. The split above never uses the list. It is defined by NK, and an NK violation produces only the triple multisets $\{1,1,a,5-a\}$, i.e.\ $(4,1,1,1)$ (excluded by W7-I) or $(3,2,1,1)$.
+\emph{(C2)} The notes also derived a dichotomy from Lemma~\ref{lem:T}: a witness $W$ at $p\in A_G$ that is not a single meets $M$ in $k\ge 2$ points and $C_G$ in $c'\ge 2$ points, and if $|W\cap E_2|=k+c'=5$ then $\{E_1,G,E_2,W\}$ is a $(3,2,1,1)$-K4. The closing sentence there (``each class either contains a K4 via a witness or lies in the no-K4 branch'') is loose. The correct statement is the global dichotomy used in Theorem~\ref{thm:split}: either NK fails at some $5$-pair, giving (K), or NK holds at every $5$-pair. ``No-K4 branch'' should be read as ``NK at every $5$-pair'', which is a \emph{consequence} of leaf (K) and Theorem~\ref{thm:W7I}, not an extra hypothesis.
+\end{remark}
+
+%======================================================================
+\section{The computational leaves}\label{sec:leaves}
+
+All four leaves are proved by the same method. A \emph{trace relaxation} turns a hypothetical counterexample containing a fixed labelled base configuration into a satisfying assignment of a propositional formula $\Phi$, which is then shown to be unsatisfiable by checked certificates.
+
+\subsection{Trace relaxations}\label{sec:tracerelax}
+\textbf{Base.} A \emph{base} is a labelled family $P_0,\dots,P_3$ of edges whose Venn diagram is completely determined (all $15$ region sizes known). Its \emph{core} $\mathcal C$ is the set of points lying in at least two $P_q$. We fix a bijection between $\mathcal C$ and a set of \emph{named points} respecting the regions. Write $O_q=P_q\setminus\mathcal C$ and $U=V\setminus\bigcup_q P_q$. The base edges are the four $P_q$; every other edge is \emph{non-base}.
+
+\textbf{States.} For a non-base edge $X$, its \emph{trace} is $b=X\cap\mathcal C$ (a set of named points), and its \emph{state} is $(b,o)$ with $o_q=|X\cap O_q|$ and $u=21-|b|-\sum_q o_q=|X\cap U|\ge0$. The state determines $|X\cap P_q|=|b\cap P_q|+o_q$ and $|X\cap R|$ for every Boolean combination $R$ of base edges, hence every quantity entering a lemma about $X$ and base edges.
+
+\textbf{Per-edge rules.} A per-edge rule is a decidable predicate on states each of which is an instance of a proved lemma about $X$ and base edges, evaluated exactly from the counts. The \emph{universe} $\cU$ is the set of traces having at least one state that passes every per-edge rule. The states are enumerated over the full integer box $0\le o_q\le|O_q|$, $|b|+\sum o_q\le21$.
+
+\textbf{Pair rules.} For two distinct non-base edges $X,X'$ with states $s,s'$, the \emph{overlap vector} is $z=(z_0,\dots,z_3,z_U)$ with $z_q=|X\cap X'\cap O_q|$ and $z_U=|X\cap X'\cap U|$. Every true overlap vector lies in the box $\max(0,o_q+o'_q-|O_q|)\le z_q\le\min(o_q,o'_q)$, $0\le z_U\le\min(u,u')$. The pair $(s,s',z)$ determines $|X\cap X'|=|b\cap b'|+\sum z_q+z_U$ and the size of every union of $X$, $X'$ and base edges. A pair rule is a decidable predicate on $(s,s',z)$ that is an instance of a proved lemma. Traces $t\ne t'$ \emph{conflict} if no state $s$ of $t$ in the universe, state $s'$ of $t'$ in the universe, and overlap $z$ in the box satisfy all pair rules.
+
+\textbf{The formula.} A core $4$-set $B$ is \emph{needed} if it meets every base edge. $\Phi$ has one variable $x_t$ for each $t\in\cU$ and the clauses
+\[\Cov(B)=\bigvee_{t\in\cU,\ t\cap B=\emptyset}x_t\quad(B\text{ needed}),\qquad \Conf(t,t')=\neg x_t\vee\neg x_{t'}\quad(t,t'\text{ conflict}).\]
+
+\begin{proposition}[soundness of trace relaxations]\label{prop:sound}
+Suppose $\cF$ is a counterexample containing the base (with some region-respecting labelling of its core), and that all per-edge and pair rules are valid in $\cF$, i.e.\ each rule is an instance of a lemma whose hypotheses hold in $\cF$. Then $x_t:=[\exists$ non-base $X\in\cF$ with $X\cap\mathcal C=t]$ satisfies $\Phi$.
+\end{proposition}
+\begin{proof}
+The true state of a non-base edge passes the per-edge rules, so its trace is in $\cU$ and the assignment is well defined. $\Cov(B)$: by (T) some edge $X$ is disjoint from $B$. As $B$ meets every base edge, $X$ is non-base, and its trace avoids $B$ because $B\subseteq\mathcal C$. $\Conf(t,t')$: if $x_t,x_{t'}$ were both true, witnessed by $X,X'$, then $X\ne X'$ because $t\ne t'$, and their true states and true overlap vector (which lies in the box) would satisfy every pair rule, so $t,t'$ would not conflict.
+\end{proof}
+
+Several edges may share a trace. That is harmless because no clause relates a trace to itself. Restricting (T) to needed core $4$-sets is a weakening, so the number of edges through a point outside $\mathcal C$ never enters.
+
+\textbf{Symmetry.} Let $\Gamma$ be a group of permutations of the named points that map every $P_q\cap\mathcal C$ onto itself. The rules depend only on region membership, so $\Phi$ is invariant under $\Gamma$. More importantly, for $g\in\Gamma$, composing the labelling with $g$ gives another region-respecting labelling of the same base in the same $\cF$, and an edge with trace $g(r)$ in the old labelling has trace $r$ in the new one.
+
+\begin{lemma}[root split]\label{lem:root}
+Let $B^*$ be a needed $4$-set with $\Gamma_{B^*}:=\{g\in\Gamma:gB^*=B^*\}$, and write the avoiders of $B^*$ in $\cU$ as $D\sqcup A$. Let $R\subseteq A$ meet every $\Gamma_{B^*}$-orbit on $A$. If $\Phi\wedge\bigvee_{t\in D}x_t$ is unsatisfiable and $\Phi\wedge x_r$ is unsatisfiable for every $r\in R$, then no counterexample contains the base.
+\end{lemma}
+\begin{proof}
+A counterexample containing the base has a non-base edge avoiding $B^*$, with trace $t\in D\sqcup A$ (Proposition~\ref{prop:sound}). If $t\in D$, the first formula is satisfied. If $t=g(r)$ with $g\in\Gamma_{B^*}$, relabelling by $g$ produces an assignment satisfying $\Phi\wedge x_r$.
+\end{proof}
+
+\textbf{Certificates.} For each case we produce a CNF that is a \emph{sub-formula} of $\Phi$ together with the unit $x_r$ (or the clause $\bigvee_{t\in D}x_t$). It contains all $\Cov$ clauses and only those $\Conf$ clauses used by the refutation. Unsatisfiability of a sub-formula implies unsatisfiability of the whole. Refutations come either from a solver or, for most cases, directly from a propagation-and-branching tree emitted as DRAT. The propagation rule is: if $t$ meets a needed $B'$ and every live avoider of $B'$ conflicts with $t$, then $\neg x_t$. This is a RUP lemma. A node with cube $\kappa$ is closed by the lemma $\neg\kappa$, which is RUP from its children's closing lemmas and the branching clause $\Cov(B)$. Every DRAT proof was checked with \texttt{drat-trim}~\cite{drat-trim}, converted to LRAT~\cite{lrat}, and checked again inside Lean by the verified checker of Lean core (\S\ref{sec:lean}). For every case CNF a separate checker verified that its clauses are exactly the $\Cov$ clauses, binary $\Conf$ clauses of $\Phi$, and the designated extra clause. In Lean this check is part of the theorem.
+
+\subsection{\texorpdfstring{Leaf (K): the $(3,2,1,1)$-K4}{Leaf (K): the (3,2,1,1)-K4}}\label{sec:G14}
+\textbf{Base.} The K4 of Lemma~\ref{lem:K4regions}, with named core points $v,w,\alpha=\{al_0,al_1\}$, $\gamma=\{g_0,g_1,g_2\}$, $m_3=\{m_0,m_1,m_2\}$, $a_3=\{a3_0,a3_1\}$, $a_4=\{a4_0,a4_1\}$, $c_3$, $c_4$ ($16$ points) and $|O_q|=(10,11,12,12)$. The base $5$-pairs are all six pairs $(P_i,P_j)$, with intersections $N_{ij}=P_i\cap P_j$.
+
+\textbf{Per-edge rules} (for a non-base edge $X$ with state $(b,o)$):
+\begin{enumerate}
+\item capacity: $o_q\le|O_q|$, $|b|+\sum o_q\le 21$; Lemma~\ref{lem:A}: $|X\cap P_q|\ge5$;
+\item F1/R.1: $b\cap N_{ij}\ne\emptyset$ for all $i<j$;
+\item D1 at base pairs: if $N_{ij}\not\subseteq b$ then $|X\cap P_i|+|X\cap P_j|-|b\cap N_{ij}|\le 9$;
+\item (L) on $\{P_i,P_j,P_k,X\}$: if $b\cap T_{ijk}=\emptyset$ then $|X\cap(P_i\cup P_j\cup P_k)|\le 8+|T_{ijk}|$ (since $|P_i\cup P_j\cup P_k|=48+|T_{ijk}|$);
+\item W7-I at base pairs: if $X$ is a single of $(P_i,P_j)$ and a base edge $P_k$ is a single of another type, both parts of $(X,P_k)$ have at least $2$ points (Theorem~\ref{thm:W7I} with Lemma~\ref{lem:S}(a));
+\item derived $5$-pairs: if $|X\cap P_i|=5$, then $(P_i,X)$ is a $5$-pair with $N=X\cap P_i$ (which may contain $o_i$ private points). For each base $P_j$: R.3 if $P_j$ is a single of it, and D1 if $N\not\subseteq P_j$. For two base singles of distinct types: W7-I ($a,c\ne1$) and Lemma~\ref{lem:S}(a) ($P_j\cap P_k\subseteq P_i\cup X$).
+\end{enumerate}
+
+\textbf{Pair rules} (for distinct non-base $X,X'$): Lemma~\ref{lem:A} ($|X\cap X'|\ge5$); F1 with each $P_q$; \emph{SAME}: if $X,X'$ are singles of distinct types of one base $5$-pair, then they have no common point outside $P_i\cup P_j$ (Lemma~\ref{lem:S}(a)), both parts are $\ge2$ (W7-I), and Lemma~\ref{lem:S}(b) holds; (L) on $\mathcal X\cup\{X,X'\}$ for every set $\mathcal X$ of at least two base edges with $\bigcap\mathcal X\cap b\cap b'=\emptyset$ (exact union count); D1 at the derived $5$-pairs $(P_k,X)$ for the edge $X'$, and symmetrically.
+
+All rules are instances of Lemma~\ref{lem:A}, Lemma~\ref{lem:F1}, (L), R.3, Lemma~\ref{lem:S}(a),(b), Theorem~\ref{thm:W7I} and Lemma~\ref{lem:D1}. \emph{Nothing about NK or N24 is used}, so there is no circularity.
+
+\textbf{Sizes.} The universe has $18\,217$ traces and $49\,967$ states. There are $1730$ needed $4$-sets (of $\binom{16}4=1820$), and the full conflict graph has $37\,569\,536$ pairs (density $0.226$). $\Gamma$ is the group of order $288=2\cdot 6\cdot 6\cdot 2\cdot 2$ permuting the points inside each of $\alpha,\gamma,m_3,a_3,a_4$. Root: $B^*=\{w\}\cup\gamma$, which is $\Gamma$-invariant. It has $70$ avoiders in $\cU$: $51$ are eliminated by global propagation (set $D$), and the remaining $19$ form $5$ orbits.
+
+\begin{table}[ht]\small
+\caption{Certificates for leaf (K). Every CNF consists of the $1730$ $\Cov$ clauses, binary $\Conf$ clauses and the extra clause. Representatives are given as traces.}\label{tab:G14}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+piece & CNF clauses & DRAT lemmas & nodes & core (cl./lem.)\\
+\midrule
+$D$ ($51$ dead avoiders) & $594\,808$ & $3\,417$ & -- & --/$1\,480$\\
+$r=\{al_0,al_1,m_0,m_1,m_2,c_3,c_4\}$ & $668\,659$ & $5\,485$ & $1$ & $283\,736/2\,006$\\
+$r=\{v,al_0,al_1,m_0,m_1,c_3,c_4\}$ & $1\,024\,649$ & $109\,660$ & $138$ & $494\,763/11\,953$\\
+$r=\{v,al_0,al_1,m_0,a4_0,c_3,c_4\}$ & $3\,896\,902$ & $2\,517\,837$ & $1\,558$ & $1\,706\,359/196\,384$\\
+$r=\{v,al_0,al_1,m_0,m_1,a4_0,c_3,c_4\}$ & $4\,181\,029$ & $1\,952\,921$ & $\approx1\,550$ & $1\,953\,320/183\,695$\\
+$r=\{v,al_0,al_1,m_0,m_1,a4_0,a4_1,c_3,c_4\}$ & $759\,549$ & $11\,508$ & $7$ & $353\,624/3\,038$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Controls.} Twelve literal partial K4 configurations (the base plus further edges, $117$ non-base edges in total, each configuration satisfying (L) on all subfamilies) have all their edge states in the universe and violate none of the $\Conf$ clauses. Dropping the Lemma~A pair family, or the family of (L) on two base edges plus $X,X'$, makes $\Phi$ satisfiable. A pairwise-conflict-free cover of all $1730$ needed sets then exists, with $153$ and $86$ traces respectively. So these families are genuinely needed. A dependency analysis of the drat-trim cores showed that pairwise F1 and (L) on $\ge3$ base edges are not needed at all.
+
+\subsection{Leaves (N24), (N33), (N34)}\label{sec:noK4}
+\begin{lemma}[the base of class $(a,c)$]\label{lem:nok4base}
+Let $(E_1,E_2)$ be a $5$-pair with singles $G$ (type $v$) and $H$ (type $w$) of class $(a,c)$, $a+c\ge 6$. Then $P_0=E_1$, $P_1=E_2$, $P_2=G$, $P_3=H$ form a base with core
+\[\mathcal C=\{v,w,m_0,m_1,m_2\}\cup al\cup ag\cup ah\cup cl\cup cg\cup ch,\]
+where $al=A_G\cap A_H$ ($a$ points), $ag=A_G\setminus A_H$, $ah=A_H\setminus A_G$ ($4-a$ each), and $cl,cg,ch$ similarly with $c$. Thus $|\mathcal C|=21-a-c$ and $|O_q|=(8+a,8+c,12,12)$. The base $5$-pairs are exactly $E_1E_2,E_1G,E_1H,E_2G,E_2H$.
+\end{lemma}
+\begin{proof}
+R.3 gives $|A_G|=|C_G|=|A_H|=|C_H|=4$, and Lemma~\ref{lem:S}(a) gives $O_G\cap O_H=\emptyset$. Hence $G\cap H=al\cup cl$ has $a+c\ge 6$ points, so $(G,H)$ is not a $5$-pair, and every region size is determined.
+\end{proof}
+
+\textbf{Rules.} The universe and the rules are those of \S\ref{sec:G14}, written independently and extended as follows. The per-edge rules use (L) on $\mathcal S\cup\{X\}$ for every set $\mathcal S$ of at least two base edges. At each base $5$-pair they use D1, R.3 for $X$ a single, and, for $X$ a single and $P_k$ a base single of another type, Lemma~\ref{lem:S}(a) ($X\cap P_k\subseteq P_i\cup P_j$) and the class rule $\mathrm{CLS}$ below. At derived $5$-pairs $(P_i,X)$ they use D1, R.3 for base singles, and Lemma~\ref{lem:S}(a) and CLS for two base singles of distinct types. The pair rules are: Lemma~\ref{lem:A}; F1 with each $P_q$; (L) on $\mathcal S\cup\{X,X'\}$; SAME (Lemma~\ref{lem:S}(a) and CLS); at derived $5$-pairs $(P_k,X)$, in both orders, D1 for the other edge, and if the other edge is a single there, R.3 and Lemma~\ref{lem:S}(a) with CLS against base singles of other types; and at a derived $5$-pair $(X,X')$ (when $|X\cap X'|=5$), D1, R.3 and Lemma~\ref{lem:S}(a) with CLS for base singles. Here
+\[\mathrm{CLS}(a,c)\;:=\;a,c\ge2\ \wedge\ a+c\ge6\ \wedge\ (a,c)\notin\{(2,4),(4,2)\},\]
+where $a,c\ge2$ is Theorem~\ref{thm:W7I} with Lemma~\ref{lem:S}(a), $a+c\ge6$ is NK (with Lemma~\ref{lem:S}(b)), and the last conjunct is N24. For leaf (N24) the last conjunct is switched off. The hypotheses of each leaf are therefore exactly those listed in Theorem~\ref{thm:leaves}.
+
+\begin{table}[ht]\small
+\caption{Certificates for the N-noK4 leaves. ``Cases'' = number of orbit representatives. Clause counts are per case CNF (all $\Cov$ clauses, binary $\Conf$ clauses and the unit $x_r$). For (N24) all $7$ cases close at the root by propagation; for (N33) six close at the root and two need trees of $10$ and $4$ nodes; for (N34) four close at the root and one needs a tree of $4$ nodes.}\label{tab:nok4}
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lrrrrlrrrr@{}}
+\toprule
+leaf & $|\mathcal C|$ & traces & states & $\Cov$ & $B^*$ & avoid. & $|\Gamma_{B^*}|$ & cases & clauses per case\\
+\midrule
+(N24) & 15 & $9\,558$ & $30\,827$ & $1\,319$ & $\{v,cl_0,cl_1,cl_2\}$ & 25 & 288 & 7 & $28\,303$--$373\,456$\\
+(N33) & 15 & $10\,674$ & $35\,493$ & $1\,325$ & $\{v,al_0,al_1,al_2\}$ & 24 & 216 & 8 & $97\,707$--$824\,917$\\
+(N34) & 14 & $6\,553$ & $21\,952$ & $985$ & $\{v,al_0,al_1,al_2\}$ & 20 & 864 & 5 & $23\,890$--$201\,946$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For leaf (N33), the full conflict matrix has $9\,653\,036$ pairs, and Kissat also refutes the unsplit $\Phi_{33}$ directly (without a completed proof check; this run is not used). Here $D=\emptyset$, and all avoiders of $B^*$ are covered by the orbit representatives. For (N24) the conflict computation was redone without the N24 rule. All case certificates were checked by \texttt{drat-trim} (all lemmas RUP, no RAT lemmas).
+
+\textbf{Controls.} The authors' literal $16$-single configurations of classes $(3,3)$ and $(3,4)$ (partial configurations satisfying every encoded lemma, with $\tau=2$) have all edges in the universe and violate no pair rule at their true overlaps. A configuration built without N24 fails exactly on N24 instances, which shows that the rule is live. A second, naive implementation built concrete $21$-sets and ran a generic lemma checker on every subfamily. On samples it agreed with the encoder: $1000$ random $\Conf$ clauses of the (N33) certificates were all confirmed, $100$ random non-conflicts were all confirmed compatible, and per-edge rejections agreed on the complete $o$-boxes of $150$ traces.
+
+\subsection{Independent cross-checks not used by the final theorem}\label{sec:xcheck}
+Before the trace relaxations, the three N-noK4 classes were refuted with a different, \emph{exact} encoding. It uses one Boolean per (edge, point) over the $61$ named base points and a pool of $K$ anonymous outside points, and its lemma instances are generated lazily by a CEGAR loop. Its soundness rests on the following pool bound.
+
+\begin{lemma}[KB]
+Let the model edges $F_s$ (``slots''; two may coincide) be edges of a counterexample containing the base, and let $\nu_s$ be a proved lower bound for $|F_s\cap\bigcup P_q|$ ($\nu=9$ for a single of a base $5$-pair, by R.3; $\nu=5$ otherwise, by Lemma~\ref{lem:A}). Then the set $\mathrm{Sh}$ of outside points lying in at least two slots has $|\mathrm{Sh}|\le\lfloor\frac12\sum_s(21-\nu_s)\rfloor$.
+\end{lemma}
+\begin{proof}
+Each point of $\mathrm{Sh}$ is counted at least twice in $\sum_s|F_s\setminus\bigcup P_q|\le\sum_s(21-\nu_s)$.
+\end{proof}
+
+The resulting certificates are: class $(2,4)$ with the $19$ first-generation singles ($K=114$, $380$ lemma instances); class $(3,4)$ with $16$ singles and one extra edge avoiding $\{al_0,al_1,al_2,cl_0\}$ ($K=104$, $637$ instances); and class $(3,3)$ with the same slots ($2394$ instances). Referees re-encoded the $(2,4)$ and $(3,4)$ instances independently, with a different cardinality encoding and a different solver (Glucose~4), and obtained verified UNSAT. For $(3,3)$ the independent re-encoding did not finish within the available compute, and the referee's independent route is the trace relaxation $\Phi_{33}$ of \S\ref{sec:noK4}. All of these CNFs, and the W7-I finite-step CNF, are drat-trim verified \emph{and} LRAT-checked in Lean ($34$ certificates in all). Their encoding soundness, however, is argued only on paper (refereed, \S\ref{sec:referee}). They are \emph{not} imported by the final Lean theorem, which relies only on the trace relaxations above.
+
+%======================================================================
+\section{Lean formalization}\label{sec:lean}
+
+\subsection{The formal statement}
+The \texttt{formal-conjectures} repository~\cite{FC} states Problem \#616 as
+{\footnotesize\begin{verbatim}
+theorem erdos_616 : forall r >= 3,
+    Hypergraph.localTransversalBound r (3*r-3) 1 = erdos_616.answer r
+\end{verbatim}}
+with the following definitions (from the files \texttt{Finite.lean} and \texttt{Extremal.lean} of the repository's hypergraph library; Unicode symbols transliterated):
+{\footnotesize\begin{verbatim}
+def Set.HasFiniteTransversal (F : Set (Finset V)) (k : Nat) : Prop :=
+  exists S : Finset V, S.card <= k /\ forall e in F, exists v in S, v in e
+def Finset.IsUniform (H : Finset (Finset V)) (r : Nat) : Prop :=
+  forall e in H, e.card = r
+def Finset.hypergraphInduce (H : Finset (Finset V)) (S : Finset V) :=
+  H.filter (fun e => e subseteq S)
+noncomputable def Hypergraph.localTransversalBound (r v a : Nat) : ENat :=
+  iInf (b : Nat) (_ : forall (n : Nat) (H : Finset (Finset (Fin n))),
+      H.IsUniform r ->
+      (forall S : Finset (Fin n), S.card <= v ->
+         (H.hypergraphInduce S : Set _).HasFiniteTransversal a) ->
+      (H : Set _).HasFiniteTransversal b), (b : ENat)
+\end{verbatim}}
+The infimum ranges over valid bounds $b$. So $\texttt{localTransversalBound}\ 21\ 60\ 1=4$ says both that $4$ is a valid bound (the upper bound) and that $3$ is not (the lower bound, using monotonicity in $b$). Our final theorem is
+{\footnotesize\begin{verbatim}
+theorem erdos_616_t21_eq_4 :
+    Hypergraph.localTransversalBound 21 (3 * 21 - 3) 1 = 4 :=
+  erdos_616_r21_of_NK4 Erdos616R21.NK4_leaf_proved
+\end{verbatim}}
+in \file{work/e616lean/final/Erdos616R21Final.lean}. The four definitions are \emph{copied verbatim} into our file \file{Full.lean}, in the same namespaces, rather than imported. The reason is that \texttt{formal-conjectures} pins Lean v4.33.1 with its own Mathlib, while we used Lean 4.35.0 with Mathlib revision \texttt{56a00585}. Porting means replacing the copies by the import, and we have not checked that step mechanically (see \S\ref{sec:limits}).
+
+\subsection{Architecture}
+\begin{table}[ht]\small
+\caption{Lean development (line counts of the main sources). ``Native'' marks files whose theorems use \texttt{native\_decide}.}\label{tab:lean}
+\footnotesize\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.7cm}r>{\raggedright\arraybackslash}p{8.6cm}@{}}
+\toprule
+file(s) & lines & content\\
+\midrule
+\texttt{Full.lean} & 1202 & copied definitions; local hypothesis $\Leftrightarrow$ (L); reduction to minimal families; lower bound $H(21,10,7)$ (\texttt{four\_le}); \texttt{erdos\_616\_r21\_iff}: statement $\Leftrightarrow$ no \texttt{Counter}; F1, Lemma A, R.1--R.3, S, K, T, D1, CP$'$, classes, K4 span $61$\\
+\texttt{HandA.lean} & 892 & Theorem W6-U (no computation); case split (Thm.~\ref{thm:split}); Lemma KB; \texttt{erdos\_616\_r21\_of\_leaves}\\
+\texttt{W7I.lean} & 944 & Theorem W7-I by the hand proof of \S\ref{sec:W7I}\\
+\texttt{g14/G14Check}, \texttt{G14Glue}, \texttt{G14Root}, case files & $\approx$500 & core-Lean checkers for leaf (K): states, universe, pair rules, clause checker; glue theorem \texttt{eval\_of\_check}; root split (native)\\
+\texttt{BridgeG14}, \texttt{BridgeG14Pair}, \texttt{BridgeG14Final}, \texttt{G14Assembly}, \texttt{G14Full} & $\approx$1880 & semantics for leaf (K): labelled base from a K4, \texttt{edgeSound}, \texttt{pairSound}, \texttt{NK4\_leaf\_proved}\\
+\texttt{bridge/TrCheck}, \texttt{TrRun*}, \texttt{WitData} & $\approx$450 & core-Lean re-implementation of $\Phi_{a,c}$; clause and orbit checker (native)\\
+\file{bridge/NoK4{Base,Frame,Edge,Pair,Build}}, \texttt{BridgeNoK4} & $\approx$2480 & semantics for (N24), (N33), (N34): base from a cross pair, EdgeSound, PairSound, symmetry, the three leaves\\
+\texttt{e616lrat/LratCheck}, \texttt{LratChunk}, \texttt{certs/*} & $\approx$190 + gen. & DIMACS parser; LRAT checking with Lean core's \texttt{Std.Tactic.BVDecide.LRAT.check} and its soundness theorem; chunked mode (native)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The counterexample predicate is
+{\footnotesize\begin{verbatim}
+structure Counter (H : Finset (Finset V)) : Prop where
+  unif  : forall e in H, e.card = 21
+  propL : PropL H 60   -- nonempty subfamily with union <= 60 has a common point
+  avoid : forall B : Finset V, B.card <= 4 -> exists e in H, Disjoint e B
+\end{verbatim}}
+The five leaves are Lean propositions with exactly the hypotheses of Theorem~\ref{thm:leaves}:
+{\footnotesize\begin{verbatim}
+W7I_leaf     : Counter H -> every CrossPair has a /= 1 /\ c /= 1
+NK4_leaf     : Counter H -> W7I_prop H -> not K4_3211 H
+noK4_24_leaf : Counter H -> W7I_prop H -> NK_prop H -> no CrossPair (2,4)
+noK4_33_leaf : ... -> NK_prop H -> N24_prop H -> no CrossPair (3,3)
+noK4_34_leaf : ... -> NK_prop H -> N24_prop H -> no CrossPair (3,4)
+\end{verbatim}}
+NK and N24 are \emph{derived} inside \texttt{noCounter\_of\_leaves}, not assumed.
+
+Each computational leaf follows one pattern. (i) A computable checker, compiled to native code, verifies by \texttt{native\_decide} that every clause of the parsed case CNF is a $\Cov$ clause (an exact avoider list of a needed $4$-set), a binary $\Conf$ clause between traces that the Lean pair checker declares incompatible (it re-runs every state pair and every overlap vector), or the designated extra clause. It also verifies the universe completeness and the orbit cover of the root split. (ii) A glue theorem, proved in the kernel, shows that any abstract ``trace model'' satisfies every CNF accepted by the checker. (iii) On the Mathlib side, the kernel-checked theorems \texttt{edgeSound} and \texttt{pairSound} show that a counterexample with a labelled base yields such a model: every non-base edge passes the per-edge rules, and every pair of distinct non-base edges passes the pair rules at its true overlap vector. These are the formal versions of Proposition~\ref{prop:sound}, with the symmetry step done by relabelling the base. (iv) The LRAT certificate of the same parsed CNF gives \texttt{not\_exists\_sat}, and with (ii) and (iii) this yields \texttt{False}.
+
+An incorrect DIMACS parser cannot produce a false theorem. Whatever CNF the parser returns is the one whose clauses the checker validates semantically, so the model satisfies it in any case. As a further sanity check, the parsed CNFs were printed back and compared clause by clause with the original files (all identical).
+
+\subsection{Trust base}
+\texttt{\#print axioms erdos\_616\_t21\_eq\_4} reports \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}, and $58$ auxiliary axioms of the form \texttt{\dots.\_native.native\_decide.ax\_1\_1}. Each of these asserts that a specific closed Boolean computation evaluates to \texttt{true}, on the strength of the Lean compiler and runtime. They are:
+\begin{itemize}
+\item $3$ acceptance checks of the $\Phi_{a,c}$ clause and orbit checker (\texttt{ok24x}, \texttt{ok33}, \texttt{ok34});
+\item $8$ checks for leaf (K): universe completeness, the root split, and the clause checker on the $6$ pieces;
+\item $47$ LRAT checks: $20$ for the $\Phi_{a,c}$ case CNFs, $4$ single-file G14 certificates, and $21$ blocks plus $2$ final-block checks for the two G14 certificates checked in chunked mode.
+\end{itemize}
+The LRAT checker itself (\texttt{Std.Tactic.BVDecide.LRAT.check}) carries a kernel-checked soundness theorem (\texttt{check\_sound}) in Lean core. The trust placed in \texttt{native\_decide} is the same as that placed in Lean's own \texttt{bv\_decide} tactic. Everything semantic is kernel-checked without native code: the reduction, the lower bound, all hand lemmas, W6-U, W7-I, the case split, and the encoding soundness of both relaxations. No \texttt{sorry} occurs anywhere in the import closure. The SAT solvers, \texttt{drat-trim}, the DRAT-to-LRAT conversion and the Python generators are \emph{not} trusted: a wrong certificate makes \texttt{check} return \texttt{false}.
+
+\subsection{Negative controls}
+Replacing \texttt{= 4} by \texttt{= 5} in the final file (\file{final/Neg.lean}) makes compilation fail, so the final theorem is genuinely elaborated. The W7-I file with an appended false \texttt{example} fails as expected. For the LRAT layer, removing one hint from a proof, checking a valid proof against a different CNF, or deleting the first $1000$ clauses of a CNF in chunked mode each makes the checker return \texttt{false}. A native-evaluation test of a false bit-count statement fails.
+
+%======================================================================
+\section{Independent refereeing (internal)}\label{sec:referee}
+Every component was re-examined by separate adversarial ``referee'' runs. These were carried out within the same project and with the same kind of computational assistance. They are internal reviews, not peer review. Each referee wrote its own code, importing nothing from the code under review, and read the authors' files only as data.
+\begin{itemize}
+\item \emph{Local lemmas, W6-U, W7-I.} Every item was found SOUND. The referee re-derived all lemmas, recomputed the Lemma~A table, re-ran the Kneser and closure computations, checked Step~4 by brute force over $8000$ cases, and wrote an independent minimal CNF for the W7-I finite step using only the hand-proof ingredients (UNSAT, DRAT verified). Without (A), or with only three points of $C_0$, that CNF is satisfiable. Only cosmetic issues were found.
+\item \emph{Exhaustiveness of the split.} The split was found EXHAUSTIVE and every step SOUND. The two wording defects C1, C2 are corrected in Remark~\ref{rem:C1C2}. The referee also checked that the base configurations hard-coded in the encoders coincide with the leaf configurations, and that there is no circularity: (K) uses no Case-N hypothesis, (N24) uses NK, and (N33),(N34) use NK and N24.
+\item \emph{Leaf (K).} Found SOUND. The referee re-implemented the per-edge rules over the full integer box (same $18\,217$ traces and $49\,967$ states) and the pair rules with exact overlap enumeration. Every binary clause of all six certificate CNFs is a genuine conflict (about $11$ million clauses, $0$ disagreements). The authors' full conflict graph is contained in the referee's. The $\Cov$ clauses are exact, the orbit cover is correct, and the referee's own Kissat proofs for two cases were drat-trim verified.
+\item \emph{N-noK4 leaves.} The trace relaxations $\Phi_{a,c}$ of \S\ref{sec:noK4} were themselves written by the referee of the earlier exact encodings, as an independent encoding. Their soundness argument is Proposition~\ref{prop:sound}. The earlier exact encodings of \S\ref{sec:xcheck} were re-encoded independently (Glucose~4, Kissat) and found SOUND, including the pool bound KB and the use of N24 as a lemma at arbitrary $5$-pairs.
+\end{itemize}
+
+%======================================================================
+\section{Limitations}\label{sec:limits}
+\begin{enumerate}
+\item \emph{Computer assistance.} The four leaves of Theorem~\ref{thm:leaves} have no human-readable proof. They rest on CNFs of up to $4.2$ million clauses and LRAT proofs of up to about $1.1$\,GB. We have no conceptual explanation of why the $(3,2,1,1)$-K4 is impossible.
+\item \emph{Trust in \texttt{native\_decide}.} The Lean proof is not kernel-only. It trusts the Lean compiler and runtime for $58$ Boolean evaluations. Kernel reduction of computations of this size (millions of clauses, each requiring an enumeration of state pairs and overlap vectors) was not attempted, and we believe it is out of reach with current tools.
+\item \emph{No external peer review.} All refereeing (\S\ref{sec:referee}) was internal and carried out with computational assistance. No independent human expert has checked the argument.
+\item \emph{Statement provenance.} The \texttt{formal-conjectures} definitions were copied rather than imported, under a different Lean and Mathlib version. A mechanical check of definitional identity against the repository has not been done.
+\item \emph{Literature.} We could not access the published text of \cite{EHT91}. Our description of its results (the bounds \eqref{eq:EHT}, the values $t(r)$ for $r\le20$, and the window $p(21,4)=61$) follows a third-party transcription and the problem pages \cite{EP616,EPwiki}. Neither half of our proof uses any result from \cite{EHT91}.
+\item \emph{Prose versus code.} The rule lists of \S\ref{sec:leaves} are summaries. The authoritative definitions of the per-edge and pair rules are the Lean functions (\texttt{G14.ok}, \texttt{G14.rulesAt}, \texttt{TrCheck.Cls.edgeOk}, \texttt{pairRules}), whose soundness is kernel-checked. Likewise, if the prose proofs of \S\S\ref{sec:prelim}--\ref{sec:split} contain a slip, the Lean development is the reference.
+\item \emph{Scope.} The argument uses the exact slack at $r=21$ in several places (Lemma~\ref{lem:A}, Theorem~\ref{thm:W6U}, CP$'$). We claim nothing for other $r$.
+\end{enumerate}
+
+%======================================================================
+\section{Data availability}\label{sec:data}
+All files are in the author's project workspace. Paths below are relative to its root, and they are available from the author on request.
+{\raggedright
+\begin{itemize}
+\item Mathematics (working notes, with the full history of all waves and every script source): \file{candidates/erdos-616-t21-upper.md}, \file{candidates/erdos-616-loop.md}; referee reports \file{candidates/erdos-616-{t21,n4,w10,w11,w14}-referee.md}.
+\item Lean: \file{work/e616lean/} (\file{Full.lean}, \file{HandA.lean}, \file{W7I.lean}, \file{BridgeG14*.lean}, \file{g14/}, \file{bridge/}, \file{final/Erdos616R21Final.lean}, \file{final/final.out}, \file{final/Neg.lean}); LRAT layer \file{work/e616lrat/}; reports \file{candidates/lean-erdos616{,-plan,-lrat,-handA,-w7i,-bridge-g14,-bridge-nok4,-final}.md}. The md5 of \file{Erdos616R21Final.lean} is \texttt{542fd30b\dots}.
+\item Leaf (K) certificates: \file{work/e616/t21/w14/} (\file{w14_cert2_<r>.cnf/.drat}, \file{w14_certdead.cnf/.drat}, SHA-256 in \file{w14_cert2.sha256}); referee code \file{work/e616/t21/w14ref/}.
+\item N-noK4 certificates: \file{work/e616/w11ref/tr/} (\file{tree_24x_k}, \file{tree_33_k}, \file{tree_34_k}, \file{.cnf/.drat}; universes \file{st_*.npz}; logs \file{tree_*.log}, \file{certcheck*.log}).
+\item SHA-256 prefixes of the CNFs used by the final theorem are recorded in \file{candidates/lean-erdos616-lrat.md}. Examples: \file{w14_cert2_15954.cnf} \texttt{6a8d4fc2628635a3}, \file{w14_cert2_16054.cnf} \texttt{98c79253bf5c0d3d}, \file{tree_33_3.cnf} \texttt{dc9253c64759bd0e}.
+\item Tools: CaDiCaL~1.5.3 and Glucose~4 via PySAT~\cite{pysat}, Kissat~4.0.4, \texttt{drat-trim}~\cite{drat-trim}, Lean~4.35.0~\cite{lean4}, Mathlib~\cite{mathlib}.
+\end{itemize}}
+
+\section*{Acknowledgements}
+The computations, the internal referee runs and the Lean formalization were carried out with extensive computational assistance (automated agents) under the author's direction. Any errors are the author's.
+
+\begin{thebibliography}{99}
+\bibitem{EHT91} P.~Erd\H{o}s, A.~Hajnal and Zs.~Tuza, \emph{Local constraints ensuring small representing sets}, J.\ Combin.\ Theory Ser.\ A \textbf{58} (1991), 78--84.
+\bibitem{EP616} T.~F.~Bloom, \emph{Erd\H{o}s problems}, Problem \#616, \url{https://www.erdosproblems.com/616}.
+\bibitem{EPwiki} erdosproblems.ai wiki, entry for Problem \#616 (accessed 16 October 2026).
+\bibitem{FC} Google DeepMind, \emph{formal-conjectures}, \url{https://github.com/google-deepmind/formal-conjectures}, file \file{FormalConjectures/ErdosProblems/616.lean}.
+\bibitem{drat-trim} N.~Wetzler, M.~J.~H.~Heule and W.~A.~Hunt, Jr., \emph{DRAT-trim: Efficient checking and trimming using expressive clausal proofs}, SAT 2014, LNCS 8561, 422--429.
+\bibitem{lrat} L.~Cruz-Filipe, M.~J.~H.~Heule, W.~A.~Hunt, Jr., M.~Kaufmann and P.~Schneider-Kamp, \emph{Efficient certified RAT verification}, CADE 2017, LNCS 10395, 220--236.
+\bibitem{lean4} L.~de Moura and S.~Ullrich, \emph{The Lean 4 theorem prover and programming language}, CADE 2021, LNCS 12699, 625--635.
+\bibitem{mathlib} The mathlib Community, \emph{The Lean mathematical library}, CPP 2020, 367--381.
+\bibitem{pysat} A.~Ignatiev, A.~Morgado and J.~Marques-Silva, \emph{PySAT: A Python toolkit for prototyping with SAT oracles}, SAT 2018, LNCS 10929, 428--437.
+\bibitem{scinet} SciNet, transcription of \cite{EHT91}, repository \texttt{scinet-ai/math-number-theory}, commit \texttt{54b7272}, directories \file{erdos-616-landscape/}, \file{erdos-616-small-r/}.
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Erdős Problem #616: t(21) = 4 — paper, Lean formalization, SAT encodings"
+type: software
+authors:
+  - family-names: Yong
+    given-names: Jerry
+    email: jerryjyong@gmail.com
+version: "1.0"
+date-released: 2026-10-17
+license: Apache-2.0
+keywords:
+  - Erdős problems
+  - hypergraphs
+  - transversal number
+  - computer-assisted proof
+  - SAT
+  - LRAT
+  - Lean 4
+abstract: >-
+  For r >= 3 let t(r) be the largest transversal number of a finite r-uniform hypergraph in which every
+  subhypergraph spanned by at most 3r-3 vertices has transversal number at most 1 (Erdős Problem #616).
+  The Erdős–Hajnal–Tuza bounds leave t(21) in {4, 5}. This repository contains a computer-assisted proof
+  that t(21) = 4: a paper, a Lean 4 formalization of the full argument against the formal-conjectures
+  statement, and the SAT encodings, generators and independent re-encodings of its four computational
+  leaves. The certificates (CNF/DRAT/LRAT) are distributed as a release asset.
+references:
+  - type: webpage
+    title: "Erdős Problem #616"
+    url: "https://www.erdosproblems.com/616"
+  - type: article
+    authors:
+      - family-names: Erdős
+        given-names: Paul
+      - family-names: Hajnal
+        given-names: András
+      - family-names: Tuza
+        given-names: Zsolt
+    title: "Local constraints ensuring small representing sets"
+    journal: "Journal of Combinatorial Theory, Series A"
+    volume: 58
+    year: 1991
+    start: 78
+    end: 84
